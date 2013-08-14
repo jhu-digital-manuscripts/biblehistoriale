@@ -1,32 +1,63 @@
 <?xml version="1.0"?>
 <project
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
-	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-	<modelVersion>4.0.0</modelVersion>
+    xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+    xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>biblehistoriale</groupId>
-		<artifactId>biblehistoriale</artifactId>
-		<version>1.0-SNAPSHOT</version>
-	</parent>
+  <parent>
+    <groupId>biblehistoriale</groupId>
+    <artifactId>biblehistoriale</artifactId>
+    <version>1.0-SNAPSHOT</version>
+  </parent>
 
-	<groupId>biblehistoriale</groupId>
-	<artifactId>biblehistoriale-search</artifactId>
-	<version>1.0-SNAPSHOT</version>
-	<name>Bible Historiale Search</name>
+  <groupId>biblehistoriale</groupId>
+  <artifactId>biblehistoriale-search</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Bible Historiale Search</name>
 
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>4.7</version>
+      <scope>test</scope>
+    </dependency>
 
-	<dependencies>
+    <dependency>
+      <groupId>biblehistoriale</groupId>
+      <artifactId>biblehistoriale-model</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>compile</scope>
+    </dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>4.7</version>
-			<scope>test</scope>
-		</dependency>
+    <dependency>
+      <artifactId>solr-solrj</artifactId>
+      <groupId>org.apache.solr</groupId>
+      <version>4.4.0</version>
+      <scope>compile</scope>
+    </dependency>
 
-	</dependencies>
+    <dependency>
+      <artifactId>solr-core</artifactId>
+      <groupId>org.apache.solr</groupId>
+      <version>4.4.0</version>
+      <scope>compile</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>commons-logging</groupId>
+      <artifactId>commons-logging</artifactId>
+      <version>1.1.1</version>
+      <scope>runtime</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+
+  </dependencies>
+
 </project>
