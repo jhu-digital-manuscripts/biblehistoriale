@@ -1,9 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class Volumes {
+public class Volumes implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum State {
         ONE("1"), TWO("2"), THREE("3"), FOUR("4"), 
         FRAGMENT("fragment"), UNBOUND("unbound"), UNKNOWN("unknown");

@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Incipit {
+import java.io.Serializable;
+
+public class Incipit implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum Accuracy {
         APPROXIMATE, ACTUAL
     }

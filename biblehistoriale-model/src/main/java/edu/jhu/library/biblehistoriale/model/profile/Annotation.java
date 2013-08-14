@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Annotation {
+import java.io.Serializable;
+
+public class Annotation implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum AnnotationType {
         MARKEDPASSAGE("marked passage"), PROSECOMMENT("prose comment"),
         OTHER("other");

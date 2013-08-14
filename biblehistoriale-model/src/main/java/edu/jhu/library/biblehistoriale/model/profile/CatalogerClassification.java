@@ -1,8 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class CatalogerClassification {
+public class CatalogerClassification implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private Berger bergerClass;
     private Sneddon sneddonClass;

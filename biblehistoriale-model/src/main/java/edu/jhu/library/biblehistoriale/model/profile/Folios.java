@@ -1,10 +1,13 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-public class Folios implements Iterable<IndVolume> {
+public class Folios implements Iterable<IndVolume>, Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     private int totalFolios;
     
     private List<IndVolume> indVolumes;

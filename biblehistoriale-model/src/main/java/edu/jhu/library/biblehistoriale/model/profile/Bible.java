@@ -1,6 +1,13 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Bible {
+import java.io.Serializable;
+
+/**
+ * An Ms profile, representing one bible. Also the root in the XML schema.
+ */
+public class Bible implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private PhysicalCharacteristics physChar;
     private ProvenPatronHistory provenPatronHist;

@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Illustration {
+import java.io.Serializable;
+
+public class Illustration implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String keywords;
     private String url;

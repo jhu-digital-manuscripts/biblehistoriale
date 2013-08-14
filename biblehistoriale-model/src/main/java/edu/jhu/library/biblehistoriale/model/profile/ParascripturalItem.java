@@ -1,9 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ParascripturalItem {
+public class ParascripturalItem implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum LitanyForm {
         PROSE, VERSE, MIXED, UNKNOWN, NA
     }

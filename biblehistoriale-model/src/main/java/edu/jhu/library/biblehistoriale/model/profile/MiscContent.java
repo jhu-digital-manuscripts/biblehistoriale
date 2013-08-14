@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class MiscContent {
+import java.io.Serializable;
+
+public class MiscContent implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String description;
     private String startFolio;

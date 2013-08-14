@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Materials {
+import java.io.Serializable;
+
+public class Materials implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public class Binding {
         
         private String bindMaterial;

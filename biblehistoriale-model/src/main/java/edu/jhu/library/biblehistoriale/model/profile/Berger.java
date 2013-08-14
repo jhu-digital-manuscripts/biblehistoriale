@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Berger {
+import java.io.Serializable;
+
+public class Berger implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum Category {
         BXIII, BH, BHC
     }

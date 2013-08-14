@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class PersonalizationItem {
+import java.io.Serializable;
+
+public class PersonalizationItem implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     protected String folio;
     protected String value;

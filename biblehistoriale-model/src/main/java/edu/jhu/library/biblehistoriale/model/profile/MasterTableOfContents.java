@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class MasterTableOfContents {
+import java.io.Serializable;
+
+public class MasterTableOfContents implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum Detail {
         BOOK, CHAPTER, MIXED, OTHER
     }

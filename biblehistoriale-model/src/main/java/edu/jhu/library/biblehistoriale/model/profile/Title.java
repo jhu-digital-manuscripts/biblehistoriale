@@ -1,8 +1,14 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Title {
+import java.io.Serializable;
+
+public class Title implements Serializable {
     
-    public class TitleIncipit extends Incipit {
+    private static final long serialVersionUID = 1L;
+
+    public class TitleIncipit extends Incipit implements Serializable {
+        private static final long serialVersionUID = 1L;
+        
         private String textType;
 
         public String getTextType() {

@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Signature extends PersonalizationItem {
+import java.io.Serializable;
+
+public class Signature extends PersonalizationItem implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String name;
     private String text;

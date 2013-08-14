@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class BookType {
+import java.io.Serializable;
+
+public class BookType implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum CollectionType {
         BIBLE("bible"), OLDTESTAMENT("old testament"),
         NEWTESTAMENT("new testament"), GOSPELS("gospels"), 

@@ -1,9 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.Iterator;
 import java.util.List;
 
-public class Ownership implements Iterable<Owner> {
+public class Ownership implements Iterable<Owner>, Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private List<Owner> owners;
     

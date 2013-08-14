@@ -1,8 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class TextualContent {
+public class TextualContent implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private List<PrefactoryMatter> prefactoryMatters;
     private List<BibleBook> bibleBooks;

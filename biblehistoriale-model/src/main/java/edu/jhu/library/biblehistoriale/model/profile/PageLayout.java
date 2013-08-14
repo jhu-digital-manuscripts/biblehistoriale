@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class PageLayout {
+import java.io.Serializable;
+
+public class PageLayout implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String columns;
     private String glossPlace;

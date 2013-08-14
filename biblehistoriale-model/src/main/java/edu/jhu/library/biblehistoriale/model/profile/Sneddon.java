@@ -1,7 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Sneddon {
+import java.io.Serializable;
+
+public class Sneddon implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum Category {
         BXIII, BH, BHC, MIXED, OTHER, NOTPROVIDED
     }

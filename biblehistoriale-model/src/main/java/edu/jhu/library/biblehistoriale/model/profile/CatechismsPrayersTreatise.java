@@ -1,9 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class CatechismsPrayersTreatise {
+public class CatechismsPrayersTreatise implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     private int volume;
     
     private String startFolio;

@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Guyart {
+import java.io.Serializable;
+
+public class Guyart implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private Incipit incipit;
     private String startPage;

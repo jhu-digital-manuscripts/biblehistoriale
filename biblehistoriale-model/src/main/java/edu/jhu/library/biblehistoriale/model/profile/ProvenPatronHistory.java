@@ -1,8 +1,11 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class ProvenPatronHistory {
+public class ProvenPatronHistory implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private Production production;
     private Personalization personalization;

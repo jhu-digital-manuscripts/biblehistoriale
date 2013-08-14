@@ -1,6 +1,10 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
-public class Dimensions {
+import java.io.Serializable;
+
+public class Dimensions implements Serializable {
+    
+    private static final long serialVersionUID = 1L;
     
     private String page;
     private String textBlock;

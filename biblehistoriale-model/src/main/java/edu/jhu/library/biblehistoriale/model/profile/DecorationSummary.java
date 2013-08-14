@@ -1,9 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+import java.io.Serializable;
 import java.util.List;
 
-public class DecorationSummary {
+public class DecorationSummary implements Serializable {
     
+    private static final long serialVersionUID = 1L;
+
     public enum IllustrationStyle {
         
         ILLUMINATION("illumination"), GRISAILLE("grisaille"),
