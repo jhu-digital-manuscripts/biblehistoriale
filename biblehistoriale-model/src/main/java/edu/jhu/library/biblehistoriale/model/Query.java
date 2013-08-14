@@ -17,8 +17,8 @@ public class Query {
         this.op = null;
     }
 
-    public Query(String term_name, String term_value) {
-        this(new Term(term_name, term_value));
+    public Query(TermField term_field, String term_value) {
+        this(new Term(term_field, term_value));
     }
 
     public Query(QueryOperation op, Query... children) {

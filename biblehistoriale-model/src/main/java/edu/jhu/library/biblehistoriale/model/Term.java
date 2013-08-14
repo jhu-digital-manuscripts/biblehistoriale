@@ -5,25 +5,25 @@ package edu.jhu.library.biblehistoriale.model;
  * depends on the type of the term.
  */
 public class Term {
-    private final String field;
+    private final TermField field;
     private final String value;
     private final TermType type;
 
-    public Term(String field, String value, TermType type) {
+    public Term(TermField field, String value, TermType type) {
         this.field = field;
         this.value = value;
         this.type = type;
     }
 
-    public Term(String field, String value) {
+    public Term(TermField field, String value) {
         this(field, value, TermType.PHRASE);
     }
 
-    public String getField() {
+    public TermField getField() {
         return field;
     }
 
-    public String getLiteral() {
+    public String getValue() {
         return value;
     }
 
