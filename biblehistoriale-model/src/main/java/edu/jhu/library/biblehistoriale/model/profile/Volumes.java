@@ -17,6 +17,16 @@ public class Volumes implements Serializable {
             this.value = value;
         }
         
+        public static State getState(String str) {
+            for (State state : State.values()) {
+                if (state.value.equals(str)) {
+                    return state;
+                }
+            }
+            
+            return null;
+        }
+        
         public String value() {
             return value;
         }
@@ -25,7 +35,7 @@ public class Volumes implements Serializable {
     private State previousState;
     private State presentState;
     
-    private List<String> volumeNotes;
+    private String volumeNotes;
     
     public Volumes() {
         
@@ -49,11 +59,11 @@ public class Volumes implements Serializable {
         this.presentState = presentState;
     }
 
-    public List<String> volumeNotes() {
+    public String volumeNotes() {
         return volumeNotes;
     }
 
-    public void setVolumeNotes(List<String> volumeNotes) {
+    public void setVolumeNotes(String volumeNotes) {
         this.volumeNotes = volumeNotes;
     }
     

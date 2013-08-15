@@ -6,63 +6,138 @@ public class PageLayout implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private String columns;
-    private String glossPlace;
-    private String runningHeads;
-    private String chapterNumbers;
-    private String smallLetterHist;
-    private String catchphrases;
+    public enum Column {
+        ONE("1"), TWO("2"), THREE("3"), UNKNOWN("unknown");
+        
+        private String col;
+        
+        private Column(String col) {
+            this.col = col;
+        }
+        
+        public String column() {
+            return col;
+        }
+        
+        public static Column getColumn(String col) {
+            for (Column c : Column.values()) {
+                if (c.col.equals(col)) {
+                    return c;
+                }
+            }
+            return null;
+        }
+    }
+    
+    public enum ConsistentChoice {
+        Y("y"), N("n"), INCONSISTENT("inconsistent");
+        
+        private String choice;
+        
+        private ConsistentChoice(String choice) {
+            this.choice = choice;
+        }
+        
+        public String choice() {
+            return choice;
+        }
+        
+        public static ConsistentChoice getChoice(String choice) {
+            for (ConsistentChoice c : ConsistentChoice.values()) {
+                if (c.choice.equals(choice)) {
+                    return c;
+                }
+            }
+            
+            return null;
+        }
+    }
+    
+    public enum Place {
+        INTEXT("in-text"), MARGINS("margins"), MIXED("mixed"), UNKNOWN("unknown");
+        
+        private String place;
+        
+        private Place(String place) {
+            this.place = place;
+        }
+        
+        public String place() {
+            return place;
+        }
+        
+        public static Place getPlace(String place) {
+            for (Place p : Place.values()) {
+                if (p.place.equals(place)) {
+                    return p;
+                }
+            }
+            
+            return null;
+        }
+    }
+    
+    private Column columns;
+    private Place glossPlace;
+    private Choice runningHeads;
+    private ConsistentChoice chapterNumbers;
+    private ConsistentChoice smallLetterHist;
+    private Choice catchphrases;
     
     public PageLayout() {
         
     }
 
-    public String getColumns() {
+    public Column getColumns() {
         return columns;
     }
 
     public void setColumns(String columns) {
-        this.columns = columns;
+        this.columns = Column.getColumn(columns);
     }
 
-    public String getGlossPlace() {
+    public Place getGlossPlace() {
         return glossPlace;
     }
 
     public void setGlossPlace(String glossPlace) {
-        this.glossPlace = glossPlace;
+        this.glossPlace = Place.getPlace(glossPlace);
     }
 
-    public String getRunningHeads() {
+    public Choice getRunningHeads() {
         return runningHeads;
     }
 
     public void setRunningHeads(String runningHeads) {
-        this.runningHeads = runningHeads;
+        this.runningHeads = Choice.getChoice(runningHeads);
     }
 
-    public String getChapterNumbers() {
+    public ConsistentChoice getChapterNumbers() {
         return chapterNumbers;
     }
 
     public void setChapterNumbers(String chapterNumbers) {
-        this.chapterNumbers = chapterNumbers;
+        this.chapterNumbers = ConsistentChoice.getChoice(chapterNumbers);
     }
 
-    public String getSmallLetterHist() {
+    public ConsistentChoice getSmallLetterHist() {
         return smallLetterHist;
     }
 
     public void setSmallLetterHist(String smallLetterHist) {
-        this.smallLetterHist = smallLetterHist;
+        this.smallLetterHist = ConsistentChoice.getChoice(smallLetterHist);
     }
 
-    public String getCatchphrases() {
+    public Choice getCatchphrases() {
         return catchphrases;
     }
 
     public void setCatchphrases(String catchphrases) {
-        this.catchphrases = catchphrases;
+        this.catchphrases = Choice.getChoice(catchphrases);
+    }
+
+    public static long getSerialversionuid() {
+        return serialVersionUID;
     }
     
 }

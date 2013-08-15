@@ -13,6 +13,7 @@ public class PhysicalCharacteristics implements Serializable {
     private Materials materials;
     private String rubricNotes;
     private String physicaNotes;
+    private String pageLayoutNotes;
     
     private List<Dimensions> dimensions;
     private List<QuireStructure> quireStructs;
@@ -101,6 +102,14 @@ public class PhysicalCharacteristics implements Serializable {
 
     public void setUnderlinings(List<String> underlinings) {
         this.underlinings = underlinings;
+    }
+
+    public String getPageLayoutNotes() {
+        return pageLayoutNotes;
+    }
+
+    public void setPageLayoutNotes(String pageLayoutNotes) {
+        this.pageLayoutNotes = pageLayoutNotes;
     }
     
 }

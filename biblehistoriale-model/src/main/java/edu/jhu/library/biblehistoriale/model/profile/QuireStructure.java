@@ -7,23 +7,22 @@ public class QuireStructure implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private int quireTotal;
     private int volume;
     
+    private List<Integer> quireTotal;
     private List<Integer> typicalQuires;
     private List<String> fullQuireStructs;
     private List<String> quireNotes;
     
     public QuireStructure() {
-        this.quireTotal = 0;
         this.volume = 0;
     }
 
-    public int getQuireTotal() {
+    public List<Integer> quireTotal() {
         return quireTotal;
     }
 
-    public void setQuireTotal(int quireTotal) {
+    public void setQuireTotal(List<Integer> quireTotal) {
         this.quireTotal = quireTotal;
     }
 

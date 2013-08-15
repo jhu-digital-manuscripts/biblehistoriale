@@ -18,6 +18,15 @@ public class Contributor implements Serializable {
         public String value() {
             return value;
         }
+        
+        public static ContributorType getContributor(String value) {
+            for (ContributorType c : ContributorType.values()) {
+                if (c.value.equals(value)) {
+                    return c;
+                }
+            }
+            return null;
+        }
     }
     
     private ContributorType type;
@@ -31,8 +40,8 @@ public class Contributor implements Serializable {
         return type;
     }
 
-    public void setType(ContributorType type) {
-        this.type = type;
+    public void setType(String type) {
+        this.type = ContributorType.getContributor(type);
     }
 
     public String getValue() {

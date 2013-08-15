@@ -13,4 +13,13 @@ public enum Choice {
         return value;
     }
     
+    public static Choice getChoice(String choice) {
+        for (Choice c : Choice.values()) {
+            if (c.value.equals(choice)) {
+                return c;
+            }
+        }
+        return null;
+    }
+    
 }
