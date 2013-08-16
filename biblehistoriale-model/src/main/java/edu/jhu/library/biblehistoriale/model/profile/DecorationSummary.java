@@ -22,6 +22,15 @@ public class DecorationSummary implements Serializable {
             return value;
         }
         
+        public static IllustrationStyle getStyle(String value) {
+            for (IllustrationStyle s : IllustrationStyle.values()) {
+                if (s.value.equals(value)) {
+                    return s;
+                }
+            }
+            return null;
+        }
+        
     }
     
     private Choice basDePage;
@@ -43,32 +52,32 @@ public class DecorationSummary implements Serializable {
         return basDePage;
     }
 
-    public void setBasDePage(Choice basDePage) {
-        this.basDePage = basDePage;
+    public void setBasDePage(String basDePage) {
+        this.basDePage = Choice.getChoice(basDePage);
     }
 
     public Choice getDecoratedInitials() {
         return decoratedInitials;
     }
 
-    public void setDecoratedInitials(Choice decoratedInitials) {
-        this.decoratedInitials = decoratedInitials;
+    public void setDecoratedInitials(String decoratedInitials) {
+        this.decoratedInitials = Choice.getChoice(decoratedInitials);
     }
 
     public Choice getFoliateBorder() {
         return foliateBorder;
     }
 
-    public void setFoliateBorder(Choice foliateBorder) {
-        this.foliateBorder = foliateBorder;
+    public void setFoliateBorder(String foliateBorder) {
+        this.foliateBorder = Choice.getChoice(foliateBorder);
     }
 
     public IllustrationStyle getIllStyle() {
         return illStyle;
     }
 
-    public void setIllStyle(IllustrationStyle illStyle) {
-        this.illStyle = illStyle;
+    public void setIllStyle(String illStyle) {
+        this.illStyle = IllustrationStyle.getStyle(illStyle);
     }
 
     public int getLargeIlls() {

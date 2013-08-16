@@ -7,7 +7,26 @@ public class Berger implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum Category {
-        BXIII, BH, BHC
+        BXIII("BXIII"), BH("BH"), BHC("BHC");
+        
+        private String cat;
+        
+        private Category(String cat) {
+            this.cat = cat;
+        }
+        
+        public String category() {
+            return cat;
+        }
+        
+        public static Category getCategory(String cat) {
+            for (Category c : Category.values()) {
+                if (c.cat.equals(cat)) {
+                    return c;
+                }
+            }
+            return null;
+        }
     }
     
     public enum BhcSubtype {
@@ -23,6 +42,15 @@ public class Berger implements Serializable {
         public String subtype() {
             return subtype;
         }
+        
+        public static BhcSubtype getSubtype(String subtype) {
+            for (BhcSubtype s : BhcSubtype.values()) {
+                if (s.subtype.equals(subtype)) {
+                    return s;
+                }
+            }
+            return null;
+        }
     }
     
     private Category category;
@@ -36,16 +64,16 @@ public class Berger implements Serializable {
         return category;
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
+    public void setCategory(String category) {
+        this.category = Category.getCategory(category);
     }
 
     public BhcSubtype getBhcSubtype() {
         return bhcSubtype;
     }
 
-    public void setBhcSubtype(BhcSubtype bhcSubtype) {
-        this.bhcSubtype = bhcSubtype;
+    public void setBhcSubtype(String bhcSubtype) {
+        this.bhcSubtype = BhcSubtype.getSubtype(bhcSubtype);
     }
     
 }

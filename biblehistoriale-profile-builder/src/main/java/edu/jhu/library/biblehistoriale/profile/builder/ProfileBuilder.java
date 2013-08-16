@@ -72,9 +72,9 @@ public class ProfileBuilder {
         Node bible_node = bibles.item(0);
         
         bible.setScannedMss(
-                BibleParser.getAttributeFromNode(bible_node, "scannedMss"));
+                BibleParser.getAttributeValue(bible_node, "scannedMss"));
         bible.setBibleHistorialeTranscription(
-                BibleParser.getAttributeFromNode(bible_node,
+                BibleParser.getAttributeValue(bible_node,
                         "biblehistorialeTranscriptions"));
         
         NodeList bible_nodes = bible_node.getChildNodes();

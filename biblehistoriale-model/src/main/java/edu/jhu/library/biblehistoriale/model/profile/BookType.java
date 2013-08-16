@@ -21,6 +21,15 @@ public class BookType implements Serializable {
         public String type() {
             return type;
         }
+        
+        public static CollectionType getType(String type) {
+            for (CollectionType t : CollectionType.values()) {
+                if (t.type.equals(type)) {
+                    return t;
+                }
+            }
+            return null;
+        }
     }
     
     public enum Technology {
@@ -35,6 +44,15 @@ public class BookType implements Serializable {
         public String technology() {
             return tech;
         }
+        
+        public static Technology getTechnology(String tech) {
+            for (Technology t : Technology.values()) {
+                if (t.tech.equals(tech)) {
+                    return t;
+                }
+            }
+            return null;
+        }
     }
     
     private CollectionType type;
@@ -48,16 +66,16 @@ public class BookType implements Serializable {
         return type;
     }
 
-    public void setType(CollectionType type) {
-        this.type = type;
+    public void setType(String type) {
+        this.type = CollectionType.getType(type);
     }
 
     public Technology getTech() {
         return tech;
     }
 
-    public void setTech(Technology tech) {
-        this.tech = tech;
+    public void setTech(String tech) {
+        this.tech = Technology.getTechnology(tech);
     }
     
 }

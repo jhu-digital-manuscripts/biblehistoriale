@@ -14,13 +14,31 @@ import org.junit.Test;
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
+import edu.jhu.library.biblehistoriale.model.profile.Annotation;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
+import edu.jhu.library.biblehistoriale.model.profile.BookType;
+import edu.jhu.library.biblehistoriale.model.profile.CatalogerClassification;
+import edu.jhu.library.biblehistoriale.model.profile.Choice;
+import edu.jhu.library.biblehistoriale.model.profile.Classification;
+import edu.jhu.library.biblehistoriale.model.profile.BookType.CollectionType;
+import edu.jhu.library.biblehistoriale.model.profile.BookType.Technology;
+import edu.jhu.library.biblehistoriale.model.profile.Contributor.ContributorType;
+import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary;
+import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary.IllustrationStyle;
 import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
 import edu.jhu.library.biblehistoriale.model.profile.Folios;
+import edu.jhu.library.biblehistoriale.model.profile.Illustration;
+import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
 import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
 import edu.jhu.library.biblehistoriale.model.profile.Materials;
+import edu.jhu.library.biblehistoriale.model.profile.Owner;
+import edu.jhu.library.biblehistoriale.model.profile.Ownership;
 import edu.jhu.library.biblehistoriale.model.profile.PageLayout;
+import edu.jhu.library.biblehistoriale.model.profile.Personalization;
+import edu.jhu.library.biblehistoriale.model.profile.PersonalizationItem;
 import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
+import edu.jhu.library.biblehistoriale.model.profile.Production;
+import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
 import edu.jhu.library.biblehistoriale.model.profile.QuireStructure;
 import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
@@ -39,9 +57,8 @@ public class ProfilBuilderTest {
         Document doc = ProfileBuilder.createDocument(path);
         bible = ProfileBuilder.buildProfile(doc);
         
-        System.out.println("\n###" + bible + "###\n");
-        
         assertNotNull(bible);
+        //System.out.println("###" + bible + "###");
     }
     
     @Test
@@ -80,6 +97,241 @@ public class ProfilBuilderTest {
         System.out.println("__" + "PhysicalCharacteristics ok" + "__\n");
     }
     
+    @Test
+    public void testProvenPatronHist() {
+        ProvenPatronHistory hist = bible.getProvenPatronHist();
+        assertNotNull(hist);
+        
+        Production prod = hist.getProduction();
+        List<Ownership> ownerships = hist.ownerships();
+        Personalization person = hist.getPersonalization();
+        List<Annotation> anns = hist.annotations();
+        List<String> provs = hist.provenanceNote();
+        
+        testProduction(prod);
+        testOwnerships(ownerships);
+        testPersonalization(person);
+        testAnnotations(anns);
+        testProvenanceNotes(provs);
+        
+        System.out.println("__" + "Proven Patron History ok" + "__");
+    }
+    
+    @Test
+    public void testIllustrationList() {
+        IllustrationList illustrations = bible.getIllustrations();
+        assertNotNull(illustrations);
+        
+        // All fields can potentially be absent
+        DecorationSummary summary = illustrations.getDecorationSummary();
+        String note = illustrations.getIllustrationNote();
+        
+        for (Illustration ill : illustrations) {
+            testIllustration(ill);
+        }
+        
+        testSummary(summary);
+        assertNotNull(note);
+        
+        assertEquals(179, illustrations.size());
+        
+        System.out.println("__Illustration List ok__");
+    }
+    
+    @Test
+    public void testClassification() {
+        Classification classification = bible.getClassification();
+        assertNotNull(classification);
+        
+        BookType type = classification.getBookType();
+        CatalogerClassification cc = classification.getClassification();
+
+        testShelfmarks(classification);
+        testBookType(type);
+        testTitles(classification);
+        testFournie(classification);
+        testCatalogerClassification(cc);
+        
+        System.out.println("__Classification ok__");
+    }
+    
+    private void testBookType(BookType type) {
+        assertNotNull(type);
+        
+        assertNotNull(type.getType());
+        assertNotNull(type.getTech());
+        
+        assertEquals(CollectionType.BIBLE, type.getType());
+        assertEquals(Technology.MANUSCRIPT, type.getTech());
+    }
+
+    private void testCatalogerClassification(CatalogerClassification cc) {
+        
+    }
+
+    private void testFournie(Classification classification) {
+        
+    }
+
+    private void testTitles(Classification classification) {
+        String coverTitle = classification.getCoverTitle();
+        String rubricTitle = classification.getRubricTitle();
+        
+        assertEquals("La S. Bible (Tome 1; Tome 2). Inside binding: Cest le premier?/second volume de la Bible", 
+                coverTitle);
+        assertNull(rubricTitle);
+    }
+
+    private void testShelfmarks(Classification classification) {
+        // All fields are optional
+        String currentCity = classification.getCurrentCity();
+        String currentRepo = classification.getCurrentRepository();
+        String currentShelfmark = classification.getCurrentShelfmark();
+        String repoLink = classification.getRepositoryLink();
+        List<String> former_shelfmarks = classification.formerShelfmarks();
+        
+        assertNotNull(currentCity);
+        assertNotNull(currentRepo);
+        assertNotNull(currentShelfmark);
+        assertNotNull(repoLink);
+        assertNotNull(former_shelfmarks);
+        
+        assertEquals("Brussels, Belgium", currentCity);
+        assertEquals("Bibliothèque royale de Belgique (KBR)",
+                currentRepo);
+        assertEquals("9001-9002", currentShelfmark);
+        assertEquals("http://www.kbr.be/", repoLink);
+        assertEquals(0, former_shelfmarks.size());
+    }
+
+    private void testIllustration(Illustration ill) {
+        assertNotNull(ill.getKeywords());
+        assertNotNull(ill.getBook());
+        assertNotNull(ill.getFolio());
+        assertNotNull(ill.getNumber());
+        assertNotNull(ill.getVolume());
+        /*System.out.println(
+                ill.getNumber() + "::"
+                + ill.getBook() + "::"
+                + ill.getVolume() + "::"
+                + ill.getFolio() + "::"
+                + ill.getKeywords()
+        );*/
+    }
+
+    private void testSummary(DecorationSummary summary) {
+        if (summary == null) {
+            return;
+        }
+        
+        assertNotNull(summary.getNumber());
+        assertNotNull(summary.getLargeIlls());
+        assertNotNull(summary.getIllStyle());
+        assertNotNull(summary.getFoliateBorder());
+        assertNotNull(summary.getBasDePage());
+        assertNotNull(summary.getDecoratedInitials());
+        assertNotNull(summary.getArtistWorkshops());
+        
+        assertEquals(180, summary.getNumber());
+        assertEquals(5, summary.getLargeIlls());
+        assertEquals(IllustrationStyle.ILLUMINATION,
+                summary.getIllStyle());
+        assertEquals(Choice.Y, summary.getFoliateBorder());
+        assertEquals(Choice.N, summary.getBasDePage());
+        assertEquals(Choice.Y, summary.getDecoratedInitials());
+        
+        assertEquals(4, summary.getArtistWorkshops().size());
+        assertEquals("Maître de la Cité des Dames",
+                summary.getArtistWorkshops().get(3));
+    }
+
+    private void testProvenanceNotes(List<String> provs) {
+        assertNotNull(provs);
+        assertEquals(0, provs.size());
+    }
+
+    private void testAnnotations(List<Annotation> anns) {
+        assertNotNull(anns);
+        assertEquals(19, anns.size());
+        
+        // Note: every field here is optional in the schema.
+/*        for (Annotation ann : anns) {
+            assertNotNull(ann.getVolume());
+            assertNotNull(ann.getFolio());
+            assertNotNull(ann.getBook());
+            assertNotNull(ann.getType());
+            assertNotNull(ann.getName());
+            assertNotNull(ann.getDate());
+            assertNotNull(ann.getTextReferenced());
+            assertNotNull(ann.getText());
+        }*/
+    }
+
+    private void testPersonalization(Personalization person) {
+        assertNotNull(person);
+        
+        assertNotNull(person.signatures());
+        assertNotNull(person.dedications());
+        assertNotNull(person.legalInscriptions());
+        assertNotNull(person.patronPortraits());
+        assertNotNull(person.patronArms());
+        assertNotNull(person.colophons());
+        
+        assertEquals(0, person.signatures().size());
+        assertEquals(0, person.dedications().size());
+        assertEquals(0, person.legalInscriptions().size());
+        assertEquals(0, person.patronPortraits().size());
+        assertEquals(0, person.patronArms().size());
+        assertEquals(2, person.colophons().size());
+        
+        PersonalizationItem colophon = person.colophons().get(1);
+        assertEquals(2, colophon.getVolume());
+        assertEquals("386r", colophon.getFolio());
+        assertEquals("lxix ystiores et iii grandes",
+                colophon.getValue());
+    }
+
+    private void testOwnerships(List<Ownership> ownerships) {
+        assertNotNull(ownerships);
+        
+        for (Ownership ownership : ownerships) {
+            for (Owner owner : ownership) {
+                assertNotNull(owner.getOwnerName());
+            }
+        }
+        
+        assertEquals(1, ownerships.size());
+        
+        Ownership ownership = ownerships.get(0);
+        assertEquals(5, ownership.size());
+        
+        Owner owner = ownership.owner(4);
+        assertEquals("Bibliothèque royale de Belgique",
+                owner.getOwnerName());
+        assertEquals("Taken during the Revolution",
+                owner.getOwnershipDate());
+        assertEquals(1, owner.getOwnerPlace().size());
+        assertEquals("Brussels, Belgium",
+                owner.getOwnerPlace().get(0));
+    }
+
+    private void testProduction(Production prod) {
+        assertNotNull(prod);
+        
+        assertEquals(1410, prod.getProdStartDate());
+        assertEquals(1420, prod.getProdEndDate());
+        assertEquals("Early 15th century", prod.getProdDate());
+        assertEquals("Paris, France", prod.getProdLoc());
+        
+        // List can potentially be empty
+        assertEquals(6, prod.contributors().size());
+        assertEquals(ContributorType.SCRIBE,
+                prod.contributors().get(5).getType());
+        
+        assertEquals("Artists identified by Fournié.",
+                prod.getProdNotes().substring(501));
+    }
+
     private void testMaterials(Materials mats) {
         assertNotNull(mats);
         
@@ -125,6 +377,12 @@ public class ProfilBuilderTest {
 
     private void testQuireStructs(List<QuireStructure> structs) {
         assertNotNull(structs);
+        
+        for (QuireStructure struct : structs) {
+            assertNotNull(struct.getVolume());
+            // All other elements are optional
+        }
+        
         assertEquals(2, structs.size());
         
         QuireStructure struct = structs.get(0);

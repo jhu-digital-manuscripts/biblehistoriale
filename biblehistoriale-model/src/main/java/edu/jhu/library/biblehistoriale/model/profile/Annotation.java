@@ -19,6 +19,15 @@ public class Annotation implements Serializable {
         public String value() {
             return value;
         }
+        
+        public static AnnotationType getType(String type) {
+            for (AnnotationType t : AnnotationType.values()) {
+                if (t.value.equals(type)) {
+                    return t;
+                }
+            }
+            return null;
+        }
     }
     
     private String book;
@@ -88,8 +97,8 @@ public class Annotation implements Serializable {
         return type;
     }
 
-    public void setType(AnnotationType type) {
-        this.type = type;
+    public void setType(String type) {
+        this.type = AnnotationType.getType(type);
     }
 
     public int getVolume() {
