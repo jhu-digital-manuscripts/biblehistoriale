@@ -10,6 +10,7 @@ public class MasterTableOfContents implements Serializable {
         BOOK, CHAPTER, MIXED, OTHER
     }
     
+    private Detail tableDetail;
     private String startPage;
     private String text;
     
@@ -37,6 +38,24 @@ public class MasterTableOfContents implements Serializable {
 
     public void setMatchesContents(boolean matchesContents) {
         this.matchesContents = matchesContents;
+    }
+    
+    public Detail getTableDetail() {
+        return tableDetail;
+    }
+    
+    public void setTableDetail(String tableDetail) {
+        if (tableDetail.equals("book")) {
+            this.tableDetail = Detail.BOOK;
+        } else if (tableDetail.equals("chapter")) {
+            this.tableDetail = Detail.CHAPTER;
+        } else if (tableDetail.equals("mixed")) {
+            this.tableDetail = Detail.MIXED;
+        } else if (tableDetail.equals("other")) {
+            this.tableDetail = Detail.OTHER;
+        } else {
+            this.tableDetail = null;
+        }
     }
     
 }

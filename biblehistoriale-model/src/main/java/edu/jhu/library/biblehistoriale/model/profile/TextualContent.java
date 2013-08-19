@@ -7,26 +7,28 @@ public class TextualContent implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private List<PrefactoryMatter> prefactoryMatters;
-    private List<BibleBook> bibleBooks;
+    private List<PrefatoryMatter> prefatoryMatters;
+    private List<BibleBooks> bibleBooks;
     private List<MiscContent> miscContents;
     private List<String> notes;
     
     private ParascripturalItem parascripturalItem;
+    
+    private int volume;
 
-    public List<PrefactoryMatter> prefactoryMatters() {
-        return prefactoryMatters;
+    public List<PrefatoryMatter> prefactoryMatters() {
+        return prefatoryMatters;
     }
 
-    public void setPrefactoryMatters(List<PrefactoryMatter> prefactoryMatters) {
-        this.prefactoryMatters = prefactoryMatters;
+    public void setPrefactoryMatters(List<PrefatoryMatter> prefatoryMatters) {
+        this.prefatoryMatters = prefatoryMatters;
     }
 
-    public List<BibleBook> bibleBooks() {
+    public List<BibleBooks> bibleBooks() {
         return bibleBooks;
     }
 
-    public void setBibleBooks(List<BibleBook> bibleBooks) {
+    public void setBibleBooks(List<BibleBooks> bibleBooks) {
         this.bibleBooks = bibleBooks;
     }
 
@@ -52,6 +54,14 @@ public class TextualContent implements Serializable {
 
     public void setParascripturalItem(ParascripturalItem parascripturalItem) {
         this.parascripturalItem = parascripturalItem;
+    }
+    
+    public int getVolume() {
+        return volume;
+    }
+    
+    public void setVolume(int volume) {
+        this.volume = volume;
     }
     
 }

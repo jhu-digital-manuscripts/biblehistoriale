@@ -7,10 +7,12 @@ public class BookType implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum CollectionType {
-        BIBLE("bible"), OLDTESTAMENT("old testament"),
-        NEWTESTAMENT("new testament"), GOSPELS("gospels"), 
-        SINGLEBOOK("single book"), MISC("miscellany"), OTHER("other"),
-        UNKNOWN("unknown");
+        BIBLE("Bible"), OLDTESTAMENT("Old Testament"),
+        NEWTESTAMENT("New Testament"), GOSPELS("Gospels"), 
+        SINGLEBOOK("Single Book"), 
+        MISC("Miscellany with biblical extracts"), 
+        OTHER("Other"),
+        UNKNOWN("Unknown");
         
         private String type;
         
@@ -33,7 +35,7 @@ public class BookType implements Serializable {
     }
     
     public enum Technology {
-        MANUSCRIPT("manuscript"), PRINT("print"), UNKNOWN("unknown");
+        MANUSCRIPT("manuscript"), PRINT("print"), UNKNOWN("Unknown");
         
         private String tech;
         

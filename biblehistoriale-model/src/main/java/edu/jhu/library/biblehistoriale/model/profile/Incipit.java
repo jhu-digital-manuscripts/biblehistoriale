@@ -17,8 +17,14 @@ public class Incipit implements Serializable {
         return accuracy;
     }
     
-    public void setAccuracy(Accuracy accuracy) {
-        this.accuracy = accuracy;
+    public void setAccuracy(String accuracy) {
+        if (accuracy.equals("actual")) {
+            this.accuracy = Accuracy.ACTUAL;
+        } else if (accuracy.equals("approximate")) {
+            this.accuracy = Accuracy.APPROXIMATE;
+        } else {
+            this.accuracy = null;
+        }
     }
     
     public String getText() {

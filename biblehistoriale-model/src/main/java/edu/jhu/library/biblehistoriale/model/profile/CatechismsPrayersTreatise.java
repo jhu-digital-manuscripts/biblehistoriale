@@ -48,8 +48,8 @@ public class CatechismsPrayersTreatise implements Serializable {
         return presence;
     }
 
-    public void setPresence(Choice presence) {
-        this.presence = presence;
+    public void setPresence(String presence) {
+        this.presence = Choice.getChoice(presence);
     }
 
     public List<String> getDescriptionsFirstLines() {

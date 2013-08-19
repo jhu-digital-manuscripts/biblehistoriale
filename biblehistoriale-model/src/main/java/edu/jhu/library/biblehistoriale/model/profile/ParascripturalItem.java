@@ -16,7 +16,26 @@ public class ParascripturalItem implements Serializable {
     }
     
     public enum AddedChoice {
-        Y, N, PARTIAL, UNKNOWN
+        Y("y"), N("n"), PARTIAL("partial"), UNKNOWN("unknown");
+        
+        private String choice;
+        
+        private AddedChoice(String choice) {
+            this.choice = choice;
+        }
+        
+        public String choice() {
+            return choice;
+        }
+        
+        public static AddedChoice getChoice(String choice) {
+            for (AddedChoice c : AddedChoice.values()) {
+                if (c.choice.equals(choice)) {
+                    return c;
+                }
+            }
+            return null;
+        }
     }
     
     private int volume;
@@ -66,8 +85,20 @@ public class ParascripturalItem implements Serializable {
         return form;
     }
 
-    public void setForm(LitanyForm form) {
-        this.form = form;
+    public void setForm(String form) {
+        if (form.equals("prose")) {
+            this.form = LitanyForm.PROSE;
+        } else if (form.equals("verse")) {
+            this.form = LitanyForm.VERSE;
+        } else if (form.equals("mixed")) {
+            this.form = LitanyForm.MIXED;
+        } else if (form.equals("unknown")) {
+            this.form = LitanyForm.UNKNOWN;
+        } else if (form.equals("n/a")) {
+            this.form = LitanyForm.NA;
+        } else {
+            this.form = null;
+        }
     }
 
     public String getLocVol() {
@@ -98,16 +129,30 @@ public class ParascripturalItem implements Serializable {
         return litanyPresence;
     }
 
-    public void setLitanyPresence(Choice litanyPresence) {
-        this.litanyPresence = litanyPresence;
+    public void setLitanyPresence(String litanyPresence) {
+        this.litanyPresence = Choice.getChoice(litanyPresence);
     }
 
     public SneddonId getSneddonId() {
         return sneddonId;
     }
 
-    public void setSneddonId(SneddonId sneddonId) {
-        this.sneddonId = sneddonId;
+    public void setSneddonId(String sneddonId) {
+        if (sneddonId.equals("1")) {
+            this.sneddonId = SneddonId.ONE;
+        } else if (sneddonId.equals("2")) {
+            this.sneddonId = SneddonId.TWO;
+        } else if (sneddonId.equals("3")) {
+            this.sneddonId = SneddonId.THREE;
+        } else if (sneddonId.equals("other")) {
+            this.sneddonId = SneddonId.OTHER;
+        } else if (sneddonId.equals("unknown")) {
+            this.sneddonId = SneddonId.UNKNOWN;
+        } else if (sneddonId.equals("n/a")) {
+            this.sneddonId = SneddonId.NA;
+        } else {
+            this.sneddonId = null;
+        }
     }
 
     public String getCanticleType() {
@@ -138,24 +183,24 @@ public class ParascripturalItem implements Serializable {
         return canticlePresence;
     }
 
-    public void setCanticlePresence(Choice canticlePresence) {
-        this.canticlePresence = canticlePresence;
+    public void setCanticlePresence(String canticlePresence) {
+        this.canticlePresence = Choice.getChoice(canticlePresence);
     }
 
     public AddedChoice getJeanDeBlois() {
         return jeanDeBlois;
     }
 
-    public void setJeanDeBlois(AddedChoice jeanDeBlois) {
-        this.jeanDeBlois = jeanDeBlois;
+    public void setJeanDeBlois(String jeanDeBlois) {
+        this.jeanDeBlois = AddedChoice.getChoice(jeanDeBlois);
     }
 
     public AddedChoice getJerome() {
         return jerome;
     }
 
-    public void setJerome(AddedChoice jerome) {
-        this.jerome = jerome;
+    public void setJerome(String jerome) {
+        this.jerome = AddedChoice.getChoice(jerome);
     }
 
     public List<CatechismsPrayersTreatise> catechismPrayersTreatises() {

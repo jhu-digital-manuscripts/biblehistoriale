@@ -1,8 +1,10 @@
 package edu.jhu.library.biblehistoriale.profile.builder;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
 import java.nio.file.Path;
@@ -15,13 +17,18 @@ import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
 
 import edu.jhu.library.biblehistoriale.model.profile.Annotation;
+import edu.jhu.library.biblehistoriale.model.profile.Annotation.AnnotationType;
+import edu.jhu.library.biblehistoriale.model.profile.Berger;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
+import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
+import edu.jhu.library.biblehistoriale.model.profile.BiblioEntry;
+import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
 import edu.jhu.library.biblehistoriale.model.profile.BookType;
+import edu.jhu.library.biblehistoriale.model.profile.BookType.CollectionType;
+import edu.jhu.library.biblehistoriale.model.profile.BookType.Technology;
 import edu.jhu.library.biblehistoriale.model.profile.CatalogerClassification;
 import edu.jhu.library.biblehistoriale.model.profile.Choice;
 import edu.jhu.library.biblehistoriale.model.profile.Classification;
-import edu.jhu.library.biblehistoriale.model.profile.BookType.CollectionType;
-import edu.jhu.library.biblehistoriale.model.profile.BookType.Technology;
 import edu.jhu.library.biblehistoriale.model.profile.Contributor.ContributorType;
 import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary;
 import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary.IllustrationStyle;
@@ -29,17 +36,32 @@ import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
 import edu.jhu.library.biblehistoriale.model.profile.Folios;
 import edu.jhu.library.biblehistoriale.model.profile.Illustration;
 import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
+import edu.jhu.library.biblehistoriale.model.profile.Incipit.Accuracy;
 import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
+import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents;
+import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents.Detail;
 import edu.jhu.library.biblehistoriale.model.profile.Materials;
+import edu.jhu.library.biblehistoriale.model.profile.MiscContent;
+import edu.jhu.library.biblehistoriale.model.profile.OtherPreface;
 import edu.jhu.library.biblehistoriale.model.profile.Owner;
 import edu.jhu.library.biblehistoriale.model.profile.Ownership;
 import edu.jhu.library.biblehistoriale.model.profile.PageLayout;
+import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem;
+import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem.AddedChoice;
+import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem.LitanyForm;
+import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem.SneddonId;
 import edu.jhu.library.biblehistoriale.model.profile.Personalization;
 import edu.jhu.library.biblehistoriale.model.profile.PersonalizationItem;
 import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
+import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
 import edu.jhu.library.biblehistoriale.model.profile.Production;
 import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
 import edu.jhu.library.biblehistoriale.model.profile.QuireStructure;
+import edu.jhu.library.biblehistoriale.model.profile.SecundoFolio;
+import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
+import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
+import edu.jhu.library.biblehistoriale.model.profile.Title;
+import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
 import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
 public class ProfilBuilderTest {
@@ -94,7 +116,7 @@ public class ProfilBuilderTest {
         assertEquals("Pages, quires, sheets of parchment or illuminations originally numbered bottom right in roman numerals. These have mostly been cut off. Edges of pages decorated with gold, red and blue ink in striped pattern (not marbled). A thin gold satin ribbon bookmarker is attached to the binding; currently rests between folios 194 and 195.",
                 phys_notes);
         
-        System.out.println("__" + "PhysicalCharacteristics ok" + "__\n");
+        //System.out.println("__" + "PhysicalCharacteristics ok" + "__");
     }
     
     @Test
@@ -114,7 +136,7 @@ public class ProfilBuilderTest {
         testAnnotations(anns);
         testProvenanceNotes(provs);
         
-        System.out.println("__" + "Proven Patron History ok" + "__");
+        //System.out.println("__" + "Proven Patron History ok" + "__");
     }
     
     @Test
@@ -135,7 +157,14 @@ public class ProfilBuilderTest {
         
         assertEquals(179, illustrations.size());
         
-        System.out.println("__Illustration List ok__");
+        Illustration ill = illustrations.illustration(0);
+        assertEquals(1, ill.getNumber());
+        assertEquals("Preface (glossary)", ill.getBook());
+        assertEquals(1, ill.getVolume());
+        assertEquals("1r", ill.getFolio());
+        assertTrue(ill.getKeywords().endsWith("King Charles VI"));
+        
+        //System.out.println("__Illustration List ok__");
     }
     
     @Test
@@ -149,12 +178,161 @@ public class ProfilBuilderTest {
         testShelfmarks(classification);
         testBookType(type);
         testTitles(classification);
-        testFournie(classification);
         testCatalogerClassification(cc);
         
-        System.out.println("__Classification ok__");
+        //System.out.println("__Classification ok__");
     }
     
+    @Test
+    public void testTextualContents() {
+        TextualContent content = bible.getTextualContent();
+        assertNotNull(content);
+        
+        List<PrefatoryMatter> matter = content.prefactoryMatters();
+        List<BibleBooks> books = content.bibleBooks();
+        List<MiscContent> miscs = content.miscContents();
+        List<String> notes = content.notes();
+        ParascripturalItem item = content.parascripturalItem();
+        
+        testPrefatoryMatters(matter);
+        testBibleBooks(books);
+        testMiscContents(miscs);
+        testParascripturalItem(item);
+        
+        assertNotNull(notes);
+        assertEquals(0, notes.size());
+        
+        //System.out.println("__TextualContents ok__");
+    }
+    
+    @Test
+    public void testBibliography() {
+        Bibliography bib = bible.getBibliography();
+        assertNotNull(bib);
+        
+        for (BiblioEntry entry : bib) {
+            assertNotNull(entry.bibAuthors());
+            assertNotNull(entry.getBookOrJournalTitle());
+            assertNotNull(entry.articleLinks());
+        }
+        
+        assertEquals(4, bib.size());
+        
+        BiblioEntry entry = bib.biblioEntry(3);
+        assertEquals(1, entry.bibAuthors().size());
+        assertEquals("Sneddon, Clive R.", entry.bibAuthors().get(0));
+        assertTrue(entry.getBookOrJournalTitle()
+                .endsWith("Translation of the Bible."));
+        assertTrue(entry.getPublicationInfo().endsWith("1978."));
+        assertEquals(0, entry.articleLinks().size());
+        
+        // System.out.println("__Bibliography ok__");
+    }
+    
+    private void testParascripturalItem(ParascripturalItem item) {
+        assertNotNull(item);
+        
+        assertNotNull(item.catechismPrayersTreatises());
+        assertEquals(0, item.catechismPrayersTreatises().size());
+        // No catechisms prayers treatises in example profile
+        
+        assertEquals(LitanyForm.NA, item.getForm());
+        assertEquals(Choice.N, item.getLitanyPresence());
+        assertEquals("0", item.getLocVol());
+        assertEquals("0", item.getLocStart());
+        assertEquals("0", item.getLocEnd());
+        assertEquals(SneddonId.NA, item.getSneddonId());
+        
+        assertEquals(0, item.getVolume());
+        assertEquals("0", item.getCanticleEndFolio());
+        assertEquals("n", item.getCanticleStartFolio());
+        assertEquals(Choice.N, item.getCanticlePresence());
+        assertEquals("n/a", item.getCanticleType());
+        
+        assertEquals(AddedChoice.N, item.getJeanDeBlois());
+        assertEquals(AddedChoice.Y, item.getJerome());
+    }
+
+    private void testMiscContents(List<MiscContent> miscs) {
+        assertNotNull(miscs);
+        assertEquals(0, miscs.size());
+        // No misc contents in example profile
+    }
+
+    private void testBibleBooks(List<BibleBooks> books) {
+        assertNotNull(books);
+        
+        for (BibleBooks b : books) {
+            for (Title title : b) {
+                assertNotNull(title.getBookName());
+                assertNotNull(title.hasChapterNames());
+                assertNotNull(title.getStartPage());
+                assertNotNull(title.getGlossType());
+                assertNotNull(title.getEndPage());
+                assertNotNull(title.getTextVersion());
+                
+                for (TitleIncipit inc : title) {
+                    assertNotNull(inc.getAccuracy());
+                }
+            }
+        }
+        
+        assertEquals(2, books.size());
+        
+        // Volume 1
+        BibleBooks book = books.get(0);
+        assertEquals(24, book.size());
+        assertEquals(1, book.getVolume());
+        
+        Title title = book.title(0);
+        assertEquals("BH", title.getTextVersion());
+        assertEquals("BH", title.getGlossType());
+        assertEquals("multiple", title.getGlossType2());
+        assertEquals("20v", title.getStartPage());
+        assertEquals(Choice.Y, title.hasChapterNames());
+        assertFalse(title.hasTableOfContents());
+        assertEquals("Genesis", title.getBookName());
+        assertTrue(title.getBookNote().endsWith("included here."));
+        assertEquals(4, title.size());
+        
+        TitleIncipit incipit = title.incipit(3);
+        assertEquals("questions", incipit.getTextType());
+        assertEquals(Accuracy.ACTUAL, incipit.getAccuracy());
+        assertTrue(incipit.getText().endsWith("la coste adam"));
+    }
+
+    private void testPrefatoryMatters(List<PrefatoryMatter> matter) {
+        assertNotNull(matter);
+        
+        for (PrefatoryMatter m : matter) {
+            // Only one required field
+            assertNotNull(m.getMasterTableOfContents());
+        }
+        
+        assertEquals(2, matter.size());
+        
+        PrefatoryMatter mat = matter.get(0);
+        assertNotNull(mat.otherPrefaces());
+        assertNotNull(mat.getPrefactoryNote());
+        
+        MasterTableOfContents master = mat.getMasterTableOfContents();
+        assertNotNull(master);
+        assertEquals("11v", master.getStartPage());
+        assertEquals(Detail.MIXED, master.getTableDetail());
+        assertTrue(master.matchesContents());
+        assertTrue(master.getText().endsWith("creation du monde..."));
+        
+        assertEquals(2, mat.otherPrefaces().size());
+        
+        OtherPreface other = mat.otherPrefaces().get(0);
+        assertTrue(other.getText().endsWith("deux manieres"));
+        assertEquals(Accuracy.ACTUAL, other.getAccuracy());
+        assertEquals("1r", other.getStartPage());
+        
+        assertTrue(mat.getPrefactoryNote()
+                .endsWith("four senses of Scripture."));
+    }
+
     private void testBookType(BookType type) {
         assertNotNull(type);
         
@@ -166,11 +344,39 @@ public class ProfilBuilderTest {
     }
 
     private void testCatalogerClassification(CatalogerClassification cc) {
+        assertNotNull(cc);
         
-    }
-
-    private void testFournie(Classification classification) {
+        Berger berger = cc.getBergerClass();
+        Sneddon sneddon = cc.getSneddonClass();
+        List<SecundoFolio> secundos = cc.secundoFolios();
         
+        assertNotNull(berger);
+        assertNotNull(sneddon);
+        assertNotNull(secundos);
+        
+        assertEquals(Berger.Category.BHC, berger.getCategory());
+        assertEquals(Berger.BhcSubtype.PROLFULL, berger.getBhcSubtype());
+        
+        assertEquals(Sneddon.Category.BHC, sneddon.getCategory());
+        assertEquals(Sneddon.SubcategoryOne.MIXED, sneddon.getSub1());
+        assertEquals("Z2", sneddon.getSiglum());
+        assertEquals("117, 120", sneddon.getEntry());
+        
+        assertEquals("10-11", cc.getFournieNumber());
+        assertEquals("http://acrh.revues.org/1467#tocto1n10",
+                cc.getFournieLink());
+        
+        assertEquals(2, secundos.size());
+        for (int i = 0; i < secundos.size(); i++) {
+            SecundoFolio secundo = secundos.get(i);
+            
+            assertEquals(i+1, secundo.getVolume());
+            assertNotNull(secundo.getValue());
+        }
+        
+        assertNotNull(cc.getClassificationNote());
+        assertTrue(cc.getClassificationNote()
+                .endsWith("Presles Psalms"));
     }
 
     private void testTitles(Classification classification) {
@@ -210,13 +416,6 @@ public class ProfilBuilderTest {
         assertNotNull(ill.getFolio());
         assertNotNull(ill.getNumber());
         assertNotNull(ill.getVolume());
-        /*System.out.println(
-                ill.getNumber() + "::"
-                + ill.getBook() + "::"
-                + ill.getVolume() + "::"
-                + ill.getFolio() + "::"
-                + ill.getKeywords()
-        );*/
     }
 
     private void testSummary(DecorationSummary summary) {
@@ -248,6 +447,7 @@ public class ProfilBuilderTest {
     private void testProvenanceNotes(List<String> provs) {
         assertNotNull(provs);
         assertEquals(0, provs.size());
+        // No provenance notes in example profile
     }
 
     private void testAnnotations(List<Annotation> anns) {
@@ -265,6 +465,17 @@ public class ProfilBuilderTest {
             assertNotNull(ann.getTextReferenced());
             assertNotNull(ann.getText());
         }*/
+        
+        Annotation ann = anns.get(0);
+        assertEquals(2, ann.getVolume());
+        assertEquals("10r", ann.getFolio());
+        assertEquals("Proverbs", ann.getBook());
+        assertEquals(AnnotationType.MARKEDPASSAGE, ann.getType());
+        
+        assertTrue(ann.getName().endsWith("(Petrus Gilberti?)"));
+        assertEquals("Early 15th century", ann.getDate());
+        assertTrue(ann.getTextReferenced().endsWith("a moult d’amis"));
+        assertEquals("Nota", ann.getText());
     }
 
     private void testPersonalization(Personalization person) {
@@ -409,29 +620,6 @@ public class ProfilBuilderTest {
                 full.get(0));
         assertEquals("Quire structures supplied by Cl4e Sneddon",
                 notes.get(0));
-        
-        struct = structs.get(1);
-        assertEquals(2, struct.getVolume());
-        
-        total = struct.quireTotal();
-        typical = struct.typicalQuires();
-        full = struct.fullQuireStructs();
-        notes = struct.quireNotes();
-        
-        assertNotNull(total);
-        assertNotNull(typical);
-        assertNotNull(full);
-        assertNotNull(notes);
-        
-        assertEquals(1, total.size());
-        assertEquals(1, typical.size());
-        assertEquals(1, full.size());
-        assertEquals(0, notes.size());
-        
-        assertEquals(51, total.get(0).intValue());
-        assertEquals(8, typical.get(0).intValue());
-        assertEquals("1^2, 2-8^8, 9^2, 10-29^8, 30^2, 31-43^8, 44^6+1, 45-50^8, 51^4",
-                full.get(0));
     }
 
     private void testVolumes(Volumes vols) {

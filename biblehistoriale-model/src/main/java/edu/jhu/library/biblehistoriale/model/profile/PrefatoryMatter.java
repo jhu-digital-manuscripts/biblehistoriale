@@ -3,7 +3,7 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.List;
 
-public class PrefactoryMatter implements Serializable {
+public class PrefatoryMatter implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
@@ -13,11 +13,11 @@ public class PrefactoryMatter implements Serializable {
     private List<OtherPreface> otherPrefaces;
     private List<Guyart> guyartList;
     private List<ComestorLetter> comestorLetters;
-    private List<Incipit> comestorList;
+    private List<OtherPreface> comestorList;
     
     private MasterTableOfContents masterTableOfContents;
     
-    public PrefactoryMatter() {
+    public PrefatoryMatter() {
         this.volume = 0;
     }
 
@@ -61,11 +61,11 @@ public class PrefactoryMatter implements Serializable {
         this.comestorLetters = comestorLetters;
     }
 
-    public List<Incipit> comestorList() {
+    public List<OtherPreface> comestorList() {
         return comestorList;
     }
 
-    public void setComestorList(List<Incipit> comestorList) {
+    public void setComestorList(List<OtherPreface> comestorList) {
         this.comestorList = comestorList;
     }
 

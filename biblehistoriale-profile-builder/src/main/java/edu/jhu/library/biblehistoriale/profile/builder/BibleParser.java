@@ -7,7 +7,47 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
-import edu.jhu.library.biblehistoriale.model.profile.*;
+import edu.jhu.library.biblehistoriale.model.profile.Annotation;
+import edu.jhu.library.biblehistoriale.model.profile.Berger;
+import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
+import edu.jhu.library.biblehistoriale.model.profile.BiblioEntry;
+import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
+import edu.jhu.library.biblehistoriale.model.profile.BookType;
+import edu.jhu.library.biblehistoriale.model.profile.CatalogerClassification;
+import edu.jhu.library.biblehistoriale.model.profile.CatechismsPrayersTreatise;
+import edu.jhu.library.biblehistoriale.model.profile.Classification;
+import edu.jhu.library.biblehistoriale.model.profile.ComestorLetter;
+import edu.jhu.library.biblehistoriale.model.profile.Contributor;
+import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary;
+import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
+import edu.jhu.library.biblehistoriale.model.profile.Folios;
+import edu.jhu.library.biblehistoriale.model.profile.Guyart;
+import edu.jhu.library.biblehistoriale.model.profile.Illustration;
+import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
+import edu.jhu.library.biblehistoriale.model.profile.Incipit;
+import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
+import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents;
+import edu.jhu.library.biblehistoriale.model.profile.Materials;
+import edu.jhu.library.biblehistoriale.model.profile.MiscContent;
+import edu.jhu.library.biblehistoriale.model.profile.OtherPreface;
+import edu.jhu.library.biblehistoriale.model.profile.Owner;
+import edu.jhu.library.biblehistoriale.model.profile.Ownership;
+import edu.jhu.library.biblehistoriale.model.profile.PageLayout;
+import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem;
+import edu.jhu.library.biblehistoriale.model.profile.Personalization;
+import edu.jhu.library.biblehistoriale.model.profile.PersonalizationItem;
+import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
+import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
+import edu.jhu.library.biblehistoriale.model.profile.Production;
+import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
+import edu.jhu.library.biblehistoriale.model.profile.QuireStructure;
+import edu.jhu.library.biblehistoriale.model.profile.SecundoFolio;
+import edu.jhu.library.biblehistoriale.model.profile.Signature;
+import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
+import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
+import edu.jhu.library.biblehistoriale.model.profile.Title;
+import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
 public class BibleParser {
     
@@ -19,7 +59,7 @@ public class BibleParser {
         return null;
     }
     
-    private static int getIntegerAttribute(Node node, String attribute) {
+    public static int getIntegerAttribute(Node node, String attribute) {
         
         try {
             return Integer.parseInt(
@@ -31,7 +71,7 @@ public class BibleParser {
         return -1;
     }
     
-    private static int getIntegerElement(Node node) {
+    public static int getIntegerElement(Node node) {
         
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             try {
@@ -44,22 +84,365 @@ public class BibleParser {
         return -1;
     }
     
-    private static String getElementText(Node node) {
-        return node.getTextContent();
+    public static String getElementText(Node node) {
+        if (node.getNodeType() == Node.ELEMENT_NODE) {
+            return node.getTextContent();
+        }
+        return null;
     }
     
-    private static String name(Node node) {
+    public static String name(Node node) {
         return node.getNodeName();
     }
     
     public static Bibliography parseBibliography(Node bible_child) {
-        // TODO Auto-generated method stub
-        return null;
+        Bibliography bib = new Bibliography();
+        
+        List<BiblioEntry> bib_entries = new ArrayList<BiblioEntry> ();
+        
+        Node child = bible_child.getFirstChild();
+        while (child != null) {
+            if (name(child).equals("biblioEntry")) {
+                bib_entries.add(biblioEntry(child));
+            }
+            child = child.getNextSibling();
+        }
+        
+        bib.setBiblioEntries(bib_entries);
+        
+        return bib;
+    }
+
+    private static BiblioEntry biblioEntry(Node child) {
+        BiblioEntry entry = new BiblioEntry();
+        
+        List<String> authors = new ArrayList<String> ();
+        List<String> links = new ArrayList<String> ();
+        
+        Node node = child.getFirstChild();
+        while (node != null) {
+            if (name(node).equals("bibAuthor")) {
+                authors.add(getElementText(node));
+            } else if (name(node).equals("articleTitle")) {
+                entry.setArticleTitle(getElementText(node));
+            } else if (name(node).equals("bookOrJournalTitle")) {
+                entry.setBookOrJournalTitle(getElementText(node));
+            } else if (name(node).equals("publicationInfo")) {
+                entry.setPublicationInfo(getElementText(node));
+            } else if (name(node).equals("articleLink")) {
+                links.add(getElementText(node));
+            }
+            
+            node = node.getNextSibling();
+        }
+        
+        entry.setBibAuthors(authors);
+        entry.setArticleLinks(links);
+        
+        return entry;
     }
 
     public static TextualContent parseTextualContent(Node bible_child) {
-        // TODO Auto-generated method stub
-        return null;
+        TextualContent content = new TextualContent();
+        
+        List<PrefatoryMatter> prefactories =
+                new ArrayList<PrefatoryMatter> ();
+        List<BibleBooks> books = new ArrayList<BibleBooks> ();
+        List<MiscContent> miscs = new ArrayList<MiscContent> ();
+        List<String> notes = new ArrayList<String> ();
+        
+        Node child = bible_child.getFirstChild();
+        while (child != null) {
+            
+            if (name(child).equals("prefatoryMatter")) {
+                PrefatoryMatter prefact = prefatoryMatter(child);
+                prefactories.add(prefact);
+            } else if (name(child).equals("bibleBooks")) {
+                BibleBooks book = bibleBook(child);
+                books.add(book);
+            } else if (name(child).equals("parascripturalItems")) {
+                ParascripturalItem item = parascripturalItem(child);
+                content.setParascripturalItem(item);
+            } else if (name(child).equals("miscContents")) {
+                MiscContent misc = miscContent(child);
+                miscs.add(misc);
+            } else if (name(child).equals("notes")) {
+                notes.add(getElementText(child));
+            }
+            
+            child = child.getNextSibling();
+            
+        }
+        
+        content.setVolume(getIntegerAttribute(bible_child, "volume"));
+        content.setPrefactoryMatters(prefactories);
+        content.setBibleBooks(books);
+        content.setMiscContents(miscs);
+        content.setNotes(notes);
+        
+        return content;
+    }
+
+    private static MiscContent miscContent(Node child) {
+        MiscContent misc = new MiscContent();
+        
+        Node node = child.getFirstChild();
+        while (node != null) {
+            if (name(node).equals("description")) {
+                misc.setDescription(getElementText(node));
+            }
+            node = node.getNextSibling();
+        }
+        
+        misc.setVolume(getIntegerAttribute(child, "volume"));
+        misc.setStartFolio(getAttributeValue(child, "startFolio"));
+        misc.setEndFolio(getAttributeValue(child, "endFolio"));
+        
+        return misc;
+    }
+
+    private static ParascripturalItem parascripturalItem(Node child) {
+        ParascripturalItem item = new ParascripturalItem();
+        
+        List<CatechismsPrayersTreatise> treatises = 
+                new ArrayList<CatechismsPrayersTreatise> ();
+        
+        Node node = child.getFirstChild();
+        while (node != null) {
+            if (name(node).equals("litany")) {
+                Node lit_node = node.getFirstChild();
+                while (lit_node != null) {
+                    if (name(lit_node).equals("placeOfOriginUse")) {
+                        item.setPlaceOfOriginUse(
+                                getElementText(lit_node));
+                    }
+                    lit_node = lit_node.getNextSibling();
+                }
+                
+                item.setForm(getAttributeValue(node, "form"));
+                item.setLocVol(getAttributeValue(node, "locVol"));
+                item.setLocStart(getAttributeValue(node, "locStart"));
+                item.setLocEnd(getAttributeValue(node, "locEnd"));
+                item.setLitanyPresence(
+                        getAttributeValue(node, "presence"));
+                item.setSneddonId(getAttributeValue(node, "sneddonID"));
+            } else if (name(node).equals("canticles")) {
+                Node can_node = node.getFirstChild();
+                while (can_node != null) {
+                    if (name(can_node).equals("canticleType")) {
+                        item.setCanticleType(
+                                getElementText(can_node));
+                    }
+                    can_node = can_node.getNextSibling();
+                }
+                
+                item.setCanticleEndFolio(
+                        getAttributeValue(node, "endFolio"));
+                item.setCanticleStartFolio(
+                        getAttributeValue(node, "startFolio"));
+                item.setVolume(getIntegerAttribute(node, "volume"));
+                item.setCanticlePresence(
+                        getAttributeValue(node, "presence"));
+            } else if (name(node).equals("addedPrologue")) {
+                item.setJeanDeBlois(getAttributeValue(node, "jeanDeBlois"));
+                item.setJerome(getAttributeValue(node, "jerome"));
+            } else if (name(node).equals("catechismsPrayersTreatises")) {
+                treatises.add(treatise(node));
+            }
+            
+            node = node.getNextSibling();
+        }
+        
+        item.setCatechismPrayersTreatises(treatises);
+        
+        return item;
+    }
+
+    private static CatechismsPrayersTreatise treatise(Node node) {
+        CatechismsPrayersTreatise treatise = 
+                new CatechismsPrayersTreatise();
+        
+        List<String> first_lines = new ArrayList<String> ();
+        
+        Node child = node.getFirstChild();
+        while (child != null) {
+            if (name(child).equals("descriptionsFirstLines")) {
+                first_lines.add(getElementText(child));
+            }
+            child = child.getNextSibling();
+        }
+        
+        treatise.setDescriptionsFirstLines(first_lines);
+        treatise.setPresence(getAttributeValue(node, "presence"));
+        treatise.setStartFolio(getAttributeValue(node, "startFolio"));
+        treatise.setEndFolio(getAttributeValue(node, "endFolio"));
+        treatise.setVolume(getIntegerAttribute(node, "volume"));
+        
+        return treatise;
+    }
+
+    private static BibleBooks bibleBook(Node child) {
+        BibleBooks books = new BibleBooks();
+        
+        List<Title> titles = new ArrayList<Title> ();
+        
+        Node node = child.getFirstChild();
+        while (node != null) {
+            if (name(node).equals("title")) {
+                titles.add(title(node));
+            }
+            node = node.getNextSibling();
+        }
+        
+        books.setTitles(titles);
+        books.setVolume(getIntegerAttribute(child, "volume"));
+        
+        return books;
+    }
+
+    private static Title title(Node node) {
+        Title title = new Title();
+        
+        List<TitleIncipit> incipits = new ArrayList<TitleIncipit> ();
+        
+        Node child = node.getFirstChild();
+        while (child != null) {
+            
+            if (name(child).equals("incipit")) {
+                TitleIncipit inc = title.new TitleIncipit();
+                
+                inc.setAccuracy(getAttributeValue(child, "accuracy"));
+                inc.setTextType(getAttributeValue(child, "textType"));
+                inc.setText(getElementText(child));
+                
+                incipits.add(inc);
+            } else if (name(child).equals("editions")) {
+                title.setEditions(getElementText(child));
+            } else if (name(child).equals("bookNote")) {
+                title.setBookNote(getElementText(child));
+            }
+            
+            child = child.getNextSibling();
+        }
+        
+        title.setIncipit(incipits);
+        title.setBookName(getAttributeValue(node, "bookName"));
+        title.setHasChapterNames(getAttributeValue(node, "chapterNames"));
+        title.setStartPage(getAttributeValue(node, "startPage"));
+        title.setGlossType(getAttributeValue(node, "glossType"));
+        title.setGlossType2(getAttributeValue(node, "glossType2"));
+        title.setEndPage(getAttributeValue(node, "endPage"));
+        title.setHasTableOfContents(
+                getAttributeValue(node, "tableOfContents").equals("y"));
+        title.setTextVersion(getAttributeValue(node, "textVersion"));
+        
+        return title;
+    }
+
+    private static PrefatoryMatter prefatoryMatter(Node child) {
+        PrefatoryMatter matter = new PrefatoryMatter();
+        
+        List<OtherPreface> others = new ArrayList<OtherPreface> ();
+        List<Guyart> guyarts = new ArrayList<Guyart> ();
+        List<ComestorLetter> letters = new ArrayList<ComestorLetter> ();
+        List<OtherPreface> comestors = new ArrayList<OtherPreface> ();
+        
+        Node node = child.getFirstChild();
+        while (node != null) {
+            
+            if (name(node).equals("otherPreface")) {
+                OtherPreface other = new OtherPreface();
+                
+                other.setText(getElementText(node));
+                other.setAccuracy(getAttributeValue(node, "accuracy"));
+                other.setStartPage(getAttributeValue(node, "startPage"));
+                
+                others.add(other);
+            } else if (name(node).equals("guyart")) {
+                guyarts.add(guyart(node));
+            } else if (name(node).equals("comestorLetter")) {
+                letters.add(comestorLetter(node));
+            } else if (name(node).equals("MasterTableOfContents")) {
+                MasterTableOfContents master = new MasterTableOfContents();
+                
+                master.setStartPage(getAttributeValue(node, "startPage"));
+                master.setTableDetail(
+                        getAttributeValue(node, "tableDetail"));
+                master.setMatchesContents(
+                        getAttributeValue(node, "matchesContents")
+                        .equals("y"));
+                master.setText(getElementText(node));
+                
+                matter.setMasterTableOfContents(master);
+            } else if (name(node).equals("comestor")) {
+                OtherPreface other = new OtherPreface();
+                
+                other.setText(getElementText(node));
+                other.setAccuracy(getAttributeValue(node, "accuracy"));
+                other.setStartPage(getAttributeValue(node, "startPage"));
+                
+                comestors.add(other);
+            } else if (name(node).equals("prefatoryNote")) {
+                matter.setPrefactoryNote(getElementText(node));
+            }
+            
+            node = node.getNextSibling();
+        }
+        
+        matter.setVolume(getIntegerAttribute(child, "volume"));
+        matter.setOtherPrefaces(others);
+        matter.setGuyartList(guyarts);
+        matter.setComestorLetters(letters);
+        matter.setComestorList(comestors);
+        
+        return matter;
+    }
+
+    private static ComestorLetter comestorLetter(Node node) {
+        ComestorLetter letter = new ComestorLetter();
+        
+        List<Incipit> incipits = new ArrayList<Incipit> ();
+        
+        Node child = node.getFirstChild();
+        while (child != null) {
+            if (name(child).equals("incipit")) {
+                incipits.add(incipit(child));
+            }
+            child = child.getNextSibling();
+        }
+        
+        letter.setIncipits(incipits);
+        letter.setStartPage(getAttributeValue(node, "startPage"));
+        
+        return letter;
+    }
+
+    private static Guyart guyart(Node node) {
+        Guyart guy = new Guyart();
+        
+        Node child = node.getFirstChild();
+        while (child != null) {
+            if (name(child).equals("incipit")) {
+                guy.setIncipit(incipit(child));
+            }
+            child = child.getNextSibling();
+        }
+        
+        guy.setStartPage(getAttributeValue(node, "startPage"));
+        guy.setContainsGuyartName(
+                getAttributeValue(node, "containsGuyartName")
+                .equals("y"));
+        
+        return guy;
+    }
+
+    private static Incipit incipit(Node node) {
+        Incipit incipit = new Incipit();
+        
+        incipit.setAccuracy(getAttributeValue(node, "accuracy"));
+        incipit.setText(getElementText(node));
+        
+        return incipit;
     }
 
     public static Classification parseClassification(Node bible_child) {
@@ -118,8 +501,8 @@ public class BibleParser {
                 
                 classification.setBookType(type);
             } else if (name(child).equals("catalogerClassifications")) {
-                CatalogerClassification cc = catalogerClassification(child);
-                classification.setClassification(cc);
+                classification.setClassification(
+                        catalogerClassification(child));
             }
         }
         
@@ -144,8 +527,7 @@ public class BibleParser {
                 
                 cc.setBergerClass(berger);
             } else if (name(node).equals("sneddonClass")) {
-                Sneddon sneddon = sneddon(node);
-                cc.setSneddonClass(sneddon);
+                cc.setSneddonClass(sneddon(node));
             } else if (name(node).equals("fournieCatalog")) {
                 NodeList fournies = node.getChildNodes();
                 
@@ -210,8 +592,7 @@ public class BibleParser {
             Node child = children.item(i);
             
             if (name(child).equals("decorationSummary")) {
-                DecorationSummary summary = decorationSummary(child);
-                ills.setDecorationSummary(summary);
+                ills.setDecorationSummary(decorationSummary(child));
             } else if (name(child).equals("illustrationList")) {
                 NodeList nodes = child.getChildNodes();
                 for (int j = 0; j < nodes.getLength(); j++) {
@@ -293,17 +674,13 @@ public class BibleParser {
             Node child = children.item(i);
             
             if (name(child).equals("production")) {
-                Production prod = production(child);
-                hist.setProduction(prod);
+                hist.setProduction(production(child));
             } else if (name(child).equals("ownership")) {
-                Ownership owns = ownership(child);
-                owners.add(owns);
+                owners.add(ownership(child));
             } else if (name(child).equals("personalization")) {
-                Personalization person = personalization(child);
-                hist.setPersonalization(person);
+                hist.setPersonalization(personalization(child));
             } else if (name(child).equals("annotation")) {
-                Annotation ann = annotation(child);
-                annotations.add(ann);
+                annotations.add(annotation(child));
             } else if (name(child).equals("provenanceNote")) {
                 provenances.add(getElementText(child));
             }
@@ -364,22 +741,17 @@ public class BibleParser {
             //String name = node.getNodeName();
             
             if (name(node).equals("signature")) {
-                Signature sig = signature(node);
-                sigs.add(sig);
+                sigs.add(signature(node));
             } else if (name(node).equals("dedication")) {
                 dedications.add(getElementText(node));
             } else if (name(node).equals("legalInscriptions")) {
-                PersonalizationItem item = personalizationItem(node);
-                legals.add(item);
+                legals.add(personalizationItem(node));
             } else if (name(node).equals("patronPortrait")) {
-                PersonalizationItem item = personalizationItem(node);
-                patrons.add(item);
+                patrons.add(personalizationItem(node));
             } else if (name(node).equals("patronArms")) {
-                PersonalizationItem item = personalizationItem(node);
-                arms.add(item);
+                arms.add(personalizationItem(node));
             } else if (name(node).equals("colophon")) {
-                PersonalizationItem item = personalizationItem(node);
-                colophons.add(item);
+                colophons.add(personalizationItem(node));
             } else if (name(node).equals("purchasePrice")) {
                 person.setPurchasePrice(getElementText(node));
             }
@@ -438,8 +810,7 @@ public class BibleParser {
             Node node = nodes.item(i);
             
             if (name(node).equals("owner")) {
-                Owner owner = owner(node);
-                owners.add(owner);
+                owners.add(owner(node));
             }
         }
         
@@ -529,19 +900,15 @@ public class BibleParser {
             //String child_name = child.getNodeName();
             
             if (name(child).equals("volumes")) {
-                Volumes volumes = volumes(child);
-                phys_char.setVolumes(volumes);
+                phys_char.setVolumes(volumes(child));
             } else if (name(child).equals("dimensions")) {
                 dims.add(dimensions(child));
             } else if (name(child).equals("folios")) {
-                Folios folios = folios(child);
-                phys_char.setFolios(folios);
+                phys_char.setFolios(folios(child));
             } else if (name(child).equals("quireStruct")) {
-                QuireStructure struct = quireStruct(child);
-                structs.add(struct);
+                structs.add(quireStruct(child));
             } else if (name(child).equals("pageLayout")) {
-                PageLayout layout = pageLayout(child);
-                phys_char.setPageLayout(layout);
+                phys_char.setPageLayout(pageLayout(child));
             } else if (name(child).equals("rubricNote")) {
                 phys_char.setRubricNotes(getElementText(child));
             } else if (name(child).equals("pageLayoutNote")) {
@@ -551,8 +918,7 @@ public class BibleParser {
             } else if (name(child).equals("underlining")) {
                 underlinings.add(getElementText(child));
             } else if (name(child).equals("materials")) {
-                Materials mats = materials(child);
-                phys_char.setMaterials(mats);
+                phys_char.setMaterials(materials(child));
             } else if (name(child).equals("physicalNotes")) {
                 phys_char.setPhysicaNotes(getElementText(child));
             }

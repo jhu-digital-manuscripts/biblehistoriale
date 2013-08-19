@@ -1,8 +1,12 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.Iterator;
+import java.util.List;
 
-public class Title implements Serializable {
+import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+
+public class Title implements Serializable, Iterable<TitleIncipit> {
     
     private static final long serialVersionUID = 1L;
 
@@ -21,30 +25,34 @@ public class Title implements Serializable {
         
     }
     
-    private TitleIncipit incipit;
+    private List<TitleIncipit> incipits;
     
     private String editions;
     private String textVersion;
     private String glossType;
     private String glossType2;
     private String startPage;
+    private String endPage;
     private String bookName;
     private String bookNote;
     
-    private boolean hasChapterNames;
+    private Choice hasChapterNames;
     private boolean hasTableOfContents;
     
     public Title() {
-        this.hasChapterNames = false;
         this.hasTableOfContents = false;
     }
     
-    public TitleIncipit getIncipit() {
-        return incipit;
+    public int size() {
+        return incipits.size();
     }
     
-    public void setIncipit(TitleIncipit incipit) {
-        this.incipit = incipit;
+    public TitleIncipit incipit(int index) {
+        return incipits.get(index);
+    }
+    
+    public void setIncipit(List<TitleIncipit> incipits) {
+        this.incipits = incipits;
     }
     
     public String getEditions() {
@@ -87,6 +95,14 @@ public class Title implements Serializable {
         this.startPage = startPage;
     }
     
+    public String getEndPage() {
+        return endPage;
+    }
+    
+    public void setEndPage(String endPage) {
+        this.endPage = endPage;
+    }
+    
     public String getBookName() {
         return bookName;
     }
@@ -103,12 +119,12 @@ public class Title implements Serializable {
         this.bookNote = bookNote;
     }
     
-    public boolean hasChapterNames() {
+    public Choice hasChapterNames() {
         return hasChapterNames;
     }
     
-    public void setHasChapterNames(boolean hasChapterNames) {
-        this.hasChapterNames = hasChapterNames;
+    public void setHasChapterNames(String hasChapterNames) {
+        this.hasChapterNames = Choice.getChoice(hasChapterNames);
     }
     
     public boolean hasTableOfContents() {
@@ -117,6 +133,29 @@ public class Title implements Serializable {
     
     public void setHasTableOfContents(boolean hasTableOfContents) {
         this.hasTableOfContents = hasTableOfContents;
+    }
+
+    @Override
+    public Iterator<TitleIncipit> iterator() {
+        return new Iterator<TitleIncipit> () {
+            int next = 0;
+            
+            @Override
+            public boolean hasNext() {
+                return next < size();
+            }
+
+            @Override
+            public TitleIncipit next() {
+                return incipit(next++);
+            }
+
+            @Override
+            public void remove() {
+                throw new UnsupportedOperationException();
+            }
+            
+        };
     }
     
 }
