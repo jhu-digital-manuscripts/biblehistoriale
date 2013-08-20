@@ -7,7 +7,65 @@
    <field name="_version_" type="long" indexed="true" stored="true" multiValued="false" />
 
    <!-- Used for testing, remove as needed -->
-   <field name="title" type="text_en" indexed="true" stored="true" required="false" multiValued="true" /> 
+   <field name="title" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <!-- Bible -->
+   
+   <!-- Physical Characteristics -->
+   <field name="presentState" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="quireTotal" type="int" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="typicalQuire" type="int" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="columns" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="glossPlace" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="runningHeads" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="glossHeadings" type="text_fr" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="material" type="text_en" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="bindDate" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <field name="rubricNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="pageLayoutNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="physicalNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="volumeNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="quireNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <!-- Proven Patron History -->
+   <field name="prodDate" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="prodLoc" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="contributors" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="ownerName" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <field name="provenanceNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="productionNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   
+   <!-- Illustrations -->
+   <field name="illustrationTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="illustrationKeywords" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <field name="illustrationNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   
+   <!-- Classification -->
+   <field name="currentCity" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="currentRepository" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="currentShelfmark" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   
+   <field name="classificationNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
+   
+   <!-- Textual Content -->
+   <field name="MasterTableOfContents" type="text_fr" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="bibleBookTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="canticleType" type="text_fr" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="catechismsFirstLines" type="text_fr" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <field name="contentNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="prefatoryNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="bookNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
+   
+   <!-- Bibliography information -->
+   <field name="bibAuthor" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="articleTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="bookOrJournalTitle" type="text_general" indexed="true" stored="true" requried="true" multiValued="true" />
+   <field name="publicationInfo" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
  </fields>
 
  <uniqueKey>id</uniqueKey>

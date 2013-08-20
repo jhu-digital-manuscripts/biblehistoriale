@@ -11,12 +11,14 @@ import org.apache.solr.client.solrj.SolrServerException;
 import org.apache.solr.client.solrj.response.QueryResponse;
 import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
+import org.apache.solr.common.SolrInputDocument;
 
 import edu.jhu.library.biblehistoriale.model.Query;
 import edu.jhu.library.biblehistoriale.model.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.QueryResult;
 import edu.jhu.library.biblehistoriale.model.TermField;
+import edu.jhu.library.biblehistoriale.model.profile.Bible;
 
 /**
  * Search service that allows manuscript profiles to be indexed and searched.
@@ -31,6 +33,7 @@ public class SolrSearchService {
 
         // TODO all searchable fields need to map to solr fields
         field_map.put(TermField.TITLE, new String[] { "title" });
+        field_map.put(TermField.PEOPLE, new String[] { "people" });
     }
 
     private final Solr solr;
@@ -110,9 +113,16 @@ public class SolrSearchService {
         return result;
     }
 
-    public void index(Object profile) throws SearchServiceException {
+    public void index(Bible profile) throws SearchServiceException {
         try {
             // TODO do the transform to a SolrInputDocument
+            SolrInputDocument doc = new SolrInputDocument(); 
+           // doc.addField("field_name", "field_value");
+            
+            // example
+            doc.addField(field_map.get(TermField.TITLE)[0], 
+                    profile.getClassification().getCoverTitle());
+            
             solr.add(null);
         } catch (SolrServerException | IOException e) {
             throw new SearchServiceException(e);

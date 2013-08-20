@@ -65,18 +65,18 @@ import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
 import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
 public class ProfilBuilderTest {
-    
-    private static final String path_str = 
-            "C:\\Users\\john\\BibleHistoriale\\Example bibles";
-    private static final String filename = "BrusselsKBR9001-2.xml";
-    
-    private static final Path path = Paths.get(path_str + "/" + filename);
+    private static final String filename = "profiles/BrusselsKBR9001-2.xml";
     
     private Bible bible;
     
     @Before
     public void  setup() throws SAXException, IOException {
+        Bible bible = null;
+        
+        Path path = Paths.get(
+                this.getClass().getClassLoader().getResource(filename).toString().substring(6));
         Document doc = ProfileBuilder.createDocument(path);
+        
         bible = ProfileBuilder.buildProfile(doc);
         
         assertNotNull(bible);

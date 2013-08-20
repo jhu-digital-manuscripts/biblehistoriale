@@ -33,6 +33,9 @@ public class ProfileBuilder {
     /**
      * Create a new DOM document from a file path.
      * 
+     * A Path object can be created by using the Paths utility class. EX:
+     * Path path = Paths.get("/a/path/string");
+     * 
      * @param path
      * @return
      * @throws SAXException
@@ -57,7 +60,17 @@ public class ProfileBuilder {
         return builder.parse(Files.newInputStream(path, opt));
     }
     
-    
+    public static Bible buildProfile(Path path) {
+        try {
+            return buildProfile(createDocument(path));
+        } catch (SAXException e) {
+            
+        } catch (IOException e) {
+            
+        }
+        
+        return null;
+    }
     
     /**
      * Parse an XML MS profile and build a java Bible
