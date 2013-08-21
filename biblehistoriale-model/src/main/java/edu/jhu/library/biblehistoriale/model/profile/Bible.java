@@ -9,6 +9,8 @@ public class Bible implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
+    private String id;
+    
     private PhysicalCharacteristics physChar;
     private ProvenPatronHistory provenPatronHist;
     private IllustrationList illustrations;
@@ -21,6 +23,14 @@ public class Bible implements Serializable {
     
     public Bible() {
         
+    }
+    
+    public void setId(String id) {
+        this.id = id;
+    }
+    
+    public String getId() {
+        return id;
     }
     
     public void setPhysChar(PhysicalCharacteristics physChar) {

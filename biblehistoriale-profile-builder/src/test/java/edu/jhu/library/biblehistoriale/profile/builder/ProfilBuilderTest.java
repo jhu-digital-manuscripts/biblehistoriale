@@ -71,13 +71,13 @@ public class ProfilBuilderTest {
     
     @Before
     public void  setup() throws SAXException, IOException {
-        Bible bible = null;
+        bible = null;
         
         Path path = Paths.get(
                 this.getClass().getClassLoader().getResource(filename).toString().substring(6));
         Document doc = ProfileBuilder.createDocument(path);
         
-        bible = ProfileBuilder.buildProfile(doc);
+        bible = ProfileBuilder.buildProfile(filename, doc);
         
         assertNotNull(bible);
         //System.out.println("###" + bible + "###");
@@ -188,7 +188,7 @@ public class ProfilBuilderTest {
         TextualContent content = bible.getTextualContent();
         assertNotNull(content);
         
-        List<PrefatoryMatter> matter = content.prefactoryMatters();
+        List<PrefatoryMatter> matter = content.prefatoryMatters();
         List<BibleBooks> books = content.bibleBooks();
         List<MiscContent> miscs = content.miscContents();
         List<String> notes = content.notes();

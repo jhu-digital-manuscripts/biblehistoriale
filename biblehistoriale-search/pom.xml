@@ -29,6 +29,13 @@
       <version>1.0-SNAPSHOT</version>
       <scope>compile</scope>
     </dependency>
+    
+    <dependency>
+      <groupId>biblehistoriale</groupId>
+      <artifactId>biblehistoriale-profile-builder</artifactId>
+      <version>1.0-SNAPSHOT</version>
+      <scope>test</scope>
+    </dependency>
 
     <dependency>
       <artifactId>solr-solrj</artifactId>

@@ -16,7 +16,7 @@ public class TextualContent implements Serializable {
     
     private int volume;
 
-    public List<PrefatoryMatter> prefactoryMatters() {
+    public List<PrefatoryMatter> prefatoryMatters() {
         return prefatoryMatters;
     }
 

@@ -11,7 +11,6 @@ import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
 
 import org.w3c.dom.Document;
-import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
@@ -61,8 +60,11 @@ public class ProfileBuilder {
     }
     
     public static Bible buildProfile(Path path) {
+        String[] tokens = path.toString().split("/");
+        String filename = tokens[tokens.length - 1];
+        
         try {
-            return buildProfile(createDocument(path));
+            return buildProfile(filename, createDocument(path));
         } catch (SAXException e) {
             
         } catch (IOException e) {
@@ -78,8 +80,10 @@ public class ProfileBuilder {
      * @param file
      * @return
      */
-    public static Bible buildProfile(Document doc) {
+    public static Bible buildProfile(String filename, Document doc) {
         Bible bible = new Bible();
+        
+        bible.setId(filename);
         
         NodeList bibles = doc.getElementsByTagName("bible");
         Node bible_node = bibles.item(0);

@@ -37,8 +37,15 @@
    <field name="provenanceNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="productionNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
    
+   <field name="signatureText" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="dedication" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="legalInscriptions" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="patronPortrait" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="patronArms" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="colophon" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="annotationText" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
    <!-- Illustrations -->
-   <field name="illustrationTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="illustrationKeywords" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    
    <field name="illustrationNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
@@ -50,6 +57,8 @@
    
    <field name="classificationNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
    
+   <field name="secundoFolioText" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
    <!-- Textual Content -->
    <field name="MasterTableOfContents" type="text_fr" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="bibleBookTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
@@ -60,10 +69,16 @@
    <field name="prefatoryNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="bookNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
    
+   <field name="guyartIncipit" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="otherPrefaceText" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="comestorLetterIncipit" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="comestorText" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="bibleBookIncipit" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   
    <!-- Bibliography information -->
    <field name="bibAuthor" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="articleTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
-   <field name="bookOrJournalTitle" type="text_general" indexed="true" stored="true" requried="true" multiValued="true" />
+   <field name="bookOrJournalTitle" type="text_general" indexed="true" stored="true" required="true" multiValued="true" />
    <field name="publicationInfo" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    
  </fields>
