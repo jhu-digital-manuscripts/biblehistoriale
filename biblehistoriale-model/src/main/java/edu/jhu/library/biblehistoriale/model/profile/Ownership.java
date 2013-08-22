@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -11,7 +12,7 @@ public class Ownership implements Iterable<Owner>, Serializable {
     private List<Owner> owners;
     
     public Ownership() {
-        
+        this.owners = new ArrayList<Owner> ();
     }
     
     public void setOwnership(List<Owner> owners) {

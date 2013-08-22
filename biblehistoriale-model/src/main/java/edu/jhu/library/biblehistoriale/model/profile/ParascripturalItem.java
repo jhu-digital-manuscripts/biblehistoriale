@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ParascripturalItem implements Serializable {
@@ -42,6 +43,8 @@ public class ParascripturalItem implements Serializable {
     
     public ParascripturalItem() {
         this.volume = 0;
+        
+        this.catechismPrayersTreatises = new ArrayList<CatechismsPrayersTreatise> ();
     }
     
     // Litany

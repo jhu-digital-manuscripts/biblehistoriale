@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -12,6 +13,10 @@ public class Bibliography implements Iterable<BiblioEntry>, Serializable {
     private static final long serialVersionUID = 1L;
     
     private List<BiblioEntry> biblioEntries;
+    
+    public Bibliography() {
+        this.biblioEntries = new ArrayList<BiblioEntry> ();
+    }
     
     public int size() {
         return biblioEntries.size();

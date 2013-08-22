@@ -21,8 +21,16 @@ public class Bible implements Serializable {
     private String scannedMss;                          // URL
     private String bibleHistorialeTranscription;        // URL
     
+    /**
+     * Create a new empty bible
+     */
     public Bible() {
-        
+        this.physChar = new PhysicalCharacteristics();
+        this.provenPatronHist = new ProvenPatronHistory();
+        this.illustrations = new IllustrationList();
+        this.classification = new Classification();
+        this.textualContent = new TextualContent();
+        this.bibliography = new Bibliography();
     }
     
     public void setId(String id) {

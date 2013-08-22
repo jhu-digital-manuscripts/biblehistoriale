@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -15,7 +16,8 @@ public class IllustrationList
     private List<Illustration> illustrations;
     
     public IllustrationList() {
-        
+        this.decorationSummary = new DecorationSummary();
+        this.illustrations = new ArrayList<Illustration> ();
     }
     
     public void setDecorationSummary(DecorationSummary decorationSummary) {

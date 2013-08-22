@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class TextualContent implements Serializable {
@@ -15,6 +16,15 @@ public class TextualContent implements Serializable {
     private ParascripturalItem parascripturalItem;
     
     private int volume;
+    
+    public TextualContent() {
+        this.parascripturalItem = new ParascripturalItem();
+        
+        this.prefatoryMatters = new ArrayList<PrefatoryMatter> ();
+        this.bibleBooks = new ArrayList<BibleBooks> ();
+        this.miscContents = new ArrayList<MiscContent> ();
+        this.notes = new ArrayList<String> ();
+    }
 
     public List<PrefatoryMatter> prefatoryMatters() {
         return prefatoryMatters;

@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Production implements Serializable {
@@ -17,7 +18,7 @@ public class Production implements Serializable {
     private List<Contributor> contributors;
     
     public Production() {
-        
+        this.contributors = new ArrayList<Contributor> ();
     }
 
     public String getProdDate() {

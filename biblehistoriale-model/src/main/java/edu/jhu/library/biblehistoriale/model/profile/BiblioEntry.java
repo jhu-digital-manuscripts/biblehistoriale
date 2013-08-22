@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class BiblioEntry implements Serializable {
@@ -13,6 +14,11 @@ public class BiblioEntry implements Serializable {
     
     private List<String> bibAuthors;
     private List<String> articleLinks;
+    
+    public BiblioEntry() {
+        this.bibAuthors = new ArrayList<String> ();
+        this.articleLinks = new ArrayList<String> ();
+    }
     
     public String getArticleTitle() {
         return articleTitle;

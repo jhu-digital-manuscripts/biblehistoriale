@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -14,6 +15,7 @@ public class Folios implements Iterable<IndVolume>, Serializable {
     
     public Folios() {
         this.totalFolios = 0;
+        this.indVolumes = new ArrayList<IndVolume> ();
     }
     
     public int size() {

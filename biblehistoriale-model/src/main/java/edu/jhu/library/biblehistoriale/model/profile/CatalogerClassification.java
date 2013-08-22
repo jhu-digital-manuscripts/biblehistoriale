@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CatalogerClassification implements Serializable {
@@ -17,7 +18,10 @@ public class CatalogerClassification implements Serializable {
     private List<SecundoFolio> secundoFolios;
     
     public CatalogerClassification() {
+        this.bergerClass = new Berger();
+        this.sneddonClass = new Sneddon();
         
+        this.secundoFolios = new ArrayList<SecundoFolio> ();
     }
 
     public Berger getBergerClass() {

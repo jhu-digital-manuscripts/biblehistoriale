@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DecorationSummary implements Serializable {
@@ -46,6 +47,8 @@ public class DecorationSummary implements Serializable {
     public DecorationSummary() {
         this.largeIlls = 0;
         this.number = 0;
+        
+        this.artistWorkshops = new ArrayList<String> ();
     }
 
     public Choice getBasDePage() {

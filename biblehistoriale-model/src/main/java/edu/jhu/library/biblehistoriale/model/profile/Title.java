@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
@@ -41,6 +42,8 @@ public class Title implements Serializable, Iterable<TitleIncipit> {
     
     public Title() {
         this.hasTableOfContents = false;
+        
+        this.incipits = new ArrayList<TitleIncipit> ();
     }
     
     public int size() {

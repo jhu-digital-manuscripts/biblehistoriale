@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Owner implements Serializable {
@@ -18,6 +19,8 @@ public class Owner implements Serializable {
     public Owner() {
         this.ownershipStartDate = -1;
         this.ownershipEndDate = -1;
+        
+        this.ownerPlace = new ArrayList<String> ();
     }
 
     public String getOwnerName() {

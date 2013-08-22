@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Personalization implements Serializable {
@@ -17,7 +18,12 @@ public class Personalization implements Serializable {
     private List<PersonalizationItem> colophons;
     
     public Personalization() {
-        
+        this.signatures = new ArrayList<Signature> ();
+        this.dedications = new ArrayList<String> ();
+        this.legalInscriptions = new ArrayList<PersonalizationItem> ();
+        this.patronPortraits = new ArrayList<PersonalizationItem> ();
+        this.patronArms = new ArrayList<PersonalizationItem> ();
+        this.colophons = new ArrayList<PersonalizationItem> ();
     }
     
     public String getPurchasePrice() {

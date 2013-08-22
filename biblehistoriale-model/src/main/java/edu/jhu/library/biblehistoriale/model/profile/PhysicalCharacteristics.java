@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PhysicalCharacteristics implements Serializable {
@@ -21,7 +22,15 @@ public class PhysicalCharacteristics implements Serializable {
     private List<String> underlinings;
     
     public PhysicalCharacteristics() {
+        this.volumes = new Volumes();
+        this.folios = new Folios();
+        this.pageLayout = new PageLayout();
+        this.materials = new Materials();
         
+        this.dimensions = new ArrayList<Dimensions>();
+        this.quireStructs = new ArrayList<QuireStructure> ();
+        this.glossHeadings = new ArrayList<String> ();
+        this.underlinings = new ArrayList<String> ();
     }
 
     public Volumes getVolumes() {

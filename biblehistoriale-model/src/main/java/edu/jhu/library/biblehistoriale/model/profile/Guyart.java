@@ -12,6 +12,7 @@ public class Guyart implements Serializable {
     
     public Guyart() {
         this.containsGuyartName = false;
+        this.incipit = new Incipit();
     }
     
     public Incipit getIncipit() {

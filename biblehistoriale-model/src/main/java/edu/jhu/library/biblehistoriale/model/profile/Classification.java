@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class Classification implements Serializable {
@@ -20,7 +21,10 @@ public class Classification implements Serializable {
     private CatalogerClassification classification;
     
     public Classification() {
+        this.bookType = new BookType();
+        this.classification = new CatalogerClassification();
         
+        this.formerShelfmarks = new ArrayList<String> ();
     }
 
     public String getCurrentCity() {

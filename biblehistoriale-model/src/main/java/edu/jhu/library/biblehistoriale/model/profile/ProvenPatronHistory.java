@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProvenPatronHistory implements Serializable {
@@ -15,7 +16,12 @@ public class ProvenPatronHistory implements Serializable {
     private List<String> provenanceNote;
     
     public ProvenPatronHistory() {
+        this.production = new Production();
+        this.personalization = new Personalization();
         
+        this.ownerships = new ArrayList<Ownership> ();
+        this.annotations = new ArrayList<Annotation> ();
+        this.provenanceNote = new ArrayList<String> ();
     }
 
     public Production getProduction() {

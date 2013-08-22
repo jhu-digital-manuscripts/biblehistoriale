@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PrefatoryMatter implements Serializable {
@@ -19,6 +20,12 @@ public class PrefatoryMatter implements Serializable {
     
     public PrefatoryMatter() {
         this.volume = 0;
+        this.masterTableOfContents = new MasterTableOfContents();
+        
+        this.otherPrefaces = new ArrayList<OtherPreface> ();
+        this.guyartList = new ArrayList<Guyart> ();
+        this.comestorLetters = new ArrayList<ComestorLetter> ();
+        this.comestorList = new ArrayList<OtherPreface> ();
     }
 
     public int getVolume() {
