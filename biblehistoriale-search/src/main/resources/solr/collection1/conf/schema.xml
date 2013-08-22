@@ -12,14 +12,14 @@
    <!-- Bible -->
    
    <!-- Physical Characteristics -->
-   <field name="presentState" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-   <field name="quireTotal" type="int" indexed="true" stored="true" required="false" multiValued="true" />
-   <field name="typicalQuire" type="int" indexed="true" stored="true" required="false" multiValued="true" />
-   <field name="columns" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-   <field name="glossPlace" type="string" indexed="true" stored="true" required="true" multiValued="false" />
-   <field name="runningHeads" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="presentState" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="quireTotal" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="typicalQuire" type="string" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="columns" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="glossPlace" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="runningHeads" type="string" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="glossHeadings" type="text_fr" indexed="true" stored="true" required="false" multiValued="true" />
-   <field name="material" type="text_en" indexed="true" stored="true" required="true" multiValued="false" />
+   <field name="material" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="bindDate" type="string" indexed="true" stored="true" required="false" multiValued="true" />
    
    <field name="rubricNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
@@ -78,7 +78,7 @@
    <!-- Bibliography information -->
    <field name="bibAuthor" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="articleTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
-   <field name="bookOrJournalTitle" type="text_general" indexed="true" stored="true" required="true" multiValued="true" />
+   <field name="bookOrJournalTitle" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="publicationInfo" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    
  </fields>

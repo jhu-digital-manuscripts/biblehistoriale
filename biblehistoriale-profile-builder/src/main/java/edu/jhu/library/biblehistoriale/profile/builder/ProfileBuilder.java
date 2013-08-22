@@ -5,6 +5,7 @@ import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
+import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -18,7 +19,10 @@ import org.xml.sax.SAXException;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
 import edu.jhu.library.biblehistoriale.model.profile.Classification;
+import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
+import edu.jhu.library.biblehistoriale.model.profile.Folios;
 import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
+import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
 import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
 import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
@@ -60,11 +64,8 @@ public class ProfileBuilder {
     }
     
     public static Bible buildProfile(Path path) {
-        String[] tokens = path.toString().split("/");
-        String filename = tokens[tokens.length - 1];
-        
         try {
-            return buildProfile(filename, createDocument(path));
+            return buildProfile(path.toString(), createDocument(path));
         } catch (SAXException e) {
             
         } catch (IOException e) {
@@ -132,7 +133,5 @@ public class ProfileBuilder {
         
         return bible;
     }
-    
-    
     
 }

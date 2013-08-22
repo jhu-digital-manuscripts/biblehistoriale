@@ -20,6 +20,8 @@ import edu.jhu.library.biblehistoriale.model.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.QueryResult;
 import edu.jhu.library.biblehistoriale.model.TermField;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
+import edu.jhu.library.biblehistoriale.model.profile.Classification;
+import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
 import edu.jhu.library.biblehistoriale.profile.builder.ProfileBuilder;
 
 public class SolrSearchServiceTest {
@@ -47,42 +49,150 @@ public class SolrSearchServiceTest {
     }
 
     @Test
-    public void testExecuteQuery() throws Exception {
-        Query query = new Query(QueryOperation.OR, new Query(TermField.TITLE,
-                "moo"), new Query(TermField.TITLE, "gorilla"));
-        QueryOptions opts = new QueryOptions();
-
-        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
-
-        assertEquals(0, result.getTotal());
-    }
-    
-    @Test
     public void testIndex() throws Exception {
-        final String filename = "profiles/BrusselsKBR9001-2.xml";
+        final String[] filename = {
+                "profiles/BrusselsKBR9001-2.xml",
+                "profiles/VatBarbLat613.xml"
+        };
         
-        Path path = Paths.get(
-                this.getClass().getClassLoader().getResource(filename)
-                .toString().substring(6));
+        Path[] path = {
+                Paths.get(this.getClass().getClassLoader().getResource(filename[0])
+                        .toString().substring(6)),
+                Paths.get(this.getClass().getClassLoader().getResource(filename[1])
+                        .toString().substring(6))
+        };
+                
         
-        Bible profile = ProfileBuilder.buildProfile(path);
+        Bible[] profile = {
+                ProfileBuilder.buildProfile(path[0]),
+                ProfileBuilder.buildProfile(path[1])
+        };
         
-        // Clear index, then add the new profile
+        // Clear index, then add the new profiles
         try {
             service.clear();
-            service.index(profile);
+            service.index(profile[0]);
+            service.index(profile[1]);
         } catch (SearchServiceException e) {
             fail();
         }
         
+        QueryOptions opts = new QueryOptions();
         Query query = new Query(TermField.TITLE, "La S. Bible");
-        QueryResult<QueryMatch> result = service.executeQuery(query,
-                new QueryOptions());
+        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
         
         assertEquals(1, result.getTotal());
+        System.out.println();
         System.out.println(result.matches().get(0).getId());
+        System.out.println(result.matches().get(0).getContext());
         
-        testExecuteQuery();
+        query = null;
+        result = null;
+        query = new Query(TermField.PEOPLE, "sneddon");
+        result = service.executeQuery(query, opts);
+        
+        assertEquals(2, result.getTotal());
+        System.out.println();
+        System.out.println(result.matches().get(0).getId());
+        System.out.println(result.matches().get(0).getContext());
+        System.out.println(result.matches().get(1).getId());
+        System.out.println(result.matches().get(1).getContext());
+        
+        query = null;
+        result = null;
+        query = new Query(QueryOperation.OR, new Query(TermField.TEXT, "vs. the world"),
+                new Query(TermField.PEOPLE, "Scott Pilgrim"));
+        result = service.executeQuery(query, opts);
+        assertEquals(0, result.getTotal());
+        
+        System.out.println();
+    }
+    
+    @Test
+    public void testExecuteQuery() throws Exception {
+        final String[] title = {
+                "Test Bible 1", "Test Bible 2", "The Far Side Gallery"
+        };
+        final String[] id = {
+                "TestBible1-ID1", "TestBible2-ID2", "BizarreComics01"
+        };
+        final String[] physicalNote = {
+                "", "Suffering water damage from that one time it caught fire, and someone threw wine on it",
+                "Grease marks from people reading it while eating burgers"
+        };
+        
+        Bible[] bibles = new Bible[3];
+        
+        service.clear();
+        for (int i = 0; i < bibles.length; i++) {
+            Bible bible = new Bible();
+            PhysicalCharacteristics phys = new PhysicalCharacteristics();
+            Classification classif = new Classification();
+            
+            bibles[i] = bible;
+            
+            bible.setId(id[i]);
+            bible.setPhysChar(phys);
+            bible.setClassification(classif);
+            
+            phys.setPhysicaNotes(physicalNote[i]);
+            classif.setCoverTitle(title[i]);
+            
+            service.index(bible);
+        }
+        
+        testOrs();
+        testAnds();
+    }
+
+    private void testAnds() throws Exception {
+        QueryOptions opts = new QueryOptions();
+        Query query = new Query(QueryOperation.AND,
+                new Query(TermField.TITLE, "bible"),
+                new Query(TermField.PHYS_CHAR, "water damage"));
+        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        
+        assertEquals(1, result.getTotal());
+        
+        query = new Query(QueryOperation.AND,
+                new Query(TermField.TITLE, "test"),
+                new Query(TermField.TITLE, "far side"));
+        result = service.executeQuery(query, opts);
+        
+        assertEquals(0, result.getTotal());
+        
+        query = new Query(QueryOperation.AND,
+                new Query(TermField.TITLE, "far side"));
+        result = service.executeQuery(query, opts);
+        assertEquals(1, result.getTotal());
+    }
+
+    private void testOrs() throws Exception {
+        QueryOptions opts = new QueryOptions();
+        Query query = new Query(QueryOperation.OR, new Query(TermField.TITLE,
+                "moo"), new Query(TermField.TITLE, "gorilla"));
+        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+
+        assertEquals(0, result.getTotal());
+        
+        query = new Query(
+                QueryOperation.OR,
+                new Query(TermField.TITLE, "far side"),
+                new Query(TermField.PHYS_CHAR, "water damage")
+        );
+        result = service.executeQuery(query, opts);
+        assertEquals(2, result.getTotal());
+        
+        query = new Query(QueryOperation.OR,
+                new Query(TermField.TITLE, "bible"));
+        result = service.executeQuery(query, opts);
+        assertEquals(2, result.getTotal());
+        
+        query = new Query(QueryOperation.OR,
+                new Query(TermField.NOTES, "jfa oi)(^&*( //\\")
+        );
+        result = service.executeQuery(query, opts);
+        assertEquals(0, result.getTotal());
     }
     
 }

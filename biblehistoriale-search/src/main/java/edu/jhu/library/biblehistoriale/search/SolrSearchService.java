@@ -146,8 +146,8 @@ public class SolrSearchService {
         QueryResponse resp;
 
         try {
-            // TODO enable highlighting with solr params
-
+            // Highlighting setup in config.xml
+            
             resp = solr.search(solr_query, (int) offset, max_matches);
         } catch (SolrServerException e) {
             throw new SearchServiceException(e);
@@ -191,7 +191,6 @@ public class SolrSearchService {
 
     public void index(Bible profile) throws SearchServiceException {
         try {
-            // TODO do the transform to a SolrInputDocument
             solr.add(buildSolrInputDocument(profile));
         } catch (SolrServerException | IOException e) {
             throw new SearchServiceException(e);

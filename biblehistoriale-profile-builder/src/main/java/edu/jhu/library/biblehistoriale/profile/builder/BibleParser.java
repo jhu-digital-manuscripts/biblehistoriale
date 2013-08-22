@@ -59,25 +59,24 @@ public class BibleParser {
         return null;
     }
     
-    public static int getIntegerAttribute(Node node, String attribute) {
+    public static int getIntegerAttribute(Node node, String attribute) 
+            throws ProfileBuilderException {
         
         try {
             return Integer.parseInt(
                     getAttributeValue(node, attribute));
         } catch (NumberFormatException e) {
-            // TODO
+            throw new ProfileBuilderException(e);
         }
-        
-        return -1;
     }
     
-    public static int getIntegerElement(Node node) {
+    public static int getIntegerElement(Node node) throws ProfileBuilderException {
         
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             try {
                 return Integer.parseInt(node.getTextContent());
             } catch (NumberFormatException e) {
-                // TODO
+                throw new ProfileBuilderException(e);
             }
         }
         
@@ -142,7 +141,8 @@ public class BibleParser {
         return entry;
     }
 
-    public static TextualContent parseTextualContent(Node bible_child) {
+    public static TextualContent parseTextualContent(Node bible_child) 
+            throws ProfileBuilderException {
         TextualContent content = new TextualContent();
         
         List<PrefatoryMatter> prefactories =
@@ -183,7 +183,7 @@ public class BibleParser {
         return content;
     }
 
-    private static MiscContent miscContent(Node child) {
+    private static MiscContent miscContent(Node child) throws ProfileBuilderException {
         MiscContent misc = new MiscContent();
         
         Node node = child.getFirstChild();
@@ -201,7 +201,8 @@ public class BibleParser {
         return misc;
     }
 
-    private static ParascripturalItem parascripturalItem(Node child) {
+    private static ParascripturalItem parascripturalItem(Node child) 
+            throws ProfileBuilderException {
         ParascripturalItem item = new ParascripturalItem();
         
         List<CatechismsPrayersTreatise> treatises = 
@@ -258,7 +259,8 @@ public class BibleParser {
         return item;
     }
 
-    private static CatechismsPrayersTreatise treatise(Node node) {
+    private static CatechismsPrayersTreatise treatise(Node node) 
+            throws ProfileBuilderException {
         CatechismsPrayersTreatise treatise = 
                 new CatechismsPrayersTreatise();
         
@@ -281,7 +283,7 @@ public class BibleParser {
         return treatise;
     }
 
-    private static BibleBooks bibleBook(Node child) {
+    private static BibleBooks bibleBook(Node child) throws ProfileBuilderException {
         BibleBooks books = new BibleBooks();
         
         List<Title> titles = new ArrayList<Title> ();
@@ -339,7 +341,8 @@ public class BibleParser {
         return title;
     }
 
-    private static PrefatoryMatter prefatoryMatter(Node child) {
+    private static PrefatoryMatter prefatoryMatter(Node child) 
+            throws ProfileBuilderException {
         PrefatoryMatter matter = new PrefatoryMatter();
         
         List<OtherPreface> others = new ArrayList<OtherPreface> ();
@@ -445,7 +448,8 @@ public class BibleParser {
         return incipit;
     }
 
-    public static Classification parseClassification(Node bible_child) {
+    public static Classification parseClassification(Node bible_child) 
+            throws ProfileBuilderException {
         Classification classification = new Classification();
         
         NodeList children = bible_child.getChildNodes();
@@ -509,7 +513,8 @@ public class BibleParser {
         return classification;
     }
 
-    private static CatalogerClassification catalogerClassification(Node child) {
+    private static CatalogerClassification catalogerClassification(Node child) 
+            throws ProfileBuilderException {
         CatalogerClassification cc = new CatalogerClassification();
         
         NodeList nodes = child.getChildNodes();
@@ -582,7 +587,8 @@ public class BibleParser {
         return sneddon;
     }
 
-    public static IllustrationList parseIllustrations(Node bible_child) {
+    public static IllustrationList parseIllustrations(Node bible_child) 
+            throws ProfileBuilderException {
         IllustrationList ills = new IllustrationList();
         
         NodeList children = bible_child.getChildNodes();
@@ -612,7 +618,7 @@ public class BibleParser {
         return ills;
     }
 
-    private static Illustration illustration(Node node) {
+    private static Illustration illustration(Node node) throws ProfileBuilderException {
         Illustration ill = new Illustration();
         
         NodeList children = node.getChildNodes();
@@ -635,7 +641,8 @@ public class BibleParser {
         return ill;
     }
 
-    private static DecorationSummary decorationSummary(Node child) {
+    private static DecorationSummary decorationSummary(Node child) 
+            throws ProfileBuilderException {
         DecorationSummary summary = new DecorationSummary();
         
         NodeList nodes = child.getChildNodes();
@@ -662,7 +669,8 @@ public class BibleParser {
         return summary;
     }
 
-    public static ProvenPatronHistory parsePatronHist(Node bible_child) {
+    public static ProvenPatronHistory parsePatronHist(Node bible_child) 
+            throws ProfileBuilderException {
         ProvenPatronHistory hist = new ProvenPatronHistory();
         
         NodeList children = bible_child.getChildNodes();
@@ -693,7 +701,7 @@ public class BibleParser {
         return hist;
     }
 
-    private static Annotation annotation(Node child) {
+    private static Annotation annotation(Node child) throws ProfileBuilderException {
         Annotation ann = new Annotation();
         
         NodeList nodes = child.getChildNodes();
@@ -720,7 +728,8 @@ public class BibleParser {
         return ann;
     }
 
-    private static Personalization personalization(Node child) {
+    private static Personalization personalization(Node child) 
+            throws ProfileBuilderException {
         Personalization person = new Personalization();
         
         NodeList nodes = child.getChildNodes();
@@ -767,7 +776,7 @@ public class BibleParser {
         return person;
     }
     
-    private static Signature signature(Node child) {
+    private static Signature signature(Node child) throws ProfileBuilderException {
         Signature sig = new Signature();
         
         PersonalizationItem item = personalizationItem(child);
@@ -790,7 +799,8 @@ public class BibleParser {
         return sig;
     }
 
-    private static PersonalizationItem personalizationItem(Node node) {
+    private static PersonalizationItem personalizationItem(Node node) 
+            throws ProfileBuilderException {
         PersonalizationItem item = new PersonalizationItem();
         
         item.setValue(getElementText(node));
@@ -800,7 +810,7 @@ public class BibleParser {
         return item;
     }
 
-    private static Ownership ownership(Node child) {
+    private static Ownership ownership(Node child) throws ProfileBuilderException {
         Ownership ownership = new Ownership();
         
         NodeList nodes = child.getChildNodes();
@@ -819,7 +829,7 @@ public class BibleParser {
         return ownership;
     }
 
-    private static Owner owner(Node node) {
+    private static Owner owner(Node node) throws ProfileBuilderException {
         Owner owner = new Owner();
         
         NodeList nodes = node.getChildNodes();
@@ -846,7 +856,7 @@ public class BibleParser {
         return owner;
     }
 
-    private static Production production(Node child) {
+    private static Production production(Node child) throws ProfileBuilderException {
         Production prod = new Production();
         
         NodeList nodes = child.getChildNodes();
@@ -886,7 +896,8 @@ public class BibleParser {
         return prod;
     }
 
-    public static PhysicalCharacteristics parsePhysChar(Node node) {
+    public static PhysicalCharacteristics parsePhysChar(Node node) 
+               throws ProfileBuilderException {
         PhysicalCharacteristics phys_char = new PhysicalCharacteristics();
         
         NodeList children = node.getChildNodes();
@@ -897,7 +908,6 @@ public class BibleParser {
         List<String> underlinings = new ArrayList<String> ();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
-            //String child_name = child.getNodeName();
             
             if (name(child).equals("volumes")) {
                 phys_char.setVolumes(volumes(child));
@@ -932,7 +942,7 @@ public class BibleParser {
         return phys_char;
     }
 
-    private static Materials materials(Node child) {
+    private static Materials materials(Node child) throws ProfileBuilderException {
         Materials mats = new Materials();
         
         NodeList nodes = child.getChildNodes();
@@ -983,7 +993,7 @@ public class BibleParser {
         return layout;
     }
 
-    private static QuireStructure quireStruct(Node child) {
+    private static QuireStructure quireStruct(Node child) throws ProfileBuilderException {
         QuireStructure struct = new QuireStructure();
         
         NodeList nodes = child.getChildNodes();
@@ -995,7 +1005,6 @@ public class BibleParser {
         
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
-            //String name = node.getNodeName();
             
             if (name(node).equals("quireTotal")) {
                 total.add(getIntegerAttribute(node, "number"));
@@ -1017,7 +1026,7 @@ public class BibleParser {
         return struct;
     }
 
-    private static Folios folios(Node child) {
+    private static Folios folios(Node child) throws ProfileBuilderException {
         Folios folios = new Folios();
         
         NodeList nodes = child.getChildNodes();
@@ -1043,20 +1052,19 @@ public class BibleParser {
         return folios;
     }
 
-    private static Dimensions dimensions(Node child) {
+    private static Dimensions dimensions(Node child) throws ProfileBuilderException {
         Dimensions dims = new Dimensions();
         
         NodeList nodes = child.getChildNodes();
         
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
-            //String node_name = node.getNodeName();
             
             if (name(node).equals("page")) {
                 dims.setPage(node.getTextContent());
             } else if (name(node).equals("textBlock")) {
                 dims.setTextBlock(node.getTextContent());
-            } // TODO throw exception if unsupported tag found
+            }
         }
         
         dims.setUnits(getAttributeValue(child, "units"));
