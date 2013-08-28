@@ -70,7 +70,7 @@ public class ProfilBuilderTest {
     private Bible bible;
     
     @Before
-    public void  setup() throws SAXException, IOException {
+    public void  setup() throws SAXException, IOException, ProfileBuilderException {
         bible = null;
         
         Path path = Paths.get(

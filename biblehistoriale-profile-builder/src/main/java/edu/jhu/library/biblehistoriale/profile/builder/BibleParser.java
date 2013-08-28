@@ -7,6 +7,7 @@ import org.w3c.dom.Element;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
+import edu.jhu.library.biblehistoriale.model.ProfileElements;
 import edu.jhu.library.biblehistoriale.model.profile.Annotation;
 import edu.jhu.library.biblehistoriale.model.profile.Berger;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
@@ -63,6 +64,12 @@ public class BibleParser {
             throws ProfileBuilderException {
         
         try {
+            String val = getAttributeValue(node, attribute);
+            
+            if (val == null || val.equals("")) {
+                return -1;
+            }
+            
             return Integer.parseInt(
                     getAttributeValue(node, attribute));
         } catch (NumberFormatException e) {
@@ -74,6 +81,12 @@ public class BibleParser {
         
         if (node.getNodeType() == Node.ELEMENT_NODE) {
             try {
+                String val = node.getTextContent();
+                
+                if (val == null || val.equals("")) {
+                    return -1;
+                }
+                
                 return Integer.parseInt(node.getTextContent());
             } catch (NumberFormatException e) {
                 throw new ProfileBuilderException(e);
@@ -120,15 +133,15 @@ public class BibleParser {
         
         Node node = child.getFirstChild();
         while (node != null) {
-            if (name(node).equals("bibAuthor")) {
+            if (name(node).equals(ProfileElements.BIBAUTHOR)) {
                 authors.add(getElementText(node));
-            } else if (name(node).equals("articleTitle")) {
+            } else if (name(node).equals(ProfileElements.ARTICLETITLE)) {
                 entry.setArticleTitle(getElementText(node));
-            } else if (name(node).equals("bookOrJournalTitle")) {
+            } else if (name(node).equals(ProfileElements.BOOKORJOURNALTITLE)) {
                 entry.setBookOrJournalTitle(getElementText(node));
-            } else if (name(node).equals("publicationInfo")) {
+            } else if (name(node).equals(ProfileElements.PUBLICATIONINFO)) {
                 entry.setPublicationInfo(getElementText(node));
-            } else if (name(node).equals("articleLink")) {
+            } else if (name(node).equals(ProfileElements.ARTICLELINK)) {
                 links.add(getElementText(node));
             }
             
@@ -154,19 +167,19 @@ public class BibleParser {
         Node child = bible_child.getFirstChild();
         while (child != null) {
             
-            if (name(child).equals("prefatoryMatter")) {
+            if (name(child).equals(ProfileElements.PREFATORYMATTER)) {
                 PrefatoryMatter prefact = prefatoryMatter(child);
                 prefactories.add(prefact);
-            } else if (name(child).equals("bibleBooks")) {
+            } else if (name(child).equals(ProfileElements.BIBLEBOOKS)) {
                 BibleBooks book = bibleBook(child);
                 books.add(book);
-            } else if (name(child).equals("parascripturalItems")) {
+            } else if (name(child).equals(ProfileElements.PARASCRIPTURALITEMS)) {
                 ParascripturalItem item = parascripturalItem(child);
                 content.setParascripturalItem(item);
-            } else if (name(child).equals("miscContents")) {
+            } else if (name(child).equals(ProfileElements.MISCCONTENTS)) {
                 MiscContent misc = miscContent(child);
                 miscs.add(misc);
-            } else if (name(child).equals("notes")) {
+            } else if (name(child).equals(ProfileElements.NOTES)) {
                 notes.add(getElementText(child));
             }
             
@@ -174,7 +187,7 @@ public class BibleParser {
             
         }
         
-        content.setVolume(getIntegerAttribute(bible_child, "volume"));
+        content.setVolume(getIntegerAttribute(bible_child, ProfileElements.VOLUME));
         content.setPrefactoryMatters(prefactories);
         content.setBibleBooks(books);
         content.setMiscContents(miscs);
@@ -188,15 +201,15 @@ public class BibleParser {
         
         Node node = child.getFirstChild();
         while (node != null) {
-            if (name(node).equals("description")) {
+            if (name(node).equals(ProfileElements.DESCRIPTION)) {
                 misc.setDescription(getElementText(node));
             }
             node = node.getNextSibling();
         }
         
-        misc.setVolume(getIntegerAttribute(child, "volume"));
-        misc.setStartFolio(getAttributeValue(child, "startFolio"));
-        misc.setEndFolio(getAttributeValue(child, "endFolio"));
+        misc.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
+        misc.setStartFolio(getAttributeValue(child, ProfileElements.STARTFOLIO));
+        misc.setEndFolio(getAttributeValue(child, ProfileElements.ENDFOLIO));
         
         return misc;
     }
@@ -210,27 +223,27 @@ public class BibleParser {
         
         Node node = child.getFirstChild();
         while (node != null) {
-            if (name(node).equals("litany")) {
+            if (name(node).equals(ProfileElements.LITANY)) {
                 Node lit_node = node.getFirstChild();
                 while (lit_node != null) {
-                    if (name(lit_node).equals("placeOfOriginUse")) {
+                    if (name(lit_node).equals(ProfileElements.PLACEOFORIGINUSE)) {
                         item.setPlaceOfOriginUse(
                                 getElementText(lit_node));
                     }
                     lit_node = lit_node.getNextSibling();
                 }
                 
-                item.setForm(getAttributeValue(node, "form"));
-                item.setLocVol(getAttributeValue(node, "locVol"));
-                item.setLocStart(getAttributeValue(node, "locStart"));
-                item.setLocEnd(getAttributeValue(node, "locEnd"));
+                item.setForm(getAttributeValue(node, ProfileElements.FORM));
+                item.setLocVol(getAttributeValue(node, ProfileElements.LOCVOL));
+                item.setLocStart(getAttributeValue(node, ProfileElements.LOCSTART));
+                item.setLocEnd(getAttributeValue(node, ProfileElements.LOCEND));
                 item.setLitanyPresence(
-                        getAttributeValue(node, "presence"));
-                item.setSneddonId(getAttributeValue(node, "sneddonID"));
-            } else if (name(node).equals("canticles")) {
+                        getAttributeValue(node, ProfileElements.PRESENCE));
+                item.setSneddonId(getAttributeValue(node, ProfileElements.SNEDDONID));
+            } else if (name(node).equals(ProfileElements.CANTICLES)) {
                 Node can_node = node.getFirstChild();
                 while (can_node != null) {
-                    if (name(can_node).equals("canticleType")) {
+                    if (name(can_node).equals(ProfileElements.CANTICLETYPE)) {
                         item.setCanticleType(
                                 getElementText(can_node));
                     }
@@ -238,16 +251,16 @@ public class BibleParser {
                 }
                 
                 item.setCanticleEndFolio(
-                        getAttributeValue(node, "endFolio"));
+                        getAttributeValue(node, ProfileElements.ENDFOLIO));
                 item.setCanticleStartFolio(
-                        getAttributeValue(node, "startFolio"));
-                item.setVolume(getIntegerAttribute(node, "volume"));
+                        getAttributeValue(node, ProfileElements.STARTFOLIO));
+                item.setVolume(getIntegerAttribute(node, ProfileElements.VOLUME));
                 item.setCanticlePresence(
-                        getAttributeValue(node, "presence"));
-            } else if (name(node).equals("addedPrologue")) {
-                item.setJeanDeBlois(getAttributeValue(node, "jeanDeBlois"));
-                item.setJerome(getAttributeValue(node, "jerome"));
-            } else if (name(node).equals("catechismsPrayersTreatises")) {
+                        getAttributeValue(node, ProfileElements.PRESENCE));
+            } else if (name(node).equals(ProfileElements.ADDEDPROLOGUE)) {
+                item.setJeanDeBlois(getAttributeValue(node, ProfileElements.JEANDEBLOIS));
+                item.setJerome(getAttributeValue(node, ProfileElements.JEROME));
+            } else if (name(node).equals(ProfileElements.CATECHISMSPRAYERSTREATISES)) {
                 treatises.add(treatise(node));
             }
             
@@ -268,17 +281,17 @@ public class BibleParser {
         
         Node child = node.getFirstChild();
         while (child != null) {
-            if (name(child).equals("descriptionsFirstLines")) {
+            if (name(child).equals(ProfileElements.DESCRIPTIONSFIRSTLINES)) {
                 first_lines.add(getElementText(child));
             }
             child = child.getNextSibling();
         }
         
         treatise.setDescriptionsFirstLines(first_lines);
-        treatise.setPresence(getAttributeValue(node, "presence"));
-        treatise.setStartFolio(getAttributeValue(node, "startFolio"));
-        treatise.setEndFolio(getAttributeValue(node, "endFolio"));
-        treatise.setVolume(getIntegerAttribute(node, "volume"));
+        treatise.setPresence(getAttributeValue(node, ProfileElements.PRESENCE));
+        treatise.setStartFolio(getAttributeValue(node, ProfileElements.STARTFOLIO));
+        treatise.setEndFolio(getAttributeValue(node, ProfileElements.ENDFOLIO));
+        treatise.setVolume(getIntegerAttribute(node, ProfileElements.VOLUME));
         
         return treatise;
     }
@@ -290,14 +303,14 @@ public class BibleParser {
         
         Node node = child.getFirstChild();
         while (node != null) {
-            if (name(node).equals("title")) {
+            if (name(node).equals(ProfileElements.TITLE)) {
                 titles.add(title(node));
             }
             node = node.getNextSibling();
         }
         
         books.setTitles(titles);
-        books.setVolume(getIntegerAttribute(child, "volume"));
+        books.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
         
         return books;
     }
@@ -310,17 +323,17 @@ public class BibleParser {
         Node child = node.getFirstChild();
         while (child != null) {
             
-            if (name(child).equals("incipit")) {
+            if (name(child).equals(ProfileElements.INCIPIT)) {
                 TitleIncipit inc = title.new TitleIncipit();
                 
-                inc.setAccuracy(getAttributeValue(child, "accuracy"));
-                inc.setTextType(getAttributeValue(child, "textType"));
+                inc.setAccuracy(getAttributeValue(child, ProfileElements.ACCURACY));
+                inc.setTextType(getAttributeValue(child, ProfileElements.TEXTTYPE));
                 inc.setText(getElementText(child));
                 
                 incipits.add(inc);
-            } else if (name(child).equals("editions")) {
+            } else if (name(child).equals(ProfileElements.EDITIONS)) {
                 title.setEditions(getElementText(child));
-            } else if (name(child).equals("bookNote")) {
+            } else if (name(child).equals(ProfileElements.BOOKNOTE)) {
                 title.setBookNote(getElementText(child));
             }
             
@@ -328,15 +341,15 @@ public class BibleParser {
         }
         
         title.setIncipit(incipits);
-        title.setBookName(getAttributeValue(node, "bookName"));
-        title.setHasChapterNames(getAttributeValue(node, "chapterNames"));
-        title.setStartPage(getAttributeValue(node, "startPage"));
-        title.setGlossType(getAttributeValue(node, "glossType"));
-        title.setGlossType2(getAttributeValue(node, "glossType2"));
-        title.setEndPage(getAttributeValue(node, "endPage"));
+        title.setBookName(getAttributeValue(node, ProfileElements.BOOKNAME));
+        title.setHasChapterNames(getAttributeValue(node, ProfileElements.CHAPTERNAMES));
+        title.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
+        title.setGlossType(getAttributeValue(node, ProfileElements.GLOSSTYPE));
+        title.setGlossType2(getAttributeValue(node, ProfileElements.GLOSSTYPE2));
+        title.setEndPage(getAttributeValue(node, ProfileElements.ENDPAGE));
         title.setHasTableOfContents(
-                getAttributeValue(node, "tableOfContents").equals("y"));
-        title.setTextVersion(getAttributeValue(node, "textVersion"));
+                getAttributeValue(node, ProfileElements.TABLEOFCONTENTS).equals("y"));
+        title.setTextVersion(getAttributeValue(node, ProfileElements.TEXTVERSION));
         
         return title;
     }
@@ -353,46 +366,46 @@ public class BibleParser {
         Node node = child.getFirstChild();
         while (node != null) {
             
-            if (name(node).equals("otherPreface")) {
+            if (name(node).equals(ProfileElements.OTHERPREFACE)) {
                 OtherPreface other = new OtherPreface();
                 
                 other.setText(getElementText(node));
-                other.setAccuracy(getAttributeValue(node, "accuracy"));
-                other.setStartPage(getAttributeValue(node, "startPage"));
+                other.setAccuracy(getAttributeValue(node, ProfileElements.ACCURACY));
+                other.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
                 
                 others.add(other);
-            } else if (name(node).equals("guyart")) {
+            } else if (name(node).equals(ProfileElements.GUYART)) {
                 guyarts.add(guyart(node));
-            } else if (name(node).equals("comestorLetter")) {
+            } else if (name(node).equals(ProfileElements.COMESTORLETTER)) {
                 letters.add(comestorLetter(node));
-            } else if (name(node).equals("MasterTableOfContents")) {
+            } else if (name(node).equals(ProfileElements.MASTERTABLEOFCONTENTS)) {
                 MasterTableOfContents master = new MasterTableOfContents();
                 
-                master.setStartPage(getAttributeValue(node, "startPage"));
+                master.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
                 master.setTableDetail(
-                        getAttributeValue(node, "tableDetail"));
+                        getAttributeValue(node, ProfileElements.TABLEDETAIL));
                 master.setMatchesContents(
-                        getAttributeValue(node, "matchesContents")
+                        getAttributeValue(node, ProfileElements.MATCHESCONTENTS)
                         .equals("y"));
                 master.setText(getElementText(node));
                 
                 matter.setMasterTableOfContents(master);
-            } else if (name(node).equals("comestor")) {
+            } else if (name(node).equals(ProfileElements.COMESTOR)) {
                 OtherPreface other = new OtherPreface();
                 
                 other.setText(getElementText(node));
-                other.setAccuracy(getAttributeValue(node, "accuracy"));
-                other.setStartPage(getAttributeValue(node, "startPage"));
+                other.setAccuracy(getAttributeValue(node, ProfileElements.ACCURACY));
+                other.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
                 
                 comestors.add(other);
-            } else if (name(node).equals("prefatoryNote")) {
+            } else if (name(node).equals(ProfileElements.PREFATORYNOTE)) {
                 matter.setPrefactoryNote(getElementText(node));
             }
             
             node = node.getNextSibling();
         }
         
-        matter.setVolume(getIntegerAttribute(child, "volume"));
+        matter.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
         matter.setOtherPrefaces(others);
         matter.setGuyartList(guyarts);
         matter.setComestorLetters(letters);
@@ -408,14 +421,14 @@ public class BibleParser {
         
         Node child = node.getFirstChild();
         while (child != null) {
-            if (name(child).equals("incipit")) {
+            if (name(child).equals(ProfileElements.INCIPIT)) {
                 incipits.add(incipit(child));
             }
             child = child.getNextSibling();
         }
         
         letter.setIncipits(incipits);
-        letter.setStartPage(getAttributeValue(node, "startPage"));
+        letter.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
         
         return letter;
     }
@@ -425,15 +438,15 @@ public class BibleParser {
         
         Node child = node.getFirstChild();
         while (child != null) {
-            if (name(child).equals("incipit")) {
+            if (name(child).equals(ProfileElements.INCIPIT)) {
                 guy.setIncipit(incipit(child));
             }
             child = child.getNextSibling();
         }
         
-        guy.setStartPage(getAttributeValue(node, "startPage"));
+        guy.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
         guy.setContainsGuyartName(
-                getAttributeValue(node, "containsGuyartName")
+                getAttributeValue(node, ProfileElements.CONTAINSGUYARTNAME)
                 .equals("y"));
         
         return guy;
@@ -442,7 +455,7 @@ public class BibleParser {
     private static Incipit incipit(Node node) {
         Incipit incipit = new Incipit();
         
-        incipit.setAccuracy(getAttributeValue(node, "accuracy"));
+        incipit.setAccuracy(getAttributeValue(node, ProfileElements.ACCURACY));
         incipit.setText(getElementText(node));
         
         return incipit;
@@ -457,54 +470,54 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("shelfmarks")) {
+            if (name(child).equals(ProfileElements.SHELFMARKS)) {
                 List<String> former_shelfmarks = new ArrayList<String> ();
                 
                 NodeList nodes = child.getChildNodes();
                 for (int j = 0; j < nodes.getLength(); j++) {
                     Node node = nodes.item(j);
                     
-                    if (name(node).equals("currentCity")) {
+                    if (name(node).equals(ProfileElements.CURRENTCITY)) {
                         classification.setCurrentCity(
                                 getElementText(node));
-                    } else if (name(node).equals("currentRepository")) {
+                    } else if (name(node).equals(ProfileElements.CURRENTREPOSITORY)) {
                         classification.setCurrentRepository(
                                 getElementText(node));
-                    } else if (name(node).equals("currentShelfmark")) {
+                    } else if (name(node).equals(ProfileElements.CURRENTSHELFMARK)) {
                         classification.setCurrentShelfmark(
                                 getElementText(node));
-                    } else if (name(node).equals("formerShelfmark")) {
+                    } else if (name(node).equals(ProfileElements.FORMERSHELFMARK)) {
                         former_shelfmarks.add(
                                 getElementText(node));
-                    } else if (name(node).equals("repositoryLink")) {
+                    } else if (name(node).equals(ProfileElements.REPOSITORYLINK)) {
                         classification.setRepositoryLink(
                                 getElementText(node));
                     }
                 }
                 
                 classification.setFormerShelfmarks(former_shelfmarks);
-            } else if (name(child).equals("titles")) {
+            } else if (name(child).equals(ProfileElements.TITLES)) {
                 NodeList nodes = child.getChildNodes();
                 
                 for (int j = 0; j < nodes.getLength(); j++) {
                     Node node = nodes.item(j);
                     
-                    if (name(node).equals("coverTitle")) {
+                    if (name(node).equals(ProfileElements.COVERTITLE)) {
                         classification.setCoverTitle(
                                 getElementText(node));
-                    } else if (name(node).equals("rubricTitle")) {
+                    } else if (name(node).equals(ProfileElements.RUBRICTITLE)) {
                         classification.setRubricTitle(
                                 getElementText(node));
                     }
                 }
-            } else if (name(child).equals("bookType")) {
+            } else if (name(child).equals(ProfileElements.BOOKTYPE)) {
                 BookType type = new BookType();
                 
-                type.setType(getAttributeValue(child, "collectionType"));
-                type.setTech(getAttributeValue(child, "technology"));
+                type.setType(getAttributeValue(child, ProfileElements.COLLECTIONTYPE));
+                type.setTech(getAttributeValue(child, ProfileElements.TECHNOLOGY));
                 
                 classification.setBookType(type);
-            } else if (name(child).equals("catalogerClassifications")) {
+            } else if (name(child).equals(ProfileElements.CATALOGERCLASSIFICATIONS)) {
                 classification.setClassification(
                         catalogerClassification(child));
             }
@@ -523,38 +536,38 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("bergerClass")) {
+            if (name(node).equals(ProfileElements.BERGERCLASS)) {
                 Berger berger = new Berger();
                 
-                berger.setCategory(getAttributeValue(node, "category"));
+                berger.setCategory(getAttributeValue(node, ProfileElements.CATEGORY));
                 berger.setBhcSubtype(
-                        getAttributeValue(node, "bhcSubtype"));
+                        getAttributeValue(node, ProfileElements.BHCSUBTYPE));
                 
                 cc.setBergerClass(berger);
-            } else if (name(node).equals("sneddonClass")) {
+            } else if (name(node).equals(ProfileElements.SNEDDONCLASS)) {
                 cc.setSneddonClass(sneddon(node));
-            } else if (name(node).equals("fournieCatalog")) {
+            } else if (name(node).equals(ProfileElements.FOURNIECATALOG)) {
                 NodeList fournies = node.getChildNodes();
                 
                 for (int j = 0; j < fournies.getLength(); j++) {
                     Node fournie = fournies.item(j);
                     
-                    if (name(fournie).equals("fournieNumber")) {
+                    if (name(fournie).equals(ProfileElements.FOURNIENUMBER)) {
                         cc.setFournieNumber(
                                 getElementText(fournie));
-                    } else if (name(fournie).equals("fournieLink")) {
+                    } else if (name(fournie).equals(ProfileElements.FOURNIELINK)) {
                         cc.setFournieLink(
                                 getElementText(fournie));
                     }
                 }
-            } else if (name(node).equals("secundoFolio")) {
+            } else if (name(node).equals(ProfileElements.SECUNDOFOLIO)) {
                 SecundoFolio secundo = new SecundoFolio();
                 
                 secundo.setValue(getElementText(node));
-                secundo.setVolume(getIntegerAttribute(node, "volume"));
+                secundo.setVolume(getIntegerAttribute(node, ProfileElements.VOLUME));
                 
                 secundos.add(secundo);
-            } else if (name(node).equals("classificationNotes")) {
+            } else if (name(node).equals(ProfileElements.CLASSIFICATIONNOTES)) {
                 cc.setClassificationNote(getElementText(node));
             }
         }
@@ -572,17 +585,17 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("siglum")) {
+            if (name(child).equals(ProfileElements.SIGLUM)) {
                 sneddon.setSiglum(getElementText(child));
-            } else if (name(child).equals("entry")) {
+            } else if (name(child).equals(ProfileElements.ENTRY)) {
                 sneddon.setEntry(getElementText(child));
             }
         }
         
-        sneddon.setCategory(getAttributeValue(node, "category"));
-        sneddon.setSub1(getAttributeValue(node, "subcategory1"));
-        sneddon.setSub2(getAttributeValue(node, "subcategory2"));
-        sneddon.setSub3(getAttributeValue(node, "subcategory3"));
+        sneddon.setCategory(getAttributeValue(node, ProfileElements.CATEGORY));
+        sneddon.setSub1(getAttributeValue(node, ProfileElements.SUBCATEGORY1));
+        sneddon.setSub2(getAttributeValue(node, ProfileElements.SUBCATEGORY2));
+        sneddon.setSub3(getAttributeValue(node, ProfileElements.SUBCATEGORY3));
         
         return sneddon;
     }
@@ -597,20 +610,20 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("decorationSummary")) {
+            if (name(child).equals(ProfileElements.DECORATIONSUMMARY)) {
                 ills.setDecorationSummary(decorationSummary(child));
-            } else if (name(child).equals("illustrationList")) {
+            } else if (name(child).equals(ProfileElements.ILLUSTRATIONLIST)) {
                 NodeList nodes = child.getChildNodes();
                 for (int j = 0; j < nodes.getLength(); j++) {
                     Node node = nodes.item(j);
                     
-                    if (name(node).equals("illustration")) {
+                    if (name(node).equals(ProfileElements.ILLUSTRATION)) {
                         Illustration ill = illustration(node);
                         illustrations.add(ill);
                     }
                 }
                 ills.setIllustrations(illustrations);
-            } else if (name(child).equals("illustrationNote")) {
+            } else if (name(child).equals(ProfileElements.ILLUSTRATIONNOTE)) {
                 ills.setIllustrationNote(getElementText(child));
             }
         }
@@ -626,17 +639,17 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("keywords")) {
+            if (name(child).equals(ProfileElements.KEYWORDS)) {
                 ill.setKeywords(getElementText(child));
-            } else if (name(child).equals("link")) {
+            } else if (name(child).equals(ProfileElements.LINK)) {
                 ill.setUrl(getElementText(child));
             }
         }
         
-        ill.setBook(getAttributeValue(node, "book"));
-        ill.setFolio(getAttributeValue(node, "folio"));
-        ill.setNumber(getIntegerAttribute(node, "number"));
-        ill.setVolume(getIntegerAttribute(node, "volume"));
+        ill.setBook(getAttributeValue(node, ProfileElements.BOOK));
+        ill.setFolio(getAttributeValue(node, ProfileElements.FOLIO));
+        ill.setNumber(getIntegerAttribute(node, ProfileElements.NUMBER));
+        ill.setVolume(getIntegerAttribute(node, ProfileElements.VOLUME));
         
         return ill;
     }
@@ -651,20 +664,20 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("artistWorkshop")) {
+            if (name(node).equals(ProfileElements.ARTISTWORKSHOP)) {
                 workshops.add(getElementText(node));
             }
         }
         
         summary.setArtistWorkshops(workshops);
-        summary.setBasDePage(getAttributeValue(child, "basDePage"));
+        summary.setBasDePage(getAttributeValue(child, ProfileElements.BASDEPAGE));
         summary.setDecoratedInitials(
-                getAttributeValue(child, "decoratedInitials"));
+                getAttributeValue(child, ProfileElements.DECORATEDINITIALS));
         summary.setFoliateBorder(
-                getAttributeValue(child, "foliateBorder"));
-        summary.setIllStyle(getAttributeValue(child, "illStyle"));
-        summary.setLargeIlls(getIntegerAttribute(child, "largeIlls"));
-        summary.setNumber(getIntegerAttribute(child, "number"));
+                getAttributeValue(child, ProfileElements.FOLIATEBORDER));
+        summary.setIllStyle(getAttributeValue(child, ProfileElements.ILLSTYLE));
+        summary.setLargeIlls(getIntegerAttribute(child, ProfileElements.LARGEILLS));
+        summary.setNumber(getIntegerAttribute(child, ProfileElements.NUMBER));
         
         return summary;
     }
@@ -681,15 +694,15 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("production")) {
+            if (name(child).equals(ProfileElements.PRODUCTION)) {
                 hist.setProduction(production(child));
-            } else if (name(child).equals("ownership")) {
+            } else if (name(child).equals(ProfileElements.OWNERSHIP)) {
                 owners.add(ownership(child));
-            } else if (name(child).equals("personalization")) {
+            } else if (name(child).equals(ProfileElements.PERSONALIZATION)) {
                 hist.setPersonalization(personalization(child));
-            } else if (name(child).equals("annotation")) {
+            } else if (name(child).equals(ProfileElements.ANNOTATION)) {
                 annotations.add(annotation(child));
-            } else if (name(child).equals("provenanceNote")) {
+            } else if (name(child).equals(ProfileElements.PROVENANCENOTE)) {
                 provenances.add(getElementText(child));
             }
         }
@@ -709,21 +722,21 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("name")) {
+            if (name(node).equals(ProfileElements.NAME)) {
                 ann.setName(getElementText(node));
-            } else if (name(node).equals("date")) {
+            } else if (name(node).equals(ProfileElements.DATE)) {
                 ann.setDate(getElementText(node));
-            } else if (name(node).equals("textReferenced")) {
+            } else if (name(node).equals(ProfileElements.TEXTREFERENCED)) {
                 ann.setTextReferenced(getElementText(node));
-            } else if (name(node).equals("text")) {
+            } else if (name(node).equals(ProfileElements.TEXT)) {
                 ann.setText(getElementText(node));
             }
         }
         
-        ann.setBook(getAttributeValue(child, "book"));
-        ann.setVolume(getIntegerAttribute(child, "volume"));
-        ann.setFolio(getAttributeValue(child, "folio"));
-        ann.setType(getAttributeValue(child, "type"));
+        ann.setBook(getAttributeValue(child, ProfileElements.BOOK));
+        ann.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
+        ann.setFolio(getAttributeValue(child, ProfileElements.FOLIO));
+        ann.setType(getAttributeValue(child, ProfileElements.TYPE));
         
         return ann;
     }
@@ -749,19 +762,19 @@ public class BibleParser {
             Node node = nodes.item(i);
             //String name = node.getNodeName();
             
-            if (name(node).equals("signature")) {
+            if (name(node).equals(ProfileElements.SIGNATURE)) {
                 sigs.add(signature(node));
-            } else if (name(node).equals("dedication")) {
+            } else if (name(node).equals(ProfileElements.DEDICATION)) {
                 dedications.add(getElementText(node));
-            } else if (name(node).equals("legalInscriptions")) {
+            } else if (name(node).equals(ProfileElements.LEGALINSCRIPTIONS)) {
                 legals.add(personalizationItem(node));
-            } else if (name(node).equals("patronPortrait")) {
+            } else if (name(node).equals(ProfileElements.PATRONPORTRAIT)) {
                 patrons.add(personalizationItem(node));
-            } else if (name(node).equals("patronArms")) {
+            } else if (name(node).equals(ProfileElements.PATRONARMS)) {
                 arms.add(personalizationItem(node));
-            } else if (name(node).equals("colophon")) {
+            } else if (name(node).equals(ProfileElements.COLOPHON)) {
                 colophons.add(personalizationItem(node));
-            } else if (name(node).equals("purchasePrice")) {
+            } else if (name(node).equals(ProfileElements.PURCHASEPRICE)) {
                 person.setPurchasePrice(getElementText(node));
             }
         }
@@ -789,9 +802,9 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("name")) {
+            if (name(node).equals(ProfileElements.NAME)) {
                 sig.setName(getElementText(node));
-            } else if (name(node).equals("text")) {
+            } else if (name(node).equals(ProfileElements.TEXT)) {
                 sig.setText(getElementText(node));
             }
         }
@@ -804,8 +817,8 @@ public class BibleParser {
         PersonalizationItem item = new PersonalizationItem();
         
         item.setValue(getElementText(node));
-        item.setFolio(getAttributeValue(node, "folio"));
-        item.setVolume(getIntegerAttribute(node, "volume"));
+        item.setFolio(getAttributeValue(node, ProfileElements.FOLIO));
+        item.setVolume(getIntegerAttribute(node, ProfileElements.VOLUME));
         
         return item;
     }
@@ -819,7 +832,7 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("owner")) {
+            if (name(node).equals(ProfileElements.OWNER)) {
                 owners.add(owner(node));
             }
         }
@@ -838,15 +851,15 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node child = nodes.item(i);
             
-            if (name(child).equals("ownerName")) {
+            if (name(child).equals(ProfileElements.OWNERNAME)) {
                 owner.setOwnerName(getElementText(child));
-            } else if (name(child).equals("ownershipDate")) {
+            } else if (name(child).equals(ProfileElements.OWNERSHIPDATE)) {
                 owner.setOwnershipDate(getElementText(child));
                 owner.setOwnershipEndDate(getIntegerAttribute(
-                        child, "endYear"));
+                        child, ProfileElements.ENDYEAR));
                 owner.setOwnershipStartDate(getIntegerAttribute(
-                        child, "startYear"));
-            } else if (name(child).equals("ownerPlace")) {
+                        child, ProfileElements.STARTYEAR));
+            } else if (name(child).equals(ProfileElements.OWNERPLACE)) {
                 places.add(getElementText(child));
             }
         }
@@ -865,15 +878,15 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("prodDate")) {
+            if (name(node).equals(ProfileElements.PRODDATE)) {
                 prod.setProdDate(getElementText(node));
                 prod.setProdEndDate(getIntegerAttribute(
-                        node, "endYear"));
+                        node, ProfileElements.ENDYEAR));
                 prod.setProdStartDate(getIntegerAttribute(
-                        node, "startYear"));
-            } else if (name(node).equals("prodLoc")) {
+                        node, ProfileElements.STARTYEAR));
+            } else if (name(node).equals(ProfileElements.PRODLOC)) {
                 prod.setProdLoc(getElementText(node));
-            } else if (name(node).equals("contributors")) {
+            } else if (name(node).equals(ProfileElements.CONTRIBUTORS)) {
                 NodeList cont_list = node.getChildNodes();
                 for (int j = 0; j < cont_list.getLength(); j++) {
                     Node cont_node = cont_list.item(j);
@@ -888,7 +901,7 @@ public class BibleParser {
                     
                 }
                 prod.setContributors(contributors);
-            } else if (name(node).equals("productionNote")) {
+            } else if (name(node).equals(ProfileElements.PRODUCTIONNOTE)) {
                 prod.setProdNotes(getElementText(node));
             }
         }
@@ -909,27 +922,27 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
-            if (name(child).equals("volumes")) {
+            if (name(child).equals(ProfileElements.VOLUMES)) {
                 phys_char.setVolumes(volumes(child));
-            } else if (name(child).equals("dimensions")) {
+            } else if (name(child).equals(ProfileElements.DIMENSIONS)) {
                 dims.add(dimensions(child));
-            } else if (name(child).equals("folios")) {
+            } else if (name(child).equals(ProfileElements.FOLIOS)) {
                 phys_char.setFolios(folios(child));
-            } else if (name(child).equals("quireStruct")) {
+            } else if (name(child).equals(ProfileElements.QUIRESTRUCT)) {
                 structs.add(quireStruct(child));
-            } else if (name(child).equals("pageLayout")) {
+            } else if (name(child).equals(ProfileElements.PAGELAYOUT)) {
                 phys_char.setPageLayout(pageLayout(child));
-            } else if (name(child).equals("rubricNote")) {
+            } else if (name(child).equals(ProfileElements.RUBRICNOTE)) {
                 phys_char.setRubricNotes(getElementText(child));
-            } else if (name(child).equals("pageLayoutNote")) {
+            } else if (name(child).equals(ProfileElements.PAGELAYOUTNOTE)) {
                 phys_char.setPageLayoutNotes(getElementText(child));
-            } else if (name(child).equals("glossHeadings")) {
+            } else if (name(child).equals(ProfileElements.GLOSSHEADINGS)) {
                 glosses.add(getElementText(child));
-            } else if (name(child).equals("underlining")) {
+            } else if (name(child).equals(ProfileElements.UNDERLINING)) {
                 underlinings.add(getElementText(child));
-            } else if (name(child).equals("materials")) {
+            } else if (name(child).equals(ProfileElements.MATERIALS)) {
                 phys_char.setMaterials(materials(child));
-            } else if (name(child).equals("physicalNotes")) {
+            } else if (name(child).equals(ProfileElements.PHYSICALNOTES)) {
                 phys_char.setPhysicaNotes(getElementText(child));
             }
         }
@@ -950,22 +963,22 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("support")) {
-                mats.setSupport(getAttributeValue(node, "material"));
-            } else if (name(node).equals("binding")) {
+            if (name(node).equals(ProfileElements.SUPPORT)) {
+                mats.setSupport(getAttributeValue(node, ProfileElements.MATERIAL));
+            } else if (name(node).equals(ProfileElements.BINDING)) {
                 NodeList bindings = node.getChildNodes();
                 
                 for (int j = 0; j < bindings.getLength(); j++) {
                     Node bind = bindings.item(j);
                     
-                    if (name(bind).equals("bindMaterial")) {
+                    if (name(bind).equals(ProfileElements.BINDMATERIAL)) {
                         mats.setBindMaterial(getElementText(bind));
-                    } else if (name(bind).equals("bindDate")) {
+                    } else if (name(bind).equals(ProfileElements.BINDDATE)) {
                         mats.setBindDate(bind.getTextContent());
                         mats.setBindDateStartYear(
-                                getIntegerAttribute(bind, "startYear"));
+                                getIntegerAttribute(bind, ProfileElements.STARTYEAR));
                         mats.setBindDateEndYear(
-                                getIntegerAttribute(bind, "endYear"));
+                                getIntegerAttribute(bind, ProfileElements.ENDYEAR));
                     }
                 }
             }
@@ -978,17 +991,17 @@ public class BibleParser {
         PageLayout layout = new PageLayout();
         
         layout.setColumns(getAttributeValue(
-                child, "columns"));
+                child, ProfileElements.COLUMNS));
         layout.setGlossPlace(getAttributeValue(
-                child, "glossPlace"));
+                child, ProfileElements.GLOSSPLACE));
         layout.setRunningHeads(getAttributeValue(
-                child, "runningHeads"));
+                child, ProfileElements.RUNNINGHEADS));
         layout.setChapterNumbers(getAttributeValue(
-                child, "chapterNumbers"));
+                child, ProfileElements.CHAPTERNUMBERS));
         layout.setSmallLetterHist(getAttributeValue(
-                child, "smallLettersHist"));
+                child, ProfileElements.SMALLLETTERSHIST));
         layout.setCatchphrases(getAttributeValue(
-                child, "catchphrases"));
+                child, ProfileElements.CATCHPHRASES));
         
         return layout;
     }
@@ -1006,13 +1019,13 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("quireTotal")) {
-                total.add(getIntegerAttribute(node, "number"));
-            } else if (name(node).equals("typicalQuire")) {
-                typical.add(getIntegerAttribute(node, "number"));
-            } else if (name(node).equals("fullQuireStruct")) {
+            if (name(node).equals(ProfileElements.QUIRETOTAL)) {
+                total.add(getIntegerAttribute(node, ProfileElements.NUMBER));
+            } else if (name(node).equals(ProfileElements.TYPICALQUIRE)) {
+                typical.add(getIntegerAttribute(node, ProfileElements.NUMBER));
+            } else if (name(node).equals(ProfileElements.FULLQUIRESTRUCT)) {
                 full.add(node.getTextContent());
-            } else if (name(node).equals("quireNote")) {
+            } else if (name(node).equals(ProfileElements.QUIRENOTE)) {
                 note.add(node.getTextContent());
             }
         }
@@ -1021,7 +1034,7 @@ public class BibleParser {
         struct.setTypicalQuires(typical);
         struct.setFullQuireStructs(full);
         struct.setQuireNotes(note);
-        struct.setVolume(getIntegerAttribute(child, "volume"));
+        struct.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
         
         return struct;
     }
@@ -1035,14 +1048,14 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("indVolumes")) {
+            if (name(node).equals(ProfileElements.INDVOLUMES)) {
                 IndVolume ind = new IndVolume();
                 
                 ind.setVolume(getIntegerAttribute(node, "n"));
                 ind.setValue(node.getTextContent());
                 
                 ind_vols.add(ind);
-            } else if (name(node).equals("totalFolios")) {
+            } else if (name(node).equals(ProfileElements.TOTALFOLIOS)) {
                 folios.setTotalFolios(getIntegerElement(node));
             }
         }
@@ -1060,15 +1073,15 @@ public class BibleParser {
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
-            if (name(node).equals("page")) {
+            if (name(node).equals(ProfileElements.PAGE)) {
                 dims.setPage(node.getTextContent());
-            } else if (name(node).equals("textBlock")) {
+            } else if (name(node).equals(ProfileElements.TEXTBLOCK)) {
                 dims.setTextBlock(node.getTextContent());
             }
         }
         
-        dims.setUnits(getAttributeValue(child, "units"));
-        dims.setVolume(getIntegerAttribute(child, "volume"));
+        dims.setUnits(getAttributeValue(child, ProfileElements.UNITS));
+        dims.setVolume(getIntegerAttribute(child, ProfileElements.VOLUME));
         
         return dims;
     }
@@ -1081,15 +1094,15 @@ public class BibleParser {
         for (int i = 0; i < children.getLength(); i++) {
             Node node = children.item(i);
             
-            if (name(node).equals("volumeNote")) {
+            if (name(node).equals(ProfileElements.VOLUMENOTE)) {
                 volumes.setVolumeNotes(node.getTextContent());
             }
         }
         
         volumes.setPresentState(Volumes.State.getState(
-                getAttributeValue(child, "presentState")));
+                getAttributeValue(child, ProfileElements.PRESENTSTATE)));
         volumes.setPreviousState(Volumes.State.getState(
-                getAttributeValue(child, "previousState")));
+                getAttributeValue(child, ProfileElements.PREVIOUSSTATE)));
         
         return volumes;
     }

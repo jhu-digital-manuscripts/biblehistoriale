@@ -18,6 +18,7 @@ public class Bible implements Serializable {
     private TextualContent textualContent;
     private Bibliography bibliography;
     
+    private String shortName;
     private String scannedMss;                          // URL
     private String bibleHistorialeTranscription;        // URL
     
@@ -39,6 +40,14 @@ public class Bible implements Serializable {
     
     public String getId() {
         return id;
+    }
+    
+    public void setShortName(String shortName) {
+        this.shortName = shortName;
+    }
+    
+    public String getShortName() {
+        return shortName;
     }
     
     public void setPhysChar(PhysicalCharacteristics physChar) {

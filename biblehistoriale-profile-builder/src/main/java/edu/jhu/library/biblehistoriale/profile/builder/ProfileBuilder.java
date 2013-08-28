@@ -5,7 +5,6 @@ import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -16,13 +15,11 @@ import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 import org.xml.sax.SAXException;
 
+import edu.jhu.library.biblehistoriale.model.ProfileElements;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
 import edu.jhu.library.biblehistoriale.model.profile.Classification;
-import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
-import edu.jhu.library.biblehistoriale.model.profile.Folios;
 import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
-import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
 import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
 import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
@@ -36,16 +33,15 @@ public class ProfileBuilder {
     /**
      * Create a new DOM document from a file path.
      * 
-     * A Path object can be created by using the Paths utility class. EX:
-     * Path path = Paths.get("/a/path/string");
+     * <p>A Path object can be created by using the Paths utility class. </br>
+     * EX: <code>Path path = Paths.get("/a/path/string");</code>
+     * </p>
      * 
      * @param path
      * @return
-     * @throws SAXException
-     * @throws IOException
+     * @throws ProfileBuilderException
      */
-    public static Document createDocument(Path path) 
-            throws SAXException, IOException {
+    public static Document createDocument(Path path) throws ProfileBuilderException {
         
         if (builder == null) {
             DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
@@ -54,25 +50,29 @@ public class ProfileBuilder {
             try {
                 builder = dbf.newDocumentBuilder();
             } catch (ParserConfigurationException e) {
-                // TODO
+                throw new ProfileBuilderException(e);
             }
         }
         
         OpenOption opt = StandardOpenOption.READ;
         
-        return builder.parse(Files.newInputStream(path, opt));
+        try {
+            return builder.parse(Files.newInputStream(path, opt));
+        } catch (SAXException | IOException e) {
+            throw new ProfileBuilderException(e);
+        }
     }
     
-    public static Bible buildProfile(Path path) {
-        try {
-            return buildProfile(path.toString(), createDocument(path));
-        } catch (SAXException e) {
-            
-        } catch (IOException e) {
-            
-        }
-        
-        return null;
+    /**
+     * Parse an XML MS profile and build a Bible object from the given
+     * file path.
+     * 
+     * @param path
+     * @return a Bible object
+     * @throws ProfileBuilderException
+     */
+    public static Bible buildProfile(Path path) throws ProfileBuilderException {
+        return buildProfile(path.toString(), createDocument(path));
     }
     
     /**
@@ -80,8 +80,10 @@ public class ProfileBuilder {
      * 
      * @param file
      * @return
+     * @throws ProfileBuilderException 
      */
-    public static Bible buildProfile(String filename, Document doc) {
+    public static Bible buildProfile(String filename, Document doc) 
+               throws ProfileBuilderException {
         Bible bible = new Bible();
         
         bible.setId(filename);
@@ -102,32 +104,33 @@ public class ProfileBuilder {
             Node bible_child = bible_nodes.item(i);
             String child_name = bible_child.getNodeName();
             
-            if (child_name.equals("physChar")) {
+            if (child_name.equals(ProfileElements.PHYSCHAR)) {
                 PhysicalCharacteristics phys_char = 
                         BibleParser.parsePhysChar(bible_child);
                 bible.setPhysChar(phys_char);
-            } else if (child_name.equals("provenPatronHist")) {
+            } else if (child_name.equals(ProfileElements.PROVENPATRONHIST)) {
                 ProvenPatronHistory patron_hist = 
                         BibleParser.parsePatronHist(bible_child);
                 bible.setProvenPatronHist(patron_hist);
-            } else if (child_name.equals("illustrations")) {
+            } else if (child_name.equals(ProfileElements.ILLUSTRATIONS)) {
                 IllustrationList ill_list = 
                         BibleParser.parseIllustrations(bible_child);
                 bible.setIllustrations(ill_list);
-            } else if (child_name.equals("classification")) {
+            } else if (child_name.equals(ProfileElements.CLASSIFICATION)) {
                 Classification classification = 
                         BibleParser.parseClassification(bible_child);
                 bible.setClassification(classification);
-            } else if (child_name.equals("textualContents")) {
+            } else if (child_name.equals(ProfileElements.TEXTUALCONTENTS)) {
                 TextualContent text_content = 
                         BibleParser.parseTextualContent(bible_child);
                 bible.setTextualContent(text_content);
-            } else if (child_name.equals("bibliography")) {
+            } else if (child_name.equals(ProfileElements.BIBLIOGRAPHY)) {
                 Bibliography biblio = 
                         BibleParser.parseBibliography(bible_child);
                 bible.setBibliography(biblio);
-            } else {
-                // TODO: throw exception, unsupported tag
+            } else if (child_name.equals(ProfileElements.SHORTNAME)) {
+                bible.setShortName(
+                        BibleParser.getElementText(bible_child));
             }
         }
         
