@@ -56,13 +56,6 @@
 			<classifier>sources</classifier>
 			<scope>test</scope>
 		</dependency>
-
-<!-- 		<dependency>
-			<groupId>biblehistoriale</groupId>
-			<artifactId>biblehistoriale-model</artifactId>
-			<version>1.0-SNAPSHOT</version>
-			<scope>compile</scope>
-		</dependency> -->
 	</dependencies>
 
 	<build>
@@ -81,7 +74,7 @@
 							<goal>compile</goal>
 							<goal>test</goal>
 							<!-- <goal>i18n</goal> -->
-							<goal>generateAsync</goal>
+							<!-- <goal>generateAsync</goal> -->
 						</goals>
 					</execution>
 				</executions>

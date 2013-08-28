@@ -16,7 +16,15 @@
 
   <!-- Other module inherits                                      -->
   <inherits name='edu.jhu.library.biblehistoriale.model.BibleHistorialeQueryResult' />
+  
+  <inherits name="com.google.gwt.activity.Activity"/>
+  <inherits name="com.google.gwt.place.Place"/>
 
+  <!-- Substitue implementations -->
+  <replace-with class="edu.jhu.library.biblehistoriale.website.client.ClientFactoryImpl">
+      <when-type-is class="edu.jhu.library.biblehistoriale.website.client.ClientFactory"/>
+  </replace-with>
+  
   <!-- Specify the app entry point class.                         -->
   <entry-point class='edu.jhu.library.biblehistoriale.website.client.BibleHistorialeWebsite' />
 
