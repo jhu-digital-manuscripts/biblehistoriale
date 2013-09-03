@@ -12,7 +12,7 @@ public class HomePlace extends Place {
         }
 
         public String getToken(HomePlace place) {
-            return "home";
+            return "";
         }
         
     }

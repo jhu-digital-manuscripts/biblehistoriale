@@ -20,7 +20,6 @@ public class HomeActivity extends AbstractActivity
 
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         HomeView home_view = client_factory.homeView();
-        home_view.setPresenter(this);
         panel.setWidget(home_view.asWidget());
     }
 

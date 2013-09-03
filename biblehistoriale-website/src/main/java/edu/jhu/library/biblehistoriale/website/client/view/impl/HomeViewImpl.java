@@ -8,8 +8,6 @@ import edu.jhu.library.biblehistoriale.website.client.view.HomeView;
 
 public class HomeViewImpl extends Composite implements HomeView {
 
-    private Presenter presenter;
-    
     private FlowPanel main;
     
     public HomeViewImpl() {
@@ -18,10 +16,6 @@ public class HomeViewImpl extends Composite implements HomeView {
         main.add(new Label("This will be the home page"));
         
         initWidget(main);
-    }
-    
-    public void setPresenter(Presenter presenter) {
-        this.presenter = presenter;
     }
     
 }

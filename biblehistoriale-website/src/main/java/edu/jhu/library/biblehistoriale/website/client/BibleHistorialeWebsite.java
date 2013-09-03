@@ -4,24 +4,32 @@ import com.google.gwt.activity.shared.ActivityManager;
 import com.google.gwt.activity.shared.ActivityMapper;
 import com.google.gwt.core.client.EntryPoint;
 import com.google.gwt.core.shared.GWT;
+import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
-import com.google.gwt.user.client.ui.RootPanel;
-import com.google.gwt.user.client.ui.SimplePanel;
+import com.google.gwt.user.client.ui.DockLayoutPanel;
+import com.google.gwt.user.client.ui.RootLayoutPanel;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.web.bindery.event.shared.EventBus;
 
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppActivityMapper;
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppPlaceHistoryMapper;
 import edu.jhu.library.biblehistoriale.website.client.place.HomePlace;
+import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class BibleHistorialeWebsite implements EntryPoint {
+    private final int HEADER_HEIGHT = 200;
 	
     private Place default_place = new HomePlace();
-    private SimplePanel container = new SimplePanel();
+    
+    private ScrollPanel main_content = new ScrollPanel();
+    private HeaderPresenter header;
+    
+    private final DockLayoutPanel main = new DockLayoutPanel(Unit.PX);
     
 	public void onModuleLoad() {
 	    
@@ -33,17 +41,26 @@ public class BibleHistorialeWebsite implements EntryPoint {
 	    ActivityMapper activity_mapper = new AppActivityMapper(client_factory);
 	    ActivityManager activity_manager =
 	            new ActivityManager(activity_mapper, event_bus);
-	    activity_manager.setDisplay(container);
+	    activity_manager.setDisplay(main_content);
 	    
 	    AppPlaceHistoryMapper history_mapper = 
 	            GWT.create(AppPlaceHistoryMapper.class);
-	    PlaceHistoryHandler history_handler = 
+	    final PlaceHistoryHandler history_handler = 
 	            new PlaceHistoryHandler(history_mapper);
 	    history_handler.register(place_controller, event_bus, default_place);
 	    
-	    // TODO: use a different container widget, not Root!
-	    RootPanel.get().add(container);
 	    history_handler.handleCurrentHistory();
 	    
+	    // Set the base layout
+        main.setStylePrimaryName("Main");
+        main_content.setStylePrimaryName("ScrollPanel");
+        
+        this.header = new HeaderPresenter(new HeaderViewImpl(), client_factory);
+        
+        main.addNorth(header, HEADER_HEIGHT);
+        main.add(main_content);
+        
+        RootLayoutPanel.get().add(main);
 	}
+	
 }
