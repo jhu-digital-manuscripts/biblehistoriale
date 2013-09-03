@@ -30,4 +30,12 @@ public class Term {
     public TermType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Term [field=" + field + ", value=" + value + ", type=" + type
+                + "]";
+    }
+    
+    
 }

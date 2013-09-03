@@ -10,9 +10,10 @@
    <field name="title" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
    
    <!-- Bible -->
+   <field name="shortName" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
    
    <!-- Physical Characteristics -->
-   <field name="presentState" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+   <field name="presentState" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="quireTotal" type="string" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="typicalQuire" type="string" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="columns" type="string" indexed="true" stored="true" required="false" multiValued="false" />

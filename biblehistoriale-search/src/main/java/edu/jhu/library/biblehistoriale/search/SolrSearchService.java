@@ -57,8 +57,9 @@ public class SolrSearchService {
         field_map = new HashMap<>();
 
         // all searchable fields need to map to solr fields
+        // TODO include a term that includes every Solr field?
         field_map.put(TermField.TITLE, new String[] { 
-                "title", "articleTitle", "bookOrJournalTitle"
+                "title", "articleTitle", "bookOrJournalTitle", "shortName"
             });
         
         field_map.put(TermField.PEOPLE, new String[] { 
@@ -202,6 +203,7 @@ public class SolrSearchService {
            // doc.addField("field_name", "field_value");
         
         doc.addField("id", profile.getId());
+        doc.addField("shortName", profile.getShortName());
             
         doc.addField(field_map.get(TermField.TITLE)[0], 
                 profile.getClassification().getCoverTitle());

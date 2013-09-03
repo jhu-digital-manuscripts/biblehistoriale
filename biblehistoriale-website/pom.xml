@@ -56,6 +56,13 @@
 			<classifier>sources</classifier>
 			<scope>test</scope>
 		</dependency>
+		
+		<dependency>
+		    <groupId>biblehistoriale</groupId>
+		    <artifactId>biblehistoriale-model</artifactId>
+		    <version>1.0-SNAPSHOT</version>
+		    <scope>compile</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
@@ -83,6 +90,9 @@
 				<configuration>
 					<runTarget>biblehistoriale-website.html</runTarget>
 					<hostedWebapp>${webappDirectory}</hostedWebapp>
+					<compileSourcesArtifacts>
+					    <compileSourcesArtifact>biblehistoriale:biblehistoriale-model</compileSourcesArtifact>
+					</compileSourcesArtifacts>
 					<!-- <i18nMessagesBundle>edu.jhu.library.biblehistoriale.website.client.Messages</i18nMessagesBundle> -->
 				</configuration>
 			</plugin>

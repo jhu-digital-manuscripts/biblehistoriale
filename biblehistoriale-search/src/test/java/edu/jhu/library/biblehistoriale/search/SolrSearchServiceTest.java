@@ -5,14 +5,13 @@ import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
 
 import org.apache.commons.io.FileUtils;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.w3c.dom.Document;
 
 import edu.jhu.library.biblehistoriale.model.Query;
 import edu.jhu.library.biblehistoriale.model.QueryMatch;
@@ -58,17 +57,23 @@ public class SolrSearchServiceTest {
                 "profiles/VatBarbLat613.xml"
         };
         
-        Path[] path = {
+        /*Path[] path = {
                 Paths.get(this.getClass().getClassLoader().getResource(filename[0])
                         .toString().substring(6)),
                 Paths.get(this.getClass().getClassLoader().getResource(filename[1])
                         .toString().substring(6))
+        };*/
+        
+        Document[] docs = { 
+                ProfileBuilder.createDocument(
+                        this.getClass().getClassLoader().getResourceAsStream(filename[0])),
+                ProfileBuilder.createDocument(
+                        this.getClass().getClassLoader().getResourceAsStream(filename[1]))
         };
-                
         
         Bible[] profile = {
-                ProfileBuilder.buildProfile(path[0]),
-                ProfileBuilder.buildProfile(path[1])
+                ProfileBuilder.buildProfile(filename[0], docs[0]),
+                ProfileBuilder.buildProfile(filename[1], docs[1])
         };
         
         // Clear index, then add the new profiles
@@ -164,6 +169,26 @@ public class SolrSearchServiceTest {
         
         testOrs();
         testAnds();
+        testNoOps();
+    }
+
+    private void testNoOps() throws Exception {
+        QueryOptions opts = new QueryOptions();
+        
+        Query query = new Query(TermField.TITLE, "bible");
+        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        assertEquals(2, result.getTotal());
+        
+        // 'the' is cut from search terms, as defined in the Solr stopwords file
+        query = new Query(TermField.TITLE, "the");
+        result = service.executeQuery(query, opts);
+        assertEquals(0, result.getTotal());
+        
+        // TODO names! format (lastname, firstname) != format (firstname lastname): make them equivalent
+        // (low priority)
+//        query = new Query(TermField.PEOPLE, "gary larson");
+//        result = service.executeQuery(query, opts);
+//        assertEquals(1, result.getTotal());
     }
 
     private void testAnds() throws Exception {
@@ -207,6 +232,13 @@ public class SolrSearchServiceTest {
         result = service.executeQuery(query, opts);
         assertEquals(0, result.getTotal());
         
+        query = new Query(op,
+                new Query(TermField.TITLE, "Far"),
+                new Query(TermField.TITLE, "Side"),
+                new Query(TermField.TITLE, "Gallery")
+        );
+        result = service.executeQuery(query, opts);
+        assertEquals(1, result.getTotal());
     }
 
     private void testOrs() throws Exception {
