@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.profile.builder;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.OpenOption;
 import java.nio.file.Path;
@@ -58,6 +59,26 @@ public class ProfileBuilder {
         
         try {
             return builder.parse(Files.newInputStream(path, opt));
+        } catch (SAXException | IOException e) {
+            throw new ProfileBuilderException(e);
+        }
+    }
+    
+    public static Document createDocument(InputStream input) throws ProfileBuilderException {
+        
+        if (builder == null) {
+            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
+            dbf.setIgnoringComments(ignore_comments);
+            
+            try {
+                builder = dbf.newDocumentBuilder();
+            } catch (ParserConfigurationException e) {
+                throw new ProfileBuilderException(e);
+            }
+        }
+        
+        try {
+            return builder.parse(input);
         } catch (SAXException | IOException e) {
             throw new ProfileBuilderException(e);
         }

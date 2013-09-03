@@ -7,8 +7,7 @@ import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
 
 import java.io.IOException;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.InputStream;
 import java.util.List;
 
 import org.junit.Before;
@@ -73,9 +72,10 @@ public class ProfilBuilderTest {
     public void  setup() throws SAXException, IOException, ProfileBuilderException {
         bible = null;
         
-        Path path = Paths.get(
-                this.getClass().getClassLoader().getResource(filename).toString().substring(6));
-        Document doc = ProfileBuilder.createDocument(path);
+        InputStream in = 
+                this.getClass().getClassLoader().getResourceAsStream(filename);
+        
+        Document doc = ProfileBuilder.createDocument(in);
         
         bible = ProfileBuilder.buildProfile(filename, doc);
         
