@@ -118,7 +118,7 @@ public class SolrSearchService {
         this(new Solr(solrhome));
     }
 
-    QueryResult executeQuery(Query query, QueryOptions opts)
+    public QueryResult executeQuery(Query query, QueryOptions opts)
             throws SearchServiceException {
         long offset = opts.getOffset();
         int max_matches = opts.getMatches();
