@@ -1,6 +1,4 @@
-package edu.jhu.library.biblehistoriale.model;
-
-// TODO Add in all our searchable fields
+package edu.jhu.library.biblehistoriale.model.query;
 
 public enum TermField {
     TITLE("title"),

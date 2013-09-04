@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module rename-to='BibleHistorialeWebsite'>
-  <!-- Inherit the core Web Toolkit stuff.                        -->
   <inherits name='com.google.gwt.user.User' />
 
   <!-- We need the JUnit module in the main module,               -->
   <!-- otherwise eclipse complains (Google plugin bug?)           -->
   <inherits name='com.google.gwt.junit.JUnit' />
 
-  <!-- Inherit the default GWT style sheet.  You can change       -->
-  <!-- the theme of your GWT application by uncommenting          -->
-  <!-- any one of the following lines.                            -->
   <inherits name='com.google.gwt.user.theme.standard.Standard' />
-  <!-- <inherits name='com.google.gwt.user.theme.chrome.Chrome'/> -->
-  <!-- <inherits name='com.google.gwt.user.theme.dark.Dark'/>     -->
-
-  <!-- Other module inherits                                      -->
-  <inherits name='edu.jhu.library.biblehistoriale.model.BibleHistorialeQueryResult' />
-  
   <inherits name="com.google.gwt.activity.Activity"/>
   <inherits name="com.google.gwt.place.Place"/>
+  
+  <inherits name='edu.jhu.library.biblehistoriale.model.BibleHistorialeModel' />  
 
-  <!-- Substitue implementations -->
+  <!-- Substitute implementations -->
   <replace-with class="edu.jhu.library.biblehistoriale.website.client.ClientFactoryImpl">
       <when-type-is class="edu.jhu.library.biblehistoriale.website.client.ClientFactory"/>
   </replace-with>

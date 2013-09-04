@@ -1,15 +1,22 @@
-package edu.jhu.library.biblehistoriale.model;
+package edu.jhu.library.biblehistoriale.model.query;
 
+import java.io.Serializable;
 import java.util.Arrays;
 
 /**
  * A query is a tree whose leaves are terms and inner nodes are logical
  * operations.
  */
-public class Query {
-    private final Query[] children;
-    private final QueryOperation op;
-    private final Term term;
+public class Query implements Serializable {
+    private static final long serialVersionUID = 1L;
+
+    private Query[] children;
+    private QueryOperation op;
+    private Term term;
+
+    public Query() {
+        this(null);
+    }
 
     public Query(Term term) {
         this.children = null;
