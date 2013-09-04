@@ -13,11 +13,6 @@ import org.apache.solr.common.SolrDocument;
 import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 
-import edu.jhu.library.biblehistoriale.model.query.Query;
-import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
-import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
-import edu.jhu.library.biblehistoriale.model.query.QueryResult;
-import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.model.profile.Annotation;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
@@ -44,6 +39,11 @@ import edu.jhu.library.biblehistoriale.model.profile.Signature;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
 import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+import edu.jhu.library.biblehistoriale.model.query.Query;
+import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
+import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
+import edu.jhu.library.biblehistoriale.model.query.QueryResult;
+import edu.jhu.library.biblehistoriale.model.query.TermField;
 
 /**
  * Search service that allows manuscript profiles to be indexed and searched.
@@ -114,11 +114,13 @@ public class SolrSearchService {
         this.query_builder = new SolrQueryBuilder(field_map);
     }
 
+    // TODO Update to use Path
+    
     public SolrSearchService(File solrhome) throws IOException {
         this(new Solr(solrhome));
     }
 
-    QueryResult executeQuery(Query query, QueryOptions opts)
+    public QueryResult executeQuery(Query query, QueryOptions opts)
             throws SearchServiceException {
         long offset = opts.getOffset();
         int max_matches = opts.getMatches();
