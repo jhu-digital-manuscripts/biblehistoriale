@@ -1,4 +1,4 @@
-package edu.jhu.library.biblehistoriale.model;
+package edu.jhu.library.biblehistoriale.model.query;
 
 /**
  * Indicates how a term should be interpreted.

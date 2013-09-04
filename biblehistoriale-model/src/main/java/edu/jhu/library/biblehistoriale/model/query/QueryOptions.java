@@ -1,6 +1,10 @@
-package edu.jhu.library.biblehistoriale.model;
+package edu.jhu.library.biblehistoriale.model.query;
 
-public class QueryOptions {
+import java.io.Serializable;
+
+public class QueryOptions implements Serializable {
+    private static final long serialVersionUID = 1L;
+
     public static final int DEFAULT_MATCHES = 30;
 
     private long offset;

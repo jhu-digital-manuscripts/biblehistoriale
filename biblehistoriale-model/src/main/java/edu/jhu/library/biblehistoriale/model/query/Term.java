@@ -1,14 +1,22 @@
-package edu.jhu.library.biblehistoriale.model;
+package edu.jhu.library.biblehistoriale.model.query;
+
+import java.io.Serializable;
 
 /**
  * A term matches a value against a field. The interpretation of the value
  * depends on the type of the term.
  */
-public class Term {
-    private final TermField field;
-    private final String value;
-    private final TermType type;
+public class Term implements Serializable {
+    private static final long serialVersionUID = 1L;
 
+    private TermField field;
+    private String value;
+    private TermType type;
+
+    public Term() {
+        this(null, null, null);
+    }
+    
     public Term(TermField field, String value, TermType type) {
         this.field = field;
         this.value = value;

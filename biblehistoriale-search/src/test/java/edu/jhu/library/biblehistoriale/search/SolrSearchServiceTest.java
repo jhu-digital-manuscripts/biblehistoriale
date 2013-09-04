@@ -13,12 +13,12 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import edu.jhu.library.biblehistoriale.model.Query;
-import edu.jhu.library.biblehistoriale.model.QueryMatch;
-import edu.jhu.library.biblehistoriale.model.QueryOperation;
-import edu.jhu.library.biblehistoriale.model.QueryOptions;
-import edu.jhu.library.biblehistoriale.model.QueryResult;
-import edu.jhu.library.biblehistoriale.model.TermField;
+import edu.jhu.library.biblehistoriale.model.query.Query;
+import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
+import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
+import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
+import edu.jhu.library.biblehistoriale.model.query.QueryResult;
+import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BiblioEntry;
 import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
@@ -87,7 +87,7 @@ public class SolrSearchServiceTest {
         
         QueryOptions opts = new QueryOptions();
         Query query = new Query(TermField.TITLE, "La S. Bible");
-        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        QueryResult result = service.executeQuery(query, opts);
         
         assertEquals(1, result.getTotal());
         System.out.println();
@@ -176,7 +176,7 @@ public class SolrSearchServiceTest {
         QueryOptions opts = new QueryOptions();
         
         Query query = new Query(TermField.TITLE, "bible");
-        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        QueryResult result = service.executeQuery(query, opts);
         assertEquals(2, result.getTotal());
         
         // 'the' is cut from search terms, as defined in the Solr stopwords file
@@ -198,7 +198,7 @@ public class SolrSearchServiceTest {
         Query query = new Query(op,
                 new Query(TermField.TITLE, "bible"),
                 new Query(TermField.PHYS_CHAR, "water damage"));
-        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        QueryResult result = service.executeQuery(query, opts);
         
         assertEquals(1, result.getTotal());
         
@@ -247,7 +247,7 @@ public class SolrSearchServiceTest {
         QueryOptions opts = new QueryOptions();
         Query query = new Query(QueryOperation.OR, new Query(TermField.TITLE,
                 "moo"), new Query(TermField.TITLE, "gorilla"));
-        QueryResult<QueryMatch> result = service.executeQuery(query, opts);
+        QueryResult result = service.executeQuery(query, opts);
 
         assertEquals(0, result.getTotal());
         

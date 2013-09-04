@@ -2,11 +2,11 @@ package edu.jhu.library.biblehistoriale.search;
 
 import java.util.Map;
 
-import edu.jhu.library.biblehistoriale.model.Query;
-import edu.jhu.library.biblehistoriale.model.QueryOperation;
-import edu.jhu.library.biblehistoriale.model.Term;
-import edu.jhu.library.biblehistoriale.model.TermField;
-import edu.jhu.library.biblehistoriale.model.TermType;
+import edu.jhu.library.biblehistoriale.model.query.Query;
+import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
+import edu.jhu.library.biblehistoriale.model.query.Term;
+import edu.jhu.library.biblehistoriale.model.query.TermField;
+import edu.jhu.library.biblehistoriale.model.query.TermType;
 
 public class SolrQueryBuilder {
     // Term field -> list of solr fields
