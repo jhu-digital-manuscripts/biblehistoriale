@@ -10,4 +10,14 @@
     <welcome-file>biblehistoriale-website.html</welcome-file>
   </welcome-file-list>
 
+  <servlet>
+    <servlet-name>BibleHistorialeService</servlet-name>
+    <servlet-class>edu.jhu.library.biblehistoriale.website.server.BibleHistorialeServiceImpl</servlet-class>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>BibleHistorialeService</servlet-name>
+    <url-pattern>/BibleHistorialeWebsite/service</url-pattern>
+  </servlet-mapping>
+  
 </web-app>

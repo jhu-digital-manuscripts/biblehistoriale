@@ -3,7 +3,7 @@ package edu.jhu.library.biblehistoriale.website.client.widgets;
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
 
-import edu.jhu.library.biblehistoriale.model.QueryMatch;
+import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 
 public class QueryMatchCell 
         extends AbstractCell<QueryMatch> {
