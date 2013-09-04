@@ -15,7 +15,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Bible;
 
 @RemoteServiceRelativePath("service")
 public interface BibleHistorialeService extends RemoteService {
-    public Bible lookupBible(String id);
+    public Bible lookupBible(String id) throws RPCException;
 
-    public QueryResult search(Query query, QueryOptions opts);
+    public QueryResult search(Query query, QueryOptions opts) throws RPCException;
 }

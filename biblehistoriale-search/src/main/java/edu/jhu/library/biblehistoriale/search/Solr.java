@@ -19,6 +19,8 @@ import org.apache.solr.core.CoreContainer;
  * no longer needed.
  */
 
+// TODO Update to use Path
+
 public class Solr {
     // Embedded solr seems to require this core name
     private final static String CORE_NAME = "collection1";
