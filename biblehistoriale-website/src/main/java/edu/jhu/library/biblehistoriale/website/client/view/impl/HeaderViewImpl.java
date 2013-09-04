@@ -8,14 +8,17 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 public class HeaderViewImpl extends Composite implements HeaderView {
+    private final int BANNER_HEIGHT = 108;
     
     private final FlowPanel main;
+    private final SimplePanel banner_panel;
     
     private final Label info_link;
     private final Label contact_link;
@@ -35,22 +38,30 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         this.info_link = new Label("Info");
         this.contact_link = new Label("Contact Us");
         this.advanced_search_link = new Label("Advanced Search");
-        advanced_search_link.addStyleName("AdvancedSearchLink");
+        advanced_search_link.setStylePrimaryName("AdvancedSearchLink");
         
         this.search_button = new Button("Search");
         
+        this.banner_panel = new SimplePanel();
         this.banner = new Image("Images/bible_historiale_banner.png");
-        banner.setWidth(Window.getClientWidth() + "px");
+        banner.setHeight(BANNER_HEIGHT + "px");
+        
+        banner_panel.add(banner);
+        banner_panel.setWidth(Window.getClientWidth() + "px");
         
         this.search_box = new TextBox();
         
-        main.add(banner);
+        FlowPanel search_panel = new FlowPanel();
+        search_panel.add(advanced_search_link);
+        search_panel.add(search_button);
+        search_panel.add(search_box);
+        search_panel.setStylePrimaryName("HeaderSearchBar");
+        
+        main.add(banner_panel);
         main.add(info_link);
         main.add(contact_link);
-        main.add(search_button);
-        main.add(search_box);
         
-        main.add(advanced_search_link);
+        main.add(search_panel);
         
         initWidget(main);
     }
@@ -88,6 +99,6 @@ public class HeaderViewImpl extends Composite implements HeaderView {
 
     @Override
     public void resize(int width, int height) {
-        banner.setWidth(width + "px");
+        banner_panel.setWidth(width + "px");
     }
 }

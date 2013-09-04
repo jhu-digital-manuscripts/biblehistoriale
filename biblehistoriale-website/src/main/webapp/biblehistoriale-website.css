@@ -1,7 +1,10 @@
 
+
+
 .Header .gwt-Label {
 	margin-right: 6px;
 	margin-left: 6px;
+	margin-top: 8px;
 	float: left;
 	cursor: pointer;
 	color: blue;
@@ -10,10 +13,18 @@
 
 .AdvancedSearchLink {
 	font-size: 10px;
-}
-
-.Link {
+	cursor: pointer;
 	color: blue;
 	text-decoration: underline;
-	cursor: pointer;
+	text-align: right;
+	margin-bottom: 4px;
+	margin-right: 128px;
+}
+
+.HeaderSearchBar .gwt-Button {
+	float: right;
+}
+
+.HeaderSearchBar .gwt-TextBox {
+	float: right;
 }

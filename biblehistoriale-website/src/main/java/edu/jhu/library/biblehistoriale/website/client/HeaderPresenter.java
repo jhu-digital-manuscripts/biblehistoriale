@@ -16,6 +16,7 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 public class HeaderPresenter implements HeaderView.Presenter {
@@ -35,8 +36,7 @@ public class HeaderPresenter implements HeaderView.Presenter {
         handlers.add(view.addInfoLinkClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                // TODO Auto-generated method stub
-                Window.alert("Info link clicked...");
+                client_factory.placeController().goTo(new ProjectInfoPlace());
             }
         }));
         
@@ -109,6 +109,7 @@ public class HeaderPresenter implements HeaderView.Presenter {
 
     @Override
     public void resize(int width, int height) {
+        // TODO do we need to resize the header??
         view.resize(width, height);
     }
 

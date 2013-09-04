@@ -15,16 +15,16 @@ import com.google.web.bindery.event.shared.EventBus;
 
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppActivityMapper;
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppPlaceHistoryMapper;
-import edu.jhu.library.biblehistoriale.website.client.place.HomePlace;
+import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 
 /**
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class BibleHistorialeWebsite implements EntryPoint {
-    private final int HEADER_HEIGHT = 200;
+    private final int HEADER_HEIGHT = 175;
 	
-    private Place default_place = new HomePlace();
+    private Place default_place = new BrowseProfilesPlace();
     
     private ScrollPanel main_content = new ScrollPanel();
     private HeaderPresenter header;
