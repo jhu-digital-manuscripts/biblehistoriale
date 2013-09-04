@@ -7,7 +7,8 @@ public class BrowseProfilesPlace extends Place {
     
     // TODO: determine state information and tokenization
     
-    public static class Tokenizer implements PlaceTokenizer<BrowseProfilesPlace> {
+    public static class Tokenizer 
+            implements PlaceTokenizer<BrowseProfilesPlace> {
 
         @Override
         public BrowseProfilesPlace getPlace(String token) {

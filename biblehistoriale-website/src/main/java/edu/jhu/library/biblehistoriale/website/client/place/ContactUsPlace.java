@@ -3,18 +3,18 @@ package edu.jhu.library.biblehistoriale.website.client.place;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
-public class ProjectInfoPlace extends Place {
+public class ContactUsPlace extends Place {
     
     public static class Tokenizer 
-            implements PlaceTokenizer<ProjectInfoPlace> {
+            implements PlaceTokenizer<ContactUsPlace> {
 
         @Override
-        public ProjectInfoPlace getPlace(String token) {
-            return new ProjectInfoPlace();
+        public ContactUsPlace getPlace(String token) {
+            return new ContactUsPlace();
         }
 
         @Override
-        public String getToken(ProjectInfoPlace place) {
+        public String getToken(ContactUsPlace place) {
             return "";
         }
         

@@ -3,7 +3,6 @@ package edu.jhu.library.biblehistoriale.website.client.activity;
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.Widget;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
@@ -19,11 +18,6 @@ public class ProjectInfoActivity extends AbstractActivity
             ClientFactory client_factory) {
         //this.client_factory = client_factory;
         this.view = client_factory.projectInfoView();
-    }
-
-    @Override
-    public Widget asWidget() {
-        return view.asWidget();
     }
 
     @Override

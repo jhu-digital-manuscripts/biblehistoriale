@@ -6,6 +6,10 @@ import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.IsWidget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+/**
+ * UI interface for the website header. Includes a basic search and
+ * links to project info place, contact info place, advanced search place
+ */
 public interface HeaderView extends IsWidget {
     
     interface Presenter extends IsWidget {

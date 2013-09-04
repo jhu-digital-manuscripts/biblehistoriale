@@ -6,10 +6,12 @@ import com.google.gwt.place.shared.Place;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
 import edu.jhu.library.biblehistoriale.website.client.activity.BrowseProfilesActivity;
-import edu.jhu.library.biblehistoriale.website.client.activity.HomeActivity;
+import edu.jhu.library.biblehistoriale.website.client.activity.ContactUsActivity;
+import edu.jhu.library.biblehistoriale.website.client.activity.ProfileDetailActivity;
 import edu.jhu.library.biblehistoriale.website.client.activity.ProjectInfoActivity;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
-import edu.jhu.library.biblehistoriale.website.client.place.HomePlace;
+import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
+import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 
 public class AppActivityMapper implements ActivityMapper {
@@ -29,14 +31,18 @@ public class AppActivityMapper implements ActivityMapper {
     public Activity getActivity(Place place) {
         
         // TODO Add mappings of places to activities here. 
-        if (place instanceof HomePlace) {
-            return new HomeActivity((HomePlace)place, client_factory);
-        } else if (place instanceof BrowseProfilesPlace) {
+        if (place instanceof BrowseProfilesPlace) {
             return new BrowseProfilesActivity(
                     (BrowseProfilesPlace) place, client_factory);
         } else if (place instanceof ProjectInfoPlace) {
             return new ProjectInfoActivity(
                     (ProjectInfoPlace) place, client_factory);
+        } else if (place instanceof ContactUsPlace) {
+            return new ContactUsActivity(
+                    (ContactUsPlace) place, client_factory);
+        } else if (place instanceof ProfileDetailPlace) {
+            return new ProfileDetailActivity(
+                    (ProfileDetailPlace) place, client_factory);
         }
         
         return null;

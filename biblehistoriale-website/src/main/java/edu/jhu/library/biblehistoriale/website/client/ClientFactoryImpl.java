@@ -5,10 +5,12 @@ import com.google.web.bindery.event.shared.EventBus;
 import com.google.web.bindery.event.shared.SimpleEventBus;
 
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
-import edu.jhu.library.biblehistoriale.website.client.view.HomeView;
+import edu.jhu.library.biblehistoriale.website.client.view.ContactUsView;
+import edu.jhu.library.biblehistoriale.website.client.view.ProfileDetailView;
 import edu.jhu.library.biblehistoriale.website.client.view.ProjectInfoView;
 import edu.jhu.library.biblehistoriale.website.client.view.impl.BrowseProfilesViewImpl;
-import edu.jhu.library.biblehistoriale.website.client.view.impl.HomeViewImpl;
+import edu.jhu.library.biblehistoriale.website.client.view.impl.ContactUsViewImpl;
+import edu.jhu.library.biblehistoriale.website.client.view.impl.ProfileDetailViewImpl;
 import edu.jhu.library.biblehistoriale.website.client.view.impl.ProjectInfoViewImpl;
 
 public class ClientFactoryImpl implements ClientFactory {
@@ -26,11 +28,6 @@ public class ClientFactoryImpl implements ClientFactory {
     public PlaceController placeController() {
         return place_controller;
     }
-
-    @Override
-    public HomeView homeView() {
-        return new HomeViewImpl();
-    }
     
     @Override
     public ProjectInfoView projectInfoView() {
@@ -40,6 +37,16 @@ public class ClientFactoryImpl implements ClientFactory {
     @Override
     public BrowseProfilesView browseProfilesView() {
         return new BrowseProfilesViewImpl();
+    }
+
+    @Override
+    public ContactUsView contactUsView() {
+        return new ContactUsViewImpl();
+    }
+
+    @Override
+    public ProfileDetailView profileDetailView() {
+        return new ProfileDetailViewImpl();
     }
 
 }

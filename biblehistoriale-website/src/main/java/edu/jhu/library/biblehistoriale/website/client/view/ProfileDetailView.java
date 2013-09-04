@@ -1,12 +1,14 @@
 package edu.jhu.library.biblehistoriale.website.client.view;
 
-import com.google.gwt.place.shared.Place;
 import com.google.gwt.user.client.ui.IsWidget;
 
-public interface HomeView extends IsWidget {
- 
+/**
+ * View of the detailed information of an MS profile
+ */
+public interface ProfileDetailView extends IsWidget {
+    
     public interface Presenter {
-        void goTo(Place place);
+        
     }
     
 }

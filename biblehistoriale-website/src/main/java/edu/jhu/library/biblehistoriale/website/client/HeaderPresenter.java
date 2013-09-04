@@ -16,19 +16,25 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
+/**
+ * Provides logic for the HeaderView
+ */
 public class HeaderPresenter implements HeaderView.Presenter {
 
     private final ClientFactory client_factory;
     private final HeaderView view;
     
-    public HeaderPresenter(HeaderView view, ClientFactory client_factory) {
+    public HeaderPresenter(HeaderView view,
+            ClientFactory client_factory) {
         this.client_factory = client_factory;
         this.view = view;
         
-        List<HandlerRegistration> handlers = new ArrayList<HandlerRegistration>();
+        List<HandlerRegistration> handlers = 
+                new ArrayList<HandlerRegistration>();
         bind(handlers);
     }
     
@@ -36,15 +42,14 @@ public class HeaderPresenter implements HeaderView.Presenter {
         handlers.add(view.addInfoLinkClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                client_factory.placeController().goTo(new ProjectInfoPlace());
+                goTo(new ProjectInfoPlace());
             }
         }));
         
         handlers.add(view.addContactInfoClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                // TODO Auto-generated method stub
-                Window.alert("Contact Info link clicked...");
+                goTo(new ContactUsPlace());
             }
         }));
         
@@ -60,7 +65,8 @@ public class HeaderPresenter implements HeaderView.Presenter {
             @Override
             public void onClick(ClickEvent event) {
                 // TODO Auto-generated method stub
-                Window.alert("Search button clicked. This will call the Search RPC service...");
+                Window.alert("Search button clicked. " +
+                		"This will call the Search RPC service...");
             }
         }));
         
