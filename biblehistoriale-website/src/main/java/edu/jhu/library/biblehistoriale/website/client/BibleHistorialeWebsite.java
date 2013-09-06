@@ -24,7 +24,7 @@ import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 public class BibleHistorialeWebsite implements EntryPoint {
     private final int HEADER_HEIGHT = 175;
 	
-    private Place default_place = new BrowseProfilesPlace();
+    private Place default_place = new BrowseProfilesPlace(BrowseCriteria.ALL);
     
     private ScrollPanel main_content = new ScrollPanel();
     private HeaderPresenter header;
@@ -53,7 +53,6 @@ public class BibleHistorialeWebsite implements EntryPoint {
 	    
 	    // Set the base layout
         main.setStylePrimaryName("Main");
-        main_content.setStylePrimaryName("ScrollPanel");
         
         this.header = new HeaderPresenter(new HeaderViewImpl(), client_factory);
         

@@ -16,8 +16,10 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
+import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 /**
@@ -28,10 +30,14 @@ public class HeaderPresenter implements HeaderView.Presenter {
     private final ClientFactory client_factory;
     private final HeaderView view;
     
+    private final BibleHistorialeServiceAsync service;
+    
     public HeaderPresenter(HeaderView view,
             ClientFactory client_factory) {
         this.client_factory = client_factory;
         this.view = view;
+        
+        this.service = client_factory.service();
         
         List<HandlerRegistration> handlers = 
                 new ArrayList<HandlerRegistration>();
@@ -64,18 +70,15 @@ public class HeaderPresenter implements HeaderView.Presenter {
         handlers.add(view.addSearchClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                // TODO Auto-generated method stub
-                Window.alert("Search button clicked. " +
-                		"This will call the Search RPC service...");
+                basicSearch();
             }
         }));
         
         handlers.add(view.addSearchKeyPressHandler(new KeyPressHandler() {
             @Override
             public void onKeyPress(KeyPressEvent event) {
-                // TODO Auto-generated method stub
                 if (event.getCharCode() == KeyCodes.KEY_ENTER) {
-                    Window.alert("Search RPC will be called...");
+                    basicSearch();
                 }
             }
         }));
@@ -115,8 +118,15 @@ public class HeaderPresenter implements HeaderView.Presenter {
 
     @Override
     public void resize(int width, int height) {
-        // TODO do we need to resize the header??
         view.resize(width, height);
+    }
+    
+    private void basicSearch() {
+        String term = view.searchBarValue();
+        
+        client_factory.placeController().goTo(
+                new BrowseSearchResultsPlace());
+        
     }
 
 }

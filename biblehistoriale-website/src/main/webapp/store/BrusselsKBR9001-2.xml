@@ -1,0 +1,1134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bible xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="BibleSchema10.xsd">
+    <shortName>Brussels, KBR 9001-9002</shortName>
+    <physChar>
+        <volumes presentState="2" previousState="2" />
+        <dimensions units="mm"  volume="1">
+            <page>460x325</page>
+            <textBlock>300x205</textBlock>
+        </dimensions>
+        <dimensions units="mm"  volume="1">
+            <page>460x325</page>
+            <textBlock>300x205</textBlock>
+        </dimensions>
+        <folios>
+            <totalFolios>820</totalFolios>
+            <indVolumes n="1">1-435</indVolumes>
+            <indVolumes n="2">1-385</indVolumes>
+           
+       </folios>
+        <quireStruct volume="1">
+            <quireTotal number="54"/>
+            <typicalQuire number="8"/>
+           <fullQuireStruct>1^8, 2^8+1, 3-14^8, 15^8+1, 16-53^8, 54^8+1</fullQuireStruct>
+            <quireNote>Quire structures supplied by Clive Sneddon</quireNote> 
+        </quireStruct>
+        <quireStruct volume="2">
+            <quireTotal number="51"/>
+            <typicalQuire number="8"/>
+            <fullQuireStruct>1^2, 2-8^8, 9^2, 10-29^8, 30^2, 31-43^8, 44^6+1, 45-50^8, 51^4</fullQuireStruct>
+        </quireStruct>
+       
+        <pageLayout columns="2" runningHeads="y" glossPlace="in-text" chapterNumbers="y" smallLettersHist="n" catchphrases="y"/>
+        <rubricNote>Rubric chapter headings appear irregularly in non-Guyart books. They have been added to the Gospels. In other places, they are sometimes used to highlight a moral lesson to be obtained from the text that follows.</rubricNote>
+        <pageLayoutNote>Book names in running heads and rubrics sometimes irregularly refer to groups of books (Gospels, Epistles, Prophets) rather than individual ones.</pageLayoutNote>    
+        <glossHeadings>texte, glose, histoire, exposicion, question, response, incident, addicions, moralite, oppinion</glossHeadings>
+        <underlining>Underlining is used for Latin citations and irregularly with other rubrics.</underlining>
+        <materials>
+            <support material="parchment"/>
+            <binding>
+                <bindMaterial>Sueded vellum over cardboard</bindMaterial>
+            </binding>
+        </materials>
+        
+        <physicalNotes>Pages, quires, sheets of parchment or illuminations originally numbered bottom right in roman numerals. These have mostly been cut off. Edges of pages decorated with gold, red and blue ink in striped pattern (not marbled). A thin gold satin ribbon bookmarker is attached to the binding; currently rests between folios 194 and 195.</physicalNotes>
+    </physChar>
+    <provenPatronHist> 
+        <production>
+            <prodDate startYear="1410" endYear="1420">Early 15th century</prodDate> 
+            <prodLoc>Paris, France</prodLoc>
+            <contributors>
+                <artist>Maître des Pèlerinages de 1393</artist>
+                <artist>Maître du Virgile</artist>
+                <artist>Maître des Cleres Femmes de Jean de Berry</artist>
+                <artist>Maître de la Cité des Dames</artist>
+                <artist>Petrus Gilberti</artist>
+                <scribe>Petrus Gilberti</scribe>
+            </contributors>
+            <productionNote>"Petrus Gilberti me fecit": H. Volmer, in Repertorium für Kunstwissenschaft (33, 1910, 235, ctd. in Sneddon, vol 2, p.352), identifies this note in this and several other copies of the Bible Historiale. From the British Library online catalog description for one of these, MS Royal 15 D III: "Peter Gilbert (Petrus Gilberti), illuminator, notary and libraire of the University of Paris (c. 1415-1421)." He was likely one of several scribes for this manuscript and may have done some of the decoration. Artists identified by Fournié.</productionNote>
+        </production>
+        <ownership>
+            <owner>
+                <ownerName>Charles VI (uncertain)</ownerName>
+                <ownershipDate startYear="1415" endYear="1422">Early 15th century</ownershipDate> 
+                <ownerPlace>Paris, France</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Philippe (III) le Bon, Duke of Burgundy</ownerName>
+                <ownershipDate startYear="1422" endYear="1467">Around 1422-1467</ownershipDate>
+                <ownerPlace>Burgundy, France</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Successive dukes of Burgundy</ownerName>
+                <ownershipDate startYear="1467" endYear="1796">Appears in several inventories of the Dukes of Burgundy beginning in 1467</ownershipDate>
+                <ownerPlace>Burgundy, France</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Bibliothèque nationale de France</ownerName>
+                <ownershipDate startYear="1796" endYear="1815">1796-1815</ownershipDate>
+                <ownerPlace>Paris, France</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Bibliothèque royale de Belgique</ownerName>
+                <ownershipDate startYear="1815">Since 1815</ownershipDate>
+                <ownerPlace>Brussels, Belgium</ownerPlace>
+                
+            </owner>
+        </ownership>
+        <personalization>
+            <colophon volume="2" folio="385v">Finis adest operi quem scriptor gaudet haberi</colophon> <!-- placeholder; delete if no information -->
+            <colophon volume="2" folio="386r">lxix ystiores et iii grandes</colophon>
+            
+        </personalization>
+        
+        <annotation volume="2" folio="10r" book="Proverbs" type="marked passage">
+                <name>Original scribe (Petrus Gilberti?)</name>
+                <date>Early 15th century</date>
+                <textReferenced>le poure sera hays neis e ses amis et de son prochain, mais le riche a moult d’amis</textReferenced>  
+                <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="10r" book="Proverbs" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>la dignite du roy est en la misericorde du people. Et en pou de people est laidure du prince</textReferenced>
+            <text>Nota</text>\
+        </annotation>
+        <annotation volume="2" folio="12r" book="Proverbs" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Cilz qui treuue femme bonne treuue bien. Cestadire treuue grant tresor car a peinne puet elle estre trouuee</textReferenced> 
+            <text>Nota</text>             
+        </annotation>
+        <annotation volume="2" folio="12v" book="Proverbs" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Richesces acquierent pluseurs amis. Et ceulx qui estoient amis du poure le deguerpissent</textReferenced>
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="12v" book="Proverbs" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Paresce fait donner voulente de dormir et ame dissolue aime fain</textReferenced> 
+            <text>Nota</text> 
+        </annotation>
+        <annotation volume="2" folio="41r" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>car amis est bon deffendeur. Et qui le treuue il treuue bon tresor</textReferenced>
+            <text>Nota</text>  
+        </annotation>
+        <annotation volume="2" folio="46r" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>remembre toy de pourete ou temps dabondance et a neccessite de pourete ou jour de richesces</textReferenced>  
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="46r" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>vins et femmes font foloyer neis les sages</textReferenced> 
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="49r" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Comment trouueras tu en ta viellesce ce que tu nas assemble a ta jonesce</textReferenced>
+            <text>Nota</text>  
+        </annotation>
+        <annotation volume="2" folio="49v" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Nul chief est plus felon que chief de couleuure et nulle greigneur yre est que yre de femme</textReferenced>  
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="49v" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>tout malice est petit ou regart du malice de femme. Et li sors pecheur cherra sur lui</textReferenced>
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="49v" book="Wisdom" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Yre et inreuerance et grant confusion est en beaute de femme. Quant femme a pouoir elle est contraire a son mary</textReferenced>
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="96r" book="Jeremiah" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>chascun se gart de son proesme et nait mie fiance en tous ses freres</textReferenced>
+            <text>Nota</text>  
+        </annotation>
+        <annotation volume="2" folio="102v" book="Jeremiah" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>moralite: Cecy signifie que dieu determine que pour les pechies et les orgueilx des prelas et les grans despens et cheuauchees contre raison leglise sera pou prisee et pou honnouree et comme deserte</textReferenced> 
+            <text>Nota</text>
+         </annotation>
+        <annotation volume="2" folio="106r" book="Jeremiah" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>moralite: Cecy appartient aux prelas et aux clercs qui doiuent edifier la maison de bonne vie et de bonne conscience et doiuent planter vertus</textReferenced>  
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="108r" book="Jeremiah" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+             <textReferenced>Par cecy est signifie comment aucuns roys et princes qui furent heretiques ont prule et firent ardre les liures de la foy crestienne, et comment les mauuais sont courrouciez quant len leur dit verite</textReferenced>  
+            <text>Nota</text>
+        </annotation>
+        <annotation volume="2" folio="334r" book="Hebrews" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>moralite: Cecy signifie que les bons crestiens en leurs disners ou mengiers doiuent auoir memoire des poures et leur doiuent donner largement de leurs biens</textReferenced>  
+            <text>Nota, with painted paragraph marker like those used in text</text>
+        </annotation>
+        <annotation volume="2" folio="338v" book="Acts" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>moralite: Cest enchanteur signifie les mauuais conseilleurs flateurs rapineux qui pour leur profit temporal conseillent les princes et empeschent le bon gouuernement du peuple</textReferenced>  
+            <text>Nota, with painted paragraph marker like those used in text</text>
+        </annotation>
+        <annotation volume="2" folio="362v" book="James" type="marked passage">
+            <name>Original scribe</name>
+            <date>Early 15th century</date>
+            <textReferenced>Tout homme soit ysnel a oyr et tardif a ayre. li homs yrez ne fait mie la justice de dieu</textReferenced>  
+            <text>Nota</text>
+           </annotation>
+     
+    </provenPatronHist>
+    <illustrations>
+        <decorationSummary number="180" largeIlls="5" illStyle="illumination" foliateBorder="y" basDePage="n" decoratedInitials="y">
+            <artistWorkshop>Maître des Pèlerinages de 1393</artistWorkshop>
+            <artistWorkshop>Maître du Virgile</artistWorkshop>
+            <artistWorkshop>Maître des Cleres Femmes de Jean de Berry</artistWorkshop>
+            <artistWorkshop>Maître de la Cité des Dames</artistWorkshop>
+            
+        </decorationSummary>
+        
+        <illustrationList>
+            <illustration number="1" book="Preface (glossary)" volume="1" folio="1r">
+                <keywords>Guyart, Comestor or scribe (Petrus Gilberti?) working; presentation of book to King Charles VI</keywords>
+            </illustration>
+            <illustration number="2" book="Preface (on exegesis)" volume="1" folio="19r">
+                <keywords>Six-panel display miniature featuring: Wisdom enthroned, Trinity contemplating, Trinity discussing, Trinity creating angels and, in the two bottom right panels, the fall of the angels (one angel falls from middle right panel into the fiery, demon-inhabited bottom right panel, while three other angels sleep)</keywords>
+            </illustration>
+            <illustration number="3" book="Genesis" volume="1" folio="20v">
+                <keywords>God, Creation day 1: firmament</keywords>
+            </illustration>
+            <illustration number="4" book="Genesis" volume="1" folio="21v">
+                <keywords>God, Creation day 2: heaven and earth</keywords>
+            </illustration>
+            <illustration number="5" book="Genesis" volume="1" folio="22r">
+                <keywords>God, Creation day 3: ocean</keywords>
+            </illustration>
+            <illustration number="6" book="Genesis" volume="1" folio="22v">
+                <keywords>God, Creation day 4: sun and moon</keywords>
+            </illustration>
+            <illustration number="7" book="Genesis" volume="1" folio="23v">
+                <keywords>God, Creation day 5: fish</keywords>
+            </illustration>
+            <illustration number="8" book="Genesis" volume="1" folio="24r"> 
+                <keywords>God, Creation day 6: Adam</keywords>
+            </illustration>
+            <illustration number="9" book="Genesis" volume="1" folio="24v">
+                <keywords>God, Adam, Creation of Eve</keywords>
+            </illustration>
+            <illustration number="10" book="Genesis" volume="1" folio="26r">
+                <keywords>Original sin: Adam covers his genitals, Eve looks embarrassed</keywords>
+            </illustration>
+            <illustration number="11" book="Genesis" volume="1" folio="27r">
+                <keywords>Adam and Eve escorted out of the gate of Paradise</keywords>
+            </illustration>
+            <illustration number="12" book="Genesis" volume="1" folio="28v">
+                <keywords>Cain slaying Abel; God accuses Cain from heaven</keywords>
+            </illustration>
+            <illustration number="13" book="Genesis" volume="1" folio="33r">
+                <keywords>God instructing Noah; construction of Ark</keywords>
+            </illustration>
+            <illustration number="14" book="Genesis" volume="1" folio="37v">
+                <keywords>Ark, with animals and Noah's family visible through windows</keywords>
+            </illustration>
+            <illustration number="15" book="Genesis" volume="1" folio="41v">
+                <keywords>Noah's sacrifice</keywords>
+            </illustration>
+            <illustration number="16" book="Genesis" volume="1" folio="45v">
+                <keywords>Tower of Babel</keywords>
+            </illustration>
+            <illustration number="17" book="Genesis" volume="1" folio="50r">
+                <keywords>Three angels appear to Abraham; Sarah looks on through window</keywords>
+            </illustration>
+            <illustration number="18" book="Genesis" volume="1" folio="51v">
+                <keywords>Lot and daughters fleeing Sodom, Lot's wife turned to salt</keywords>
+            </illustration>
+            <illustration number="19" book="Genesis" volume="1" folio="58v">
+                <keywords>Isaac blessing Jacob</keywords>
+            </illustration>
+            <illustration number="20" book="Genesis" volume="1" folio="66v">
+                <keywords>Jacob sold by his brothers</keywords>
+            </illustration>
+            <illustration number="21" book="Exodus" volume="1" folio="78v">
+                <keywords>Hebrews constructing building for Pharaoh</keywords>
+            </illustration>
+            <illustration number="22" book="Exodus" volume="1" folio="94v">
+                <keywords>God giving Moses the tablets of the Law; crowd assembled</keywords>
+            </illustration>
+            <illustration number="23" book="Exodus" volume="1" folio="98v">
+                <keywords>Propitiatory</keywords>
+            </illustration>
+            <illustration number="24" book="Leviticus" volume="1" folio="108v">
+                <keywords>Sacrificial altar surrounded by tonsured clerics</keywords>
+            </illustration>
+            <illustration number="25" book="Numbers" volume="1" folio="117v">
+                <keywords>God speaking to Moses outside temple, ordering him to number the Hebrews</keywords>
+            </illustration>
+            <illustration number="26" book="Numbers" volume="1" folio="120r">
+                <keywords>Large display miniature of tabernacle (with Moses and Aaron), surrounded by camp layout, soldiers in tents to represent the tribes.</keywords>
+            </illustration>
+            <illustration number="27" book="Numbers" volume="1" folio="125v">
+                <keywords>God speaking to Moses and Aaron</keywords>
+            </illustration>
+            <illustration number="28" book="Numbers" volume="1" folio="129r">
+                <keywords>Stoning over violation of the Sabbath</keywords>
+            </illustration>
+            <illustration number="29" book="Numbers" volume="1" folio="130r">
+                <keywords>Aaron prays for rain to put out fire in tabernacle</keywords>
+            </illustration>
+            <illustration number="30" book="Numbers" volume="1" folio="130v">
+                <keywords>Aaron's orchard; Aaron shows it to a crowd</keywords>
+            </illustration>
+            <illustration number="31" book="Numbers" volume="1" folio="132r">
+                <keywords>Serpent</keywords>
+            </illustration>
+            <illustration number="32" book="Numbers" volume="1" folio="132v">
+                <keywords>Balaam, angel, ass</keywords>
+            </illustration>
+            <illustration number="33" book="Numbers" volume="1" folio="136v">
+                <keywords>God appointing Judah judge</keywords>
+            </illustration>
+            <illustration number="34" book="Numbers" volume="1" folio="139r">
+                <keywords>Battle against Madianites</keywords>
+            </illustration>
+            <illustration number="35" book="Deuteronomy" volume="1" folio="140v">
+                <keywords>Moses writing</keywords>
+            </illustration>
+            <illustration number="36" book="Deuteronomy" volume="1" folio="152v">
+                <keywords>Clerics discussing law about divorce</keywords>
+            </illustration>
+            <illustration number="37" book="Joshua" volume="1" folio="157r">
+                <keywords>Joshua riding with army, crossing the Jordan</keywords>
+            </illustration>
+            <illustration number="38" book="Joshua" volume="1" folio="160r">
+                <keywords>Priests carrying Ark of the Covenant, accompanied by soldiers</keywords>
+            </illustration>
+            <illustration number="39" book="Joshua" volume="1" folio="166r">
+                <keywords>God and Hebrews</keywords>
+            </illustration>
+            <illustration number="40" book="Judges" volume="1" folio="166v">
+                <keywords>Judges of Israel</keywords>
+            </illustration>
+            <illustration number="41" book="Judges" volume="1" folio="173v">
+                <keywords>Worship of idols</keywords>
+            </illustration>
+            <illustration number="42" book="Judges" volume="1" folio="175r">
+                <keywords>Manoah and his wife, angel</keywords>
+            </illustration>
+            <illustration number="43" book="Judges" volume="1" folio="175v">
+                <keywords>Samson killing lion</keywords>
+            </illustration>
+            <illustration number="44" book="Judges" volume="1" folio="177r">
+                <keywords>Samson and Delilah</keywords>
+            </illustration>
+            <illustration number="45" book="Judges" volume="1" folio="178v">
+                <keywords>Michas's Sanctuary</keywords>
+            </illustration>
+            <illustration number="46" book="1 Kings" volume="1" folio="183r">
+                <keywords>Anna and children praying</keywords>
+            </illustration>
+            <illustration number="47" book="1 Kings" volume="1" folio="184r">
+                <keywords>Heli's death</keywords>
+            </illustration>
+            <illustration number="48" book="1 Kings" volume="1" folio="188r">
+                <keywords>Saul anointed, David's departure</keywords>
+            </illustration>
+            <illustration number="49" book="1 Kings" volume="1" folio="190v">
+                <keywords>Jonathan vs. Philistines</keywords>
+            </illustration>
+            <illustration number="50" book="1 Kings" volume="1" folio="192v">
+                <keywords>Coronation of David</keywords>
+            </illustration>
+            <illustration number="51" book="1 Kings" volume="1" folio="193v">
+                <keywords>David and Goliath</keywords>
+            </illustration>
+            <illustration number="52" book="1 Kings" volume="1" folio="195v">
+                <keywords>David fleeing</keywords>
+            </illustration>
+            <illustration number="53" book="1 Kings" volume="1" folio="200v">
+                <keywords>Saul consulting the witch</keywords>
+            </illustration>
+            <illustration number="54" book="1 Kings" volume="1" folio="202v">
+                <keywords>Death of Saul</keywords>
+            </illustration>
+            <illustration number="55" book="2 Kings" volume="1" folio="203r">
+                <keywords>David has Saul's killer executed</keywords>
+            </illustration>
+            <illustration number="56" book="2 Kings" volume="1" folio="205v">
+                <keywords>Death of Isboseth</keywords>
+            </illustration>
+            <illustration number="57" book="2 Kings" volume="1" folio="209r">
+                <keywords>Battle scene, city seige</keywords>
+            </illustration>
+            <illustration number="58" book="2 Kings" volume="1" folio="212v">
+                <keywords>David, Absalom</keywords>
+            </illustration>
+            <illustration number="59" book="2 Kings" volume="1" folio="214r">
+                <keywords>Death of Absalom</keywords>
+            </illustration>
+            <illustration number="60" book="3 Kings" volume="1" folio="219v">
+                <keywords>Solomon anointed king</keywords>
+            </illustration>
+            <illustration number="61" book="3 Kings" volume="1" folio="225r">
+                <keywords>Construction of Temple</keywords>
+            </illustration>
+            <illustration number="62" book="3 Kings" volume="1" folio="226v">
+                <keywords>Golden cherubim</keywords>
+            </illustration>
+            <illustration number="63" book="3 Kings" volume="1" folio="230r">
+                <keywords>Consecration of the Temple</keywords>
+            </illustration>
+            <illustration number="64" book="3 Kings" volume="1" folio="233v">
+                <keywords>Queen of Sheba visits Solomon</keywords>
+            </illustration>
+            <illustration number="65" book="4 Kings" volume="1" folio="239v">
+                <keywords>Elias slaying Baal's priests</keywords>
+            </illustration>
+            <illustration number="66" book="4 Kings" volume="1" folio="244v">
+                <keywords>Joram's death</keywords>
+            </illustration>
+            <illustration number="67" book="4 Kings" volume="1" folio="245v">
+                <keywords>Elias in his chariot, giving his cloak to Eliseus</keywords>
+            </illustration>
+            <illustration number="68" book="4 Kings" volume="1" folio="253r">
+                <keywords>Death of Joram</keywords>
+            </illustration>
+            <illustration number="69" book="4 Kings" volume="1" folio="257r">
+                <keywords>Amos and Jeroboam</keywords>
+            </illustration>
+            <illustration number="70" book="4 Kings" volume="1" folio="261r">
+                <keywords>Ezechias destroying idols</keywords>
+            </illustration>
+            <illustration number="71" book="I Parilipomenon" volume="1" folio="271v">
+                <keywords>Patriarchs</keywords>
+            </illustration>
+            <illustration number="72" book="II Paralipominon" volume="1" folio="285r">
+                <keywords>God speaking to Solomon</keywords>
+            </illustration>
+            <illustration number="73" book="1 Esdras (Ezra)" volume="1" folio="302v">
+                <keywords>Esdras writing; Cyrus, king of Persia</keywords>
+            </illustration>
+            <illustration number="74" book="2 Esdras (Nehemiah)" volume="1" folio="308r">
+                <keywords>Nehemiah with king Artaxerxes outside Jerusalem</keywords>
+            </illustration>
+            <illustration number="75" book="2 Esdras (Nehemiah)" volume="1" folio="315r">
+                <keywords>Feast of the tabernacles</keywords>
+            </illustration>
+            <illustration number="76" book="Grand Job" volume="1" folio="323v">
+                <keywords>Job's family eating together</keywords>
+            </illustration>
+            <illustration number="77" book="Grand Job" volume="1" folio="326r">
+                <keywords>Job struck with leprosy, God looking on</keywords>
+            </illustration>
+            <illustration number="78" book="Grand Job" volume="1" folio="328r">
+                <keywords>Job with wife and friend</keywords>
+            </illustration>
+            <illustration number="79" book="Grand Job" volume="1" folio="329v">
+                <keywords>God and Job</keywords>
+            </illustration>
+            <illustration number="80" book="Grand Job" volume="1" folio="337r">
+                <keywords>Job and one of the friends</keywords>
+            </illustration>
+            <illustration number="81" book="Grand Job" volume="1" folio="339r">
+                <keywords>Job and his wife</keywords>
+            </illustration>
+            <illustration number="82" book="Petit Job" volume="1" folio="341v">
+                <keywords>Job with his family</keywords>
+            </illustration>
+            <illustration number="83" book="Tobias (Tobit)" volume="1" folio="343r">
+                <keywords>Tobias and his wife taken prisoners</keywords>
+            </illustration>
+            <illustration number="84" book="Judith" volume="1" folio="350r">
+                <keywords>Holofernes with soldiers</keywords>
+            </illustration>
+            <illustration number="85" book="Judith" volume="1" folio="352v">
+                <keywords>Judith with priests of Israel</keywords>
+            </illustration>
+            <illustration number="86" book="Judith" volume="1" folio="355r">
+                <keywords>Judith and Holofernes</keywords>
+            </illustration>
+            <illustration number="87" book="Judith" volume="1" folio="357r">
+                <keywords>Darius and his army</keywords>
+            </illustration>
+            <illustration number="88" book="Esther" volume="1" folio="361v">
+                <keywords>Esther crowned queen</keywords>
+            </illustration>
+            <illustration number="89" book="Esther" volume="1" folio="365v">
+                <keywords>Esther advocating for Jews; execution of Aman</keywords>
+            </illustration>
+            <illustration number="90" book="Esther" volume="1" folio="368v">
+                <keywords>Mardochai's dream</keywords>
+            </illustration>
+            <illustration number="91" book="Esther" volume="1" folio="369v">
+                <keywords>High priest killing his brother</keywords>
+            </illustration>
+            <illustration number="92" book="Jeremiah" volume="1" folio="374r">
+                <keywords>Death of Godolias</keywords>
+            </illustration>
+            <illustration number="93" book="Ezechiel" volume="1" folio="375v">
+                <keywords>Ezechiel and Hebrews</keywords>
+            </illustration>
+            <illustration number="94" book="Daniel" volume="1" folio="376v">
+                <keywords>Nebuchadnezzar taking captives</keywords>
+            </illustration>
+            <illustration number="95" book="Daniel" volume="1" folio="377r">
+                <keywords>Daniel's first vision</keywords>
+            </illustration>
+            <illustration number="96" book="Daniel" volume="1" folio="379v">
+                <keywords>Daniel's sixth vision</keywords>
+            </illustration>
+            <illustration number="97" book="Daniel" volume="1" folio="380v">
+                <keywords>Daniel in the lion's den</keywords>
+            </illustration>
+            <illustration number="98" book="Daniel" volume="1" folio="384r">
+                <keywords>Daniel testifying on Suzanne's behalf</keywords>
+            </illustration>
+            <illustration number="99" book="Daniel" volume="1" folio="386v">
+                <keywords>Cyrus liberating Jews</keywords>
+            </illustration>
+            <illustration number="100" book="Psalms" volume="1" folio="389r">
+                <keywords>David composing psalms</keywords>
+            </illustration>
+            <illustration number="101" book="Psalms" volume="1" folio="396r">
+                <keywords>Coronation of David</keywords>
+            </illustration>
+            <illustration number="102" book="Psalms" volume="1" folio="400v">
+                <keywords>David reciting (singing?) a psalm</keywords>
+            </illustration>
+            <illustration number="103" book="Psalms" volume="1" folio="405r">
+                <keywords>Fool</keywords>
+            </illustration>
+            <illustration number="104" book="Psalms" volume="1" folio="409v">
+                <keywords>Conversion of the Jews</keywords>
+            </illustration>
+            <illustration number="105" book="Psalms" volume="1" folio="415r">
+                <keywords>Cantors</keywords>
+            </illustration>
+            <illustration number="106" book="Psalms" volume="1" folio="420r">
+                <keywords>David playing lute and singing</keywords>
+            </illustration>
+            <illustration number="107" book="Psalms" volume="1" folio="425r">
+                <keywords>Trinity</keywords>
+            </illustration>
+            <!-- start here for vol 1 (check above too) and renumber below. check if links are available -->
+            <illustration number="108" book="Proverbs" volume="2" folio="3r">
+                <keywords>Frontispiece, Solomon teaching, Judgment of Solomon, Solomon and three sons, Solomon and Queen Sheba</keywords>
+            </illustration>
+            <illustration number="109" book="Proverbs" volume="2" folio="7v">
+                <keywords>Lady Wisdom</keywords>
+            </illustration>
+            <illustration number="110" book="Ecclesiastes" volume="2" folio="19v">
+                <keywords>King, moon, stars, sun, teaching astrology</keywords>
+            </illustration>
+            <illustration number="111" book="Song of Songs" volume="2" folio="24r">
+                <keywords>Christ, Ecclesia, allegory of church</keywords>
+            </illustration>
+            <illustration number="112" book="Ecclesiasticus" volume="2" folio="30v">
+                <keywords>King teaching from book</keywords>
+            </illustration>
+            <illustration number="113" book="Isaiah" volume="2" folio="61r">
+                <keywords>Frontispiece, battle, siege, prophet writing, five prophets</keywords>
+            </illustration>
+            <illustration number="114" book="Jeremiah" volume="2" folio="89v">
+                <keywords>Jeremiah, army riding into city</keywords>
+            </illustration>
+            <illustration number="115" book="Lamentations" volume="2" folio="121v">
+                <keywords>Jeremiah, broken city walls, dead men and women</keywords>
+            </illustration>
+            <illustration number="116" book="Ezechiel" volume="2" folio="132v">
+                <keywords>Ezechiel teaching, evangelists, eagle, bull, lion, angel</keywords>
+            </illustration>
+            <illustration number="117" book="Daniel" volume="2" folio="158r">
+                <keywords>King Joachim at table, speaking to four figures</keywords>
+            </illustration>
+            <illustration number="118" book="Hosea (Osee)" volume="2" folio="170r">
+                <keywords>Osee talks to woman. Smaller man and woman speak together</keywords>
+            </illustration>
+            <illustration number="119" book="Joel" volume="2" folio="173r">
+                <keywords>Joel leads group, indicates army</keywords>
+            </illustration>
+            <illustration number="120" book="Amos" volume="2" folio="175r">
+                <keywords>Amos showing men burning house</keywords>
+            </illustration>
+            <illustration number="121" book="Micah" volume="2" folio="179v">
+                <keywords>Michee looking at city with dead bodies pouring out of front gates</keywords>
+            </illustration>
+            <illustration number="122" book="Abacuc" volume="2" folio="182v">
+                <keywords>Abacuc watches one man beat another as God speaks from corner</keywords>
+            </illustration>
+            <illustration number="123" book="Zacharias" volume="2" folio="184v">
+                <keywords>Zacharias, man on horseback, angel</keywords>
+            </illustration>
+            <illustration number="124" book="Malachi" volume="2" folio="190r">
+                <keywords>Malachi leading group. God speaking. Lamb on altar.</keywords>
+            </illustration>
+            <illustration number="125" book="1 Maccabees" volume="2" folio="192r">
+                <keywords>Frontispiece: Alexander on death bed with sons, adoration of Ninus's statue, soldiers robbing temple, battle outside city. Foliate border with animals</keywords>
+            </illustration>
+            <illustration number="126" book="2 Maccabees" volume="2" folio="212r">
+                <keywords>Messenger, Aristobole</keywords>
+            </illustration>
+            <illustration number="127" book="Matthew" volume="2" folio="223r">
+                <keywords>Jesse tree, musicians</keywords>
+            </illustration>
+            <illustration number="128" book="Matthew" volume="2" folio="225v">
+                <keywords>Christ teaching apostles</keywords>
+            </illustration>
+            <illustration number="129" book="Matthew" volume="2" folio="227v">
+                <keywords>Christ healing leper and sought by centurion</keywords>
+            </illustration>
+            <illustration number="130" book="Matthew" volume="2" folio="230v">
+                <keywords>Disciples harvesting wheat on Sabbath; Christ answering Pharisees</keywords>
+            </illustration>
+            <illustration number="131" book="Matthew" volume="2" folio="232v">
+                <keywords>Herod presenting John the Baptist's head to Herodia or Salome</keywords>
+            </illustration>
+            <illustration number="132" book="Matthew" volume="2" folio="234r">
+                <keywords>Christ, apostles, baskets of loaves</keywords>
+            </illustration>
+            <illustration number="133" book="Matthew" volume="2" folio="236r">
+                <keywords>Christ, rabbi presiding over wedding, couple</keywords>
+            </illustration>
+            <illustration number="134" book="Matthew" volume="2" folio="239v">
+                <keywords>Christ talking to Pharisees</keywords>
+            </illustration>
+            <illustration number="135" book="Matthew" volume="2" folio="244v">
+                <keywords>Christ delivered to Pilate; Judas hanged and disemboweled.</keywords>
+            </illustration>
+            <illustration number="136" book="Mark" volume="2" folio="247r">
+                <keywords>John the Baptist, in animal skins, baptizing Christ before crowd</keywords>
+            </illustration>
+            <illustration number="137" book="Mark" volume="2" folio="250r">
+                <keywords>Herod ordering beheading of John the Baptist; Salome holds head on platter</keywords>
+            </illustration>
+            <illustration number="138" book="Mark" volume="2" folio="254v">
+                <keywords>Christ riding to Jerusalem with apostles, greeted with honor</keywords>
+            </illustration>
+            <illustration number="139" book="Mark" volume="2" folio="257v">
+                <keywords>Crucifiction. Christ, center with two thieves and tormented by spear and vinegar. Mary and John at his feet.</keywords>
+            </illustration>
+            <illustration number="140" book="Luke" volume="2" folio="258v">
+                <keywords>Annunciation, Gabriel, Joseph, Mary</keywords>
+            </illustration>
+            <illustration number="141" book="Luke" volume="2" folio="262v">
+                <keywords>John the Baptist prophesying to his disciples</keywords>
+            </illustration>
+            <illustration number="142" book="Luke" volume="2" folio="265r">
+                <keywords>Christ healing sick man on Sabbath, Pharisees</keywords>
+            </illustration>
+            <illustration number="143" book="Luke" volume="2" folio="268r">
+                <keywords>Christ sending disciples out to preach</keywords>
+            </illustration>
+            <illustration number="144" book="Luke" volume="2" folio="269v">
+                <keywords>Disciples setting out in pairs to preach</keywords>
+            </illustration>
+            <illustration number="145" book="Luke" volume="2" folio="274r">
+                <keywords>Christ teaching, man carrying lamb</keywords>
+            </illustration>
+            <illustration number="146" book="Luke" volume="2" folio="277v">
+                <keywords>Christ leading disciples. Man in tree.</keywords>
+            </illustration>
+            <illustration number="147" book="Luke" volume="2" folio="280r">
+                <keywords>Christ, Last Supper</keywords>
+            </illustration>
+            <illustration number="148" book="John" volume="2" folio="283r">
+                <keywords>John writing in book with Eagle. Trinity.</keywords>
+            </illustration>
+            <illustration number="149" book="John" volume="2" folio="288r">
+                <keywords>Christ, adulterous woman</keywords>
+            </illustration>
+            <illustration number="150" book="John" volume="2" folio="290r">
+                <keywords>Christ, Pharisees</keywords>
+            </illustration>
+            <illustration number="151" book="John" volume="2" folio="290v">
+                <keywords>Christ, Lazarus</keywords>
+            </illustration>
+            <illustration number="152" book="John" volume="2" folio="295v">
+                <keywords>Judas kissing Christ to identify him</keywords>
+            </illustration>
+            <illustration number="153" book="Romans" volume="2" folio="298v">
+                <keywords>Paul handing book to king</keywords>
+            </illustration>
+            <illustration number="154" book="1 Corinthians" volume="2" folio="305r">
+                <keywords>Christ, angels. Paul teaching Corinthians from book.</keywords>
+            </illustration>
+            <illustration number="155" book="2 Corinthians" volume="2" folio="311r">
+                <keywords>Paul, speech scroll, teaching Corinthians, who follow along in books.</keywords>
+            </illustration>
+            <illustration number="156" book="Gallatians" volume="2" folio="315r">
+                <keywords>Paul reading parchment. Man with spear.</keywords>
+            </illustration>
+            <illustration number="157" book="Ephesians" volume="2" folio="317r">
+                <keywords>Paul teaching Ephesians</keywords>
+            </illustration>
+            <illustration number="158" book="Philippeans" volume="2" folio="319v">
+                <keywords>David, Goliath</keywords>
+            </illustration>
+            <illustration number="159" book="Thessalonians" volume="2" folio="323r">
+                <keywords>Bishops and monks reading letter</keywords>
+            </illustration>
+            <illustration number="160" book="1 Timothy" volume="2" folio="324r">
+                <keywords>Paul writing letter. Messenger delivering letter.</keywords>
+            </illustration>
+            <illustration number="161" book="Titus" volume="2" folio="327r">
+                <keywords>God with prophet; Paul with Titus</keywords>
+            </illustration>
+            <illustration number="162" book="Hebrews" volume="2" folio="329r">
+                <keywords>Trinity reading book; Paul teaching, holding sword</keywords>
+            </illustration>
+            <illustration number="163" book="Acts" volume="2" folio="338v">
+                <keywords>Ascension</keywords>
+            </illustration>
+            <illustration number="164" book="James" volume="2" folio="362r">
+                <keywords>Messenger delivers letter. Paul, holding sword and book, looks on.</keywords>
+            </illustration>
+            <illustration number="165" book="Apocalypse (Revelation)" volume="2" folio="369v">
+                <keywords>John with book and eagle. Angel points to God, who holds a sword in his teeth. Surrounded by stars and seven golden lamps.</keywords>
+            </illustration>
+            <illustration number="166" book="Apocalypse (Revelation)" volume="2" folio="370v">
+                <keywords>John with book and eagle, looking up at five angels</keywords>
+            </illustration>
+            <illustration number="167" book="Apocalypse (Revelation)" volume="2" folio="373r">
+                <keywords>Angel shows John a temple.</keywords>
+            </illustration>
+            <illustration number="168" book="Apocalypse (Revelation)" volume="2" folio="374r">
+                <keywords>John, on island with book and angel, looks up at God. Surrounded by stars and gold lamps. Similar to 369v.</keywords>
+            </illustration>
+            <illustration number="169" book="Apocalypse (Revelation)" volume="2" folio="375v">
+                <keywords>Angel crowning man on horseback. Another man approaches on horseback with lance. Large clasped book and lamb in background.</keywords>
+            </illustration>
+            <illustration number="170" book="Apocalypse (Revelation)" volume="2" folio="376v">
+                <keywords>John, writing on scroll with eagle. Angels talking. Men reading books.</keywords>
+            </illustration>
+            <illustration number="171" book="Apocalypse (Revelation)" volume="2" folio="377v">
+                <keywords>John, with eagle, looks at harlot. Harlot holds cup and rides 7-headed beast.</keywords>
+            </illustration>
+            <illustration number="172" book="Apocalypse (Revelation)" volume="2" folio="378v">
+                <keywords>Fall of Babylon. John holds book; angel shows him crumbling city.</keywords>
+            </illustration>
+            <illustration number="173" book="Apocaylypse" volume="2" folio="379v">
+                <keywords>John with eagle looking up at woman of light, temple, Ark of the Covenant.</keywords>
+            </illustration>
+            <illustration number="174" book="Apocalypse (Revelation)" volume="2" folio="380v">
+                <keywords>John, eagle, angel, 7-headed beast</keywords>
+            </illustration>
+            <illustration number="175" book="Apocalypse (Revelation)" volume="2" folio="381r">
+                <keywords>John, book, eagle, lamb with adorers</keywords>
+            </illustration>
+            <illustration number="176" book="Apocalypse (Revelation)" volume="2" folio="382r">
+                <keywords>John writing in book, eagle, Christ enthroned with adorers, four signs of evangelists: lion, bull, angel, eagle</keywords>
+            </illustration>
+            <illustration number="177" book="Apocalypse (Revelation)" volume="2" folio="383r">
+                <keywords>Angel chaining beast; two men enthroned</keywords>
+            </illustration>
+            <illustration number="178" book="Apocalypse (Revelation)" volume="2" folio="383v">
+                <keywords>Angel showing John, with eagle, heavenly Jerusalem</keywords>
+            </illustration>
+            <illustration number="179" book="Apocalypse (Revelation)" volume="2" folio="384v">
+                <keywords>John with eagle; angel indicating lamb</keywords>
+            </illustration>
+           
+        </illustrationList>
+        <illustrationNote>I count 180 illustrations; Fournié has 182, including two I did not notice in Genesis.</illustrationNote>
+    </illustrations>
+    <classification>
+        <shelfmarks>
+            <currentCity>Brussels, Belgium</currentCity>
+            <currentRepository>Bibliothèque royale de Belgique (KBR)</currentRepository>
+            <currentShelfmark>9001-9002</currentShelfmark>
+            <repositoryLink>http://www.kbr.be/</repositoryLink>
+        </shelfmarks>
+        <titles>
+            <coverTitle>La S. Bible (Tome 1; Tome 2). Inside binding: Cest le premier/second volume de la Bible</coverTitle>
+        </titles>
+        <bookType technology="manuscript" collectionType="Bible" />s
+        <catalogerClassifications>
+            <bergerClass category="BHC" bhcSubtype="Prol. full"/>
+            <sneddonClass category="BHC" subcategory1="mixed">
+                <siglum>Z2</siglum>
+                <entry>117, 120</entry>
+            </sneddonClass>
+            <fournieCatalog>
+                <fournieNumber>10-11</fournieNumber>
+                <fournieLink>http://acrh.revues.org/1467#tocto1n10</fournieLink>
+            </fournieCatalog>
+            <secundoFolio volume="1">humilite et la cite</secundoFolio>
+            <secundoFolio volume="2">Les disciples qui</secundoFolio>
+            
+            <classificationNotes>Sneddon classifies it as a GB with BMa Apocalypse and Raoul de Presles Psalms</classificationNotes>
+        </catalogerClassifications>
+     </classification>
+    <textualContents>
+        <prefatoryMatter volume="1">
+            <otherPreface startPage="1r" accuracy="actual">Confession quant a cest oeuure touche est de deux manieres</otherPreface>
+            <otherPreface accuracy="actual" startPage="19r">La sainte escripture se puet raisonnablement par quatre manieres exposer</otherPreface> 
+            <MasterTableOfContents startPage="11v" matchesContents="y" tableDetail="mixed">Le premier chappitre de genesis fait mention de la production et creation du monde...</MasterTableOfContents>
+        <prefatoryNote>Guyart's and Comestor's prologues have been replaced by a glossary and an introduction to the four senses of Scripture.</prefatoryNote>
+        </prefatoryMatter>
+        <prefatoryMatter volume="2">
+            <otherPreface accuracy="actual" startPage="1r">Cy commencent les rubriches des liures contenus en la seconde partie de la bible qui se commence aux paraboles salemon lesquelles paraboles nont nulles rubriches ne aussi nont pluseurs liures apres ensuit. et pour ce sensuit le nombre des chappitres diceulx liures si comme il appert cy apres</otherPreface>
+            <MasterTableOfContents startPage="1r" matchesContents="y" tableDetail="mixed">Summary: Le liure des paraboles salemon contien huit chappittres si comme vous trouerrez par plus a plain ou dit liure. Le liure de Sapience contient xxiii chappittres. Le liure de ecclesiastes contient xii chappitres, etc. Proverbs-Maccabees list titles and number of chapters. Gospels table is more detailed: Cy commencent les rubriches des euuangilles selon la bible et premierement De loffrande des trois roys a nostreseigneur jhesucrist .i. Comment saint jehan baptiste preschoit ou desert et pabzoit ou nom jhesucrist .ii., etc. Acts, Epistles, Apocolypse only give number of chapters.
+            </MasterTableOfContents>
+        </prefatoryMatter>
+        
+        <bibleBooks volume="1">
+            <title textVersion="BH" glossType="BH" glossType2="multiple" startPage="20v" chapterNames="y" tableOfContents="n" bookName="Genesis">
+                <incipit textType="text" accuracy="actual">Au commencement crea dieu le ciel et la terre</incipit> 
+                <incipit textType="histoire" accuracy="actual">Par le commencement dit saint augustin que le filz de la trinite</incipit>
+                <incipit textType="moralite" accuracy="actual">le second aage de lomme lequel dure depuis sept ans</incipit>
+                <incipit textType="questions" accuracy="actual">Pourquoy fist dieu eue de la coste adam</incipit>
+                <bookNote>Many different kinds of glosses, some not included here.</bookNote>
+            </title>
+            
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="78v" chapterNames="y" tableOfContents="n" bookName="Exodus">
+                <incipit textType="text" accuracy="actual">Ce sont les noms de filz israel qui entrerent en egipte auec jacob</incipit>
+                <incipit textType="histoire" accuracy="actual">Long temps apres la mort joseph</incipit>
+                <incipit textType="moralite" accuracy="actual">Apres ce semana moyse et prise vne femme dont il ot deux enfans</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="108v" chapterNames="y" tableOfContents="n" bookName="Leviticus">
+                <incipit textType="Guyart prologue" accuracy="actual">Du commencement du liure de leuitique. met li maistre en hystoires vne diuision moult proffitable pour entendre leuitique</incipit> 
+                <incipit textType="histoire" accuracy="actual">Nostre seigneur parla a moyse du tabernacle</incipit>
+                <incipit textType="moralite" accuracy="actual">Dieu appella moyses et parla a lui du tabernacle</incipit>
+                <bookNote>Guyart translates Leviticus entirely from the Historia Scholastica, which, more than in other books, duplicates or summarizes most of Leviticus as it comments</bookNote>
+                
+            </title>
+            
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="117v" chapterNames="y" tableOfContents="n" bookName="Numbers">
+                <incipit textType="Guyart prologue" accuracy="actual">Li quarte histoire de ce liure est appellee le liure des nombres ou le nombre. Et cest bien drois</incipit>
+                <incipit textType="text" accuracy="actual">Nostre seigneur parla a moyse ou desert</incipit>
+  
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="139v" chapterNames="y" tableOfContents="n" bookName="Deuteronomy">
+                <incipit textType="Guyart prologue" accuracy="actual">La quinte histoire et la derreniere que moyses escript en gres est appellee deuteronomes cest a dire la seconde loy</incipit> 
+                <incipit textType="text" accuracy="actual">Au xle an de lissue deuteronome les filz ysrael degipte</incipit>
+                <incipit textType="moralite" accuracy="actual">Le premier commandement est que tu naoureras mie pluseurs dieux</incipit>
+            </title>
+            
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="157r" chapterNames="y" tableOfContents="n" bookName="Joshua">
+                <incipit textType="text" accuracy="actual">Nostre seigneur parla a josue le filz nun glose voire apres la mort de moyse quant le peuple</incipit>
+                <incipit textType="moralite" accuracy="actual">nostre seigneur commanda a josue a garder les commandemens</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="166v" chapterNames="y" tableOfContents="n" bookName="Judges">
+                <incipit textType="Guyart prologue" accuracy="actual">Cilz liures des iuges est en hebrieu apellez sochim si parle des juges qui jugerent ysrael</incipit> 
+                <incipit textType="text" accuracy="actual">Apres la mort josue pristrent conseil a nostre seigneur les filz israel</incipit>
+                <incipit textType="moralite" accuracy="actual">Apres la mort josue les filz dysrael requistrent a nostre seigneur quil leur deist qui esoit cilz qui les deuoit</incipit>
+                <bookNote>Ending rubric: Cy fine le liure de ruth et des juges</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="183r" chapterNames="y" tableOfContents="n" bookName="1 Kings">
+                <incipit textType="Guyart prologue" accuracy="actual">Ce liure des roys est deuisez en quatre liures selon les latins et selonc les hebrieux en deux</incipit>
+                <incipit textType="text" accuracy="actual">Aus hons fu de ramatheim sophim du mout effray qui ot a non helcana</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="203r" chapterNames="y" tableOfContents="n" bookName="2 Kings">
+                <incipit textType="text" accuracy="approximate">Apres la mort saul et apres ce que dauid reueoit doccire ceus damalech</incipit> 
+                
+            </title>
+            
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="219v" chapterNames="y" tableOfContents="n" bookName="3 Kings">
+                <incipit textType="Guyart prologue" accuracy="approximate">Ci commence selons nous li tiers liures des roys et selons les hebrius li secons</incipit>
+                <incipit textType="text" accuracy="approximate">Li roys dauid estoit moult en uielliez et auoit moult grant aige ne il ne se pooit eschaufer</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="239v" chapterNames="y" tableOfContents="n" bookName="4 Kings">
+                <incipit textType="text" accuracy="approximate">Othosie li filz achab commenca a regner en samarie sus israel</incipit>     
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="271v" chapterNames="n" tableOfContents="n" bookName="1 Paralipomenon (I Chronicles)">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="285r" chapterNames="n" tableOfContents="n" bookName="2 Paralipomenon (II Chronicles)">
+               
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="302v" chapterNames="n" tableOfContents="n" bookName="1 Esdras (Ezra)">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="308r" chapterNames="n" tableOfContents="n" bookName="2 Esdras (Nehemiah)">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="323v" chapterNames="n" tableOfContents="n" bookName="Grand Job">
+                <incipit textType="text" accuracy="approximate">En la terre de hus fu .i. home qui ot anon iob qui estoit sinples et droituriers</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="341v" chapterNames="n" tableOfContents="n" bookName="Petit Job">
+                <incipit textType="text" accuracy="approximate">En la terre de hus fu .i. home qui ot anon iob qui estoit sinples et droituriers</incipit>
+                
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="343r" chapterNames="y" tableOfContents="n" bookName="Tobias (Tobit)">
+                <incipit textType="text" accuracy="approximate">Thobie fu de la cite de neptalun? qui est es plus hautes parties de galilee</incipit> 
+            </title>
+            
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="350r" chapterNames="y" tableOfContents="y" bookName="Judith">
+                <incipit textType="Guyart prologue" accuracy="approximate">Ceste hystoire de iudich translata saint iheromes a la priere des tres saintes uierges</incipit>
+                <bookNote>Followed by "hystoires"</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="361v" chapterNames="n" tableOfContents="n" bookName="Esther">
+                <incipit textType="Guyart prologue" accuracy="approximate">Cit liure hestter translata saint ieronme ala priere paule et enscochium? de hebrieu en latin</incipit> 
+                <incipit textType="text" accuracy="approximate">Quant tuit li prince et li grant hons furent assenble de son regne</incipit>
+                <bookNote>Followed by "hystoires"</bookNote>            
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="374r" chapterNames="y" tableOfContents="y" bookName="Jeremiah">
+                <incipit textType="text" accuracy="approximate">Quant nabugodonosor li roys de babiloine ot fait godolie souuent</incipit>
+                <bookNote>Guyart's abridged version. Full BXIII version in vol. 2.</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="375v" chapterNames="y" tableOfContents="n" bookName="Ezechiel">
+                <incipit textType="text" accuracy="approximate">Ezechiel le prophete de la terre cysare filz bira? de la lignie des prestres</incipit> 
+                <bookNote>Guyart's abridged version. Full BXIII version in vol. 2.</bookNote>
+           </title>
+            <title textVersion="BH" glossType="BH" glossType2="moralite" startPage="376v" chapterNames="y" tableOfContents="y" bookName="Daniel">
+                <incipit textType="text" accuracy="actual">Daniel prophecia en caldeee qui selonc iosephum et epiphaine</incipit>
+                <incipit textType="text" accuracy="approximate">Si come nous lisons el quart liure des rouys el chapitre</incipit>
+                <bookNote>Guyart's abridged version. Full BXIII version in vol. 2. Includes "Suzanne."</bookNote>
+           </title>
+            <title textVersion="Raoul de Presles" glossType="Raoul de Presles" startPage="381r" chapterNames="y" tableOfContents="y" bookName="Psalms">
+           </title>
+            </bibleBooks>
+            
+        <bibleBooks volume="2">
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="3r" chapterNames="n" tableOfContents="n" bookName="Proverbs">   
+            <incipit textType="text" accuracy="actual">Ces paraboles Salemon filz dauid roy disrael ascauoir sapience et discipline a entendre paroles et prudence</incipit> 
+            <incipit textType="moralités" accuracy="actual">Les prouerbes que len appele les paraboles salemon filz de dauid furent faites pour enseigner discipline prudence et erudiction</incipit>
+            <incipit textType="BXIII unmarkedGloss" accuracy="actual">Conuertissez vous. Cest a dire tournez vous a ma conception.</incipit> 
+           <bookNote>The book of Proverbs is irregularly divided into two books; chapters 1-7 are treated as the Book of Proverbs, and books 8-31 are called the Book of Wisdom, and chapter numbering starts over with 1. The book of Wisdom appears later and is called "le derrennier liure de Sapience"</bookNote>
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="19v" chapterNames="n" tableOfContents="n" bookName="Ecclesiastes">
+                <incipit textType="text" accuracy="actual">Les paroles ecclesiastes filz dauid roy de jherusalem. Vanite de vanites dit ecclesiastes. Vanite de vanites</incipit>
+                <incipit textType="moralite" accuracy="actual">Ce sont les paroles de ecclesiastes qui fut filz dauid roy de jherusalem. Les hebrieux dient que salomon fist ce liure en soy repentant des grans maulx qu’il auoit fais car il se fia en sa sagesce e richesce et courrouca dieu par femmes qui le firent idolatre</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="24r" chapterNames="n" tableOfContents="n" bookName="Song of Songs">
+                <incipit textType="text" accuracy="actual">Lespouse dist a son espoux. Je desirre estre baisee du baisier de sa bouche. Car ses mamelles si sont meilleurs que nul vin tant soit bon</incipit> 
+                <incipit textType="moralite" accuracy="actual">lespouse dist a son espoux je desirre estre baisee du baisier de sa bouche humaine nature estoit moult esloignee de dieu par pechie et pource les saintes ames des patriarches et des autres desiroient la jointure et le baisier de dieu par la benoite Incarnation</incipit> 
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="30v" chapterNames="n" tableOfContents="n" bookName="Ecclesiasticus">
+                <incipit textType="text" accuracy="actual">Amez justice vous qui iugiez la terre. Setez de nostre seigneur en bonte et le querez en simplesce</incipit>
+                <incipit textType="moralite" accuracy="actual">Amez iustice vous qui estes iuges en terre. Sentez la bonte de cuer. Celliu juge la terre qui par droit vse et adresce sa franche voulente et aime justice qui contraint la char a obeir a lesperit</incipit>
+            </title>    
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="36v" chapterNames="n" tableOfContents="n" bookName="Wisdom">
+                <incipit textType="text" accuracy="actual">Toute sapience est de dieu qui est ostre sires et si fut touus temps auec lui et sera pardurablement et fut auec lui des le commencement du monde.</incipit>
+                <incipit textType="moralite" accuracy="actual">Toute sapience vient de dieu nostre seigneur, et a tousiours sapience este auecques dieu et est tous temps. Ceste sapience est le filz dieu qui est la sapience de dieu le pere</incipit>
+                <bookNote>Titled "derrenier liure de sapience" based on identification of latter part of Proverbs as Wisdom (sapience)</bookNote>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="61r" chapterNames="n" tableOfContents="n" bookName="Isaiah">
+                <incipit textType="text" accuracy="actual">La prophecie ysaie le filz amos quil vit dessirs le people de judas et sur jherusalem</incipit> 
+                <incipit textType="moralite" accuracy="actual">La prophecie que vit ysaies filz damos sur judee et jherusalem sera en ce diuers temps sera sa Montaigne appareillee maison de deiu et sera esleuee sur les haultesces et toutes gens yront. la Montaigne signifie jhesucrist sur le quell la maison d nostreseigneur cest leglise sera fondee</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="89v" chapterNames="n" tableOfContents="n" bookName="Jeremiah">
+                <incipit textType="text" accuracy="actual">Les paroles jheremie le filz helchie des prestres qui furent en ancachot en la terre beniamin Que la parolle nostresires fu fait a lui ou temps de josie filz amon</incipit>
+                <incipit textType="moralite" accuracy="actual">Ce sont les paroles jheremie le filz helchie qui furent des prestres de nathot. Cecy signifie que les prestres qui sont de anachot cestadire obediens et gracians dieu doiuent auoir paroles diuines nonmie dissolues ne vainnes</incipit>
+            </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="121v" chapterNames="n" tableOfContents="n" bookName="Lamentations">
+                <incipit textType="text" accuracy="actual">Aleph. Comment siet la cite seule qui estoit pleinne de people, et comment est faite vesue celle qui estoit dame des gens, et celle qui estoit dame des contrees est faite sans true</incipit> 
+                <incipit textType="moralite" accuracy="actual">Comment siet toute seule la cite qui de people plaine souloit estre la dame de gens est faite vesue. La princeyse des prouinces est faite tributaire. Par jheremie qui ploura, comme dit est a la fin du chapitre deuant les lamentations jheremie, pour les pechies du people et pour le dommage commun nous est signifies que nous deuons plorer par plus forte raison pour noz propres pechies</incipit>
+                <bookNote>Has rubrics for transliterated Hebrew letters</bookNote>
+            </title>    
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="128v" chapterNames="n" tableOfContents="n" bookName="Baruch">
+                <incipit textType="prologue" accuracy="actual">Cy commence le prologue en baruth. Cest liure qui paruth est appelez par nom ains est tant seulement en vulgal edition et ensement est lepistre jheremie le prophete. Mais pour la congnoissance des lisans sont cy escris car ilz monstrent maintes choses de crist et des derreniers temps</incipit>
+                <incipit textType="text" accuracy="actual">Cy commence baruth cestadire le liure baruth, et ce sont les parrolles du liure que escriptst baruth</incipit>
+            </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="132v" chapterNames="n" tableOfContents="n" bookName="Ezechiel">
+                <incipit textType="text" accuracy="actual">Il auint ou trentiesme an ou quart jour du mois que je estoie ou miliu des chetifs</incipit>
+                <incipit textType="moralite" accuracy="actual">Ezechiel en laage de xxiiii ans et ou cinquiesme mois estoit ou miliu des chetifs delez le fleuue de thobar et les cielx liu furent ouuers et vit les secres celestieux. Cecy signifie laage et le baptesme nostresires et que le ciel est ouuert a ceulx qui sont ou fleuue du sacrement de baptesme</incipit>    
+            </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="158r" chapterNames="n" tableOfContents="n" bookName="Daniel">
+                    <incipit textType="text" accuracy="actual">Av tiers an du royaume Joachim roy de juda Nabugodonosor roy de babiloine vint en jherusalem et lassist et nostre seigneur bailla en sa main Joachim</incipit>
+                    <incipit textType="moralite" accuracy="actual">le roy vit en vision vng arbre droit et hault jusques au ciel et estoit espandu jusques a la fin de la terre, et auoit tresbelles fueilles et tresgrant fruit et dessoubz habitoient bestes et les oyseaulx es branches et toute char mengoit de son fruit. La noblesce de cest arbre signifie la grant noblesce que adam et eue auoient en lestat dinnocence car toute char et toute creature deuoit obeyr a eulx et auoir a eulx refuge.</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="170r" chapterNames="n" tableOfContents="n" bookName="Hosea (Osee)">
+                <incipit textType="text" accuracy="actual">La parolle nostreseigneur qui fut faite a ozee filz bocry ou temps ioacham, achar et ethie de iuda, et ou temps jheroboam</incipit>
+                <incipit textType="moralite" accuracy="actual">Nostre seigneur dist a ozee prens vne femme fornicaire et fais enfans de fornication en lui et ainsi le fist. Cecy signifie que nostre eglise cest nostre gent estoit fornicatoire par pechie de ydolatrie auant que jhesucrist la conuertist mais puis quil la prist il engendra des filz nouueaulx qui furent legitimez par baptesme</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="173r" chapterNames="n" tableOfContents="n" bookName="Joel">
+                <incipit textType="text" accuracy="actual">La parolle nostreseigneur qui fut faite a joel filz fatuel. Vous veillars oez yce et tous habiteurs de la terre apparceuez par oreilles se ce est fait en vostre temps ou ou temps de voz peres</incipit>
+                <incipit textType="moralite" accuracy="actual">La parolle de dieu fut faite a joel et vous anciens regardez et faites racompter atoutes voz generations…Cecy signifie que le sauterel d’orgueil mengue le cuer daucuns et remenant dorgue il apres mengue gloutonnie</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="175r" chapterNames="n" tableOfContents="n" bookName="Amos">
+                 <incipit textType="text" accuracy="actual">Les paroles amos qui fut epartis de thetue que il vit sr ysrael ou temps orie roy de iuda. Et ou temps jheroboam filz joas roy disrael deuant deux ans</incipit>
+                 <incipit textType="moralite" accuracy="actual">Les paroles que dieu dist a amos le prophete sur ysrael ou temps ozie roy de iuda… Par la terre meue est signifie lesmuete du people pour oyr la parolle de jhesucrist</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="177v" chapterNames="n" tableOfContents="n" bookName="Obadiah (Abdias)">
+                 <incipit textType="text" accuracy="actual">La prophecie abdie c edit nostre sires dieux a edom. Nous auons oy de nostreseigneur et il enuoya messagiers aux gens</incipit>
+                 <incipit textType="moralite" accuracy="actual">La vision de abdie nostreseigneur dist a edom nous auons oy nouuelles et dieu a enuoye messages aux gens alons enconre lui en bataille. Jhesucrist est le message et le legat enuoie de dieu le pere, mais pource que il batailloit contre lennemy et contre les vices les juifs pristrent guerre contre lui</incipit>
+            </title>          
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="178r" chapterNames="n" tableOfContents="n" bookName="Jonah">
+                <incipit textType="text" accuracy="actual">La parolle nostreseigneur fut faite a jonas filz amath disant lieue toy et va en niniue grant cite et presche yblecques, car sa malice est montee</incipit>
+                <incipit textType="moralite" accuracy="actual">La parolle nostreseigneur fut faite a jonas le filz amatha et dist lieue toy et va en la grant cite de niniue et presche de par moy car la malice est montee jusques a moy. Jonas signifie couson cest le doulx jhesucrist sans amer qui fut enuoye a niniue qui signifie espousee cest a humaine nature pour lui monstrer son iniquite et pour lespouser par foy et justice</incipit>
+            </title>
+           <title textVersion="BXIII" glossType="BXIII" startPage="179v" chapterNames="n" tableOfContents="n" bookName="Micah">
+               <incipit textType="text" accuracy="actual">La parolle nostreseigneur qui fut faite a michee monstree es temps joatham de achaz de ezechie roys de juda</incipit>
+          </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="181v" chapterNames="n" tableOfContents="n" bookName="Nahum">
+               <incipit textType="text" accuracy="actual">Ces fais de niniue le liure des visions naum. Nostresires aime et venge. Nostresires est vengant et grant yre.</incipit>
+               <incipit textType="moralite" accuracy="actual">Le fait de niniue que vit naum le prophete. Nostreseigneur est plain dyre et deue de soy vengier de ses aduersaires. Tant comme les personnes se repeniront deiu ne batera point le siècle durement mais quant la malice du monde croistra lors se vouldra il vengier durement et iustement</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="182v" chapterNames="n" tableOfContents="n" bookName="Abacuc">
+                <incipit textType="text" accuracy="actual">Les fais que apacuth le prophet dist. Sire pourquoy crieray je et tu ne mourras mie. Pourquoy mas tu monstre iniquite </incipit>
+                <incipit textType="moralite" accuracy="actual">Les fais que voit abacuth le prophette. Et dist Sire dieux combien crieray je agrant mischief et tu ne me orras mie pourquoy me as tu monster telle indignation que je voy que tut e tais quant le mauuais fai iniure au juste. Ainsi se complaingnent les sains deuant dieu des mauuais iuges et princes iniustes qui par dons forces violences font iniures aux innocens et deliurent les mauuais si comme fut quant jhesu fut condempnez et barrabas deliure.</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="183v" chapterNames="n" tableOfContents="n" bookName="Zephaniah">
+              <incipit textType="text" accuracy="actual">La parolle nostreseigneur fut faite a sophonie filz chuz filz godelye filz amasie filz esechie ou temps josue</incipit>
+               <incipit textType="moralite" accuracy="actual">Cest la parole que dieu dist a sophonie le prophete. Veez cy c edit nostre sires que je assembleray tout ce qui est sur terre homes et bestes tous ensemble. Cecy puet estre entendu de la fin du monde quant dieu assemblera ceulx qui ont vescu comme homes de raison, et ceulx qui ont vescu comme bestes et les jugera </incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="184v" chapterNames="n" tableOfContents="n" bookName="Haggai (Aggeus)">
+               <incipit textType="text" accuracy="actual">Ou second an roy daire qui estoit roy de perse ou siste mois ou premier jour du mois. La parolle nostreseigneur fut faite en la main aggee</incipit>   
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="184v" chapterNames="n" tableOfContents="n" bookName="Zachariah">
+                <incipit textType="text" accuracy="actual">En luitiesme mois es deux ans daire la parolle nostre seigneur fut faite a zacharie filz barrachie filz abde prophete disant, nostre sires est courrouciez</incipit>
+                <incipit textType="moralite" accuracy="actual">En luitiesme mois du second an daire roy fut faite la parolle nostreseigneur a zacharie le prophete, et vit aussi comme vn homme sur vng cheual rous en la puissance des anges et apres lui cheualx rous et de diuerses couleurs et cheuaulx blans et lui demanda sire dieux qui sot ceulx cy. Cest homme signifie jhesucrist qui fut rouge par passion et tribulation les ceuaulx de diuerses couleurs furent les appostres</incipit>
+             </title>
+             <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="190r" chapterNames="n" tableOfContents="n" bookName="Malachi">
+                  <incipit textType="text" accuracy="actual">Les fais de la parolle nostreseigneur en la main malachite le prophete. Je vous ay amez ce dit nostresires</incipit>
+                <incipit textType="moralite" accuracy="actual">Les fais e la parolle nostre seigneur au people disrael en la main malachite le prophete. Je vous mauez dit en quoy nous aime tu et nostreseigneur dist. Jacob nestoit pas frere Esau et jay aime Jacob et jay hay esau Par Esau sont entendus les vices et les pechies</incipit>
+              </title>
+               <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="192r" chapterNames="n" tableOfContents="n" bookName="1 Maccabees">
+                 <incipit textType="text" accuracy="actual">Apres ce que alixandre le filz phelippe le roy de macedoine qui yssit de la terre de thym, et fut le premier roy qui regna en grece, ot vaincu daire le roy de perse et de mede</incipit>
+                 <incipit textType="moralite" accuracy="actual">Il a uint apres ce que le grant alixandre congnut que il morroit Il appella ses nobles enfans et leur deuisa son royaume, et chascun mist sur sa teste couronne et ainsi regnerent. Cecy signifie que le deable apres ce que il fut destruit par la passion ihesucrist il laissa en sainte tyrans satellite mauuais philosophes herites et faulx freres ypocrites.</incipit>
+               </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="212r" chapterNames="n" tableOfContents="n" bookName="2 Maccabees">
+                  <incipit textType="text" accuracy="actual">Les juifs qui sont en Jherusalem et en la region de iudee mandent aux Juifs leurs freres qui sont par egipte Salus et bonne paix et dieu nous face bien et lui souuiengne de son testament</incipit>
+                    <incipit textType="moralite" accuracy="actual">Au peuple qui est en jherosolime et noz freres qui sont par egipte aux juifs salut. Les perilz et les deliurances et les biens et les maulx que nous auons eus puis lissue  de babiloine nous le vous mandons pource que vous en rendez graces a dieu. Cecy signifie que nous deuons rendre graces a dieu des biens et des malx et des benefices, et deuons preschier deuant les bons et les mauuais grans et petis</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="223r" chapterNames="y" tableOfContents="n" bookName="Matthew">
+                     <incipit textType="text" accuracy="actual"> Le liure de la generation ihesucrist filz de dauid filz dabraham, abraham engendra ysaac, ysaac engendra jacob, jacob engendra judas et ses freres, judas engendra phares et aram</incipit>
+                    <incipit textType="moralite" accuracy="actual">Herodes fist assembler tous les princes des prestres et les plus sage du peuple et leur demandoit ou jhesucrist estoit nez, et ilz lui distrent en bethleem en judee. Cecy signifie que ceulx qui embracent les dignites terriennes ilz mettent loing deulx la foy de dieu parquoy aucunefois ilz occient ses membres</incipit> 
+                    <bookNote>Running heads simply say "Le Liure des Euuangilles," and chapter numbering for the four Gospels is continuous (does not start at 1 for each).</bookNote>
+                 </title>
+                 <title textVersion="BXIII" glossType="BXIII" startPage="247r" chapterNames="y" tableOfContents="n" bookName="Mark">
+                    <incipit textType="text" accuracy="approximate">Li commencemenz de leuuangile Jhesucrist filz dieu</incipit>
+                  </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="258v" chapterNames="y" tableOfContents="n" bookName="Luke">
+                      <incipit textType="text" accuracy="actual">Pource que les pluseurs se sont efforciez de raconter et ordonner les racontemens qui sont aemplis en nous et des choses que ceulx nous ont dites qui les virent des le commencement et furent menistres de la parolle cest du filz. O tu theophille il mest auis que cest bonne chose que je testripue diligemment par ordres que tu congnoisses la parolle de ceulx desquelz tu es enseignie en verite</incipit>
+                    <incipit textType="moralite" accuracy="actual">Zacharie prestre et elizabeth sa femme estoient iustes deuant dieu... Cecy signifie que le presre de la loy et la loy estoient bons si comme dit lappostre</incipit>
+                </title>
+                  <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="283r" chapterNames="y" tableOfContents="n" bookName="John">
+                    <incipit textType="text" accuracy="actual">Parolle estoit au commencement, et celle parolle estoi enuers dieu, cest la congnoissance dieu le pere et dieu estoit parolle, cest dieu le filz Il estoit commencement du monde</incipit>
+                    <incipit textType="moralite" accuracy="actual">Unes noces furent faites en vne vilette de galilee et y fut la mere ihesucrist, et quant le vin failly elle dist a ihesu le fin est failly. Cecy signifie que les noces de saincte eglise qui furent en la benoite incarnation, le sens faily aux juifs qui ne scauoient lexposition de la lettre, et de ce se complaingoit la sinagogue de laquelle yssit ihesucrsit selon la char</incipit>
+               </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="298v" chapterNames="n" tableOfContents="n" bookName="Romans">
+                    <incipit textType="prologue" accuracy="actual">Les rommains sont es parities dytallie yceulx furent de ceus des faulx prophettes et furent menez en la foy et es prophettes</incipit>
+                    <incipit textType="text" accuracy="actual">Pol serf de jhesucrist appelle appostre departi en leuuangille de dieu de son filz</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="305r" chapterNames="n" tableOfContents="n" bookName="1 Corinthians">
+                    <incipit textType="text" accuracy="actual">Pol appelle appostre par la voulente jhesucrist et sostenez freres de sainte eglise qui est en corinthe</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="311r" chapterNames="n" tableOfContents="n" bookName="2 Corinthians">
+                    <incipit textType="text" accuracy="actual">Pol appostre jhesucrist par la voulente de dieu et thimothees freres de leglise de dieu qui est en chorinthe. A tous les sains qui sont en oute achaye</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="315r" chapterNames="n" tableOfContents="n" bookName="Galatians">
+                    <incipit textType="text" accuracy="actual">Pol appostre nomine des hommes ne par homme mais par jhesucrist dieu le pere qui le suscita de mort</incipit>   
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="317r" chapterNames="n" tableOfContents="n" bookName="Ephesians">
+                    <incipit textType="text" accuracy="actual">Pol appostre jhesucrist par la voulente de dieu. A tous les sains qui sont en ephese et aux feaulx en jhesucrist</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="319v" chapterNames="n" tableOfContents="n" bookName="Philippeans">
+                    <incipit textType="text" accuracy="actual">Pol et thimothee serfs jhesucrist a tous les sains en jhesucrist qui sont en philipenses o les euesques</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="323r" chapterNames="n" tableOfContents="n" bookName="Thessalonians">
+                    <incipit textType="text" accuracy="actual">Pol et siluam et thimothees a leglise de thessalone</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="324r" chapterNames="n" tableOfContents="n" bookName="1 Timothy">
+                    <incipit textType="text" accuracy="actual">Pol appostres jhesucrist selon le commandement de nostreseigneur et de jhesucrist nostre esperance</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="326r" chapterNames="n" tableOfContents="n" bookName="2 Timothy">
+                    <incipit textType="text" accuracy="actual">Pol appostre de jhesucrist par la voulente de dieu selon promesse de vie qui est en jhesucrist</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="327r" chapterNames="n" tableOfContents="n" bookName="Titus A">
+                    <incipit textType="prologue" accuracy="actual">Saint pol admouneste thitum et lendoctrine de la constituion dont prouoires doiuent estre endoctriniez et de la conuersation espiritable et guenchir les herites qui troient es escris faulx en escripuant lui en ythopoli</incipit>
+                    <incipit textType="text" accuracy="actual">Pol siant en dieu et appostre jhesucrist selon la foy des esleus</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="328r" chapterNames="n" tableOfContents="n" bookName="Titus B">
+                    <incipit textType="text" accuracy="actual">Pol serf de dieu appostre jhesucrist selon la foy des amis dieu</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="328v" chapterNames="n" tableOfContents="n" bookName="Philemon">
+                    <incipit textType="text" accuracy="actual">Pol li de lamour jhesucrist et frere thimothee a frere philomenum</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="329r" chapterNames="n" tableOfContents="n" bookName="Hebrews">
+                    <incipit textType="text" accuracy="actual">Dieu qui parla jadis a nos peres par les prophetes en maintes manieres et en maintes fourmes</incipit>
+                </title> 
+                <title textVersion="BXIII" glossType="BXIII" startPage="333v" chapterNames="n" tableOfContents="n" bookName="Moralités on Pauline Epistles">
+                    <incipit textType="moralite" accuracy="actual">Quelle participation de justice a iniquite ou quil compaigne de lumiere a tenebres quelles conuenances de jhesucrist au deable, ou quelle partie de loyal a desloyal quelle assemblee de temple de dieu auecques ydoles. Ces parolles signifient que les prelas de sainte eglise de doiuent pas conuerser auec les pechies de ceulx qui sont hors de la loy</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="338v" chapterNames="n" tableOfContents="n" bookName="Acts">
+                    <incipit textType="text" accuracy="actual">O tu theophile jay premierement parle de toutes les choses que jhesus commanda</incipit>
+                    <incipit textType="moralite" accuracy="actual">Quant furent acomplis quarente jours qui fut le jour de pentecouste... Ce que les disciples estoient en vng lieu signifie que ceulx qui sont ensemble par charite</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="362r" chapterNames="n" tableOfContents="n" bookName="James">
+                    <incipit textType="prologue" accuracy="actual">Celle ordre nest mie aux grieux comme aux liures de latin. Lesquelx grieux sceuent enterinement la foy. et la droitte sentence des sept epistres qui sont appellees canoniques. Mais certes pierres et trouuez</incipit>
+                    <incipit textType="text" accuracy="actual">Iaques sergent nostreseigneur jhesucrist mande salus aux douze lignees qui sont esparces</incipit>
+                    <incipit textType="moralite" accuracy="actual">Toutes les promesses qui sont de dieu sont en lui et par lui vraiement pour vostre gloire qui vous conferme en ihesucrist auec nous et dieu qui nous a oint et nous a signe et en noz cuers a donnez gaiges du saint esperit. Cecy signifie que les docteurs de theologie et les autres de leglise doiuent desputer auec les erites des articles de la foy et le saint esperit leur donra bonte et sapience que nul ne les pourra contredire selon ce qui lest escript en leuuangile. </incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="364r" chapterNames="n" tableOfContents="n" bookName="1 Peter">
+                    <incipit textType="text" accuracy="actual">Pierres appostre ihesucrist aux gens estranges esleus de dispersion de ponte et de galacie</incipit>
+                    <incipit textType="moralite" accuracy="actual">Sachiez cecy et entendez que tout pecheur en formation ou il nest pas net ou l est auer… Cecy signifie que quant aucuns confesse ses pechies a son prelat le doit conforter et admonnester quil ne soit deceu des mauuais desloyaulx</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="366r" chapterNames="n" tableOfContents="n" bookName="2 Peter (Simon)">
+                    <incipit textType="text" accuracy="actual">Simons pierres sers et appostres de ihesucrist. A ceulx qui ont recue de nostresauueur ihesucrist, grace et paix vous soit donnee</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" startPage="369r" chapterNames="n" tableOfContents="n" bookName="Jude">
+                    <incipit textType="text" accuracy="actual">Judas serf de jhesucrist frère de jaques a ceulx qui sont les amies en dieu le pere et qui sont gardez et appellez de ihesu paix et misericorde</incipit>
+                </title>
+                <title textVersion="BXIII" glossType="BXIII" glossType2="moralite" startPage="369v" chapterNames="n" tableOfContents="n" bookName="Apocalypse (Revelation)">
+                    <incipit textType="text" accuracy="actual">Lapocalipse de jhesucrist que dieu lui donna pour faire assauoir a ses serfs ce quil conuendra qui soit tost fait</incipit>
+                    <incipit textType="moralite" accuracy="actual">Saint jehan appostre fu en vne ysle qui est appellee pathmos, et oy vne voix qui lui dist espcrips ou liure ce que tu vois, et lenuoye aux sept eglises qui sont en asye. Par saint jehan sont signifies les prelas qui oyent et entendent la parolle de dieu et si doubtent les menaces du jour du iugement</incipit>
+                </title>
+        </bibleBooks>
+        <parascripturalItems>
+            <litany form="n/a" presence="n" locVol="0" locStart="0" locEnd="0" sneddonID="n/a"></litany>
+            <canticles endFolio="0" presence="n" startFolio="n" volume="0">
+                <canticleType>n/a</canticleType>
+            </canticles>
+            <addedPrologue jeanDeBlois="n" jerome="y"/>
+        </parascripturalItems>
+        
+    </textualContents>
+    <bibliography>
+        <biblioEntry>
+            <bibAuthor>Berger, Samuel.</bibAuthor>
+            <bookOrJournalTitle>La Bible française au moyen âge: étude sur les plus anciennes versions de la Bible écrites en prose de langue d'oïl.</bookOrJournalTitle>
+            <publicationInfo>Paris: Imprimerie nationale, 1884</publicationInfo>
+        </biblioEntry>
+        <biblioEntry>
+            <bibAuthor>Fournié, Éléonore.</bibAuthor>
+            <articleTitle>Les manuscrits de la Bible historiale.</articleTitle>
+            <bookOrJournalTitle>L'Atelier du Centre de recherches historiques, Revue électronique de la CRH.</bookOrJournalTitle>
+            <publicationInfo>no. 3 (2009)</publicationInfo>
+            <articleLink>http://acrh.revues.org/index403.html</articleLink>
+        </biblioEntry>
+        <biblioEntry>
+            <bibAuthor>Lowden, John.</bibAuthor>
+            <articleTitle>The Bible moralisée in the Fifteenth Century and the Challenge of the Bible historiale</articleTitle>
+            <bookOrJournalTitle>Journal of the Warburg and Courtauld Institutes</bookOrJournalTitle>
+            <publicationInfo>no. 68 (2005), pp. 73-136.</publicationInfo>
+        </biblioEntry>
+        <biblioEntry>
+            <bibAuthor>Sneddon, Clive R.</bibAuthor>
+            <bookOrJournalTitle>A Critical Edition of the Four Gospels in the Thirteenth-Century Old French Translation of the Bible.</bookOrJournalTitle>
+            <publicationInfo>Thesis presented for the degree of D. Phil., Oxford University, 1978.</publicationInfo>
+        </biblioEntry>
+        
+    </bibliography>
+</bible>                                            

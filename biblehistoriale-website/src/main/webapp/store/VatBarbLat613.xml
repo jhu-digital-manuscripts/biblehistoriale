@@ -1,0 +1,909 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bible xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="BibleSchema10.xsd">
+    <physChar>
+        <volumes presentState="1" previousState="1"/>
+        <dimensions units="mm" volume="1">
+            <page>385x267</page>
+            <textBlock>unknown</textBlock>
+        </dimensions>
+        
+        <folios>
+            <totalFolios>636</totalFolios>
+            <indVolumes n="1">1-636</indVolumes>
+       </folios>
+        <quireStruct volume="1">
+            <quireTotal number="64"/>
+            <typicalQuire number="10"/>
+            <fullQuireStruct>A8,B10,C8,D-G10,H8,I-L10,M10-1</fullQuireStruct>
+            <quireNote>Most quires consist of 10 leaves, a few of 8. Catchphrases ornamented with red and blue foliate circles. Quire structure provided by Sneddon, via the catalogue or other sources as he did not view this manuscript.</quireNote> 
+        </quireStruct>
+        <pageLayout columns="2" runningHeads="y" glossPlace="mixed" chapterNumbers="y" catchphrases="y"/>
+        <rubricNote>Plain rubrics used for Latin as well as chapter headings and parts of text. Glosses are also underlined in red.</rubricNote>
+        <pageLayoutNote>Glosses appear in the margins for </pageLayoutNote>
+        <glossHeadings>Glosa/glose, texte, hystoire (Some book titles announce: selonc la bible. hystoire. Glosa.)</glossHeadings>
+        <materials>
+            <support material="parchment"/>
+            <binding>
+                <bindMaterial>Brown leather over boards with floral embossing. Metal hardware and two leather clasps. Early but probably not original.</bindMaterial>
+                <bindDate startYear="1434" endYear="1600">late 15th or 16th century</bindDate>
+            </binding>
+        </materials>
+        <physicalNotes>While Proverbs and the New Testament both begin rectos (with partially blank facing pages), they do not appear to begin new quires, suggesting that this copy may have been bound as a single volume even in its earliest state.</physicalNotes>
+    </physChar>
+    <provenPatronHist> 
+        <production>
+            <prodDate startYear="1434" endYear="1434">1434</prodDate> 
+            <prodLoc>Italy</prodLoc>
+            <contributors>
+                <artist>Jacopino d'Arezzo</artist>
+                <artist>Belbello da Pavia</artist>
+                
+                <scribe>Unknown. Scribe appears to change at fol. 187r; different hand and different spellings, notably "glosa" after 187r ("glose" before) as had been used previously and more visible Italian influence.</scribe>
+                
+            </contributors>
+        </production>
+        <ownership> <!-- optional -->
+            <owner>
+                <ownerName>Niccolo III d'Este, Marquis of Ferrara</ownerName>
+                <ownershipDate startYear="1434" endYear="1441">1434</ownershipDate> 
+                <ownerPlace>Ferrara</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Probably Lionello, Borso and/or Ercole I d'Este, Niccolo's sons and successive Marquis of Ferrara</ownerName>
+                <ownershipDate startYear="1441" endYear="1505">1441</ownershipDate> 
+                <ownerPlace>Ferrara</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Alfonso d'Este, Marquis of Ferrara</ownerName>
+                <ownershipDate startYear="1505" endYear="1528">1505</ownershipDate> 
+                <ownerPlace>Ferrara</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Ercole II d'Este, Marquis of Ferrara, and Renée de France, daughter of Louis XII</ownerName>
+                <ownershipDate startYear="1528" endYear="1559">early 16th century, possibly on the occasion of their marriage in 1528</ownershipDate>
+                <ownerPlace>Ferrara</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Francesco d'Este and Lucrezia Barberini</ownerName>
+                <ownershipDate startYear="1654" endYear="1669">On the occasion of their wedding, 1654</ownershipDate>
+                <ownerPlace>Modena</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Barberini family library (Palazzo Barberini)</ownerName>
+                <ownershipDate startYear="1669" endYear="1902">Cardinal Francesco Barberini; remained in the possession of the Barberini family until 1902</ownershipDate>
+                <ownerPlace>Rome</ownerPlace>
+            </owner>
+            <owner>
+                <ownerName>Biblioteca Apostolica Vaticana</ownerName>
+                <ownershipDate startYear="1902">Current location. Vatican Library purchased the Barberini collection in 1902</ownershipDate>
+                <ownerPlace>Vatican City</ownerPlace>
+            </owner>
+        </ownership>
+        <personalization>
+            <signature volume="1" folio="second flyleaf">
+                <name>Scipio Fontana</name>
+                <text>Usito per mi Scipio Fontana, No. 3</text>
+            </signature>
+            <signature volume="1" folio="second flyleaf">
+                <name>Francesco di Putti</name>
+                <text>Usito per mi Francesco di Putti, 660</text>
+            </signature>
+            <signature volume="1" folio="second flyleaf">
+                <name>Niccolo di Toxigi</name>
+                <text>Usito per mi Niccolo di Toxigi</text>
+            </signature>
+  
+            <legalInscriptions folio="flyleaf iii">Inquisitor's approbation: Hoc Biblia gallice scripta uisa per me Ji'em Hieornymu' Capallam de salutys, Lectorem Ibsol... et Reu' Ingsitoris. vicariaum Mutina, muenta est absg deprauation' lextus, illis prosersim in locis, ubi; ab boneticis, manifesta conspicitur deprauatio ysluti gen. i4l eps.5. Act. is. 2e Pe. p. Jac. 2. Rom. 3. bis i. Jb. ss. 4. Juda fi et alibi. Die. 16a July 1589.</legalInscriptions> <!-- placeholder; delete if no information -->
+            <patronArms volume="1" folio="1r">quartered arms of Ercolo II d'Este and Renée de France</patronArms>
+            <patronArms volume="1" folio="514r">quartered arms of Ercolo II d'Este and Renée de France</patronArms>
+            <colophon>Ci finist toute la Biblie en francois</colophon> <!-- placeholder; delete if no information -->
+         
+        </personalization>
+        <!-- annotation placeholder; delete if no information -->
+        <provenanceNote>The signatures on the flyleaf belong to readers who presumably consulted the manuscript after its acquisition by the Barberini library in 1654..</provenanceNote> <!-- optional -->
+    </provenPatronHist>
+    <illustrations>
+        <decorationSummary number="122" largeIlls="2" illStyle="illumination" foliateBorder="y" basDePage="n" decoratedInitials="y">
+            <artistWorkshop>Jacopino d'Arezzo, fols. 281, 361 and 603 only</artistWorkshop>
+            <artistWorkshop>Belbello de Pavia</artistWorkshop>
+            
+        </decorationSummary>
+        
+        <illustrationList>
+            <illustration number="1" book="Guyart's preface" volume="3" folio="1r">
+                <keywords>Frontispiece, St. Jerome, lion, 4 figures. One has forked beard. There appears to be a vertical bar of music between columns of text.</keywords>
+            </illustration>
+            <illustration number="2" book="Genesis" volume="3" folio="3r">
+                <keywords>God creating universe. Also: man-lion speaking in upper margin</keywords>
+            </illustration>
+            <illustration number="3" book="Genesis" volume="1" folio="3v">
+                <keywords>Creation day 1, light</keywords>
+            </illustration>
+            <illustration number="4" book="Genesis" volume="1" folio="4r">
+                <keywords>Creation day 2, God separating the four elements</keywords>
+            </illustration>
+            <illustration number="5" book="Genesis" volume="1" folio="4v">
+                <keywords>Creation day 3, plants</keywords>
+                
+            </illustration>
+            <illustration number="6" book="Genesis" volume="1" folio="5r">
+                <keywords>Creation day 4, sun and moon</keywords>
+            </illustration>
+            <illustration number="7" book="Genesis" volume="1" folio="5v">
+                <keywords>Creation day 5, animals</keywords>
+                
+            </illustration>
+            <illustration number="8" book="Genesis" volume="1" folio="6r">
+                <keywords>Creation of Eve</keywords>
+            </illustration>
+            <illustration number="9" book="Genesis" volume="1" folio="7r">
+                <keywords>God resting on throne, angels as musicians</keywords>
+                
+            </illustration>
+            <illustration number="10" book="Genesis" volume="1" folio="7v">
+                <keywords>God showing Adam and Eve fruit, trees</keywords>
+            </illustration>
+            <illustration number="11" book="Genesis" volume="1" folio="8r">
+                <keywords>Eve offering Adam fruit. Serpent, in background, has horned head</keywords>
+                
+            </illustration>
+            <illustration number="12" book="Genesis" volume="1" folio="8v">
+                <keywords>God, Adam and Eve, serpent, fig leaves</keywords>
+            </illustration>
+            <illustration number="13" book="Genesis" volume="1" folio="10r">
+                <keywords>God chasing Adam and Eve out of Eden. They take hoe and cloaks. God has triangle</keywords>
+                
+            </illustration>
+            <illustration number="14" book="Genesis" volume="1" folio="10v">
+                <keywords>Abel, Cain, sacrifice, God</keywords>
+            </illustration>
+            <illustration number="15" book="Genesis" volume="1" folio="11r">
+                <keywords>Cain killing Abel, God watches</keywords>
+                
+            </illustration>
+            <illustration number="16" book="Genesis" volume="1" folio="13v">
+                <keywords>Noah gathering animals onto ark</keywords>
+            </illustration>
+            <illustration number="17" book="Genesis" volume="1" folio="18v">
+                <keywords>Abraham, Sarah, children leave for Egypt</keywords>
+                
+            </illustration>
+            <illustration number="18" book="Genesis" volume="1" folio="19v">
+                <keywords>Abraham speaking to Melchisadech</keywords>
+            </illustration>
+            <illustration number="19" book="Genesis" volume="1" folio="20r">
+                <keywords>Abraham sacrificing lamb</keywords>
+                
+            </illustration>
+            <illustration number="20" book="Genesis" volume="1" folio="34v">
+                <keywords>Esau, Jacob reunited. Downward-pointing triangular miniature extends into margin, incorporated into foliate line</keywords>
+            </illustration>
+            <illustration number="21" book="Genesis" volume="1" folio="36r">
+                <keywords>Joseph's brothers putting him in well</keywords>
+                
+            </illustration>
+            <illustration number="22" book="Exodus" volume="1" folio="46v">
+                <keywords>Abraham, Sarah, children crossing into Egypt</keywords>
+            </illustration>
+            <illustration number="23" book="Exodus" volume="1" folio="66r">
+                <keywords>Candelabra or menorah in temple. Gold background</keywords>
+                
+            </illustration>
+            <illustration number="24" book="Exodus" volume="1" folio="66r">
+                <keywords>Diagram of tabernacle and camp</keywords>
+            </illustration>
+            <illustration number="25" book="Exodus" volume="1" folio="71v">
+                <keywords>Group of men, women and children adoring Golden Bull</keywords>
+                
+            </illustration>
+            <illustration number="26" book="Exodus" volume="1" folio="72v">
+                <keywords>Moses sees God from behind</keywords>
+            </illustration>
+            <illustration number="27" book="Exodus" volume="1" folio="73r">
+                <keywords>Moses displaying second set of tablets to people</keywords>
+                
+            </illustration>
+            <illustration number="29" book="Numbers" volume="1" folio="75r">
+                <keywords>High priest blessing kneeling man</keywords>
+            </illustration>
+            <illustration number="30" book="Numbers" volume="1" folio="85r">
+                <keywords>God, Moses, Mt. Sinai</keywords>
+            </illustration>
+            <illustration number="31" book="Deuteronomy" volume="1" folio="104v">
+                <keywords>Moses, Tablets</keywords>
+                
+            </illustration>
+            <illustration number="32" book="Joshua" volume="1" folio="119r">
+                <keywords>Joshua, God</keywords>
+            </illustration>
+            <illustration number="33" book="Judges" volume="1" folio="126v">
+                <keywords>Juda leading army into battle</keywords>
+                
+            </illustration>
+            <illustration number="34" book="1 Kings" volume="1" folio="138v">
+                <keywords>Elcana praying</keywords>
+            </illustration>
+            <illustration number="35" book="2 Kings" volume="1" folio="153r">
+                <keywords>David standing over Saul and Jonathan</keywords>
+                
+            </illustration>
+            <illustration number="36" book="3 Kings" volume="1" folio="166r">
+                <keywords>Coronation of Solomon, with bishop and another figure</keywords>
+            </illustration>
+            <illustration number="37" book="3 Kings" volume="1" folio="178v">
+                <keywords>Roboam and Jeroboam</keywords>
+                
+            </illustration>
+            <illustration number="38" book="3 Kings" volume="1" folio="185v">
+                <keywords>Death of Achab</keywords>
+            </illustration>
+            <illustration number="39" book="4 Kings" volume="1" folio="187r">
+                <keywords>Sons mourning Achab</keywords>
+                
+            </illustration>
+            <illustration number="40" book="4 Kings" volume="1" folio="205v">
+                <keywords>Nebuchadnezzar in battle</keywords>
+            </illustration>
+            <illustration number="41" book="Job" volume="1" folio="209v">
+                <keywords>Job speaking with friends or messengers</keywords>
+                
+            </illustration>
+            <illustration number="42" book="Tobias (Tobit)" volume="1" folio="210v">
+                <keywords>Tobias</keywords>
+            </illustration>
+            <illustration number="43" book="Jeremiah" volume="1" folio="215v">
+                <keywords>Death of Godolias</keywords>
+                
+            </illustration>
+            <illustration number="44" book="Ezechiel" volume="1" folio="217r">
+                <keywords>Ezechiel prophesying fall of Babylon</keywords>
+            </illustration>
+            <illustration number="45" book="Daniel" volume="1" folio="218r">
+                <keywords>Nebuchadnezzar</keywords>
+                
+            </illustration>
+            <illustration number="46" book="Daniel" volume="1" folio="224r">
+                <keywords>Susanna accused by men, saved by Daniel</keywords>
+            </illustration>
+            <illustration number="47" book="Daniel" volume="1" folio="225r">
+                <keywords>Bel, dragon and Daniel</keywords>
+                
+            </illustration>
+            <illustration number="48" book="Daniel" volume="1" folio="226r">
+                <keywords>Abacuc</keywords>
+            </illustration>
+            <illustration number="49" book="Daniel" volume="1" folio="227r">
+                <keywords>Cyrus</keywords> 
+            </illustration>
+            <illustration number="50" book="Daniel" volume="1" folio="228v">
+                <keywords>Nebuchadnezzar and Holofernes</keywords>
+            </illustration>
+            <illustration number="51" book="Judith" volume="1" folio="229r">
+                <keywords>Judith</keywords>
+                
+            </illustration>
+            <illustration number="52" book="Judith" volume="1" folio="234r">
+                <keywords>Nebuchadnezzar and Holofernes</keywords>
+            </illustration>
+            <illustration number="53" book="Judith" volume="1" folio="238r">
+                <keywords>Artaxerxes's banquet</keywords>
+                
+            </illustration>
+            <illustration number="54" book="Esther" volume="1" folio="242r">
+                <keywords>Messenger delivering letter</keywords>
+            </illustration>
+            <illustration number="55" book="Esther" volume="1" folio="242v">
+                <keywords>Atatarxes, Ochus, Vagoson (part of "histoires" following Esther)</keywords>
+                
+            </illustration>
+            <illustration number="56" book="Esther" volume="1" folio="244v">
+                <keywords>King Ochus (part of "histoires")</keywords>
+            </illustration>
+            <illustration number="57" book="1 Paralipomenon" volume="1" folio="248v">
+                <keywords>Unidentified king with sons (perhaps David)</keywords>
+                
+            </illustration>
+            <illustration number="58" book="2 Paralipomenon" volume="1" folio="260r">
+                <keywords>Solomon's Temple, priest (unverified)</keywords>
+            </illustration>
+            <illustration number="59" book="1 Esdras (Ezra)" volume="1" folio="276v">
+                <keywords>Cyrus</keywords>
+                
+            </illustration>
+            <illustration number="60" book="1 Esdras (Ezra)" volume="1" folio="281v">
+                <keywords>Josue at altar</keywords>
+            </illustration>
+            <illustration number="61" book="2 Esdras (Nehemiah)" volume="1" folio="290r">
+                <keywords>Nehemiah showing Artaxerxes destruction in Jerusalem</keywords>
+                
+            </illustration>
+            <illustration number="62" book="Psalms" volume="1" folio="296r">
+                <keywords>David praying</keywords>
+            </illustration>
+            <illustration number="63" book="Psalms" volume="1" folio="301r">
+                <keywords>David pointing to his eye</keywords>
+                
+            </illustration>
+            <illustration number="64" book="Psalms" volume="1" folio="304r">
+                <keywords>David pointing to his mouth</keywords>
+            </illustration>
+            <illustration number="65" book="Psalms" volume="1" folio="307v">
+                <keywords>Fool</keywords>
+                
+            </illustration>
+            <illustration number="66" book="Psalms" volume="1" folio="310r">
+                <keywords>David in the fountain of salvation</keywords>
+            </illustration>
+            <illustration number="67" book="Psalms" volume="1" folio="314v">
+                <keywords>Cantors singing</keywords>
+                
+            </illustration>
+            <illustration number="68" book="Psalms" volume="1" folio="318r">
+                <keywords>Cantors singing</keywords>
+            </illustration>
+            <illustration number="69" book="Psalms" volume="1" folio="322v">
+                <keywords>God the Father speaking to Christ</keywords>
+                
+            </illustration>
+            <illustration number="70" book="Psalms" volume="1" folio="332v">
+                <keywords>Bishop baptizing</keywords>
+            </illustration>
+            <illustration number="71" book="Psalms" volume="1" folio="333v">
+                <keywords>David praying before an altar</keywords>
+                
+            </illustration>
+            <illustration number="72" book="Proverbs" volume="1" folio="335r">
+                <keywords>Solomon frontispiece</keywords>
+            </illustration>
+            <illustration number="73" book="Ecclesiastes" volume="1" folio="348r">
+                <keywords>David and sons (uncertain)</keywords>
+                
+            </illustration>
+            <illustration number="74" book="Wisdom" volume="1" folio="361v">
+                <keywords>Solomon teaching</keywords>
+            </illustration>
+            <illustration number="75" book="Isaiah" volume="1" folio="382v">
+                <keywords>Isaiah</keywords>
+                
+            </illustration>
+            <illustration number="76" book="Jeremiah" volume="1" folio="407r">
+                <keywords>Jeremiah</keywords>
+            </illustration>
+            <illustration number="77" book="Lamentations" volume="1" folio="433r">
+                <keywords>Jeremiah</keywords>
+                
+            </illustration>
+            <illustration number="78" book="Ezechiel" volume="1" folio="435r">
+                <keywords>David, Goliath</keywords>
+            </illustration>
+            <illustration number="79" book="Daniel" volume="1" folio="455r">
+                <keywords>Daniel</keywords>
+                
+            </illustration>
+            <illustration number="80" book="Baruch" volume="1" folio="464r">
+                <keywords>Baruch</keywords>
+            </illustration>
+            <illustration number="81" book="Hosea (Osee)" volume="1" folio="467v">
+                <keywords>Hosea</keywords>
+                
+            </illustration>
+            <illustration number="82" book="Joel" volume="1" folio="470v">
+                <keywords>Joel</keywords>
+            </illustration>
+            <illustration number="83" book="Amos" volume="1" folio="472r">
+                <keywords>Amos</keywords>
+                
+            </illustration>
+            <illustration number="84" book="Obediah (Abdias)" volume="1" folio="474v">
+                <keywords>Obediah (Abdias)</keywords>
+            </illustration>
+            <illustration number="85" book="Jonah" volume="1" folio="475r">
+                <keywords>Jonah</keywords>
+                
+            </illustration>
+            <illustration number="86" book="Micah" volume="1" folio="476r">
+                <keywords>Micah</keywords>
+            </illustration>
+            <illustration number="87" book="Nahum" volume="1" folio="478r">
+                <keywords>Nahum</keywords>
+                
+            </illustration>
+            <illustration number="88" book="Abacuc" volume="1" folio="478v">
+                <keywords>Abacuc</keywords>
+            </illustration>
+            <illustration number="89" book="Zephaniah" volume="1" folio="480r">
+                <keywords>Zephaniah</keywords>
+                
+            </illustration>
+            <illustration number="90" book="Haggai (Aggeus)" volume="1" folio="481r">
+                <keywords>Haggai</keywords>
+            </illustration>
+            <illustration number="91" book="Zachariah" volume="1" folio="482r">
+                <keywords>Zachariah</keywords>
+                
+            </illustration>
+            <illustration number="92" book="Malachi" volume="1" folio="485v">
+                <keywords>Malachi</keywords>
+            </illustration>
+            <illustration number="93" book="1 Maccabees" volume="1" folio="486v">
+                <keywords>Alexander the Great</keywords>
+                
+            </illustration>
+            <illustration number="94" book="2 Maccabees" volume="1" folio="501r">
+                <keywords>Judas Maccabeus</keywords>
+            </illustration>
+            <illustration number="95" book="Matthew" volume="1" folio="514r">
+                <keywords>Frontispiece to New Testament, generations of Christ</keywords>
+                
+            </illustration>
+            <illustration number="96" book="Matthew" volume="1" folio="unknown">
+                <keywords>Virgin with child</keywords>
+                
+            </illustration>
+            <illustration number="97" book="Mark" volume="1" folio="531r">
+                <keywords>Mark</keywords>
+                
+            </illustration>
+            <illustration number="98" book="Luke" volume="1" folio="542v">
+                <keywords>Luke</keywords>
+            </illustration>
+            <illustration number="99" book="John" volume="1" folio="562v">
+                <keywords>John</keywords>
+                
+            </illustration>
+            <illustration number="100" book="Romans" volume="1" folio="576v">
+                <keywords>St. Paul writing</keywords>
+            </illustration>
+            <illustration number="101" book="1 Corinthians" volume="1" folio="582r">
+                <keywords>St. Paul writing</keywords>
+                
+            </illustration>
+            <illustration number="102" book="2 Corinthians" volume="1" folio="587v">
+                <keywords>Paul, Corinthians</keywords>
+            </illustration>
+            <illustration number="103" book="Galatians" volume="1" folio="591v">
+                <keywords>Paul, Galatians</keywords>
+                
+            </illustration>
+            <illustration number="104" book="Ephesians" volume="1" folio="593v">
+                <keywords>Paul, Ephesians</keywords>
+            </illustration>
+            <illustration number="105" book="Colossians" volume="1" folio="595v">
+                <keywords>Paul, Colossians</keywords>
+                
+            </illustration>
+            <illustration number="106" book="Philippians" volume="1" folio="597r">
+                <keywords>Paul, Philippians</keywords>
+            </illustration>
+            <illustration number="107" book="1 Thessalonians" volume="1" folio="598r">
+                <keywords>Paul, Thessalonians</keywords>
+                
+            </illustration>
+            <illustration number="108" book="2 Thessalonians" volume="1" folio="599v">
+                <keywords>Paul, Thessalonians</keywords>
+            </illustration>
+            <illustration number="109" book="1 Timothy" volume="1" folio="600v">
+                <keywords>Timothy</keywords>
+                
+            </illustration>
+            <illustration number="110" book="2 Timothy" volume="1" folio="602r">
+                <keywords>Timothy</keywords>
+            </illustration>
+            <illustration number="111" book="Titus" volume="1" folio="603r">
+                <keywords>Titus</keywords>
+                
+            </illustration>
+            <illustration number="112" book="Hebrews" volume="1" folio="604r">
+                <keywords>Hebrews</keywords>
+            </illustration>
+            <illustration number="113" book="Acts" volume="1" folio="608v">
+                <keywords>Two apostles</keywords>
+                
+            </illustration>
+            <illustration number="114" book="Acts" volume="1" folio="612v">
+                <keywords>unknown</keywords>
+            </illustration>
+            <illustration number="115" book="James" volume="1" folio="623r">
+                <keywords>James</keywords>
+                
+            </illustration>
+            <illustration number="116" book="1 Peter" volume="1" folio="624v">
+                <keywords>Peter</keywords>
+            </illustration>
+            <illustration number="117" book="2 Peter" volume="1" folio="626r">
+                <keywords>Peter</keywords>
+                
+            </illustration>
+            <illustration number="118" book="1 John" volume="1" folio="627r">
+                <keywords>John</keywords>
+            </illustration>
+            <illustration number="119" book="2 John" volume="1" folio="628v">
+                <keywords>John</keywords>
+                
+            </illustration>
+            <illustration number="120" book="3 John " volume="1" folio="629r">
+                <keywords>John</keywords>
+            </illustration>
+            <illustration number="121" book="Jude" volume="1" folio="629r">
+                <keywords>Jude</keywords>
+                
+            </illustration>
+            <illustration number="122" book="Apocalypse (Revelation)" volume="1" folio="630r">
+                <keywords>John of Patmos</keywords>
+            </illustration>
+          
+        </illustrationList>
+        <illustrationNote>Artists, arms and some illuminations identified by the cataloguers for the 1992 exposition of Cologne. This information is reproduced by Fournié. Having had limited time with the manuscript, I partially relied on Fournié's catalog to fill gaps in my list of illustrations for the New Testament. However, she did not view the manuscript and made several errors and omissions in the Old Testament, so this list may not be fully accurate. If there is a Virgin and Child miniature in Matthew, it is not where she says it is. Sneddon viewed only parts of the New Testament and does not describe illuminations in detail.</illustrationNote>
+    </illustrations>
+    <classification>
+        <shelfmarks>
+            <currentCity>Vatican City</currentCity>
+            <currentRepository>Biblioteca Apostolica Vaticana</currentRepository>
+            <currentShelfmark>Barb. Lat. 613</currentShelfmark>
+            <repositoryLink>http://www.vaticanlibrary.va/</repositoryLink>
+        </shelfmarks>
+        <bookType technology="manuscript" collectionType="Bible" />
+        <catalogerClassifications>
+            <sneddonClass category="BHC" subcategory1="PB" subcategory2="a">
+                <siglum>Y</siglum>
+                <entry>64</entry>
+            </sneddonClass>
+            <fournieCatalog> <!-- remove if not applicable -->
+                <fournieNumber>139</fournieNumber>
+                <fournieLink>http://acrh.revues.org/1469#tocto1n44</fournieLink>
+            </fournieCatalog>
+            
+            <classificationNotes>Fournié did not consult this manuscript, and Sneddon only looked at the New Testament. While Fournié cites Berger as a source for this manuscript, I find no mention of it in Berger's classification.</classificationNotes>
+        </catalogerClassifications>
+     </classification>
+    <textualContents>
+        <prefatoryMatter volume="1">
+            <guyart startPage="1r">
+                <incipit accuracy="actual">Pour ce que li dyables qui les cuers dez homes chscun iour enpesche</incipit>
+            </guyart>
+            <comestorLetter startPage="2v">
+                <incipit accuracy="actual">A honorable pere en dieu et son chier seigneur</incipit>
+            </comestorLetter>
+           
+            <MasterTableOfContents matchesContents="y">Ci apres sont li liure historial de la bible qui en cest liure sont translate et tout par hystoires les escolastes
+                Premierement est en cest liiure translates il liurez de Genesis.
+                Le liure exode.
+                Le liure de leuitique. 
+                Le liure des nombres. 
+                Le liure de deteronomes 
+                Le liure de iosue. 
+                Le liure des iuges. 
+                Les iiii. Liures des roys. 
+                Les paraboles salemon. 
+                Le liure de iob. 
+                Le liure de baruch. 
+                Le liure de ysaie. 
+                Le liure de ieremie. 
+                Le liure de ezechiel. 
+                Le liure de Daniel et les autres prophectes. 
+                Les lamentations ieremie. 
+                Le liure de Susanne et les histoires qui apres viennent si corame vous les trouuerrez. 
+                Le liure iudic et les histoires qui apres viennent si comme vous les trouueres. 
+                Le liure hester la royne et les hystoires qui apres viennent si comme vous les trouueres. 
+                Les ii. Liures des machabeus. 
+                L’istoire euuangeliste qui est dit le nouuel testament. 
+                Les euuangiles toutes. 
+                Les epistres saint pol toutes. 
+                Les fais des apostres. 
+                Lapocalipse saint iehan. 
+                In ceste maniere sont cist liure ordene li vns apres lautre en hystoires les escolastes. Car I’ensieu du tout et ensiuray le maistre en hystoires et en tote s’ordenance. Sauf ce que les paraboles salemon --salemon-  et li liures iob ne sont mie contenus en hystoires. Mais ie les ai mis en cest liure pour la bonte d’eulz.               
+                
+            </MasterTableOfContents>
+         <comestor startPage="3r" accuracy="actual">En palais de roy et de empereur</comestor>
+        </prefatoryMatter>
+        <bibleBooks volume="1">
+            <title textVersion="BH" glossType="BH" startPage="3r" chapterNames="y" tableOfContents="y" bookName="Genesis">
+                <incipit textType="text" accuracy="actual">Au commencement crea diex le ciel et la terre: La terre estoit vaine et voide</incipit> 
+                <bookNote>Includes the "fornication" error ("fornication" for "formacion" in rubrics and text on Creation), also found in King John II's Bible (British Library MS Royal 19 D II) and the Jean de Rély printed editions, among others.</bookNote>
+            </title>
+            
+            <title textVersion="BH" glossType="BH" startPage="45v" chapterNames="y" tableOfContents="y" bookName="Exodus">
+                <incipit textType="text" accuracy="actual">Ce sont li non des filz ysrahel qui entrerent en egypte auoec iacob</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="75r" chapterNames="y" tableOfContents="y" bookName="Leviticus">
+                <incipit textType="Guyart prologue" accuracy="actual">Au commencement du liure de leuitique met li maistres en ystoire vne diuision mout prouffitable</incipit> 
+                <incipit textType="translator note" accuracy="actual">De faire le liure de leuitique selonc le tiexte de la bible n’est il nus mestiers. Car li maistres en ystoire parole plus briement et plus clerement et si ne lesse reins dez paroles de la bible don’t mestiers soit. Ainz les prent si souffisament comme il conuient. Et por ce prendreons nous tout le liure de leuitique selonc ystoires. Si passerons plus briement nostre matiere. Et si en sera l’istoire miex entendue. Car li tiextes de la bible est bien si clerement exposes en hystoires</incipit>
+                <incipit textType="text" accuracy="approximate">Dieu appella moyses et parla a lui du tabernacle</incipit>
+                <bookNote>Guyart translates Leviticus entirely from the Historia Scholastica, which, more than in other books, duplicates or summarizes most of Leviticus as it comments</bookNote>
+                
+            </title>
+            
+            <title textVersion="BH" glossType="BH" startPage="84v" chapterNames="y" tableOfContents="y" bookName="Numbers">
+                <incipit textType="Guyart prologue" accuracy="actual">La quarte ystoire de cest liure est appelle le liure des nombres ou li nombre et c’est bien droiz</incipit>
+                <incipit textType="text" accuracy="actual">Nostre sires parla a Moysem el desert de sinay el tarbernacle d’aliance</incipit>
+                <bookNote>Rubrics in Latin announce chapters, e.g. Capitulum primum (fol. 85r). There is a mistake in the running head on 100r that reads "Des Rois"</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="104v" chapterNames="y" tableOfContents="y" bookName="Deuteronomy">
+                <incipit textType="Guyart prologue" accuracy="actual">La quinte ystoire et la desreniere que Moyses excreit est en grieu apelee deutheronomes</incipit> 
+                <incipit textType="text" accuracy="actual">Au quarantiesme an de lissue dez filz ysrael de Egypte</incipit>
+                <incipit textType="addicion" accuracy="actual">Encore aiousta ci Moyses que se li iuge poissent prendre un homme</incipit>
+            </title>
+            
+            <title textVersion="BH" glossType="BH" startPage="119r" chapterNames="y" tableOfContents="y" bookName="Joshua">
+                <incipit textType="text" accuracy="actual">Nostre sire parla a Josue le filz Nuinqui fu menistres Moysi</incipit>
+          
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="126v" chapterNames="y" tableOfContents="y" bookName="Judges">
+                <incipit textType="Guyart prologue" accuracy="actual">Cist liure des iuges en ebrieu est aples sothim</incipit> 
+                <incipit textType="text" accuracy="actual">Apres la mort Josue preistrent conseil a nostre seigneur li filz ysrael</incipit>
+            </title>    
+            <title textVersion="BH" glossType="BH" startPage="136r" chapterNames="y" bookName="Ruth">
+                <incipit accuracy="actual">Apres sanson iuga ysrael hely qui ne fu mie sanz plus iuges</incipit>
+                <bookNote>These are Guyart's "hystoires" on Ruth</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="138v" chapterNames="y" tableOfContents="y" bookName="1 Kings">
+                <incipit textType="Guyart prologue" accuracy="approximate">Ce liure des roys est deuisez en quatre liures selon les latins et selonc les hebrieux en deux</incipit>
+                <incipit textType="text" accuracy="approximate">Aus hons fu de ramatheim sophim du mout effray qui ot a non helcana</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="153r" chapterNames="y" tableOfContents="y" bookName="2 Kings">
+                <incipit textType="text" accuracy="approximate">Apres la mort saul et apres ce que dauid reueoit doccire ceus damalech</incipit> 
+                
+            </title>
+            
+            <title textVersion="BH" glossType="BH" startPage="166r" chapterNames="y" tableOfContents="n" bookName="3 Kings">
+                <incipit textType="Guyart prologue" accuracy="actual">Ci commence selonc nous le tiers liure des Roys et selonc les hebrieus li secons. Le quell il appellent Nachim, c’est a dire des Roys. Car encore aient parle li diu liure des ii Roys Saul et Dauid qui ne regnerent mie ensemble. Nequedent parole alz tiers liures et li quars des ii. Roys qui regnerent ensemble en Judee et en ysrahel. Et pour ce sont il miex apeles des Roys que cil deu deuant</incipit>
+                <incipit textType="text" accuracy="approximate">Li roys dauid estoit moult en uielliez et auoit moult grant aige ne il ne se pooit eschaufer</incipit>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="187r" chapterNames="y" tableOfContents="n" bookName="4 Kings">
+                <incipit textType="text" accuracy="approximate">Othosie li filz achab commenca a regner en samarie sus israel</incipit>     
+                <bookNote>Includes typical translator's note about Thobie and Job (fol. 209r)</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="209v" chapterNames="n" tableOfContents="n" bookName="Petit Job">
+                <incipit textType="text" accuracy="approximate">En la terre de hus fu .i. home qui ot anon iob qui estoit sinples et droituriers</incipit>
+                
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="210v" chapterNames="y" tableOfContents="y" bookName="Tobias (Tobit)">
+                <incipit textType="text" accuracy="approximate">Thobie fu de la cite de neptalun? qui est es plus hautes parties de galilee</incipit> 
+            </title>
+           
+            <title textVersion="BH" glossType="BH" startPage="215v" chapterNames="y" tableOfContents="y" bookName="Jeremiah">
+                <incipit textType="text" accuracy="approximate">Quant nabugodonosor li roys de babiloine ot fait godolie souuent</incipit>
+                <bookNote>Guyart's abridged version. Full BXIII version comes later</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="217r" chapterNames="y" tableOfContents="n" bookName="Ezechiel">
+                <incipit textType="text" accuracy="approximate">Ezechiel le prophete de la terre cysare filz bira de la lignie des prestres</incipit> 
+                <bookNote>Guyart's abridged version. Full BXIII version comes later.</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="218r" chapterNames="y" tableOfContents="y" bookName="Daniel">
+                <incipit textType="text" accuracy="approximate">Daniel prophecia en caldeee qui selonc iosephum et epiphaine</incipit>
+                <incipit textType="glose" accuracy="approximate">Si come nous lisons el quart liure des rouys el chapitre</incipit>
+                <bookNote>Guyart's abridged version. Full BXIII version in vol. 2. Includes "Suzanne."</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="229r" chapterNames="unknown" bookName="Judith">
+                <incipit textType="Guyart prologue" accuracy="approximate">Ceste hystoire de iudich translata saint iheromes a la priere des tres saintes uierges</incipit>
+                <bookNote>Followed by "hystoires"</bookNote>
+            </title>
+            <title textVersion="BH" glossType="BH" startPage="238r" chapterNames="y" tableOfContents="y" bookName="Esther">
+                <incipit textType="Guyart prologue" accuracy="approximate">Cit liure hestter translata saint ieronme ala priere paule et enscochium? de hebrieu en latin</incipit> 
+                <incipit textType="text" accuracy="approximate">Quant tuit li prince et li grant hons furent assenble de son regne</incipit>
+                <bookNote>Followed by "hystoires"</bookNote>            
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="248v" chapterNames="n" tableOfContents="n" bookName="1 Paralipomenon (I Chronicles)">
+                <incipit textType="text" accuracy="approximate">Adam Seth enos chamam malaleel iares enobe matusale. Lameth noe Sameth cuam et Japhet. Li filz iaphet et gomer magog</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="231v" chapterNames="n" tableOfContents="n" bookName="2 Paralipomenon (II Chronicles)">
+                <incipit textType="text" accuracy="approximate"></incipit> 
+                
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" startPage="276v" chapterNames="n" tableOfContents="n" bookName="1 Esdras (Ezra)">
+                <incipit textType="Guyart prologue" accuracy="approximate">Ci commence selons nous li tiers liures des roys et selons les hebrius li secons</incipit>
+                <incipit textType="text" accuracy="approximate">Li roys dauid estoit moult en uielliez et auoit moult grant aige ne il ne se pooit eschaufer</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="281r" chapterNames="n" tableOfContents="n" bookName="2 Esdras (Nehemiah)">
+                <incipit textType="text" accuracy="approximate">Othosie li filz achab commenca a regner en samarie sus israel</incipit> 
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="296r" chapterNames="unknown" bookName="Psalms">
+                <bookNote>Followed by prayers, canticles and litany</bookNote>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="335r" chapterNames="n" tableOfContents="n" bookName="Proverbs">   
+                <incipit textType="text" accuracy="approximate">Ces paraboles Salemon filz dauid roy disrael ascauoir sapience et discipline a entendre paroles et prudence</incipit> 
+                <incipit textType="BXIII unmarkedGloss" accuracy="approximate">Conuertissez vous. Cest a dire tournez vous a ma conception.</incipit> 
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" startPage="348r" chapterNames="n" tableOfContents="n" bookName="Ecclesiastes">
+                <incipit textType="text" accuracy="approximate">Les paroles ecclesiastes filz dauid roy de jherusalem. Vanite de vanites dit ecclesiastes. Vanite de vanites</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" chapterNames="n" tableOfContents="n" bookName="Song of Songs">
+                <incipit textType="text" accuracy="approximate">Lespouse dist a son espoux. Je desirre estre baisee du baisier de sa bouche. Car ses mamelles si sont meilleurs que nul vin tant soit bon</incipit> 
+            </title>
+            
+            <title textVersion="BXIII" glossType="BXIII" chapterNames="n" tableOfContents="n" bookName="Ecclesiasticus">
+                <incipit textType="text" accuracy="approximate">Amez justice vous qui iugiez la terre. Setez de nostre seigneur en bonte et le querez en simplesce</incipit>
+            </title>    
+            <title textVersion="BXIII" glossType="BXIII" startPage="361v" chapterNames="n" tableOfContents="n" bookName="Wisdom">
+                <incipit textType="text" accuracy="approximate">Toute sapience est de dieu qui est ostre sires et si fut touus temps auec lui et sera pardurablement et fut auec lui des le commencement du monde.</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="382v" chapterNames="n" tableOfContents="n" bookName="Isaiah">
+                <incipit textType="text" accuracy="approximate">La prophecie ysaie le filz amos quil vit dessirs le people de judas et sur jherusalem</incipit> 
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="407r" chapterNames="n" tableOfContents="n" bookName="Jeremiah">
+                <incipit textType="text" accuracy="approximate">Les paroles jheremie le filz helchie des prestres qui furent en ancachot en la terre beniamin Que la parolle nostresires fu fait a lui ou temps de josie filz amon</incipit>
+             </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="433r" chapterNames="n" tableOfContents="n" bookName="Lamentations">
+                <incipit textType="text" accuracy="approximate">Aleph. Comment siet la cite seule qui estoit pleinne de people, et comment est faite vesue celle qui estoit dame des gens, et celle qui estoit dame des contrees est faite sans true</incipit> 
+                <bookNote>Has rubrics for transliterated Hebrew letters</bookNote>
+            </title>    
+            
+            <title textVersion="BXIII" glossType="BXIII" startPage="435r" chapterNames="n" tableOfContents="n" bookName="Ezechiel">
+                <incipit textType="text" accuracy="approximate">Il auint ou trentiesme an ou quart jour du mois que je estoie ou miliu des chetifs</incipit>
+               </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="455r" chapterNames="n" tableOfContents="n" bookName="Daniel">
+                <incipit textType="text" accuracy="approximate">Av tiers an du royaume Joachim roy de juda Nabugodonosor roy de babiloine vint en jherusalem et lassist et nostre seigneur bailla en sa main Joachim</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="464r" chapterNames="n" tableOfContents="n" bookName="Baruch">
+                <incipit textType="prologue" accuracy="approximate">Cy commence le prologue en baruth. Cest liure qui paruth est appelez par nom ains est tant seulement en vulgal edition et ensement est lepistre jheremie le prophete. Mais pour la congnoissance des lisans sont cy escris car ilz monstrent maintes choses de crist et des derreniers temps</incipit>
+                <incipit textType="text" accuracy="approximate">Cy commence baruth cestadire le liure baruth, et ce sont les parrolles du liure que escriptst baruth</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="467v" chapterNames="n" tableOfContents="n" bookName="Hosea (Osee)">
+                <incipit textType="text" accuracy="approximate">La parolle nostreseigneur qui fut faite a ozee filz bocry ou temps ioacham, achar et ethie de iuda, et ou temps jheroboam</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="470v" chapterNames="n" tableOfContents="n" bookName="Joel">
+                <incipit textType="text" accuracy="approximate">La parolle nostreseigneur qui fut faite a joel filz fatuel. Vous veillars oez yce et tous habiteurs de la terre apparceuez par oreilles se ce est fait en vostre temps ou ou temps de voz peres</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="472r" chapterNames="n" tableOfContents="n" bookName="Amos">
+                <incipit textType="text" accuracy="approximate">Les paroles amos qui fut epartis de thetue que il vit sr ysrael ou temps orie roy de iuda. Et ou temps jheroboam filz joas roy disrael deuant deux ans</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="474v" chapterNames="n" tableOfContents="n" bookName="Obadiah (Abdias)">
+                <incipit textType="text" accuracy="approximate">La prophecie abdie c edit nostre sires dieux a edom. Nous auons oy de nostreseigneur et il enuoya messagiers aux gens</incipit>
+            </title>          
+            <title textVersion="BXIII" glossType="BXIII" startPage="475r" chapterNames="n" tableOfContents="n" bookName="Jonah">
+                <incipit textType="text" accuracy="approximate">La parolle nostreseigneur fut faite a jonas filz amath disant lieue toy et va en niniue grant cite et presche yblecques, car sa malice est montee</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="476r" chapterNames="n" tableOfContents="n" bookName="Micah">
+                <incipit textType="text" accuracy="approximate">La parolle nostreseigneur qui fut faite a michee monstree es temps joatham de achaz de ezechie roys de juda</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="478r" chapterNames="n" tableOfContents="n" bookName="Nahum">
+                <incipit textType="text" accuracy="approximate">Ces fais de niniue le liure des visions naum. Nostresires aime et venge. Nostresires est vengant et grant yre.</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="478v" chapterNames="n" tableOfContents="n" bookName="Abacuc">
+                <incipit textType="text" accuracy="approximate">Les fais que apacuth le prophet dist. Sire pourquoy crieray je et tu ne mourras mie. Pourquoy mas tu monstre iniquite </incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="480r" chapterNames="n" tableOfContents="n" bookName="Zephaniah">
+                <incipit textType="text" accuracy="approximate">La parolle nostreseigneur fut faite a sophonie filz chuz filz godelye filz amasie filz esechie ou temps josue</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="481r" chapterNames="n" tableOfContents="n" bookName="Haggai (Aggeus)">
+                <incipit textType="text" accuracy="approximate">Ou second an roy daire qui estoit roy de perse ou siste mois ou premier jour du mois. La parolle nostreseigneur fut faite en la main aggee</incipit>   
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="482r" chapterNames="n" tableOfContents="n" bookName="Zachariah">
+                <incipit textType="text" accuracy="approximate">En luitiesme mois es deux ans daire la parolle nostre seigneur fut faite a zacharie filz barrachie filz abde prophete disant, nostre sires est courrouciez</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="485v" chapterNames="n" tableOfContents="n" bookName="Malachi">
+                <incipit textType="text" accuracy="approximate">Les fais de la parolle nostreseigneur en la main malachite le prophete. Je vous ay amez ce dit nostresires</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BH" startPage="486v" chapterNames="n" tableOfContents="n" bookName="1 Maccabees">
+                <incipit textType="text" accuracy="actual">Apres ce que alixandre li filz pheroy de macedonie qui issi de la terre de chim et fu li premiers</incipit>
+                <incipit textType="gloss" accuracy="actual">Apres ce que alixandre li filz pheroy de macedonie qui issi de la terre de chim et fu li premiers</incipit>
+                <bookNote>Glosses are added to the margins here (elsewhere in this MS they are in the body of the text).. This is one of many instances of BXIII text for Maccabees with BH glosses reintegrated. The gloss given here as an incipit is Guyart's second gloss.</bookNote>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="501r" chapterNames="n" tableOfContents="n" bookName="2 Maccabees">
+                <incipit textType="text" accuracy="approximate">Les juifs qui sont en Jherusalem et en la region de iudee mandent aux Juifs leurs freres qui sont par egipte Salus et bonne paix et dieu nous face bien et lui souuiengne de son testament</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="514r" chapterNames="y" tableOfContents="n" bookName="Matthew">
+                <incipit textType="text" accuracy="approximate"> Le liure de la generation ihesucrist filz de dauid filz dabraham, abraham engendra ysaac, ysaac engendra jacob, jacob engendra judas et ses freres, judas engendra phares et aram</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="531r" chapterNames="y" tableOfContents="n" bookName="Mark">
+                <incipit textType="text" accuracy="approximate">Li commencemenz de leuuangile Jhesucrist filz dieu</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="542v" chapterNames="y" tableOfContents="n" bookName="Luke">
+                <incipit textType="text" accuracy="approximate">Pource que les pluseurs se sont efforciez de raconter et ordonner les racontemens qui sont aemplis en nous et des choses que ceulx nous ont dites qui les virent des le commencement et furent menistres de la parolle cest du filz. O tu theophille il mest auis que cest bonne chose que je testripue diligemment par ordres que tu congnoisses la parolle de ceulx desquelz tu es enseignie en verite</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="562v" chapterNames="y" tableOfContents="n" bookName="John">
+                <incipit textType="text" accuracy="approximate">Parolle estoit au commencement, et celle parolle estoi enuers dieu, cest la congnoissance dieu le pere et dieu estoit parolle, cest dieu le filz Il estoit commencement du monde</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="576v" chapterNames="n" tableOfContents="n" bookName="Romans">
+                <incipit textType="prologue" accuracy="approximate">Les rommains sont es parities dytallie yceulx furent de ceus des faulx prophettes et furent menez en la foy et es prophettes</incipit>
+                <incipit textType="text" accuracy="approximate">Pol serf de jhesucrist appelle appostre departi en leuuangille de dieu de son filz</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="582r" chapterNames="n" tableOfContents="n" bookName="1 Corinthians">
+                <incipit textType="text" accuracy="approximate">Pol appelle appostre par la voulente jhesucrist et sostenez freres de sainte eglise qui est en corinthe</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="587v" chapterNames="n" tableOfContents="n" bookName="2 Corinthians">
+                <incipit textType="text" accuracy="approximate">Pol appostre jhesucrist par la voulente de dieu et thimothees freres de leglise de dieu qui est en chorinthe. A tous les sains qui sont en oute achaye</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="591v" chapterNames="n" tableOfContents="n" bookName="Galatians">
+                <incipit textType="text" accuracy="approximate">Pol appostre nomine des hommes ne par homme mais par jhesucrist dieu le pere qui le suscita de mort</incipit>   
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="593v" chapterNames="n" tableOfContents="n" bookName="Ephesians">
+                <incipit textType="text" accuracy="approximate">Pol appostre jhesucrist par la voulente de dieu. A tous les sains qui sont en ephese et aux feaulx en jhesucrist</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="595v" chapterNames="n" tableOfContents="n" bookName="Colossians">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="597r" chapterNames="n" tableOfContents="n" bookName="Philippeans">
+                <incipit textType="text" accuracy="approximate">Pol et thimothee serfs jhesucrist a tous les sains en jhesucrist qui sont en philipenses o les euesques</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="598r" chapterNames="n" tableOfContents="n" bookName="1 Thessalonians">
+                <incipit textType="text" accuracy="approximate">Pol et siluam et thimothees a leglise de thessalone</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="599v" chapterNames="n" tableOfContents="n" bookName="2 Thessalonians">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="600v" chapterNames="n" tableOfContents="n" bookName="1 Timothy">
+                <incipit textType="text" accuracy="approximate">Pol appostres jhesucrist selon le commandement de nostreseigneur et de jhesucrist nostre esperance</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="602r" chapterNames="n" tableOfContents="n" bookName="2 Timothy">
+                <incipit textType="text" accuracy="approximate">Pol appostre de jhesucrist par la voulente de dieu selon promesse de vie qui est en jhesucrist</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="603r" chapterNames="n" tableOfContents="n" bookName="Titus A">
+                <incipit textType="prologue" accuracy="actual">Saint pol admouneste thitum et lendoctrine de la constituion dont prouoires doiuent estre endoctriniez et de la conuersation espiritable et guenchir les herites qui troient es escris faulx en escripuant lui en ythopoli</incipit>
+                <incipit textType="text" accuracy="approximate">Pol siant en dieu et appostre jhesucrist selon la foy des esleus</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" chapterNames="n" tableOfContents="n" bookName="Titus B">
+                <incipit textType="text" accuracy="approximate">Pol serf de dieu appostre jhesucrist selon la foy des amis dieu</incipit>
+            <bookNote>I'm not entirely sure whether both Titus A and Titus B are in this manuscript.</bookNote>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" chapterNames="n" tableOfContents="n" bookName="Philemon">
+                <incipit textType="text" accuracy="approximate">Pol li de lamour jhesucrist et frere thimothee a frere philomenum</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" chapterNames="n" tableOfContents="n" bookName="Hebrews">
+                <incipit textType="text" accuracy="approximate">Dieu qui parla jadis a nos peres par les prophetes en maintes manieres et en maintes fourmes</incipit>
+            </title> 
+            <title textVersion="BXIII" glossType="BXIII" startPage="608v" chapterNames="n" tableOfContents="n" bookName="Acts">
+                <incipit textType="text" accuracy="approximate">O tu theophile jay premierement parle de toutes les choses que jhesus commanda</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="623r" chapterNames="n" tableOfContents="n" bookName="James">
+                <incipit textType="prologue" accuracy="approximate">Celle ordre nest mie aux grieux comme aux liures de latin. Lesquelx grieux sceuent enterinement la foy. et la droitte sentence des sept epistres qui sont appellees canoniques. Mais certes pierres et trouuez</incipit>
+                <incipit textType="text" accuracy="approximate">Iaques sergent nostreseigneur jhesucrist mande salus aux douze lignees qui sont esparces</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="624r" chapterNames="n" tableOfContents="n" bookName="1 Peter">
+                <incipit textType="text" accuracy="approximate">Pierres appostre ihesucrist aux gens estranges esleus de dispersion de ponte et de galacie</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="626r" chapterNames="n" tableOfContents="n" bookName="2 Peter (Simon)">
+                <incipit textType="text" accuracy="approximate">Simons pierres sers et appostres de ihesucrist. A ceulx qui ont recue de nostresauueur ihesucrist, grace et paix vous soit donnee</incipit>
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="627r" chapterNames="n" tableOfContents="n" bookName="1 John">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="628v" chapterNames="n" tableOfContents="n" bookName="2 John">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="629r" chapterNames="n" tableOfContents="n" bookName="3 John">
+            </title>
+            <title textVersion="BXIII" glossType="BXIII" startPage="629r" chapterNames="n" tableOfContents="n" bookName="Jude">
+                <incipit textType="text" accuracy="approximate">Judas serf de jhesucrist frère de jaques a ceulx qui sont les amies en dieu le pere et qui sont gardez et appellez de ihesu paix et misericorde</incipit>
+            </title>
+            <title textVersion="BXIII (Meyer C)" glossType="BXIII" startPage="630r" chapterNames="n" tableOfContents="n" bookName="Apocalypse (Revelation)">
+                <incipit textType="text" accuracy="approximate">Lapocalipse de jhesucrist que dieu lui donna pour faire assauoir a ses serfs ce quil conuendra qui soit tost fait</incipit>
+            </title>
+        </bibleBooks>
+        <parascripturalItems>
+            <litany form="n/a" presence="n" locVol="1" locStart="334v" locEnd="334v" sneddonID="n/a"></litany>
+            <canticles endFolio="334v" presence="y" startFolio="332v" volume="1">
+                <canticleType>Deus qui proprium</canticleType>
+            </canticles>
+            <catechismsPrayersTreatises presence="y" startFolio="332v" endFolio="334v" volume="1">
+                <descriptionsFirstLines>Toi sire loons nous toi dieu regehissons nous</descriptionsFirstLines>
+                <descriptionsFirstLines>Beneissiez a nostre seignor toutes</descriptionsFirstLines>
+                <descriptionsFirstLines>Nostre sire diex</descriptionsFirstLines>
+                <descriptionsFirstLines>M’ame loe nostre seigneur</descriptionsFirstLines>
+                <descriptionsFirstLines>Sire tu delaisses orendroit</descriptionsFirstLines>
+            </catechismsPrayersTreatises>
+            <addedPrologue jeanDeBlois="n" jerome="n"/>
+        </parascripturalItems>
+    </textualContents>
+    <bibliography>
+          <biblioEntry>
+            <bibAuthor>(Exposition)</bibAuthor>
+            <bookOrJournalTitle>Biblioteca Apostolica Vaticana – Liturgie und Andacht in Mittelalter. Heraugegeben vom Erzbischöflichen Diö zesanmuseum Köln, Cologne, Musée diocésain, 1992.</bookOrJournalTitle>
+            <publicationInfo>Stuttgart, Zurich, Éditions Belserverlag, 1992</publicationInfo>
+        </biblioEntry>
+        <biblioEntry>
+            <bibAuthor>Fournié, Éléonore.</bibAuthor>
+            <articleTitle>Les manuscrits de la Bible historiale.</articleTitle>
+            <bookOrJournalTitle>L'Atelier du Centre de recherches historiques, Revue électronique de la CRH.</bookOrJournalTitle>
+            <publicationInfo>no. 3 (2009)</publicationInfo>
+            <articleLink>http://acrh.revues.org/index403.html</articleLink>
+        </biblioEntry>
+      
+        <biblioEntry>
+            <bibAuthor>Sneddon, Clive R.</bibAuthor>
+            <bookOrJournalTitle>A Critical Edition of the Four Gospels in the Thirteenth-Century Old French Translation of the Bible.</bookOrJournalTitle>
+            <publicationInfo>Thesis presented for the degree of D. Phil., Oxford Un4ersity, 1978.</publicationInfo>
+        </biblioEntry>
+        
+    </bibliography>
+</bible>

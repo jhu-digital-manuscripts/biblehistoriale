@@ -34,6 +34,13 @@
 			<version>${gwtVersion}</version>
 			<scope>provided</scope>
 		</dependency>
+		
+<!-- 		<dependency>
+		    <groupId>com.google.gwt</groupId>
+		    <artifactId>gwt-dev</artifactId>
+		    <version>${gwtVersion}</version>
+		    <scope>test</scope>
+		</dependency> -->
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -42,7 +49,7 @@
 			<scope>test</scope>
 		</dependency>
 
-		<dependency>
+<!-- 		<dependency>
 			<groupId>javax.validation</groupId>
 			<artifactId>validation-api</artifactId>
 			<version>1.0.0.GA</version>
@@ -55,7 +62,7 @@
 			<version>1.0.0.GA</version>
 			<classifier>sources</classifier>
 			<scope>compile</scope>
-		</dependency>
+		</dependency> -->
 		
 		<dependency>
 		    <groupId>biblehistoriale</groupId>
@@ -102,16 +109,19 @@
 				<!-- Plugin configuration. There are many available options, see gwt-maven-plugin 
 					documentation at codehaus.org -->
 				<configuration>
-				        <strict>true</strict>
+				    <strict>true</strict>
 					<runTarget>biblehistoriale-website.html</runTarget>
 					<hostedWebapp>${webappDirectory}</hostedWebapp>
 					<compileSourcesArtifacts>
 					    <compileSourcesArtifact>biblehistoriale:biblehistoriale-model</compileSourcesArtifact>
 					</compileSourcesArtifacts>
 					<!-- <i18nMessagesBundle>edu.jhu.library.biblehistoriale.website.client.Messages</i18nMessagesBundle> -->
+					
+					<testTimeOut>600</testTimeOut>
+		  			<mode>htmlunit</mode>
 				</configuration>
 			</plugin>
-
+			
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>

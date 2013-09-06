@@ -6,10 +6,14 @@ import com.google.gwt.place.shared.Place;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
 import edu.jhu.library.biblehistoriale.website.client.activity.BrowseProfilesActivity;
+import edu.jhu.library.biblehistoriale.website.client.activity.BrowseSearchResultsActivity;
+import edu.jhu.library.biblehistoriale.website.client.activity.ConstructAdvancedQueryActivity;
 import edu.jhu.library.biblehistoriale.website.client.activity.ContactUsActivity;
 import edu.jhu.library.biblehistoriale.website.client.activity.ProfileDetailActivity;
 import edu.jhu.library.biblehistoriale.website.client.activity.ProjectInfoActivity;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
+import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
+import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
@@ -43,6 +47,12 @@ public class AppActivityMapper implements ActivityMapper {
         } else if (place instanceof ProfileDetailPlace) {
             return new ProfileDetailActivity(
                     (ProfileDetailPlace) place, client_factory);
+        } else if (place instanceof ConstructAdvancedQueryPlace) {
+            return new ConstructAdvancedQueryActivity(
+                    (ConstructAdvancedQueryPlace) place, client_factory);
+        } else if (place instanceof BrowseSearchResultsPlace) {
+            return new BrowseSearchResultsActivity(
+                    (BrowseSearchResultsPlace) place, client_factory);
         }
         
         return null;

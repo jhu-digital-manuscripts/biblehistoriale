@@ -13,11 +13,26 @@
   <servlet>
     <servlet-name>BibleHistorialeService</servlet-name>
     <servlet-class>edu.jhu.library.biblehistoriale.website.server.BibleHistorialeServiceImpl</servlet-class>
+    <init-param>
+        <param-name>bible.store</param-name>
+        <param-value>store</param-value>
+    </init-param>
+    <init-param>
+        <param-name>bible.index</param-name>
+        <param-value>solr</param-value>
+    </init-param>
   </servlet>
 
   <servlet-mapping>
     <servlet-name>BibleHistorialeService</servlet-name>
     <url-pattern>/BibleHistorialeWebsite/service</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+      <servlet-name>BibleHistorialeService</servlet-name>
+      <url-pattern>
+          /edu.jhu.library.biblehistoriale.website.BibleHistorialeWebsite/service
+      </url-pattern>
   </servlet-mapping>
   
 </web-app>

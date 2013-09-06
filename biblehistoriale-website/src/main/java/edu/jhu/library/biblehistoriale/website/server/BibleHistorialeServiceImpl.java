@@ -1,12 +1,18 @@
 package edu.jhu.library.biblehistoriale.website.server;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.nio.file.FileSystems;
 import java.nio.file.Path;
 
 import javax.servlet.ServletException;
 
+import org.apache.commons.io.FileUtils;
+import org.w3c.dom.Document;
+
+import com.google.gwt.user.client.rpc.SerializationException;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
@@ -16,6 +22,7 @@ import edu.jhu.library.biblehistoriale.model.query.QueryResult;
 import edu.jhu.library.biblehistoriale.profile.builder.ProfileBuilder;
 import edu.jhu.library.biblehistoriale.profile.builder.ProfileBuilderException;
 import edu.jhu.library.biblehistoriale.search.SearchServiceException;
+import edu.jhu.library.biblehistoriale.search.Solr;
 import edu.jhu.library.biblehistoriale.search.SolrSearchService;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeService;
 import edu.jhu.library.biblehistoriale.website.client.rpc.RPCException;
@@ -28,7 +35,22 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
 
     private SolrSearchService search_service;
     private File bible_store;
+    
+    private File solrhome;
 
+    @Override
+    public String processCall(String payload) throws SerializationException {
+        String response = "";
+        
+        try {
+            response = super.processCall(payload);
+        } catch (SerializationException e) {
+            System.out.println("### SERIALIZATION EXCEPTION ###" + e.getMessage());
+        }
+        
+        return response;
+    }
+    
     public void init() throws ServletException {
         String s = getServletConfig().getInitParameter("bible.index");
 
@@ -36,9 +58,10 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             throw new ServletException("bible.index not specified");
         }
 
-        File solrhome = new File(getServletContext().getRealPath(s));
+        solrhome = new File(getServletContext().getRealPath(s));
 
         try {
+            Solr.createSolrInstall(solrhome);
             search_service = new SolrSearchService(solrhome);
         } catch (IOException e) {
             throw new ServletException("Error accessing solr index: "
@@ -52,8 +75,17 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         }
 
         bible_store = new File(getServletContext().getRealPath(s));
-
         update_index();
+    }
+    
+    public void destroy() {
+        try {
+            search_service.close();
+        } finally {
+            try {
+                FileUtils.deleteDirectory(solrhome);
+            } catch (IOException e) {  }
+        }
     }
 
     // TODO For now index all bibles on startup.
@@ -93,7 +125,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         try {
             Path path = FileSystems.getDefault().getPath(
                     file.getCanonicalPath());
-
+            
             return ProfileBuilder.buildProfile(path);
         } catch (IOException | ProfileBuilderException e) {
             throw new RPCException("Error loading " + id, e);
