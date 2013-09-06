@@ -15,7 +15,7 @@ public class Production implements Serializable {
     private int prodStartDate;
     private int prodEndDate;
     
-    private List<Contributor> contributors;
+    private ArrayList<Contributor> contributors;
     
     public Production() {
         this.contributors = new ArrayList<Contributor> ();
@@ -61,11 +61,11 @@ public class Production implements Serializable {
         this.prodEndDate = prodEndDate;
     }
 
-    public List<Contributor> contributors() {
+    public ArrayList<Contributor> contributors() {
         return contributors;
     }
 
-    public void setContributors(List<Contributor> contributors) {
+    public void setContributors(ArrayList<Contributor> contributors) {
         this.contributors = contributors;
     }
     

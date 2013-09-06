@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class CatechismsPrayersTreatise implements Serializable {
@@ -14,7 +15,7 @@ public class CatechismsPrayersTreatise implements Serializable {
     
     private Choice presence;
     
-    private List<String> descriptionsFirstLines;
+    private ArrayList<String> descriptionsFirstLines;
 
     public CatechismsPrayersTreatise() {
         this.volume = 0;
@@ -56,7 +57,7 @@ public class CatechismsPrayersTreatise implements Serializable {
         return descriptionsFirstLines;
     }
 
-    public void setDescriptionsFirstLines(List<String> descriptionsFirstLines) {
+    public void setDescriptionsFirstLines(ArrayList<String> descriptionsFirstLines) {
         this.descriptionsFirstLines = descriptionsFirstLines;
     }
     

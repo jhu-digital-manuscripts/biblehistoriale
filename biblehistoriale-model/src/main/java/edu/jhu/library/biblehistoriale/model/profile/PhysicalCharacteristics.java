@@ -16,10 +16,10 @@ public class PhysicalCharacteristics implements Serializable {
     private String physicaNotes;
     private String pageLayoutNotes;
     
-    private List<Dimensions> dimensions;
-    private List<QuireStructure> quireStructs;
-    private List<String> glossHeadings;
-    private List<String> underlinings;
+    private ArrayList<Dimensions> dimensions;
+    private ArrayList<QuireStructure> quireStructs;
+    private ArrayList<String> glossHeadings;
+    private ArrayList<String> underlinings;
     
     public PhysicalCharacteristics() {
         this.volumes = new Volumes();
@@ -81,35 +81,35 @@ public class PhysicalCharacteristics implements Serializable {
         this.physicaNotes = physicaNotes;
     }
 
-    public List<Dimensions> dimensions() {
+    public ArrayList<Dimensions> dimensions() {
         return dimensions;
     }
 
-    public void setDimensions(List<Dimensions> dimensions) {
+    public void setDimensions(ArrayList<Dimensions> dimensions) {
         this.dimensions = dimensions;
     }
 
-    public List<QuireStructure> quireStructs() {
+    public ArrayList<QuireStructure> quireStructs() {
         return quireStructs;
     }
 
-    public void setQuireStructs(List<QuireStructure> quireStructs) {
+    public void setQuireStructs(ArrayList<QuireStructure> quireStructs) {
         this.quireStructs = quireStructs;
     }
 
-    public List<String> glossHeadings() {
+    public ArrayList<String> glossHeadings() {
         return glossHeadings;
     }
 
-    public void setGlossHeadings(List<String> glossHeadings) {
+    public void setGlossHeadings(ArrayList<String> glossHeadings) {
         this.glossHeadings = glossHeadings;
     }
 
-    public List<String> underlinings() {
+    public ArrayList<String> underlinings() {
         return underlinings;
     }
 
-    public void setUnderlinings(List<String> underlinings) {
+    public void setUnderlinings(ArrayList<String> underlinings) {
         this.underlinings = underlinings;
     }
 

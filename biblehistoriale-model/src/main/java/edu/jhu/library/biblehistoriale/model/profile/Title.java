@@ -3,30 +3,12 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
-
-import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
 
 public class Title implements Serializable, Iterable<TitleIncipit> {
     
     private static final long serialVersionUID = 1L;
-
-    public class TitleIncipit extends Incipit implements Serializable {
-        private static final long serialVersionUID = 1L;
-        
-        private String textType;
-
-        public String getTextType() {
-            return textType;
-        }
-
-        public void setTextType(String textType) {
-            this.textType = textType;
-        }
-        
-    }
     
-    private List<TitleIncipit> incipits;
+    private ArrayList<TitleIncipit> incipits;
     
     private String editions;
     private String textVersion;
@@ -54,7 +36,7 @@ public class Title implements Serializable, Iterable<TitleIncipit> {
         return incipits.get(index);
     }
     
-    public void setIncipit(List<TitleIncipit> incipits) {
+    public void setIncipit(ArrayList<TitleIncipit> incipits) {
         this.incipits = incipits;
     }
     

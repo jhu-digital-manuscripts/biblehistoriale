@@ -12,8 +12,8 @@ public class BiblioEntry implements Serializable {
     private String bookOrJournalTitle;
     private String publicationInfo;
     
-    private List<String> bibAuthors;
-    private List<String> articleLinks;
+    private ArrayList<String> bibAuthors;
+    private ArrayList<String> articleLinks;
     
     public BiblioEntry() {
         this.bibAuthors = new ArrayList<String> ();
@@ -44,19 +44,19 @@ public class BiblioEntry implements Serializable {
         this.publicationInfo = publicationInfo;
     }
     
-    public List<String> bibAuthors() {
+    public ArrayList<String> bibAuthors() {
         return bibAuthors;
     }
     
-    public void setBibAuthors(List<String> bibAuthors) {
+    public void setBibAuthors(ArrayList<String> bibAuthors) {
         this.bibAuthors = bibAuthors;
     }
     
-    public List<String> articleLinks() {
+    public ArrayList<String> articleLinks() {
         return articleLinks;
     }
     
-    public void setArticleLinks(List<String> articleLinks) {
+    public void setArticleLinks(ArrayList<String> articleLinks) {
         this.articleLinks = articleLinks;
     }
     

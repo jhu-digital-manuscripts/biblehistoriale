@@ -9,13 +9,13 @@ public class Ownership implements Iterable<Owner>, Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private List<Owner> owners;
+    private ArrayList<Owner> owners;
     
     public Ownership() {
         this.owners = new ArrayList<Owner> ();
     }
     
-    public void setOwnership(List<Owner> owners) {
+    public void setOwnership(ArrayList<Owner> owners) {
         this.owners = owners;
     }
     

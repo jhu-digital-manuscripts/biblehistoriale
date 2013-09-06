@@ -14,7 +14,7 @@ public class Owner implements Serializable {
     private int ownershipStartDate;
     private int ownershipEndDate;
     
-    private List<String> ownerPlace;
+    private ArrayList<String> ownerPlace;
     
     public Owner() {
         this.ownershipStartDate = -1;
@@ -59,7 +59,7 @@ public class Owner implements Serializable {
         return ownerPlace;
     }
 
-    public void setOwnerPlace(List<String> ownerPlace) {
+    public void setOwnerPlace(ArrayList<String> ownerPlace) {
         this.ownerPlace = ownerPlace;
     }
     

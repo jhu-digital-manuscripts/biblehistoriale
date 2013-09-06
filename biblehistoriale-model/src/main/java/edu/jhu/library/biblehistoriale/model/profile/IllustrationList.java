@@ -13,7 +13,7 @@ public class IllustrationList
     private DecorationSummary decorationSummary;
     private String illustrationNote;
     
-    private List<Illustration> illustrations;
+    private ArrayList<Illustration> illustrations;
     
     public IllustrationList() {
         this.decorationSummary = new DecorationSummary();
@@ -28,7 +28,7 @@ public class IllustrationList
         this.illustrationNote = illustrationNote;
     }
     
-    public void setIllustrations(List<Illustration> illustrations) {
+    public void setIllustrations(ArrayList<Illustration> illustrations) {
         this.illustrations = illustrations;
     }
     

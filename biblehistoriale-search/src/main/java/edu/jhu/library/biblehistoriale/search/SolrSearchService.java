@@ -38,7 +38,7 @@ import edu.jhu.library.biblehistoriale.model.profile.SecundoFolio;
 import edu.jhu.library.biblehistoriale.model.profile.Signature;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
-import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+import edu.jhu.library.biblehistoriale.model.profile.TitleIncipit;
 import edu.jhu.library.biblehistoriale.model.query.Query;
 import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
@@ -185,6 +185,12 @@ public class SolrSearchService {
         return result;
     }
 
+    /**
+     * Add a Bible object to the Solr search index
+     * 
+     * @param profile
+     * @throws SearchServiceException
+     */
     public void index(Bible profile) throws SearchServiceException {
         try {
             solr.add(buildSolrInputDocument(profile));
@@ -216,12 +222,24 @@ public class SolrSearchService {
         doc.addField("pageLayoutNote", phys.getPageLayoutNotes());
         doc.addField("physicalNote", phys.getPhysicaNotes());
         doc.addField("volumeNote", phys.getVolumes().volumeNotes());
-        addListValues(doc, "glossHeadings", phys.glossHeadings());
+        //addListValues(doc, "glossHeadings", phys.glossHeadings());
+        for (String str : phys.glossHeadings()) {
+            doc.addField("glossHeadings", str);
+        }
 
         for (QuireStructure struct : phys.quireStructs()) {
-            addListValues(doc, "quireNote", struct.quireNotes());
-            addListValues(doc, "quireTotal", struct.quireTotal());
-            addListValues(doc, "typicalQuire", struct.typicalQuires());
+            //addListValues(doc, "quireNote", struct.quireNotes());
+            for (String str : struct.quireNotes()) {
+                doc.addField("quireNote", str);
+            }
+            //addListValues(doc, "quireTotal", struct.quireTotal());
+            for (Integer in : struct.quireTotal()) {
+                doc.addField("quireTotal", in.toString());
+            }
+            //addListValues(doc, "typicalQuire", struct.typicalQuires());
+            for (Integer in : struct.typicalQuires()) {
+                doc.addField("typicalQuire", in.toString());
+            }
         }
 
         // Proven Patron History fields
@@ -230,9 +248,15 @@ public class SolrSearchService {
         doc.addField("prodDate", hist.getProduction().getProdDate());
         doc.addField("prodLoc", hist.getProduction().getProdLoc());
         doc.addField("productionNote", hist.getProduction().getProdNotes());
-        addListValues(doc, "provenanceNote", hist.provenanceNote());
-        addListValues(doc, "dedication", hist.getPersonalization()
-                .dedications());
+        //addListValues(doc, "provenanceNote", hist.provenanceNote());
+        for (String str : hist.provenanceNote()) {
+            doc.addField("provenanceNote", str);
+        }
+        //addListValues(doc, "dedication", hist.getPersonalization()
+        //        .dedications());
+        for (String str : hist.getPersonalization().dedications()) {
+            doc.addField("dedication", str);
+        }
 
         for (PersonalizationItem item : hist.getPersonalization()
                 .legalInscriptions()) {
@@ -291,7 +315,10 @@ public class SolrSearchService {
 
         doc.addField("canticleType", cont.parascripturalItem()
                 .getCanticleType());
-        addListValues(doc, "contentNote", cont.notes());
+        //addListValues(doc, "contentNote", cont.notes());
+        for (String str : cont.notes()) {
+            doc.addField("contentNote", str);
+        }
 
         for (PrefatoryMatter premat : cont.prefatoryMatters()) {
             doc.addField("MasterTableOfContents", premat
@@ -324,15 +351,21 @@ public class SolrSearchService {
         }
         for (CatechismsPrayersTreatise cpt : cont.parascripturalItem()
                 .catechismPrayersTreatises()) {
-            addListValues(doc, "catechismsFirstLines",
-                    cpt.getDescriptionsFirstLines());
+            //addListValues(doc, "catechismsFirstLines",
+            //        cpt.getDescriptionsFirstLines());
+            for (String str : cpt.getDescriptionsFirstLines()) {
+                doc.addField("catechismsFirstLines", str);
+            }
         }
 
         // Bibliography information fields
         Bibliography bib = profile.getBibliography();
 
         for (BiblioEntry entry : bib) {
-            addListValues(doc, "bibAuthor", entry.bibAuthors());
+            //addListValues(doc, "bibAuthor", entry.bibAuthors());
+            for (String str : entry.bibAuthors()) {
+                doc.addField("bibAuthor", str);
+            }
             doc.addField("articleTitle", entry.getArticleTitle());
             doc.addField("bookOrJournalTitle", entry.getBookOrJournalTitle());
             doc.addField("publicationInfo", entry.getPublicationInfo());
@@ -350,12 +383,12 @@ public class SolrSearchService {
      * @param iterable
      *            The list of values to be added
      */
-    private <T> void addListValues(SolrInputDocument doc, String fieldName,
+/*    private <T> void addListValues(SolrInputDocument doc, String fieldName,
             Iterable<T> iterable) {
         for (T t : iterable) {
             doc.addField(fieldName, t);
         }
-    }
+    }*/
 
     public void clear() throws SearchServiceException {
         try {

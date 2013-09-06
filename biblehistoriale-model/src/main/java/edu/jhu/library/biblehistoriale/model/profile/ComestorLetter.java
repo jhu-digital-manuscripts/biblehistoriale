@@ -9,7 +9,7 @@ public class ComestorLetter implements Serializable {
     private static final long serialVersionUID = 1L;
     
     private String startPage;
-    private List<Incipit> incipits;
+    private ArrayList<Incipit> incipits;
     
     public ComestorLetter() {
         this.incipits = new ArrayList<Incipit> ();
@@ -23,11 +23,11 @@ public class ComestorLetter implements Serializable {
         this.startPage = startPage;
     }
     
-    public List<Incipit> incipits() {
+    public ArrayList<Incipit> incipits() {
         return incipits;
     }
     
-    public void setIncipits(List<Incipit> incipits) {
+    public void setIncipits(ArrayList<Incipit> incipits) {
         this.incipits = incipits;
     }
     

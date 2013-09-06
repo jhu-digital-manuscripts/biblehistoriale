@@ -3,14 +3,13 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
 public class BibleBooks implements Iterable<Title>, Serializable {
     
     private static final long serialVersionUID = 1L;
     
     private int volume;
-    private List<Title> titles;
+    private ArrayList<Title> titles;
     
     public BibleBooks() {
         this.volume = 0;
@@ -33,7 +32,7 @@ public class BibleBooks implements Iterable<Title>, Serializable {
         return titles.get(index);
     }
     
-    public void setTitles(List<Title> titles) {
+    public void setTitles(ArrayList<Title> titles) {
         this.titles = titles;
     }
 

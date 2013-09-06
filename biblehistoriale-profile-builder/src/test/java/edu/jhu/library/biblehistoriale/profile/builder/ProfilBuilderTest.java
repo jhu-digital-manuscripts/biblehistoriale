@@ -60,7 +60,7 @@ import edu.jhu.library.biblehistoriale.model.profile.SecundoFolio;
 import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
-import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+import edu.jhu.library.biblehistoriale.model.profile.TitleIncipit;
 import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
 public class ProfilBuilderTest {

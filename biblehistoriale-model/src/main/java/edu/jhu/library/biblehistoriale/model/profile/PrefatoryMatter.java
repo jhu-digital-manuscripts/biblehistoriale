@@ -11,10 +11,10 @@ public class PrefatoryMatter implements Serializable {
     private int volume;
     private String prefactoryNote;
     
-    private List<OtherPreface> otherPrefaces;
-    private List<Guyart> guyartList;
-    private List<ComestorLetter> comestorLetters;
-    private List<OtherPreface> comestorList;
+    private ArrayList<OtherPreface> otherPrefaces;
+    private ArrayList<Guyart> guyartList;
+    private ArrayList<ComestorLetter> comestorLetters;
+    private ArrayList<OtherPreface> comestorList;
     
     private MasterTableOfContents masterTableOfContents;
     
@@ -44,35 +44,35 @@ public class PrefatoryMatter implements Serializable {
         this.prefactoryNote = prefactoryNote;
     }
 
-    public List<OtherPreface> otherPrefaces() {
+    public ArrayList<OtherPreface> otherPrefaces() {
         return otherPrefaces;
     }
 
-    public void setOtherPrefaces(List<OtherPreface> otherPrefaces) {
+    public void setOtherPrefaces(ArrayList<OtherPreface> otherPrefaces) {
         this.otherPrefaces = otherPrefaces;
     }
 
-    public List<Guyart> guyartList() {
+    public ArrayList<Guyart> guyartList() {
         return guyartList;
     }
 
-    public void setGuyartList(List<Guyart> guyartList) {
+    public void setGuyartList(ArrayList<Guyart> guyartList) {
         this.guyartList = guyartList;
     }
 
-    public List<ComestorLetter> comestorLetters() {
+    public ArrayList<ComestorLetter> comestorLetters() {
         return comestorLetters;
     }
 
-    public void setComestorLetters(List<ComestorLetter> comestorLetters) {
+    public void setComestorLetters(ArrayList<ComestorLetter> comestorLetters) {
         this.comestorLetters = comestorLetters;
     }
 
-    public List<OtherPreface> comestorList() {
+    public ArrayList<OtherPreface> comestorList() {
         return comestorList;
     }
 
-    public void setComestorList(List<OtherPreface> comestorList) {
+    public void setComestorList(ArrayList<OtherPreface> comestorList) {
         this.comestorList = comestorList;
     }
 

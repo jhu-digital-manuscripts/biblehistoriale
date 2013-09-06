@@ -1,7 +1,6 @@
 package edu.jhu.library.biblehistoriale.profile.builder;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -47,7 +46,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Signature;
 import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
-import edu.jhu.library.biblehistoriale.model.profile.Title.TitleIncipit;
+import edu.jhu.library.biblehistoriale.model.profile.TitleIncipit;
 import edu.jhu.library.biblehistoriale.model.profile.Volumes;
 
 public class BibleParser {
@@ -110,7 +109,7 @@ public class BibleParser {
     public static Bibliography parseBibliography(Node bible_child) {
         Bibliography bib = new Bibliography();
         
-        List<BiblioEntry> bib_entries = new ArrayList<BiblioEntry> ();
+       ArrayList<BiblioEntry> bib_entries = new ArrayList<BiblioEntry> ();
         
         Node child = bible_child.getFirstChild();
         while (child != null) {
@@ -128,8 +127,8 @@ public class BibleParser {
     private static BiblioEntry biblioEntry(Node child) {
         BiblioEntry entry = new BiblioEntry();
         
-        List<String> authors = new ArrayList<String> ();
-        List<String> links = new ArrayList<String> ();
+       ArrayList<String> authors = new ArrayList<String> ();
+       ArrayList<String> links = new ArrayList<String> ();
         
         Node node = child.getFirstChild();
         while (node != null) {
@@ -158,11 +157,11 @@ public class BibleParser {
             throws ProfileBuilderException {
         TextualContent content = new TextualContent();
         
-        List<PrefatoryMatter> prefactories =
+       ArrayList<PrefatoryMatter> prefactories =
                 new ArrayList<PrefatoryMatter> ();
-        List<BibleBooks> books = new ArrayList<BibleBooks> ();
-        List<MiscContent> miscs = new ArrayList<MiscContent> ();
-        List<String> notes = new ArrayList<String> ();
+       ArrayList<BibleBooks> books = new ArrayList<BibleBooks> ();
+       ArrayList<MiscContent> miscs = new ArrayList<MiscContent> ();
+       ArrayList<String> notes = new ArrayList<String> ();
         
         Node child = bible_child.getFirstChild();
         while (child != null) {
@@ -218,7 +217,7 @@ public class BibleParser {
             throws ProfileBuilderException {
         ParascripturalItem item = new ParascripturalItem();
         
-        List<CatechismsPrayersTreatise> treatises = 
+       ArrayList<CatechismsPrayersTreatise> treatises = 
                 new ArrayList<CatechismsPrayersTreatise> ();
         
         Node node = child.getFirstChild();
@@ -277,7 +276,7 @@ public class BibleParser {
         CatechismsPrayersTreatise treatise = 
                 new CatechismsPrayersTreatise();
         
-        List<String> first_lines = new ArrayList<String> ();
+       ArrayList<String> first_lines = new ArrayList<String> ();
         
         Node child = node.getFirstChild();
         while (child != null) {
@@ -299,7 +298,7 @@ public class BibleParser {
     private static BibleBooks bibleBook(Node child) throws ProfileBuilderException {
         BibleBooks books = new BibleBooks();
         
-        List<Title> titles = new ArrayList<Title> ();
+       ArrayList<Title> titles = new ArrayList<Title> ();
         
         Node node = child.getFirstChild();
         while (node != null) {
@@ -318,13 +317,13 @@ public class BibleParser {
     private static Title title(Node node) {
         Title title = new Title();
         
-        List<TitleIncipit> incipits = new ArrayList<TitleIncipit> ();
+       ArrayList<TitleIncipit> incipits = new ArrayList<TitleIncipit> ();
         
         Node child = node.getFirstChild();
         while (child != null) {
             
             if (name(child).equals(ProfileElements.INCIPIT)) {
-                TitleIncipit inc = title.new TitleIncipit();
+                TitleIncipit inc = new TitleIncipit();
                 
                 inc.setAccuracy(getAttributeValue(child, ProfileElements.ACCURACY));
                 inc.setTextType(getAttributeValue(child, ProfileElements.TEXTTYPE));
@@ -358,10 +357,10 @@ public class BibleParser {
             throws ProfileBuilderException {
         PrefatoryMatter matter = new PrefatoryMatter();
         
-        List<OtherPreface> others = new ArrayList<OtherPreface> ();
-        List<Guyart> guyarts = new ArrayList<Guyart> ();
-        List<ComestorLetter> letters = new ArrayList<ComestorLetter> ();
-        List<OtherPreface> comestors = new ArrayList<OtherPreface> ();
+       ArrayList<OtherPreface> others = new ArrayList<OtherPreface> ();
+       ArrayList<Guyart> guyarts = new ArrayList<Guyart> ();
+       ArrayList<ComestorLetter> letters = new ArrayList<ComestorLetter> ();
+       ArrayList<OtherPreface> comestors = new ArrayList<OtherPreface> ();
         
         Node node = child.getFirstChild();
         while (node != null) {
@@ -417,7 +416,7 @@ public class BibleParser {
     private static ComestorLetter comestorLetter(Node node) {
         ComestorLetter letter = new ComestorLetter();
         
-        List<Incipit> incipits = new ArrayList<Incipit> ();
+       ArrayList<Incipit> incipits = new ArrayList<Incipit> ();
         
         Node child = node.getFirstChild();
         while (child != null) {
@@ -471,7 +470,7 @@ public class BibleParser {
             Node child = children.item(i);
             
             if (name(child).equals(ProfileElements.SHELFMARKS)) {
-                List<String> former_shelfmarks = new ArrayList<String> ();
+               ArrayList<String> former_shelfmarks = new ArrayList<String> ();
                 
                 NodeList nodes = child.getChildNodes();
                 for (int j = 0; j < nodes.getLength(); j++) {
@@ -532,7 +531,7 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<SecundoFolio> secundos = new ArrayList<SecundoFolio>();
+       ArrayList<SecundoFolio> secundos = new ArrayList<SecundoFolio>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
@@ -606,7 +605,7 @@ public class BibleParser {
         
         NodeList children = bible_child.getChildNodes();
         
-        List<Illustration> illustrations = new ArrayList<Illustration> ();
+       ArrayList<Illustration> illustrations = new ArrayList<Illustration> ();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
@@ -660,7 +659,7 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<String> workshops = new ArrayList<String> ();
+       ArrayList<String> workshops = new ArrayList<String> ();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
@@ -688,9 +687,9 @@ public class BibleParser {
         
         NodeList children = bible_child.getChildNodes();
         
-        List<Ownership> owners = new ArrayList<Ownership> ();
-        List<Annotation> annotations = new ArrayList<Annotation> ();
-        List<String> provenances = new ArrayList<String> ();
+       ArrayList<Ownership> owners = new ArrayList<Ownership> ();
+       ArrayList<Annotation> annotations = new ArrayList<Annotation> ();
+       ArrayList<String> provenances = new ArrayList<String> ();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
@@ -747,15 +746,15 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<Signature> sigs = new ArrayList<Signature> ();
-        List<String> dedications = new ArrayList<String> ();
-        List<PersonalizationItem> legals = 
+       ArrayList<Signature> sigs = new ArrayList<Signature> ();
+       ArrayList<String> dedications = new ArrayList<String> ();
+       ArrayList<PersonalizationItem> legals = 
                 new ArrayList<PersonalizationItem> ();
-        List<PersonalizationItem> patrons =
+       ArrayList<PersonalizationItem> patrons =
                 new ArrayList<PersonalizationItem> ();
-        List<PersonalizationItem> arms = 
+       ArrayList<PersonalizationItem> arms = 
                 new ArrayList<PersonalizationItem> ();
-        List<PersonalizationItem> colophons = 
+       ArrayList<PersonalizationItem> colophons = 
                 new ArrayList<PersonalizationItem> ();
         
         for (int i = 0; i < nodes.getLength(); i++) {
@@ -828,7 +827,7 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<Owner> owners = new ArrayList<Owner>();
+       ArrayList<Owner> owners = new ArrayList<Owner>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
@@ -847,7 +846,7 @@ public class BibleParser {
         
         NodeList nodes = node.getChildNodes();
         
-        List<String> places = new ArrayList<String>();
+       ArrayList<String> places = new ArrayList<String>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node child = nodes.item(i);
             
@@ -874,7 +873,7 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<Contributor> contributors = new ArrayList<Contributor>();
+       ArrayList<Contributor> contributors = new ArrayList<Contributor>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             
@@ -915,10 +914,10 @@ public class BibleParser {
         
         NodeList children = node.getChildNodes();
         
-        List<Dimensions> dims = new ArrayList<Dimensions>();
-        List<QuireStructure> structs = new ArrayList<QuireStructure>();
-        List<String> glosses = new ArrayList<String> ();
-        List<String> underlinings = new ArrayList<String> ();
+       ArrayList<Dimensions> dims = new ArrayList<Dimensions>();
+       ArrayList<QuireStructure> structs = new ArrayList<QuireStructure>();
+       ArrayList<String> glosses = new ArrayList<String> ();
+       ArrayList<String> underlinings = new ArrayList<String> ();
         for (int i = 0; i < children.getLength(); i++) {
             Node child = children.item(i);
             
@@ -1011,10 +1010,10 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<Integer> total = new ArrayList<Integer>();
-        List<Integer> typical = new ArrayList<Integer>();
-        List<String> full = new ArrayList<String>();
-        List<String> note = new ArrayList<String>();
+       ArrayList<Integer> total = new ArrayList<Integer>();
+       ArrayList<Integer> typical = new ArrayList<Integer>();
+       ArrayList<String> full = new ArrayList<String>();
+       ArrayList<String> note = new ArrayList<String>();
         
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
@@ -1044,7 +1043,7 @@ public class BibleParser {
         
         NodeList nodes = child.getChildNodes();
         
-        List<IndVolume> ind_vols = new ArrayList<IndVolume>();
+       ArrayList<IndVolume> ind_vols = new ArrayList<IndVolume>();
         for (int i = 0; i < nodes.getLength(); i++) {
             Node node = nodes.item(i);
             

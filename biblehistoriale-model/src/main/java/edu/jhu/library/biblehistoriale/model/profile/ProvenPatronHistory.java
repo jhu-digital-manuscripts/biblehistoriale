@@ -11,9 +11,9 @@ public class ProvenPatronHistory implements Serializable {
     private Production production;
     private Personalization personalization;
     
-    private List<Ownership> ownerships;
-    private List<Annotation> annotations;
-    private List<String> provenanceNote;
+    private ArrayList<Ownership> ownerships;
+    private ArrayList<Annotation> annotations;
+    private ArrayList<String> provenanceNote;
     
     public ProvenPatronHistory() {
         this.production = new Production();
@@ -40,27 +40,27 @@ public class ProvenPatronHistory implements Serializable {
         this.personalization = personalization;
     }
 
-    public List<Ownership> ownerships() {
+    public ArrayList<Ownership> ownerships() {
         return ownerships;
     }
 
-    public void setOwnerships(List<Ownership> ownerships) {
+    public void setOwnerships(ArrayList<Ownership> ownerships) {
         this.ownerships = ownerships;
     }
 
-    public List<Annotation> annotations() {
+    public ArrayList<Annotation> annotations() {
         return annotations;
     }
 
-    public void setAnnotations(List<Annotation> annotations) {
+    public void setAnnotations(ArrayList<Annotation> annotations) {
         this.annotations = annotations;
     }
 
-    public List<String> provenanceNote() {
+    public ArrayList<String> provenanceNote() {
         return provenanceNote;
     }
 
-    public void setProvenanceNote(List<String> provenanceNote) {
+    public void setProvenanceNote(ArrayList<String> provenanceNote) {
         this.provenanceNote = provenanceNote;
     }
     

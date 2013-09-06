@@ -10,12 +10,12 @@ public class Personalization implements Serializable {
 
     private String purchasePrice;
     
-    private List<Signature> signatures;
-    private List<String> dedications;
-    private List<PersonalizationItem> legalInscriptions;
-    private List<PersonalizationItem> patronPortraits;
-    private List<PersonalizationItem> patronArms;
-    private List<PersonalizationItem> colophons;
+    private ArrayList<Signature> signatures;
+    private ArrayList<String> dedications;
+    private ArrayList<PersonalizationItem> legalInscriptions;
+    private ArrayList<PersonalizationItem> patronPortraits;
+    private ArrayList<PersonalizationItem> patronArms;
+    private ArrayList<PersonalizationItem> colophons;
     
     public Personalization() {
         this.signatures = new ArrayList<Signature> ();
@@ -34,51 +34,51 @@ public class Personalization implements Serializable {
         this.purchasePrice = purchasePrice;
     }
     
-    public List<Signature> signatures() {
+    public ArrayList<Signature> signatures() {
         return signatures;
     }
     
-    public void setSignatures(List<Signature> signatures) {
+    public void setSignatures(ArrayList<Signature> signatures) {
         this.signatures = signatures;
     }
     
-    public List<String> dedications() {
+    public ArrayList<String> dedications() {
         return dedications;
     }
     
-    public void setDedications(List<String> dedications) {
+    public void setDedications(ArrayList<String> dedications) {
         this.dedications = dedications;
     }
     
-    public List<PersonalizationItem> legalInscriptions() {
+    public ArrayList<PersonalizationItem> legalInscriptions() {
         return legalInscriptions;
     }
     
-    public void setLegalInscriptions(List<PersonalizationItem> legalInscriptions) {
+    public void setLegalInscriptions(ArrayList<PersonalizationItem> legalInscriptions) {
         this.legalInscriptions = legalInscriptions;
     }
     
-    public List<PersonalizationItem> patronPortraits() {
+    public ArrayList<PersonalizationItem> patronPortraits() {
         return patronPortraits;
     }
     
-    public void setPatronPortraits(List<PersonalizationItem> patronPortraits) {
+    public void setPatronPortraits(ArrayList<PersonalizationItem> patronPortraits) {
         this.patronPortraits = patronPortraits;
     }
     
-    public List<PersonalizationItem> patronArms() {
+    public ArrayList<PersonalizationItem> patronArms() {
         return patronArms;
     }
     
-    public void setPatronArms(List<PersonalizationItem> patronArms) {
+    public void setPatronArms(ArrayList<PersonalizationItem> patronArms) {
         this.patronArms = patronArms;
     }
     
-    public List<PersonalizationItem> colophons() {
+    public ArrayList<PersonalizationItem> colophons() {
         return colophons;
     }
     
-    public void setColophons(List<PersonalizationItem> colophons) {
+    public void setColophons(ArrayList<PersonalizationItem> colophons) {
         this.colophons = colophons;
     }
     

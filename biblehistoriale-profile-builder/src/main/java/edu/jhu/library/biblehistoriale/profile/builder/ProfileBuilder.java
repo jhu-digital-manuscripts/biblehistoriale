@@ -106,7 +106,7 @@ public class ProfileBuilder {
     public static Bible buildProfile(String filename, Document doc) 
                throws ProfileBuilderException {
         Bible bible = new Bible();
-        
+
         bible.setId(filename);
         
         NodeList bibles = doc.getElementsByTagName("bible");
@@ -154,7 +154,7 @@ public class ProfileBuilder {
                         BibleParser.getElementText(bible_child));
             }
         }
-        
+
         return bible;
     }
     

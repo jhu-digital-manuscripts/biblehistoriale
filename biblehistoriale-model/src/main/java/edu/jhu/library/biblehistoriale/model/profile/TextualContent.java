@@ -8,10 +8,10 @@ public class TextualContent implements Serializable {
     
     private static final long serialVersionUID = 1L;
     
-    private List<PrefatoryMatter> prefatoryMatters;
-    private List<BibleBooks> bibleBooks;
-    private List<MiscContent> miscContents;
-    private List<String> notes;
+    private ArrayList<PrefatoryMatter> prefatoryMatters;
+    private ArrayList<BibleBooks> bibleBooks;
+    private ArrayList<MiscContent> miscContents;
+    private ArrayList<String> notes;
     
     private ParascripturalItem parascripturalItem;
     
@@ -26,35 +26,35 @@ public class TextualContent implements Serializable {
         this.notes = new ArrayList<String> ();
     }
 
-    public List<PrefatoryMatter> prefatoryMatters() {
+    public ArrayList<PrefatoryMatter> prefatoryMatters() {
         return prefatoryMatters;
     }
 
-    public void setPrefactoryMatters(List<PrefatoryMatter> prefatoryMatters) {
+    public void setPrefactoryMatters(ArrayList<PrefatoryMatter> prefatoryMatters) {
         this.prefatoryMatters = prefatoryMatters;
     }
 
-    public List<BibleBooks> bibleBooks() {
+    public ArrayList<BibleBooks> bibleBooks() {
         return bibleBooks;
     }
 
-    public void setBibleBooks(List<BibleBooks> bibleBooks) {
+    public void setBibleBooks(ArrayList<BibleBooks> bibleBooks) {
         this.bibleBooks = bibleBooks;
     }
 
-    public List<MiscContent> miscContents() {
+    public ArrayList<MiscContent> miscContents() {
         return miscContents;
     }
 
-    public void setMiscContents(List<MiscContent> miscContents) {
+    public void setMiscContents(ArrayList<MiscContent> miscContents) {
         this.miscContents = miscContents;
     }
 
-    public List<String> notes() {
+    public ArrayList<String> notes() {
         return notes;
     }
 
-    public void setNotes(List<String> notes) {
+    public void setNotes(ArrayList<String> notes) {
         this.notes = notes;
     }
 

@@ -66,7 +66,7 @@ public class ParascripturalItem implements Serializable {
     private AddedChoice jeanDeBlois;
     private AddedChoice jerome;
     
-    private List<CatechismsPrayersTreatise> catechismPrayersTreatises;
+    private ArrayList<CatechismsPrayersTreatise> catechismPrayersTreatises;
 
     public int getVolume() {
         return volume;
@@ -211,7 +211,7 @@ public class ParascripturalItem implements Serializable {
     }
 
     public void setCatechismPrayersTreatises(
-            List<CatechismsPrayersTreatise> catechismPrayersTreatises) {
+            ArrayList<CatechismsPrayersTreatise> catechismPrayersTreatises) {
         this.catechismPrayersTreatises = catechismPrayersTreatises;
     }
     

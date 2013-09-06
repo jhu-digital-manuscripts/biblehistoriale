@@ -42,7 +42,7 @@ public class DecorationSummary implements Serializable {
     private int largeIlls;
     private int number;
     
-    private List<String> artistWorkshops;
+    private ArrayList<String> artistWorkshops;
     
     public DecorationSummary() {
         this.largeIlls = 0;
@@ -99,11 +99,11 @@ public class DecorationSummary implements Serializable {
         this.number = number;
     }
 
-    public List<String> getArtistWorkshops() {
+    public ArrayList<String> getArtistWorkshops() {
         return artistWorkshops;
     }
 
-    public void setArtistWorkshops(List<String> artistWorkshops) {
+    public void setArtistWorkshops(ArrayList<String> artistWorkshops) {
         this.artistWorkshops = artistWorkshops;
     }
     

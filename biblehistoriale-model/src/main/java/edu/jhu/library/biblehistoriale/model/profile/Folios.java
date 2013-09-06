@@ -11,7 +11,7 @@ public class Folios implements Iterable<IndVolume>, Serializable {
 
     private int totalFolios;
     
-    private List<IndVolume> indVolumes;
+    private ArrayList<IndVolume> indVolumes;
     
     public Folios() {
         this.totalFolios = 0;
@@ -34,7 +34,7 @@ public class Folios implements Iterable<IndVolume>, Serializable {
         return indVolumes.get(index);
     }
 
-    public void setIndVolumes(List<IndVolume> indVolumes) {
+    public void setIndVolumes(ArrayList<IndVolume> indVolumes) {
         this.indVolumes = indVolumes;
     }
 

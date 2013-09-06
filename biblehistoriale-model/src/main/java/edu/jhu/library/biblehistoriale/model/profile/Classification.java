@@ -11,7 +11,7 @@ public class Classification implements Serializable {
     private String currentCity;
     private String currentRepository;
     private String currentShelfmark;
-    private List<String> formerShelfmarks;
+    private ArrayList<String> formerShelfmarks;
     private String repositoryLink;
     
     private String coverTitle;
@@ -51,11 +51,11 @@ public class Classification implements Serializable {
         this.currentShelfmark = currentShelfmark;
     }
 
-    public List<String> formerShelfmarks() {
+    public ArrayList<String> formerShelfmarks() {
         return formerShelfmarks;
     }
 
-    public void setFormerShelfmarks(List<String> formerShelfmarks) {
+    public void setFormerShelfmarks(ArrayList<String> formerShelfmarks) {
         this.formerShelfmarks = formerShelfmarks;
     }
 

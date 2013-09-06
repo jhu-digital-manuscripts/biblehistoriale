@@ -15,7 +15,7 @@ public class CatalogerClassification implements Serializable {
     private String fournieLink;
     private String classificationNote;
     
-    private List<SecundoFolio> secundoFolios;
+    private ArrayList<SecundoFolio> secundoFolios;
     
     public CatalogerClassification() {
         this.bergerClass = new Berger();
@@ -64,11 +64,11 @@ public class CatalogerClassification implements Serializable {
         this.classificationNote = classificationNote;
     }
 
-    public List<SecundoFolio> secundoFolios() {
+    public ArrayList<SecundoFolio> secundoFolios() {
         return secundoFolios;
     }
 
-    public void setSecundoFolios(List<SecundoFolio> secundoFolios) {
+    public void setSecundoFolios(ArrayList<SecundoFolio> secundoFolios) {
         this.secundoFolios = secundoFolios;
     }
     

@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 public class QuireStructure implements Serializable {
@@ -9,20 +10,25 @@ public class QuireStructure implements Serializable {
     
     private int volume;
     
-    private List<Integer> quireTotal;
-    private List<Integer> typicalQuires;
-    private List<String> fullQuireStructs;
-    private List<String> quireNotes;
+    private ArrayList<Integer> quireTotal;
+    private ArrayList<Integer> typicalQuires;
+    private ArrayList<String> fullQuireStructs;
+    private ArrayList<String> quireNotes;
     
     public QuireStructure() {
         this.volume = 0;
+        
+        this.quireTotal = new ArrayList<Integer>();
+        this.typicalQuires = new ArrayList<Integer>();
+        this.fullQuireStructs = new ArrayList<String>();
+        this.quireNotes = new ArrayList<String>();
     }
 
-    public List<Integer> quireTotal() {
+    public ArrayList<Integer> quireTotal() {
         return quireTotal;
     }
 
-    public void setQuireTotal(List<Integer> quireTotal) {
+    public void setQuireTotal(ArrayList<Integer> quireTotal) {
         this.quireTotal = quireTotal;
     }
 
@@ -34,27 +40,27 @@ public class QuireStructure implements Serializable {
         this.volume = volume;
     }
 
-    public List<Integer> typicalQuires() {
+    public ArrayList<Integer> typicalQuires() {
         return typicalQuires;
     }
 
-    public void setTypicalQuires(List<Integer> typicalQuires) {
+    public void setTypicalQuires(ArrayList<Integer> typicalQuires) {
         this.typicalQuires = typicalQuires;
     }
 
-    public List<String> fullQuireStructs() {
+    public ArrayList<String> fullQuireStructs() {
         return fullQuireStructs;
     }
 
-    public void setFullQuireStructs(List<String> fullQuireStructs) {
+    public void setFullQuireStructs(ArrayList<String> fullQuireStructs) {
         this.fullQuireStructs = fullQuireStructs;
     }
 
-    public List<String> quireNotes() {
+    public ArrayList<String> quireNotes() {
         return quireNotes;
     }
 
-    public void setQuireNotes(List<String> quireNotes) {
+    public void setQuireNotes(ArrayList<String> quireNotes) {
         this.quireNotes = quireNotes;
     }
     
