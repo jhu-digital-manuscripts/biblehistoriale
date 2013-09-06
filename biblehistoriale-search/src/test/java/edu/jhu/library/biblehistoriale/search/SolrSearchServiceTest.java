@@ -212,6 +212,7 @@ public class SolrSearchServiceTest {
         query = new Query(op,
                 new Query(TermField.TITLE, "far side"));
         result = service.executeQuery(query, opts);
+        System.out.println(":::QUERY = " + query.toString());
         assertEquals(1, result.getTotal());
         
         query = new Query(op,
@@ -221,6 +222,7 @@ public class SolrSearchServiceTest {
                 new Query(TermField.PEOPLE, "jesus")
         );
         result = service.executeQuery(query, opts);
+        System.out.println(":::QUERY = " + query.toString());
         assertEquals(1, result.getTotal());
         
         query = new Query(op,
@@ -239,6 +241,18 @@ public class SolrSearchServiceTest {
         );
         result = service.executeQuery(query, opts);
         assertEquals(1, result.getTotal());
+        
+        query = new Query(op,
+                new Query(TermField.TITLE, "bible"),
+                new Query(op,
+                        new Query(TermField.NOTES, "water damage"),
+                        new Query(op,
+                                new Query(TermField.PEOPLE, "dave"),
+                                new Query(TermField.PEOPLE, "jesus"))));
+        result = service.executeQuery(query, opts);
+        System.out.println(":::QUERY = " + query.toString());
+        assertEquals(1, result.getTotal());
+        
     }
 
     private void testOrs() throws Exception {

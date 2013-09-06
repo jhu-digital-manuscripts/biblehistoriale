@@ -1,6 +1,7 @@
 package edu.jhu.library.biblehistoriale.model.query;
 
 public enum TermField {
+    ALL("all"),
     TITLE("title"),
     PEOPLE("people"),
     TEXT("text"),

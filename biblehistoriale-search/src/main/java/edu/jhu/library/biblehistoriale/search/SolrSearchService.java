@@ -104,6 +104,22 @@ public class SolrSearchService {
 
         field_map.put(TermField.BIBLIOGRAPHY, new String[] { "bibAuthor",
                 "articleTitle", "bookOrJournalTitle", "publicationInfo" });
+        
+        field_map.put(TermField.ALL, new String[] { "title", "shortName",
+                "presentState", "quireTotal", "typicalQuire", "columns",
+                "glossPlace", "runningHeads", "glossHeadings", "material",
+                "bindDate", "rubricNote", "pageLayoutNote", "physicalNote",
+                "volumeNote", "quireNote", "prodDate", "prodLoc", "contributors",
+                "ownerName", "provenanceNote", "productionNote", "signatureText",
+                "dedication", "legalInscriptions", "patronPortrait", "patronArms",
+                "colophon", "annotationText", "illustrationKeywords", 
+                "illustrationNote", "currentCity", "currentRepository", 
+                "currentShelfmark", "classificationNote", "secundoFolioText",
+                "MasterTableOfContents", "bibleBookTitle", "canticleType", 
+                "catechismsFirstLines", "contentNote", "prefatoryNote",
+                "bookNote", "guyartIncipit", "otherPrefaceText", 
+                "comestorLetterIncipit", "comestorText", "bibleBookIncipit", 
+                "bibAuthor", "articleTitle", "bookOrJournalTitle", "publicationInfo" });
     }
 
     private final Solr solr;
