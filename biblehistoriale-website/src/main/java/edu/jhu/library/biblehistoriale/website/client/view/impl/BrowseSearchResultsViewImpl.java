@@ -2,7 +2,7 @@ package edu.jhu.library.biblehistoriale.website.client.view.impl;
 
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.HTML;
 
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseSearchResultsView;
 
@@ -11,12 +11,14 @@ public class BrowseSearchResultsViewImpl extends Composite
     
     private final FlowPanel main;
     
-    private final Label label;
+    private final HTML label;
     
     public BrowseSearchResultsViewImpl() {
         this.main = new FlowPanel();
         
-        this.label = new Label("Search results go here!");
+        this.label = new HTML("Search results go here!");
+        
+        main.add(label);
         
         initWidget(main);
     }

@@ -16,7 +16,11 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.model.query.Query;
+import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
+import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
+import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -30,14 +34,10 @@ public class HeaderPresenter implements HeaderView.Presenter {
     private final ClientFactory client_factory;
     private final HeaderView view;
     
-    private final BibleHistorialeServiceAsync service;
-    
     public HeaderPresenter(HeaderView view,
             ClientFactory client_factory) {
         this.client_factory = client_factory;
         this.view = view;
-        
-        this.service = client_factory.service();
         
         List<HandlerRegistration> handlers = 
                 new ArrayList<HandlerRegistration>();
@@ -62,8 +62,7 @@ public class HeaderPresenter implements HeaderView.Presenter {
         handlers.add(view.addAdvancedSearchClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                // TODO Auto-generated method stub
-                Window.alert("Advanced Search link clicked...");
+                goTo(new ConstructAdvancedQueryPlace());
             }
         }));
         
@@ -125,7 +124,8 @@ public class HeaderPresenter implements HeaderView.Presenter {
         String term = view.searchBarValue();
         
         client_factory.placeController().goTo(
-                new BrowseSearchResultsPlace());
+                new BrowseSearchResultsPlace(
+                        new Query(TermField.ALL, "Brussels"), new QueryOptions()));
         
     }
 

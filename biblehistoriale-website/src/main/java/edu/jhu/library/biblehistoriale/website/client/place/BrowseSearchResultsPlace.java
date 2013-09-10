@@ -5,7 +5,6 @@ import com.google.gwt.place.shared.PlaceTokenizer;
 
 import edu.jhu.library.biblehistoriale.model.query.Query;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
-import edu.jhu.library.biblehistoriale.model.query.TermField;
 
 public class BrowseSearchResultsPlace extends Place {
     
@@ -15,10 +14,6 @@ public class BrowseSearchResultsPlace extends Place {
     public BrowseSearchResultsPlace(Query query, QueryOptions opts) {
         this.query = query;
         this.opts = opts;
-    }
-    
-    public BrowseSearchResultsPlace() {
-        this(new Query(TermField.ALL, "Brussels"), new QueryOptions());
     }
     
     public Query getQuery() {
@@ -34,11 +29,16 @@ public class BrowseSearchResultsPlace extends Place {
 
         @Override
         public BrowseSearchResultsPlace getPlace(String token) {
-            return new BrowseSearchResultsPlace();
+            // TODO transform a token into a Query in the case of bookmark
+            Query query = null;
+            QueryOptions opts = null;
+            
+            return new BrowseSearchResultsPlace(query, opts);
         }
 
         @Override
         public String getToken(BrowseSearchResultsPlace place) {
+            // TODO: tokenize a query
             return "";
         }
         

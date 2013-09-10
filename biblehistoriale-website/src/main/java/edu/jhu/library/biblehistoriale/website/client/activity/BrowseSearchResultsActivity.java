@@ -55,9 +55,6 @@ public class BrowseSearchResultsActivity extends AbstractActivity
                     Window.alert("No matches found :( ");
                     return;
                 }
-                Window.alert("Number of matches: " + matches.size()
-                        + "\nFirst id = " + matches.get(0).getId()
-                        + "\ncontext: " + matches.get(0).getContext());
                 view.setLabelText("Number of matches: " + matches.size()
                         + "\nFirst id = " + matches.get(0).getId()
                         + "\ncontext: " + matches.get(0).getContext());
