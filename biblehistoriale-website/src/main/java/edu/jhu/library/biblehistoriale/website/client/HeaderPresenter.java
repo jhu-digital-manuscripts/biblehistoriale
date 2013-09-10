@@ -19,11 +19,11 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import edu.jhu.library.biblehistoriale.model.query.Query;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
+import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
-import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 /**
@@ -45,6 +45,13 @@ public class HeaderPresenter implements HeaderView.Presenter {
     }
     
     private void bind(final List<HandlerRegistration> handlers) {
+        handlers.add(view.addBrowseLinkClickHandler(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                goTo(new BrowseProfilesPlace(BrowseCriteria.ALL));
+            }
+        }));
+        
         handlers.add(view.addInfoLinkClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
@@ -92,6 +99,7 @@ public class HeaderPresenter implements HeaderView.Presenter {
             }
         }));
         
+        // On widget detach, remove all handlers
         asWidget().addAttachHandler(new AttachEvent.Handler() {
             @Override
             public void onAttachOrDetach(AttachEvent event) {
@@ -123,9 +131,15 @@ public class HeaderPresenter implements HeaderView.Presenter {
     private void basicSearch() {
         String term = view.searchBarValue();
         
+        // For empty search, do nothing!
+        if (term == null || term.equals("")) {
+            return;
+        }
+        
         client_factory.placeController().goTo(
                 new BrowseSearchResultsPlace(
-                        new Query(TermField.ALL, "Brussels"), new QueryOptions()));
+                        new Query(TermField.ALL, term),
+                        new QueryOptions()));
         
     }
 

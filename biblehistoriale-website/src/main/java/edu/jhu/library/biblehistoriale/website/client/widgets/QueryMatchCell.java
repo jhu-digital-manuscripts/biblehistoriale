@@ -20,6 +20,8 @@ public class QueryMatchCell
             return;
         }
         
+        String[] cons = value.getContext().split("'");
+      
         sb.appendHtmlConstant("<table>");
         
         sb.appendHtmlConstant("<tr><td>");
@@ -27,7 +29,12 @@ public class QueryMatchCell
         sb.appendHtmlConstant("</td></tr>");
         
         sb.appendHtmlConstant("<tr><td>");
-        sb.appendHtmlConstant(value.getContext());
+        
+        for (int i = 0; i < cons.length;) {
+            sb.appendHtmlConstant("<i>" + cons[i++] + "</i>");
+            sb.appendHtmlConstant("&nbsp" + (i >= cons.length ? "" : cons[i++]));
+            sb.appendHtmlConstant("</br>");
+        }
         sb.appendHtmlConstant("</td></tr>");
         
         sb.appendHtmlConstant("<tr></tr>");

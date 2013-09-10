@@ -21,6 +21,7 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     private final SimplePanel banner_panel;
     
     private final Label info_link;
+    private final Label browse_link;
     private final Label contact_link;
     private final Label advanced_search_link;
     
@@ -36,6 +37,7 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         main.setStylePrimaryName("Header");
         
         this.info_link = new Label("Info");
+        this.browse_link = new Label("Browse");
         this.contact_link = new Label("Contact Us");
         this.advanced_search_link = new Label("Advanced Search");
         advanced_search_link.setStylePrimaryName("AdvancedSearchLink");
@@ -58,9 +60,9 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         search_panel.setStylePrimaryName("HeaderSearchBar");
         
         main.add(banner_panel);
+        main.add(browse_link);
         main.add(info_link);
         main.add(contact_link);
-        
         main.add(search_panel);
         
         initWidget(main);
@@ -100,5 +102,10 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     @Override
     public void resize(int width, int height) {
         banner_panel.setWidth(width + "px");
+    }
+
+    @Override
+    public HandlerRegistration addBrowseLinkClickHandler(ClickHandler handler) {
+        return browse_link.addClickHandler(handler);
     }
 }

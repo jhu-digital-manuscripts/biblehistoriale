@@ -64,7 +64,7 @@ public class AdvancedQueryWidget extends Composite {
     }
     
     public String getOperation() {
-        return isFirst ? "" : operation.getItemText(operation.getSelectedIndex());
+        return isFirst ? "AND" : operation.getItemText(operation.getSelectedIndex());
     }
     
     public String getField() {

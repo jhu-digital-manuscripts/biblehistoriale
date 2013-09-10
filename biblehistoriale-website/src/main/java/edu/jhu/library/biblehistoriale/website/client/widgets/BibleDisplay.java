@@ -21,7 +21,10 @@ public class BibleDisplay extends Composite {
         
         this.main = new FlowPanel();
         
+        main.add(new Label(bible.getId()));
         main.add(new Label(this.bible.getClassification().getCoverTitle()));
+        main.add(new Label(bible.getClassification().getCurrentRepository()));
+        main.add(new Label(bible.getClassification().getCurrentShelfmark()));
         
         initWidget(main);
     }

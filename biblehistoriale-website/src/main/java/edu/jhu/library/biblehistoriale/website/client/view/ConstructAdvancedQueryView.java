@@ -10,12 +10,33 @@ public interface ConstructAdvancedQueryView extends IsWidget {
         
     }
     
+    /**
+     * Add a new row to the advanced query builder
+     */
     void addQueryRow();
     
+    /**
+     * Get the query operation of a row, AND or OR
+     * 
+     * @param row
+     * @return
+     */
     String getOperation(int row);
     
+    /**
+     * Get the TermField of a row (the search category)
+     * 
+     * @param row
+     * @return
+     */
     String getField(int row);
     
+    /**
+     * Get the text entered by the user. 
+     * 
+     * @param row
+     * @return
+     */
     String getSearchTerm(int row);
     
     int getRowCount();

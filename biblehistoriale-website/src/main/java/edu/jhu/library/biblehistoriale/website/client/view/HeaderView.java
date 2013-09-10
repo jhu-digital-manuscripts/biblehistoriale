@@ -20,6 +20,8 @@ public interface HeaderView extends IsWidget {
         
     }
     
+    HandlerRegistration addBrowseLinkClickHandler(ClickHandler handler);
+    
     HandlerRegistration addInfoLinkClickHandler(ClickHandler handler);
     
     HandlerRegistration addContactInfoClickHandler(ClickHandler handler);

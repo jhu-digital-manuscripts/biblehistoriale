@@ -45,7 +45,7 @@ public class ConstructAdvancedQueryViewImpl extends Composite
         main.add(add_field);
         main.add(search);
 
-        addQueryRow();
+        addQueryRow(true);
         
         initWidget(main);
         
@@ -62,9 +62,8 @@ public class ConstructAdvancedQueryViewImpl extends Composite
         
     }
     
-    @Override
-    public void addQueryRow() {
-        AdvancedQueryWidget widget = new AdvancedQueryWidget();
+    public void addQueryRow(boolean isFirst) {
+        AdvancedQueryWidget widget = new AdvancedQueryWidget(isFirst);
         
         handlers.add(widget.addClickRemoveHandler(new ClickHandler() {
             @Override
@@ -86,6 +85,11 @@ public class ConstructAdvancedQueryViewImpl extends Composite
         }));
         
         queries_table.setWidget(queries_table.getRowCount(), 0, widget);
+    }
+    
+    @Override
+    public void addQueryRow() {
+        addQueryRow(false);
     }
 
     @Override

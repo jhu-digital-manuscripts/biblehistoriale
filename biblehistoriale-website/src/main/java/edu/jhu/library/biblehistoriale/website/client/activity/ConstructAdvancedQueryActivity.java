@@ -42,10 +42,12 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
             public void onClick(ClickEvent event) {
                 Query query = buildQuery();
                 QueryOptions opts = buildOptions();
-                
+
                 BrowseSearchResultsPlace place = 
                         new BrowseSearchResultsPlace(query, opts);
-                client_factory.placeController().goTo(place);
+                if (query != null) {
+                    client_factory.placeController().goTo(place);
+                }
             }
         });
     }
@@ -60,6 +62,11 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
      * @return
      */
     private Query buildQuery() {
+        
+        if (view.getRowCount() == 0) {
+            return null;
+        }
+        
         Query query = new Query(
                 TermField.getTermField(view.getField(0)), 
                 view.getSearchTerm(0));
@@ -79,14 +86,23 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
         
         Query newQuery = new Query(field, term);
         
+        Query q = null;
         try {
             QueryOperation qop = QueryOperation.valueOf(op);
             
-            return buildQuery(--index, new Query(qop, query, newQuery));
+            if (term == null || term.equals("")) {
+                q = buildQuery(++index, query);
+            } else {
+                q = buildQuery(++index, new Query(qop, query, newQuery));
+            }
+            
         } catch (IllegalArgumentException e) {
             // If op is not a valid QueryOperation
-            return newQuery;
+            // TODO default to operation OR?
+            q = buildQuery(++index, query);
         }
+        
+        return buildQuery(++index, q);
     }
     
     private QueryOptions buildOptions() {
