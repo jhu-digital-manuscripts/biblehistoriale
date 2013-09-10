@@ -19,6 +19,10 @@ public enum TermField {
         this.term = term;
     }
     
+    public String term() {
+        return term;
+    }
+    
     public static TermField getTermField(String term) {
         for (TermField f : TermField.values()) {
             if (f.term.equals(term)) {
