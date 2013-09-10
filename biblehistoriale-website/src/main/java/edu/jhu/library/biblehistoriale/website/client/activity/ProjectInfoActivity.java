@@ -17,7 +17,7 @@ public class ProjectInfoActivity extends AbstractActivity
     public ProjectInfoActivity(ProjectInfoPlace place, 
             ClientFactory client_factory) {
         //this.client_factory = client_factory;
-        this.view = client_factory.projectInfoView();
+        this.view = client_factory.newProjectInfoView();
     }
 
     @Override

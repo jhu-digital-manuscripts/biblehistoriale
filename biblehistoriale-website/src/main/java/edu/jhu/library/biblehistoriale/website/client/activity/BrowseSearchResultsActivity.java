@@ -37,7 +37,7 @@ public class BrowseSearchResultsActivity extends AbstractActivity
     
     public BrowseSearchResultsActivity(BrowseSearchResultsPlace place,
             ClientFactory client_factory) {
-        this.view = client_factory.browseSearchResultsView();
+        this.view = client_factory.newBrowseSearchResultsView();
         this.query = place.getQuery();
         this.opts = place.getQueryOptions();
         

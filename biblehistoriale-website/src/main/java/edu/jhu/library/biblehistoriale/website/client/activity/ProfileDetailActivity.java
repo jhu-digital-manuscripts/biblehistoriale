@@ -19,7 +19,7 @@ public class ProfileDetailActivity extends AbstractActivity implements ProfileDe
     private String profile_id;
     
     public ProfileDetailActivity(ProfileDetailPlace place, ClientFactory client_factory) {
-        this.view = client_factory.profileDetailView();
+        this.view = client_factory.newProfileDetailView();
         this.profile_id = place.id();
         
         // Get Bible object from profile id

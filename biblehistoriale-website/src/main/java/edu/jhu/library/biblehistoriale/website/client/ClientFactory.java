@@ -20,16 +20,16 @@ public interface ClientFactory {
     BibleHistorialeServiceAsync service();
     
     // Put views here
-    ProjectInfoView projectInfoView();
+    ProjectInfoView newProjectInfoView();
     
-    BrowseProfilesView browseProfilesView();
+    BrowseProfilesView newBrowseProfilesView();
     
-    ContactUsView contactUsView();
+    ContactUsView newContactUsView();
     
-    ProfileDetailView profileDetailView();
+    ProfileDetailView newProfileDetailView();
     
-    ConstructAdvancedQueryView constructAdvancedQueryView();
+    ConstructAdvancedQueryView newConstructAdvancedQueryView();
     
-    BrowseSearchResultsView browseSearchResultsView();
+    BrowseSearchResultsView newBrowseSearchResultsView();
     
 }

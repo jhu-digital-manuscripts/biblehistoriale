@@ -44,32 +44,32 @@ public class ClientFactoryImpl implements ClientFactory {
     }
     
     @Override
-    public ProjectInfoView projectInfoView() {
+    public ProjectInfoView newProjectInfoView() {
         return new ProjectInfoViewImpl();
     }
 
     @Override
-    public BrowseProfilesView browseProfilesView() {
+    public BrowseProfilesView newBrowseProfilesView() {
         return new BrowseProfilesViewImpl();
     }
 
     @Override
-    public ContactUsView contactUsView() {
+    public ContactUsView newContactUsView() {
         return new ContactUsViewImpl();
     }
 
     @Override
-    public ProfileDetailView profileDetailView() {
+    public ProfileDetailView newProfileDetailView() {
         return new ProfileDetailViewImpl();
     }
 
     @Override
-    public ConstructAdvancedQueryView constructAdvancedQueryView() {
+    public ConstructAdvancedQueryView newConstructAdvancedQueryView() {
         return new ConstructAdvancedQueryViewImpl();
     }
 
     @Override
-    public BrowseSearchResultsView browseSearchResultsView() {
+    public BrowseSearchResultsView newBrowseSearchResultsView() {
         return new BrowseSearchResultsViewImpl();
     }
     

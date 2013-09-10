@@ -15,7 +15,7 @@ public class ContactUsActivity extends AbstractActivity
     
     public ContactUsActivity(ContactUsPlace place,
             ClientFactory client_factory) {
-        this.view = client_factory.contactUsView();
+        this.view = client_factory.newContactUsView();
     }
 
     @Override

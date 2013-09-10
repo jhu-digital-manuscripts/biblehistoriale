@@ -23,7 +23,7 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
     
     public ConstructAdvancedQueryActivity(ConstructAdvancedQueryPlace place,
             ClientFactory client_factory) {
-        this.view = client_factory.constructAdvancedQueryView();
+        this.view = client_factory.newConstructAdvancedQueryView();
         this.client_factory = client_factory;
         
         bind();

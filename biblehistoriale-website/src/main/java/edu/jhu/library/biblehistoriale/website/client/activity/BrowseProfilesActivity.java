@@ -20,7 +20,7 @@ public class BrowseProfilesActivity extends AbstractActivity
     
     public BrowseProfilesActivity(BrowseProfilesPlace place, 
             ClientFactory client_factory) {
-        this.view = client_factory.browseProfilesView();
+        this.view = client_factory.newBrowseProfilesView();
         this.client_factory = client_factory;
         
         view.addClickHandlerToProfileLink(new ClickHandler() {
