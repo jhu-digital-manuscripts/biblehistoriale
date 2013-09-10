@@ -93,7 +93,12 @@ public class ProfileBuilder {
      * @throws ProfileBuilderException
      */
     public static Bible buildProfile(Path path) throws ProfileBuilderException {
-        return buildProfile(path.toString(), createDocument(path));
+        String filename = path.getFileName().toString();
+        if (filename.endsWith(".xml")) {
+            filename = filename.substring(0, filename.length() - 4);
+        }
+        
+        return buildProfile(filename, createDocument(path));
     }
     
     /**
