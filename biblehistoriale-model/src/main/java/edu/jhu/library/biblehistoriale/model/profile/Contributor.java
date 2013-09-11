@@ -7,7 +7,7 @@ public class Contributor implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum ContributorType {
-        ARTIST("artist"), SCRIBE("scribe");
+        ARTIST("artist"), SCRIBE("scribe"), PRINTER("printer"), EDITOR("editor");
         
         private String value;
         
