@@ -129,13 +129,14 @@ public class HeaderPresenter implements HeaderView.Presenter {
     }
     
     private void basicSearch() {
-        String term = view.searchBarValue();
+        String term = view.searchBarValue().trim();
         
         // For empty search, do nothing!
         if (term == null || term.equals("")) {
             return;
         }
         
+        view.clearSearchBar();
         client_factory.placeController().goTo(
                 new BrowseSearchResultsPlace(
                         new Query(TermField.ALL, term),

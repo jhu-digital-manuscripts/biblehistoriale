@@ -4,6 +4,7 @@ import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
+import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 import edu.jhu.library.biblehistoriale.model.query.Query;
@@ -19,12 +20,12 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
         implements ConstructAdvancedQueryView.Presenter {
 
     private ConstructAdvancedQueryView view;
-    private ClientFactory client_factory;
+    private PlaceController place_controller;
     
     public ConstructAdvancedQueryActivity(ConstructAdvancedQueryPlace place,
             ClientFactory client_factory) {
         this.view = client_factory.newConstructAdvancedQueryView();
-        this.client_factory = client_factory;
+        this.place_controller = client_factory.placeController();
         
         bind();
     }
@@ -40,14 +41,7 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
         view.addSearchClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                Query query = buildQuery();
-                QueryOptions opts = buildOptions();
-
-                BrowseSearchResultsPlace place = 
-                        new BrowseSearchResultsPlace(query, opts);
-                if (query != null) {
-                    client_factory.placeController().goTo(place);
-                }
+                doSearch();
             }
         });
     }
@@ -55,6 +49,18 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
     @Override
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         panel.setWidget(view);
+    }
+    
+    private void doSearch() {
+        Query query = buildQuery();
+        QueryOptions opts = buildOptions();
+        
+        if (query != null) {
+            BrowseSearchResultsPlace place = 
+                    new BrowseSearchResultsPlace(query, opts);
+            
+            place_controller.goTo(place);
+        }
     }
     
     /**
@@ -67,9 +73,15 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
             return null;
         }
         
+        String search = view.getSearchTerm(0);
+        String field = view.getField(0);
+        
+        if (search == null || search.equals("")) {
+            return null;
+        }
+        
         Query query = new Query(
-                TermField.getTermField(view.getField(0)), 
-                view.getSearchTerm(0));
+                TermField.getTermField(field), search);
         
         return buildQuery(1, query);
     }
@@ -106,6 +118,7 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
     }
     
     private QueryOptions buildOptions() {
+        // TODO
         return new QueryOptions();
     }
 

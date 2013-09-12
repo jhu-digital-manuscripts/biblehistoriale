@@ -108,4 +108,9 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     public HandlerRegistration addBrowseLinkClickHandler(ClickHandler handler) {
         return browse_link.addClickHandler(handler);
     }
+
+    @Override
+    public void clearSearchBar() {
+        search_box.setText("");
+    }
 }

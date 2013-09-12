@@ -34,6 +34,8 @@ public interface HeaderView extends IsWidget {
     
     String searchBarValue();
     
+    void clearSearchBar();
+    
     void resize(int width, int height);
     
 }
