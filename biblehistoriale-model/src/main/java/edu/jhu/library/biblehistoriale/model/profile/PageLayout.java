@@ -54,12 +54,21 @@ public class PageLayout implements Serializable {
     }
     
     public enum Place {
-        INTEXT("in-text"), MARGINS("margins"), MIXED("mixed"), UNKNOWN("unknown");
+        INTEXT("in-text", "body of the text"), 
+        MARGINS("margins", "margins"), 
+        MIXED("mixed", "body of the text and margins"), 
+        UNKNOWN("unknown", "");
         
         private String place;
+        private String message;
         
-        private Place(String place) {
+        private Place(String place, String message) {
             this.place = place;
+            this.message = message;
+        }
+        
+        public String message() {
+            return message;
         }
         
         public String place() {
