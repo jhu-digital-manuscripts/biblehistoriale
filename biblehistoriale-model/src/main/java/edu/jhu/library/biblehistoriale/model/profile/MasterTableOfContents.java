@@ -7,7 +7,26 @@ public class MasterTableOfContents implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum Detail {
-        BOOK, CHAPTER, MIXED, OTHER
+        BOOK("book"), CHAPTER("chapter"), MIXED("mixed"), OTHER("other");
+        
+        private String detail;
+        
+        private Detail(String detail) {
+            this.detail = detail;
+        }
+        
+        public String detail() {
+            return detail;
+        }
+        
+        public static Detail getDetail(String detail) {
+            for (Detail d : Detail.values()) {
+                if (d.detail.equals(detail)) {
+                    return d;
+                }
+            }
+            return null;
+        }
     }
     
     private Detail tableDetail;

@@ -7,19 +7,97 @@ public class Sneddon implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum Category {
-        BXIII, BH, BHC, MIXED, OTHER, NOTPROVIDED
+        BXIII("BXIII"), BH("BH"), BHC("BHC"), MIXED("mixed"),
+        OTHER("other"), NOTPROVIDED("not provided");
+        
+        private String category;
+        
+        private Category(String category) {
+            this.category = category;
+        }
+        
+        public String category() {
+            return category;
+        }
+        
+        public static Category getCategory(String category) {
+            for (Category c : Category.values()) {
+                if (c.category.equals(category)) {
+                    return c;
+                }
+            }
+            return null;
+        }
     }
     
     public enum SubcategoryOne {
-        PB, BM, GB, PROL, PROLTRACES, MIXED, OTHER
+        PB("PB"), BM("BM"), GB("GB"), PROL("Prol."),
+        PROLTRACES("Prol. traces"), MIXED("mixed"), OTHER("other");
+        
+        private String category;
+        
+        private SubcategoryOne(String category) {
+            this.category = category;
+        }
+        
+        public String category() {
+            return category;
+        }
+        
+        public static SubcategoryOne getSubcategoryOne(String category) {
+            for (SubcategoryOne s : SubcategoryOne.values()) {
+                if (s.category.equals(category)) {
+                    return s;
+                }
+            }
+            return null;
+        }
     }
     
     public enum SubcategoryTwo {
-        A, B, MIXED, OTHER
+        A("a"), B("b"), MIXED("mixed"), OTHER("other");
+        
+        private String category;
+        
+        private SubcategoryTwo(String category) {
+            this.category = category;
+        }
+        
+        public String category() {
+            return category;
+        }
+        
+        public static SubcategoryTwo getSubcategoryTwo(String category) {
+            for (SubcategoryTwo s : SubcategoryTwo.values()) {
+                if (s.category.equals(category)) {
+                    return s;
+                }
+            }
+            return null;
+        }
     }
     
     public enum SubcategoryThree {
-        PREFACE, NOPREFACE, OTHER
+        PREFACE("prefaces"), NOPREFACE("no prefaces"), OTHER("other");
+        
+        private String category;
+        
+        private SubcategoryThree(String category) {
+            this.category = category;
+        }
+        
+        public String category() {
+            return category;
+        }
+        
+        public static SubcategoryThree getSubcategoryThree(String category) {
+            for (SubcategoryThree s : SubcategoryThree.values()) {
+                if (s.category.equals(category)) {
+                    return s;
+                }
+            }
+            return null;
+        }
     }
     
     private String siglum;
@@ -55,23 +133,7 @@ public class Sneddon implements Serializable {
     }
 
     public void setCategory(String category) {
-
-        if (category.equals("BXIII")) {
-            this.category = Category.BXIII;
-        } else if (category.equals("BH")) {
-            this.category = Category.BH;
-        } else if (category.equals("BHC")) {
-            this.category = Category.BHC;
-        } else if (category.equals("mixed")) {
-            this.category = Category.MIXED;
-        } else if (category.equals("other")) {
-            this.category = Category.OTHER;
-        } else if (category.equals("not provided")) {
-            this.category = Category.NOTPROVIDED;
-        } else {
-            this.category = null;
-        }
-        
+        this.category = Category.getCategory(category);
     }
 
     public SubcategoryOne getSub1() {
@@ -79,25 +141,7 @@ public class Sneddon implements Serializable {
     }
 
     public void setSub1(String sub1) {
-
-        if (sub1.equals("PB")) {
-            this.sub1 = SubcategoryOne.PB;
-        } else if (sub1.equals("BM")) {
-            this.sub1 = SubcategoryOne.BM;
-        } else if (sub1.equals("GB")) {
-            this.sub1 = SubcategoryOne.GB;
-        } else if (sub1.equals("Prol.")) {
-            this.sub1 = SubcategoryOne.PROL;
-        } else if (sub1.equals("Prol. traces")) {
-            this.sub1 = SubcategoryOne.PROLTRACES;
-        } else if (sub1.equals("mixed")) {
-            this.sub1 = SubcategoryOne.MIXED;
-        } else if (sub1.equals("other")) {
-            this.sub1 = SubcategoryOne.OTHER;
-        } else {
-            this.sub1 = null;
-        }
-        
+        this.sub1 = SubcategoryOne.getSubcategoryOne(sub1);
     }
 
     public SubcategoryTwo getSub2() {
@@ -105,19 +149,7 @@ public class Sneddon implements Serializable {
     }
 
     public void setSub2(String sub2) {
-        
-        if (sub2.equals("a")) {
-            this.sub2 = SubcategoryTwo.A;
-        } else if (sub2.equals("b")) {
-            this.sub2 = SubcategoryTwo.B;
-        } else if (sub2.equals("mixed")) {
-            this.sub2 = SubcategoryTwo.MIXED;
-        } else if (sub2.equals("other")) {
-            this.sub2 = SubcategoryTwo.OTHER;
-        } else {
-            this.sub2 = null;
-        }
-        
+        this.sub2 = SubcategoryTwo.getSubcategoryTwo(sub2);
     }
 
     public SubcategoryThree getSub3() {
@@ -125,15 +157,7 @@ public class Sneddon implements Serializable {
     }
 
     public void setSub3(String sub3) {
-        if (sub3.equals("prefaces")) {
-            this.sub3 = SubcategoryThree.PREFACE;
-        } else if (sub3.equals("no prefaces")) {
-            this.sub3 = SubcategoryThree.NOPREFACE;
-        } else if (sub3.equals("other")) {
-            this.sub3 = SubcategoryThree.OTHER;
-        } else {
-            this.sub3 = null;
-        }
+        this.sub3 = SubcategoryThree.getSubcategoryThree(sub3);
     }
     
 }
