@@ -2,7 +2,6 @@
 .Title {
 	font-size: 16px;
 	font-weight: bold;
-	margin-bottom: 12px;
 }
 
 .TitleMinor {
@@ -21,7 +20,34 @@
 .SectionHeader {
 	font-weight: bold;
 	text-decoration: underline;
+	margin-top: 16px;
 	margin-bottom: 8px;
+}
+
+.Expander {
+	color: blue;
+	/* padding-left: 48px; */
+}
+
+.Indent {
+	padding-left: 48px;
+}
+
+.gwt-DisclosurePanel {
+	padding-left: 52px;
+}
+
+.OwnerTable {
+	padding: 12px;
+}
+
+.Clickable {
+	padding-top: 12px;
+	cursor: pointer;
+}
+
+.ArticleTitle {
+	font-style: italic;
 }
 
 .Header .gwt-Label {
