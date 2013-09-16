@@ -16,6 +16,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.ConstructAdvancedQueryView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.AdvancedQueryWidget;
 
@@ -38,8 +39,8 @@ public class ConstructAdvancedQueryViewImpl extends Composite
 
         this.queries_table = new FlexTable();
         
-        this.add_field = new Button("Add Field");
-        this.search = new Button("Search");
+        this.add_field = new Button(Messages.INSTANCE.addField());
+        this.search = new Button(Messages.INSTANCE.search());
 
         main.add(queries_table);
         main.add(add_field);

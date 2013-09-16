@@ -12,6 +12,7 @@ import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 public class HeaderViewImpl extends Composite implements HeaderView {
@@ -36,10 +37,10 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         this.main = new FlowPanel();
         main.setStylePrimaryName("Header");
         
-        this.info_link = new Label("Info");
-        this.browse_link = new Label("Browse");
-        this.contact_link = new Label("Contact Us");
-        this.advanced_search_link = new Label("Advanced Search");
+        this.info_link = new Label(Messages.INSTANCE.info());
+        this.browse_link = new Label(Messages.INSTANCE.browse());
+        this.contact_link = new Label(Messages.INSTANCE.contactUs());
+        this.advanced_search_link = new Label(Messages.INSTANCE.advancedSearch());
         advanced_search_link.setStylePrimaryName("AdvancedSearchLink");
         
         this.search_button = new Button("Search");

@@ -5,6 +5,7 @@ import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.ProfileDetailView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.BibleDisplay;
 
@@ -17,7 +18,7 @@ public class ProfileDetailViewImpl extends Composite implements ProfileDetailVie
     public ProfileDetailViewImpl() {
         this.main = new FlowPanel();
         
-        this.loading = new Label("Loading profile...");
+        this.loading = new Label(Messages.INSTANCE.loading());
         main.add(loading);
         
         initWidget(main);
