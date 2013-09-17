@@ -4,6 +4,10 @@
 	font-weight: bold;
 }
 
+.VolumeTitle {
+	font-size: 16px;
+}
+
 .TitleMinor {
 	font-size: 14px;
 	margin-bottom: 24px;
@@ -48,6 +52,16 @@
 
 .ArticleTitle {
 	font-style: italic;
+}
+
+.TableSubtitle {
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.Incipit {
+	width: 48%;
+	float: left;
 }
 
 .Header .gwt-Label {

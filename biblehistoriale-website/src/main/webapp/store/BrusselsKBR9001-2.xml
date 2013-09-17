@@ -9,7 +9,7 @@
             <page>460x325</page>
             <textBlock>300x205</textBlock>
         </dimensions>
-        <dimensions units="mm"  volume="1">
+        <dimensions units="mm"  volume="2">
             <page>460x325</page>
             <textBlock>300x205</textBlock>
         </dimensions>
@@ -219,10 +219,10 @@
         </decorationSummary>
         
         <illustrationList>
-            <illustration number="1" book="Preface (glossary)" volume="1" folio="1r">
+            <illustration number="1" book="Preface a. (glossary)" volume="1" folio="1r">
                 <keywords>Guyart, Comestor or scribe (Petrus Gilberti?) working; presentation of book to King Charles VI</keywords>
             </illustration>
-            <illustration number="2" book="Preface (on exegesis)" volume="1" folio="19r">
+            <illustration number="2" book="Preface b. (on exegesis)" volume="1" folio="19r">
                 <keywords>Six-panel display miniature featuring: Wisdom enthroned, Trinity contemplating, Trinity discussing, Trinity creating angels and, in the two bottom right panels, the fall of the angels (one angel falls from middle right panel into the fiery, demon-inhabited bottom right panel, while three other angels sleep)</keywords>
             </illustration>
             <illustration number="3" book="Genesis" volume="1" folio="20v">
@@ -759,7 +759,7 @@
             </illustration>
            
         </illustrationList>
-        <illustrationNote>I count 180 illustrations; Fournié has 182, including two I did not notice in Genesis.</illustrationNote>
+        <illustrationNote>I count 179 illustrations; Fournié has 182, including two I did not notice in Genesis.</illustrationNote>
     </illustrations>
     <classification>
         <shelfmarks>
