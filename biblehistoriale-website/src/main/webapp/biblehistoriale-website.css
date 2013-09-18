@@ -45,6 +45,11 @@
 	padding: 12px;
 }
 
+.VolumeTable {
+	border: 1px solid black;
+	width: 99%;
+}
+
 .Clickable {
 	padding-top: 12px;
 	cursor: pointer;
@@ -60,8 +65,14 @@
 }
 
 .Incipit {
-	width: 48%;
+	width: 47%;
 	float: left;
+}
+
+.ContentIlls {
+	width: 47%;
+	float: left;
+	padding-left: 12px;
 }
 
 .Header .gwt-Label {

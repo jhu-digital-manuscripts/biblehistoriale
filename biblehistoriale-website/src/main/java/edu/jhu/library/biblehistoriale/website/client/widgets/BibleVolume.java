@@ -15,16 +15,22 @@ import edu.jhu.library.biblehistoriale.model.profile.OtherPreface;
 import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
 
+/**
+ * This class contains some information for a single Bible volume.
+ * 
+ * <p>Mapping of illustrations to various contents items.
+ * (Map key -> object :: index of prefatory matter in an associated list
+ *  -> list of illustrations for that prefatory matter)</p>
+ * 
+ * <p>Prefatory matter and bible books for this volume</p>
+ */
 public class BibleVolume {
     
     private PrefatoryMatter prefatory;
     private BibleBooks books;
     
-    /**
-     * Mapping of illustrations to various contents items.
-     * Key refers to index in the appropriate list.
-     * There can be multiple illustrations for each item.
-     */
+    private final int volume;
+    
     private final Map<Integer, List<Illustration>> other_prefaces_ills;
     private final Map<Integer, List<Illustration>> guyart_ills;
     private final Map<Integer, List<Illustration>> comestor_letter_ills;
@@ -34,6 +40,8 @@ public class BibleVolume {
     private final Map<String, List<Illustration>> book_ills;
     
     public BibleVolume(Bible bible, int volume) {
+        this.volume = volume;
+        
         for (PrefatoryMatter matter : 
             bible.getTextualContent().prefatoryMatters()) {
             if (matter.getVolume() == volume) {
@@ -64,6 +72,8 @@ public class BibleVolume {
             BibleBooks books, IllustrationList ills) {
         this.prefatory = prefatory;
         this.books = books;
+        
+        this.volume = prefatory.getVolume();
         
         this.other_prefaces_ills = new HashMap<Integer, List<Illustration>> ();
         this.guyart_ills = new HashMap<Integer, List<Illustration>> ();
@@ -129,13 +139,7 @@ public class BibleVolume {
     }
     
     public List<Illustration> getTitleIlls(Title title) {
-        for (int i = 0; i < books.size(); i++) {
-            if (title.getBookName().equals(books.title(i))) {
-                return book_ills.get(i);
-            }
-        }
-        
-        return null;
+        return book_ills.get(title.getBookName());
     }
     
     private void setBookIlls(IllustrationList all_ills) {
@@ -143,7 +147,8 @@ public class BibleVolume {
             List<Illustration> ills = new ArrayList<Illustration> ();
             
             for (Illustration ill : all_ills) {
-                if (title.getBookName().equals(ill.getBook()))
+                if (title.getBookName().trim().equalsIgnoreCase(
+                        ill.getBook().trim()))
                     ills.add(ill);
             }
             
@@ -212,7 +217,8 @@ public class BibleVolume {
         List<Illustration> ills = new ArrayList<Illustration> ();
         
         for (Illustration ill : all_ills) {
-            if (inOnlyThisItem(ill.getFolio(), other)) {
+            if (ill.getVolume() == volume 
+                    && inOnlyThisItem(ill.getFolio(), other)) {
                 ills.add(ill);
             }
         }
