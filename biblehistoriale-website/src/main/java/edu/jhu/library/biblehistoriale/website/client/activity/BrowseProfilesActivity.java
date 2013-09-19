@@ -1,22 +1,32 @@
 package edu.jhu.library.biblehistoriale.website.client.activity;
 
+import java.util.HashMap;
+import java.util.List;
+
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
+import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
+import com.google.gwt.user.client.ui.Label;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
+import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
+import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 
 public class BrowseProfilesActivity extends AbstractActivity 
         implements BrowseProfilesView.Presenter {
 
     private BrowseProfilesView view;
-    private ClientFactory client_factory;
+    private PlaceController place_controller;
+    
+    private final BibleHistorialeServiceAsync service;
     
     /*
      * Browse by:
@@ -31,22 +41,37 @@ public class BrowseProfilesActivity extends AbstractActivity
     public BrowseProfilesActivity(BrowseProfilesPlace place, 
             ClientFactory client_factory) {
         this.view = client_factory.newBrowseProfilesView();
-        this.client_factory = client_factory;
+        this.place_controller = client_factory.placeController();
+        this.service = client_factory.service();
         
-        // Temporary link to profiles
-        view.addClickHandlerToProfileLink(new ClickHandler() {
+        service.allProfilesByCriteria(new AsyncCallback
+                <HashMap<BrowseCriteria, HashMap<String, String[]>>> () {
             @Override
-            public void onClick(ClickEvent event) {
-                goTo(new ProfileDetailPlace("BrusselsKBR9001-2"));
+            public void onFailure(Throwable caught) {
+                // TODO Auto-generated method stub
             }
+
+            @Override
+            public void onSuccess(
+                    HashMap<BrowseCriteria, HashMap<String, String[]>> result) {
+                bindLinks(view.displayByCriteria(result));
+            }      
         });
+    }
+    
+    private void bindLinks(List<Label> links) {
         
-        view.addClickHandlerToVatLink(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                goTo(new ProfileDetailPlace("VatBarbLat613"));
-            }
-        });
+        for (Label label : links) {
+            final String profile_id = label.getText();
+            
+            label.addClickHandler(new ClickHandler() {
+                @Override
+                public void onClick(ClickEvent event) {
+                    goTo(new ProfileDetailPlace(profile_id));
+                }
+            });
+        }
+        
     }
 
     @Override
@@ -55,7 +80,7 @@ public class BrowseProfilesActivity extends AbstractActivity
     }
     
     private void goTo(Place place) {
-        client_factory.placeController().goTo(place);
+        place_controller.goTo(place);
     }
 
 }

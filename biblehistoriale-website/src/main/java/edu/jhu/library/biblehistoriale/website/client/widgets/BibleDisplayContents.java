@@ -10,6 +10,7 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -30,6 +31,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Illustration;
 import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
 import edu.jhu.library.biblehistoriale.model.profile.Incipit;
 import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
+import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents;
 import edu.jhu.library.biblehistoriale.model.profile.OtherPreface;
 import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem;
 import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
@@ -822,8 +824,50 @@ public class BibleDisplayContents {
                                 ill.getBook() + ", " + ill.getNumber()));
                     }
                 }
+               
+                MasterTableOfContents master = prefatory.getMasterTableOfContents();
                 
+                if (master != null) {
+                    p = new SimplePanel();
+                    fp.add(p);
+                    
+                    div = doc.createDivElement();
+                    BibleDisplay.appendChild(p, div);
+             
+                    div.appendChild(BibleDisplay.span("Master table of contents ", 
+                            BibleDisplay.MINOR_SECTION));
+    
+                    sb = new StringBuilder("(detail: "
+                            + (master.getTableDetail() == null
+                            ? " " : master.getTableDetail().detail()) + "). ");
+                    
+                    if (!BibleDisplay.isBlank(master.getStartPage()))
+                        sb.append("Begins folio " + master.getStartPage() + ". ");
+           
+                    div.appendChild(BibleDisplay.textNode(sb.toString()));
+                    
+                    DisclosurePanel disclose = new DisclosurePanel();
+                    fp.add(disclose);
+                    ills_incips.add(disclose);
                 
+                    Label expand = new Label("[+ Expand details]");
+                    expand.setStylePrimaryName("Expander");
+                    disclose.setHeader(expand);
+                    
+                    p = new SimplePanel();
+                    disclose.setContent(p);
+                    
+                    div = doc.createDivElement();
+                    BibleDisplay.appendChild(p, div);
+                    
+                    Element subdiv = doc.createDivElement();
+                    div.appendChild(subdiv);
+
+                    // TODO: details
+                    subdiv.appendChild(BibleDisplay.textNode(master.getText() 
+                            + (master.matchesContents() 
+                            ? " (matches content). " : " (does not match content). ")));
+                }
             }
             
             BibleBooks books = bible_volume.getBibleBooks();

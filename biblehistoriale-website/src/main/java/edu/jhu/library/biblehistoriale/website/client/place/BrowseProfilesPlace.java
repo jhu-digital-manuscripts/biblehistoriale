@@ -3,7 +3,7 @@ package edu.jhu.library.biblehistoriale.website.client.place;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
-import edu.jhu.library.biblehistoriale.website.client.BrowseCriteria;
+import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 
 public class BrowseProfilesPlace extends Place {
     
