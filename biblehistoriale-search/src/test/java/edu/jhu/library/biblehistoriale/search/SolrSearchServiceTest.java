@@ -13,17 +13,16 @@ import org.junit.Before;
 import org.junit.Test;
 import org.w3c.dom.Document;
 
-import edu.jhu.library.biblehistoriale.model.query.Query;
-import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
-import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
-import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
-import edu.jhu.library.biblehistoriale.model.query.QueryResult;
-import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BiblioEntry;
 import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
 import edu.jhu.library.biblehistoriale.model.profile.Classification;
 import edu.jhu.library.biblehistoriale.model.profile.PhysicalCharacteristics;
+import edu.jhu.library.biblehistoriale.model.query.Query;
+import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
+import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
+import edu.jhu.library.biblehistoriale.model.query.QueryResult;
+import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.profile.builder.ProfileBuilder;
 
 public class SolrSearchServiceTest {
@@ -56,13 +55,6 @@ public class SolrSearchServiceTest {
                 "profiles/BrusselsKBR9001-2.xml",
                 "profiles/VatBarbLat613.xml"
         };
-        
-        /*Path[] path = {
-                Paths.get(this.getClass().getClassLoader().getResource(filename[0])
-                        .toString().substring(6)),
-                Paths.get(this.getClass().getClassLoader().getResource(filename[1])
-                        .toString().substring(6))
-        };*/
         
         Document[] docs = { 
                 ProfileBuilder.createDocument(
@@ -97,7 +89,7 @@ public class SolrSearchServiceTest {
         
         query = null;
         result = null;
-        query = new Query(TermField.PEOPLE, "sneddon");
+        query = new Query(TermField.BIBLIOGRAPHY, "sneddon");
         result = service.executeQuery(query, opts);
         
         assertEquals(2, result.getTotal());
@@ -184,6 +176,11 @@ public class SolrSearchServiceTest {
         result = service.executeQuery(query, opts);
         assertEquals(0, result.getTotal());
         
+        query = new Query(TermField.ALL, "*");
+        result = service.executeQuery(query, opts);
+        System.out.println("Query:::" + query.toString() + "\nResultsTotal=" + result.getTotal());
+        
+        
         // TODO names! format (lastname, firstname) != format (firstname lastname): make them equivalent
         // (low priority)
 //        query = new Query(TermField.PEOPLE, "gary larson");
@@ -218,8 +215,7 @@ public class SolrSearchServiceTest {
         query = new Query(op,
                 new Query(TermField.TITLE, "bible"),
                 new Query(TermField.PHYS_CHAR, "someone"),
-                new Query(TermField.NOTES, "suffering"),
-                new Query(TermField.PEOPLE, "jesus")
+                new Query(TermField.BIBLIOGRAPHY, "jesus")
         );
         result = service.executeQuery(query, opts);
         System.out.println(":::QUERY = " + query.toString());
@@ -228,8 +224,7 @@ public class SolrSearchServiceTest {
         query = new Query(op,
                 new Query(TermField.TITLE, "bible"),
                 new Query(TermField.PHYS_CHAR, "someone"),
-                new Query(TermField.NOTES, "grease marks"),
-                new Query(TermField.PEOPLE, "larson")
+                new Query(TermField.BIBLIOGRAPHY, "larson")
         );
         result = service.executeQuery(query, opts);
         assertEquals(0, result.getTotal());
@@ -245,10 +240,10 @@ public class SolrSearchServiceTest {
         query = new Query(op,
                 new Query(TermField.TITLE, "bible"),
                 new Query(op,
-                        new Query(TermField.NOTES, "water damage"),
+                        //new Query(TermField.PLACES, "water damage"),
                         new Query(op,
-                                new Query(TermField.PEOPLE, "dave"),
-                                new Query(TermField.PEOPLE, "jesus"))));
+                                new Query(TermField.BIBLIOGRAPHY, "dave"),
+                                new Query(TermField.BIBLIOGRAPHY, "jesus"))));
         result = service.executeQuery(query, opts);
         System.out.println(":::QUERY = " + query.toString());
         assertEquals(1, result.getTotal());
@@ -278,7 +273,7 @@ public class SolrSearchServiceTest {
         assertEquals(2, result.getTotal());
         
         query = new Query(op,
-                new Query(TermField.NOTES, "jfa oi)(^&*( //\\")
+                new Query(TermField.TEXT, "jfa oi)(^&*( //\\")
         );
         result = service.executeQuery(query, opts);
         assertEquals(0, result.getTotal());
@@ -286,16 +281,16 @@ public class SolrSearchServiceTest {
         query = new Query(op,
                 new Query(TermField.TITLE, "1"),
                 new Query(TermField.TITLE, "Far"),
-                new Query(TermField.PEOPLE, "grohl")
+                new Query(TermField.BIBLIOGRAPHY, "grohl")
         );
         result = service.executeQuery(query, opts);
         assertEquals(3, result.getTotal());
         
         query = new Query(op,
-                new Query(TermField.PEOPLE, "larson"),
-                new Query(TermField.PEOPLE, "gary"),
-                new Query(TermField.PEOPLE, "Bill"),
-                new Query(TermField.PEOPLE, "waterson")
+                new Query(TermField.BIBLIOGRAPHY, "larson"),
+                new Query(TermField.BIBLIOGRAPHY, "gary"),
+                new Query(TermField.BIBLIOGRAPHY, "Bill"),
+                new Query(TermField.BIBLIOGRAPHY, "waterson")
         );
         result = service.executeQuery(query, opts);
         assertEquals(1, result.getTotal());

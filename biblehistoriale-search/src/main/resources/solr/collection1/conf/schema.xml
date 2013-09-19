@@ -34,6 +34,7 @@
    <field name="prodLoc" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="contributors" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="ownerName" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
+   <field name="ownerPlace" type="text_general" indexed="true" stored="true" required="false" multiValued="true" />
    
    <field name="provenanceNote" type="text_en" indexed="true" stored="true" required="false" multiValued="true" />
    <field name="productionNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
@@ -55,6 +56,13 @@
    <field name="currentCity" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="currentRepository" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
    <field name="currentShelfmark" type="text_general" indexed="true" stored="true" required="false" multiValued="false" />
+   
+   <field name="bergerCategory" type="text_general" indexed="true" stored="true" required="false" />
+   <field name="bergerBhcSubtype" type="text_general" indexed="true" stored="true" required="false" />
+   <field name="sneddonCategory" type="text_general" indexed="true" stored="true" required="false" />
+   <field name="sneddonSubcategory1" type="text_general" indexed="true" stored="true" required="false" />
+   <field name="sneddonSubcategory2" type="text_general" indexed="true" stored="true" required="false" />
+   <field name="sneddonSubcategory3" type="text_general" indexed="true" stored="true" required="false" />
    
    <field name="classificationNote" type="text_en" indexed="true" stored="true" required="false" multiValued="false" />
    

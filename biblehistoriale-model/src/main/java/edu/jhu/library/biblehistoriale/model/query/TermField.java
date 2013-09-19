@@ -2,15 +2,13 @@ package edu.jhu.library.biblehistoriale.model.query;
 
 public enum TermField {
     ALL("all"),
-    TITLE("title"),
+    TITLE("title/shelfmark"),
     PEOPLE("people"),
+    PLACES("places"),
     TEXT("text"),
-    NOTES("notes"),
     ILLUSTRATIONS("illustrations"),
     PHYS_CHAR("physical characteristics"),
-    PATRON_HIST("provenance/patron history"),
     CLASSIFICATION("classification"),
-    TEXTUAL_CONTENT("textual content"),
     BIBLIOGRAPHY("bibliography");
     
     private String term;

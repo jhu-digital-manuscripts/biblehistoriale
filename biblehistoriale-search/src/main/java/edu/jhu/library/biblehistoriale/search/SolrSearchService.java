@@ -14,10 +14,12 @@ import org.apache.solr.common.SolrDocumentList;
 import org.apache.solr.common.SolrInputDocument;
 
 import edu.jhu.library.biblehistoriale.model.profile.Annotation;
+import edu.jhu.library.biblehistoriale.model.profile.Berger;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
 import edu.jhu.library.biblehistoriale.model.profile.BiblioEntry;
 import edu.jhu.library.biblehistoriale.model.profile.Bibliography;
+import edu.jhu.library.biblehistoriale.model.profile.CatalogerClassification;
 import edu.jhu.library.biblehistoriale.model.profile.CatechismsPrayersTreatise;
 import edu.jhu.library.biblehistoriale.model.profile.Classification;
 import edu.jhu.library.biblehistoriale.model.profile.ComestorLetter;
@@ -36,6 +38,7 @@ import edu.jhu.library.biblehistoriale.model.profile.ProvenPatronHistory;
 import edu.jhu.library.biblehistoriale.model.profile.QuireStructure;
 import edu.jhu.library.biblehistoriale.model.profile.SecundoFolio;
 import edu.jhu.library.biblehistoriale.model.profile.Signature;
+import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
 import edu.jhu.library.biblehistoriale.model.profile.TextualContent;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
 import edu.jhu.library.biblehistoriale.model.profile.TitleIncipit;
@@ -47,7 +50,7 @@ import edu.jhu.library.biblehistoriale.model.query.TermField;
 
 /**
  * Search service that allows manuscript profiles to be indexed and searched.
- * Implemented by solr.
+ * Implemented with solr.
  */
 public class SolrSearchService {
     private static int MAX_MATCHES = 100;
@@ -58,24 +61,19 @@ public class SolrSearchService {
 
         // all searchable fields need to map to solr fields
         // TODO include a term that includes every Solr field?
-        field_map.put(TermField.TITLE, new String[] { "title", "articleTitle",
-                "bookOrJournalTitle", "shortName" });
+        field_map.put(TermField.TITLE, new String[] { "title", "shortName",
+                "currentShelfmark"});
 
         field_map.put(TermField.PEOPLE, new String[] { "contributors",
-                "ownerName", "bibAuthor" });
+                "ownerName" });
+        
+        field_map.put(TermField.PLACES, new String[] { "prodLoc", "ownerPlace" });
 
         field_map.put(TermField.TEXT, new String[] { "MasterTableOfContents",
-                "catechismsFirstLines", "signatureText", "dedication",
-                "legalInscriptions", "patronPortrait", "patronArms",
-                "colophon", "annotationText", "secundoFolioText",
-                "guyartIncipit", "otherPrefaceText", "comestorLetterIncipit",
-                "comestorText", "bibleBookIncipit" });
-
-        field_map.put(TermField.NOTES, new String[] { "rubricNote",
-                "pageLayoutNote", "physicalNote", "quireNote",
-                "provenanceNote", "productionNote", "illustrationNote",
-                "classificationNote", "contentNote", "prefatoryNote",
-                "bookNote" });
+                "catechismsFirstLines", "bibleBookTitle", "canticleType",
+                "contentNote", "prefatoryNote", "bookNote", "guyartIncipit",
+                "comestorLetterIncipit", "comestorText",
+                "annotationText", "otherPrefaceText", "bibleBookIncipit" });
 
         field_map.put(TermField.ILLUSTRATIONS, new String[] {
                 "illustrationKeywords", "illustrationNote" });
@@ -86,21 +84,11 @@ public class SolrSearchService {
                 "rubricNote", "pageLayoutNote", "physicalNote", "volumeNote",
                 "quireNote" });
 
-        field_map.put(TermField.PATRON_HIST, new String[] { "prodDate",
-                "prodLoc", "contributors", "ownerName", "provenanceNote",
-                "productionNote", "signatureText", "dedication",
-                "legalInscriptions", "patronPortrait", "patronArms",
-                "colophon", "annotationText" });
-
         field_map.put(TermField.CLASSIFICATION, new String[] { "currentCity",
                 "currentRepository", "currentShelfmark", "classificationNote",
-                "secundoFolioText" });
-
-        field_map.put(TermField.TEXTUAL_CONTENT, new String[] {
-                "MasterTableOfContents", "bibleBookTitle", "canticleType",
-                "catechismsFirstLines", "contentNote", "prefatoryNote",
-                "bookNote", "guyartIncipit", "otherPrefaceText",
-                "comestorLetterIncipit", "comestorText", "bibleBookIncipit" });
+                "secundoFolioText", "bergerCategory", "bergerBhcSubtype",
+                "sneddonCategory", "sneddonSubcategory1", "sneddonSubcategory2",
+                "sneddonSubcategory3", "classificationNote", "title"});
 
         field_map.put(TermField.BIBLIOGRAPHY, new String[] { "bibAuthor",
                 "articleTitle", "bookOrJournalTitle", "publicationInfo" });
@@ -119,7 +107,10 @@ public class SolrSearchService {
                 "catechismsFirstLines", "contentNote", "prefatoryNote",
                 "bookNote", "guyartIncipit", "otherPrefaceText", 
                 "comestorLetterIncipit", "comestorText", "bibleBookIncipit", 
-                "bibAuthor", "articleTitle", "bookOrJournalTitle", "publicationInfo" });
+                "bibAuthor", "articleTitle", "bookOrJournalTitle", "publicationInfo",
+                "bergerCategory", "bergerBhcSubtype", "sneddonCategory", 
+                "sneddonSubcategory1", "sneddonSubcategory2", "sneddonSubcategory3",
+                "ownerPlace"});
     }
 
     private final Solr solr;
@@ -217,7 +208,6 @@ public class SolrSearchService {
 
     private SolrInputDocument buildSolrInputDocument(Bible profile) {
         SolrInputDocument doc = new SolrInputDocument();
-        // doc.addField("field_name", "field_value");
 
         doc.addField("id", profile.getId());
         doc.addField("shortName", profile.getShortName());
@@ -238,21 +228,17 @@ public class SolrSearchService {
         doc.addField("pageLayoutNote", phys.getPageLayoutNotes());
         doc.addField("physicalNote", phys.getPhysicaNotes());
         doc.addField("volumeNote", phys.getVolumes().volumeNotes());
-        //addListValues(doc, "glossHeadings", phys.glossHeadings());
         for (String str : phys.glossHeadings()) {
             doc.addField("glossHeadings", str);
         }
 
         for (QuireStructure struct : phys.quireStructs()) {
-            //addListValues(doc, "quireNote", struct.quireNotes());
             for (String str : struct.quireNotes()) {
                 doc.addField("quireNote", str);
             }
-            //addListValues(doc, "quireTotal", struct.quireTotal());
             for (Integer in : struct.quireTotal()) {
                 doc.addField("quireTotal", in.toString());
             }
-            //addListValues(doc, "typicalQuire", struct.typicalQuires());
             for (Integer in : struct.typicalQuires()) {
                 doc.addField("typicalQuire", in.toString());
             }
@@ -264,12 +250,9 @@ public class SolrSearchService {
         doc.addField("prodDate", hist.getProduction().getProdDate());
         doc.addField("prodLoc", hist.getProduction().getProdLoc());
         doc.addField("productionNote", hist.getProduction().getProdNotes());
-        //addListValues(doc, "provenanceNote", hist.provenanceNote());
         for (String str : hist.provenanceNote()) {
             doc.addField("provenanceNote", str);
         }
-        //addListValues(doc, "dedication", hist.getPersonalization()
-        //        .dedications());
         for (String str : hist.getPersonalization().dedications()) {
             doc.addField("dedication", str);
         }
@@ -301,6 +284,9 @@ public class SolrSearchService {
         for (Ownership ownership : hist.ownerships()) {
             for (Owner owner : ownership) {
                 doc.addField("ownerName", owner.getOwnerName());
+                for (String place : owner.getOwnerPlace()) {
+                    doc.addField("ownerPlace", place);
+                }
             }
         }
 
@@ -321,7 +307,28 @@ public class SolrSearchService {
         doc.addField("currentShelfmark", classif.getCurrentShelfmark());
         doc.addField("classificationNote", classif.getClassification()
                 .getClassificationNote());
-
+        CatalogerClassification cc = classif.getClassification();
+        
+        Berger berg = cc.getBergerClass();
+        if (berg != null) {
+            doc.addField("bergerCategory", berg.getCategory() != null
+                    ? berg.getCategory().category() : "");
+            doc.addField("bergerBhcSubtype", berg.getBhcSubtype() != null
+                    ? berg.getBhcSubtype().subtype() : "");
+        }
+        
+        Sneddon sned = cc.getSneddonClass();
+        if (sned != null) {
+            doc.addField("sneddonCategory", sned.getCategory() != null
+                    ? sned.getCategory().category() : "");
+            doc.addField("sneddonSubcategory1", sned.getSub1() != null
+                    ? sned.getSub1().category() : "");
+            doc.addField("sneddonSubcategory2", sned.getSub2() != null
+                    ? sned.getSub2().category() : "");
+            doc.addField("sneddonSubcategory3", sned.getSub3() != null
+                    ? sned.getSub3().category() : "");
+        }
+        
         for (SecundoFolio folio : classif.getClassification().secundoFolios()) {
             doc.addField("secundoFolioText", folio.getValue());
         }
@@ -331,7 +338,6 @@ public class SolrSearchService {
 
         doc.addField("canticleType", cont.parascripturalItem()
                 .getCanticleType());
-        //addListValues(doc, "contentNote", cont.notes());
         for (String str : cont.notes()) {
             doc.addField("contentNote", str);
         }
@@ -367,8 +373,6 @@ public class SolrSearchService {
         }
         for (CatechismsPrayersTreatise cpt : cont.parascripturalItem()
                 .catechismPrayersTreatises()) {
-            //addListValues(doc, "catechismsFirstLines",
-            //        cpt.getDescriptionsFirstLines());
             for (String str : cpt.getDescriptionsFirstLines()) {
                 doc.addField("catechismsFirstLines", str);
             }
@@ -378,7 +382,6 @@ public class SolrSearchService {
         Bibliography bib = profile.getBibliography();
 
         for (BiblioEntry entry : bib) {
-            //addListValues(doc, "bibAuthor", entry.bibAuthors());
             for (String str : entry.bibAuthors()) {
                 doc.addField("bibAuthor", str);
             }
@@ -389,22 +392,6 @@ public class SolrSearchService {
 
         return doc;
     }
-
-    /**
-     * Add multiple values to a field in a SolrInputDocument. The field must
-     * have multiValued set to "true" in schema.xml
-     * 
-     * @param doc
-     * @param fieldName
-     * @param iterable
-     *            The list of values to be added
-     */
-/*    private <T> void addListValues(SolrInputDocument doc, String fieldName,
-            Iterable<T> iterable) {
-        for (T t : iterable) {
-            doc.addField(fieldName, t);
-        }
-    }*/
 
     public void clear() throws SearchServiceException {
         try {
