@@ -18,15 +18,33 @@ public class BrowseProfilesActivity extends AbstractActivity
     private BrowseProfilesView view;
     private ClientFactory client_factory;
     
+    /*
+     * Browse by:
+     * 
+     * Repository
+     * Production date (prodDate)
+     * Production place (prodLoc)
+     * Owners/Patrons (ownerName)
+     * Classification (bergerClass and subcategories; sneddonClass and subcategories)
+     */
+    
     public BrowseProfilesActivity(BrowseProfilesPlace place, 
             ClientFactory client_factory) {
         this.view = client_factory.newBrowseProfilesView();
         this.client_factory = client_factory;
         
+        // Temporary link to profiles
         view.addClickHandlerToProfileLink(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
                 goTo(new ProfileDetailPlace("BrusselsKBR9001-2"));
+            }
+        });
+        
+        view.addClickHandlerToVatLink(new ClickHandler() {
+            @Override
+            public void onClick(ClickEvent event) {
+                goTo(new ProfileDetailPlace("VatBarbLat613"));
             }
         });
     }

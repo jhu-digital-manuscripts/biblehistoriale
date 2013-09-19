@@ -91,9 +91,9 @@ public class BibleDisplay extends Composite {
         displayProfileView();
         
         // TODO: resize
-        main.setWidth((Window.getClientWidth() - 10) + "px");
+        main.setWidth((Window.getClientWidth() - 22) + "px");
         main.setHeight(
-                (Window.getClientHeight() - BibleHistorialeWebsite.HEADER_HEIGHT) + "px");
+                (Window.getClientHeight() - BibleHistorialeWebsite.HEADER_HEIGHT - 12)+"px");
         
         initWidget(main);
         

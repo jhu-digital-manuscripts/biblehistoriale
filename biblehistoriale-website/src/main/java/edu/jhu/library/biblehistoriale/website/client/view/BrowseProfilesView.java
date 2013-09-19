@@ -17,5 +17,7 @@ public interface BrowseProfilesView extends IsWidget {
     }
     
     HandlerRegistration addClickHandlerToProfileLink(ClickHandler handler);
+    
+    HandlerRegistration addClickHandlerToVatLink(ClickHandler handler);
 
 }
