@@ -1,14 +1,10 @@
 package edu.jhu.library.biblehistoriale.website.client.view;
 
-import java.util.HashMap;
-import java.util.List;
-
-import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.user.client.ui.IsWidget;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
-import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
+import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
 /**
  * UI interface. This view allows users to browse through 
@@ -22,6 +18,9 @@ public interface BrowseProfilesView extends IsWidget {
         
     }
     
-    List<Label> displayByCriteria(HashMap<BrowseCriteria, HashMap<String, String[]>> crit);
-
+    CriteriaNode getSelectedNode();
+    
+    void displayByCriteria(CriteriaNode node);
+    
+    HandlerRegistration addSelectionChangeHandler(SelectionChangeEvent.Handler handler);
 }

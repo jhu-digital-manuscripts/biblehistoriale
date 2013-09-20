@@ -103,17 +103,17 @@
 	float: right;
 }
 
-.gwt-StackLayoutPanel .gwt-StackLayoutPanelHeader {
+.Criteria .gwt-StackLayoutPanelHeader {
 	font-size: 16px;
 	font-weight: bold;
 	font-decoration: underline;
 }
 
-.BrowserSubheader {
+.Criteria .gwt-StackLayoutPanelContent .BrowserSubheader .gwt-StackLayoutPanelHeader {
 	font-size: 16px;
 	font-decoration: underline;
 }
 
-.BrowserSubsection {
+.BrowserSubsection /* .gwt-StackLayoutPanelContent */ {
 	padding: 24px;
 }

@@ -1,24 +1,25 @@
 package edu.jhu.library.biblehistoriale.website.client.activity;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
 
 import com.google.gwt.activity.shared.AbstractActivity;
-import com.google.gwt.event.dom.client.ClickEvent;
-import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
-import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.view.client.SelectionChangeEvent;
+import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
-import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
+import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
 public class BrowseProfilesActivity extends AbstractActivity 
         implements BrowseProfilesView.Presenter {
@@ -27,6 +28,8 @@ public class BrowseProfilesActivity extends AbstractActivity
     private PlaceController place_controller;
     
     private final BibleHistorialeServiceAsync service;
+    
+    private final List<HandlerRegistration> handlers;
     
     /*
      * Browse by:
@@ -44,33 +47,50 @@ public class BrowseProfilesActivity extends AbstractActivity
         this.place_controller = client_factory.placeController();
         this.service = client_factory.service();
         
-        service.allProfilesByCriteria(new AsyncCallback
-                <HashMap<BrowseCriteria, HashMap<String, String[]>>> () {
+        this.handlers = new ArrayList<HandlerRegistration> ();
+        
+        service.allProfilesByCriteria(new AsyncCallback<CriteriaNode> () {
+
             @Override
             public void onFailure(Throwable caught) {
-                // TODO Auto-generated method stub
+                Window.alert("Whoops, service call failed to get \"Search by criteria\""
+                        + "\n" + caught.getMessage());
             }
 
             @Override
-            public void onSuccess(
-                    HashMap<BrowseCriteria, HashMap<String, String[]>> result) {
-                bindLinks(view.displayByCriteria(result));
-            }      
+            public void onSuccess(CriteriaNode result) {
+                view.displayByCriteria(result);
+            }
+            
         });
+        
+        bind();
     }
     
-    private void bindLinks(List<Label> links) {
+    private void bind() {
         
-        for (Label label : links) {
-            final String profile_id = label.getText();
-            
-            label.addClickHandler(new ClickHandler() {
-                @Override
-                public void onClick(ClickEvent event) {
-                    goTo(new ProfileDetailPlace(profile_id));
+        handlers.add(view.addSelectionChangeHandler(
+                new SelectionChangeEvent.Handler() {
+            @Override
+            public void onSelectionChange(SelectionChangeEvent event) {
+                CriteriaNode crit = view.getSelectedNode();
+                
+                if (crit.isLeaf()) {
+                    goTo(new ProfileDetailPlace(crit.getText()));
                 }
-            });
-        }
+            }
+        }));
+        
+        view.asWidget().addAttachHandler(new AttachEvent.Handler() {
+            @Override
+            public void onAttachOrDetach(AttachEvent event) {
+                if (!event.isAttached()) {
+                    for (HandlerRegistration hr : handlers) {
+                        hr.removeHandler();
+                    }
+                }
+            }
+        });
         
     }
 
