@@ -20,7 +20,7 @@ public class QueryMatchCell
             return;
         }
         
-        String[] cons = value.getContext().split("'");
+        String[] cons = value.getContext().split("\\|");
       
         sb.appendHtmlConstant("<table>");
         

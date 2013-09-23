@@ -25,7 +25,6 @@ import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQue
 import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
-import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 
 /**
  * Provides logic for the HeaderView
@@ -49,7 +48,7 @@ public class HeaderPresenter implements HeaderView.Presenter {
         handlers.add(view.addBrowseLinkClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {
-                goTo(new BrowseProfilesPlace(BrowseCriteria.REPOSITORY));
+                goTo(new BrowseProfilesPlace());
             }
         }));
         

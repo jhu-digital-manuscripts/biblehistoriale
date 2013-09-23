@@ -179,7 +179,7 @@ public class SolrSearchService {
                     StringBuilder sb = new StringBuilder();
 
                     for (String field : snippets.keySet()) {
-                        sb.append(field + ": '" + snippets.get(field) + "' ");
+                        sb.append(field + ": |" + snippets.get(field) + "| ");
                     }
 
                     context = sb.toString();

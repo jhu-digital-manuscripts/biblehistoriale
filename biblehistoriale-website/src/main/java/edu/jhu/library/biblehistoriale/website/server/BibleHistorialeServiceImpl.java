@@ -128,15 +128,15 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
     private void add_to_criteria(Bible bible) {
         if (criteria == null) {
             criteria = new CriteriaNode("");
-            
-            for (BrowseCriteria bc : BrowseCriteria.values()) {
-                criteria.addChildNode(new CriteriaNode(bc.message()));
-            }
         }
         
         for (BrowseCriteria bc : BrowseCriteria.values()) {
-            
             CriteriaNode node = criteria.getChildNodeByText(bc.message());
+            
+            if (node == null) {
+                node = new CriteriaNode(bc.message());
+                criteria.addChildNode(node);
+            }
             
             String[] strs = bc.getPropertyFromBible(bible);
             
@@ -154,6 +154,21 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             }
         }
     }
+    
+/*    private void add_value(String[] vals, Bible bible, CriteriaNode node) {
+        for (String str : vals) {
+            CriteriaNode add = node.getChildNodeByText(str);
+            
+            if (add == null) {
+                add = new CriteriaNode(str,
+                        new CriteriaNode(bible.getId()));
+            } else {
+                add.addChildNode(new CriteriaNode(bible.getId()));
+            }
+            
+            node.addChildNode(add);
+        }
+    }*/
 
     @Override
     public Bible lookupBible(String id) throws RPCException {
