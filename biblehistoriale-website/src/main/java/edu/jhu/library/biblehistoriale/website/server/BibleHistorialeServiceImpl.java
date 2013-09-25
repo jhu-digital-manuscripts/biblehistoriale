@@ -60,28 +60,45 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         }
 
         solrhome = new File(getServletContext().getRealPath(s));
+        // If solrhome does not exist, create it.
+        if (!solrhome.exists()) {
+            solrhome.mkdir();
+        }
 
         try {
-            Solr.createSolrInstall(solrhome);
+            // Check to see if solrconfig.xml already exists
+            // If so, a previous Solr install exists!
+            File solrconf = new File(solrhome, "solrconfig.xml");
+            
+            if (!solrconf.exists()) {
+                Solr.createSolrInstall(solrhome);
+            }
+            
             search_service = new SolrSearchService(solrhome);
         } catch (IOException e) {
             throw new ServletException("Error accessing solr index: "
                     + solrhome, e);
         }
 
+        // Get directory where MS profiles are stored
         s = getServletConfig().getInitParameter("bible.store");
-
         if (s == null) {
             throw new ServletException("bible.store not specified");
         }
 
-        bible_store = new File(getServletContext().getRealPath(s));
+        bible_store = new File(s);
+        if (!bible_store.exists()) {
+            throw new ServletException("The bible store specified at "
+                    + s + " was not found.");
+        }
+        
         update_index();
     }
     
     public void destroy() {
         try {
-            search_service.close();
+            if (search_service != null)
+                search_service.close();
         } finally {
             try {
                 FileUtils.deleteDirectory(solrhome);
@@ -90,14 +107,21 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
     }
 
     // TODO For now index all bibles on startup.
-
+    /**
+     * Clears index and reindexes all profiles that it finds
+     * in bible.store. If index cannot be cleared, an exception
+     * is thrown. If the indexing process fails at a particular 
+     * profile, the error is logged and indexing skips the profile.
+     * 
+     * @throws ServletException
+     */
     private void update_index() throws ServletException {
         try {
             search_service.clear();
         } catch (SearchServiceException e) {
             throw new ServletException("Error clearing index", e);
         }
-
+        
         for (File file : bible_store.listFiles()) {
             if (file.isFile() && file.getName().endsWith(".xml")) {
                 try {
@@ -111,7 +135,9 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
                     add_to_criteria(bible);
                 } catch (IOException | ProfileBuilderException
                         | SearchServiceException e) {
-                    throw new ServletException("Error indexing " + file, e);
+                    // log error, then continue
+                    log("Error indexing " + file, e);
+                    continue;
                 }
             }
         }
@@ -154,21 +180,6 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             }
         }
     }
-    
-/*    private void add_value(String[] vals, Bible bible, CriteriaNode node) {
-        for (String str : vals) {
-            CriteriaNode add = node.getChildNodeByText(str);
-            
-            if (add == null) {
-                add = new CriteriaNode(str,
-                        new CriteriaNode(bible.getId()));
-            } else {
-                add.addChildNode(new CriteriaNode(bible.getId()));
-            }
-            
-            node.addChildNode(add);
-        }
-    }*/
 
     @Override
     public Bible lookupBible(String id) throws RPCException {

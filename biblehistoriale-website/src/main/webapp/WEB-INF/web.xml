@@ -15,11 +15,11 @@
     <servlet-class>edu.jhu.library.biblehistoriale.website.server.BibleHistorialeServiceImpl</servlet-class>
     <init-param>
         <param-name>bible.store</param-name>
-        <param-value>store</param-value>
+        <param-value>${bible.store}</param-value>
     </init-param>
     <init-param>
         <param-name>bible.index</param-name>
-        <param-value>solr</param-value>
+        <param-value>${bible.index}</param-value>
     </init-param>
   </servlet>
 

@@ -46,7 +46,7 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         this.search_button = new Button("Search");
         
         this.banner_panel = new SimplePanel();
-        this.banner = new Image("Images/bible_historiale_banner.png");
+        this.banner = new Image("images/bible_historiale_banner.png");
         banner.setHeight(BANNER_HEIGHT + "px");
         
         banner_panel.add(banner);

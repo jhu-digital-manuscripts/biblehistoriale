@@ -34,13 +34,6 @@
 			<version>${gwtVersion}</version>
 			<scope>provided</scope>
 		</dependency>
-		
-<!-- 		<dependency>
-		    <groupId>com.google.gwt</groupId>
-		    <artifactId>gwt-dev</artifactId>
-		    <version>${gwtVersion}</version>
-		    <scope>test</scope>
-		</dependency> -->
 
 		<dependency>
 			<groupId>junit</groupId>
@@ -48,21 +41,6 @@
 			<version>4.7</version>
 			<scope>test</scope>
 		</dependency>
-
-<!-- 		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-			<scope>compile</scope>
-		</dependency>
-
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-			<classifier>sources</classifier>
-			<scope>compile</scope>
-		</dependency> -->
 		
 		<dependency>
 		    <groupId>biblehistoriale</groupId>
@@ -136,6 +114,7 @@
 				</executions>
 				<configuration>
 					<webappDirectory>${webappDirectory}</webappDirectory>
+					<filteringDeploymentDescriptors>true</filteringDeploymentDescriptors>
 				</configuration>
 			</plugin>
 
