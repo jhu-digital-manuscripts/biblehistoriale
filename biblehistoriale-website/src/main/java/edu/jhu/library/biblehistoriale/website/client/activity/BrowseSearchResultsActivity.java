@@ -18,6 +18,7 @@ import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.QueryResult;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -53,7 +54,7 @@ public class BrowseSearchResultsActivity extends AbstractActivity
             @Override
             public void onFailure(Throwable caught) {
                 // TODO Auto-generated method stub
-                Window.alert("Search failed....\n" + caught.getMessage());
+                Window.alert(Messages.INSTANCE.searchFailed());
             }
 
             @Override
@@ -101,7 +102,7 @@ public class BrowseSearchResultsActivity extends AbstractActivity
         List<QueryMatch> matches = result.matches();
         
         if (matches == null || matches.size() == 0) {
-            Window.alert("No matches found :( ");
+            view.setQueryResults(null);
             return;
         }
         

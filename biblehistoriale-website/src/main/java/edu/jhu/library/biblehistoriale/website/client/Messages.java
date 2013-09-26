@@ -84,5 +84,23 @@ public interface Messages extends Constants {
     public String remarks();
     
     public String overview();
+    
+    public String noResultsFound();
+    
+    public String searchFailed();
+    
+    public String removeField();
+    
+    public String failedToGetCriteria();
+    
+    public String unableToGetProfile();
+    
+    public String projectInfo();
+    
+    public String contactDescription();
+    
+    public String email();
+    
+    public String browseByCriteriaDescription();
 
 }

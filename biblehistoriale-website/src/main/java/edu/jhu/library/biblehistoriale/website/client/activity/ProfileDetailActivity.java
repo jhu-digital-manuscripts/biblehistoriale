@@ -8,6 +8,7 @@ import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.ProfileDetailView;
@@ -30,8 +31,7 @@ public class ProfileDetailActivity extends AbstractActivity implements ProfileDe
             @Override
             public void onFailure(Throwable caught) {
                 // TODO Auto-generated method stub
-                Window.alert("Unable to retrieve " + profile_id
-                        + "\n" + caught.getMessage());
+                Window.alert(Messages.INSTANCE.unableToGetProfile() + profile_id);
             }
 
             @Override

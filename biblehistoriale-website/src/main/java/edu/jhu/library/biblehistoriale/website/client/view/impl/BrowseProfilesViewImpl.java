@@ -8,6 +8,7 @@ import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.CriteriaTreeViewModel;
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
@@ -26,8 +27,7 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
         
         this.selection_model = new SingleSelectionModel<CriteriaNode> ();
         
-        this.intro = new HTML("Here, the user will be able to browser the MS profiles, " 
-                + "choose filtering criteria, and select a profile for detailed viewing.");
+        this.intro = new HTML(Messages.INSTANCE.browseByCriteriaDescription());
         
         main.add(intro);
         

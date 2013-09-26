@@ -40,7 +40,6 @@ public class BrowseSearchResultsPlace extends Place {
             QueryOptions opts = new QueryOptions();
             
             String[] queries = token.split(SEARTH_DELIMITER_PATTERN);
-            
             String[] vals = queries[0].split(VALUE_DELIMITER_PATTERN);
             
             if (vals.length != 4) {
@@ -55,6 +54,7 @@ public class BrowseSearchResultsPlace extends Place {
             return new BrowseSearchResultsPlace(query, opts);
         }
         
+        // TODO doesn't really work...
         private Query buildQuery(String[] queries, int index, Query query) {
             if (index >= queries.length) {
                 return query;

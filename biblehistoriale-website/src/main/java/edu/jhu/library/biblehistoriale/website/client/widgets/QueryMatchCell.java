@@ -22,27 +22,25 @@ public class QueryMatchCell
         
         String[] cons = value.getContext().split("\\|");
       
-        sb.appendHtmlConstant("<table>");
+        sb.appendHtmlConstant("<table class=\"OwnerTable\">");
         
-        sb.appendHtmlConstant("<tr><td>");
+        sb.appendHtmlConstant("<tr><td><b><i>");
         sb.appendHtmlConstant(value.getId());
-        sb.appendHtmlConstant("</td></tr>");
-        
-        sb.appendHtmlConstant("<tr><td>");
+        sb.appendHtmlConstant("</i></b></td></tr>");
         
         for (int i = 0; i < cons.length;) {
+            sb.appendHtmlConstant("<tr>");
+            sb.appendHtmlConstant("<td>");
             sb.appendHtmlConstant("<i>" + cons[i++] + "</i>");
+            sb.appendHtmlConstant("</td>");
+            
+            sb.appendHtmlConstant("<td>");
             sb.appendHtmlConstant("&nbsp" + (i >= cons.length ? "" : cons[i++]));
-            sb.appendHtmlConstant("</br>");
+            sb.appendHtmlConstant("</td>");
+            sb.appendHtmlConstant("</tr>");
         }
-        sb.appendHtmlConstant("</td></tr>");
-        
-        sb.appendHtmlConstant("<tr></tr>");
         
         sb.appendHtmlConstant("</table>");
         
     }
-    
-    
-    
 }

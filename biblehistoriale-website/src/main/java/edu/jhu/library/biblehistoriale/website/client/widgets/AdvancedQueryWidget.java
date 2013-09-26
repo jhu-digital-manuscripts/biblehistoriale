@@ -11,6 +11,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 
 public class AdvancedQueryWidget extends Composite {
     
@@ -37,7 +38,7 @@ public class AdvancedQueryWidget extends Composite {
         this.operation = new ListBox();
         this.field = new ListBox();
         this.term = new TextBox();
-        this.remove = new Button("Remove field");
+        this.remove = new Button(Messages.INSTANCE.removeField());
         
         if (!isFirst) {
             main.setWidget(0, 0, operation); 

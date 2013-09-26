@@ -15,6 +15,7 @@ import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -53,8 +54,7 @@ public class BrowseProfilesActivity extends AbstractActivity
 
             @Override
             public void onFailure(Throwable caught) {
-                Window.alert("Whoops, service call failed to get \"Search by criteria\""
-                        + "\n" + caught.getMessage());
+                Window.alert(Messages.INSTANCE.failedToGetCriteria());
             }
 
             @Override

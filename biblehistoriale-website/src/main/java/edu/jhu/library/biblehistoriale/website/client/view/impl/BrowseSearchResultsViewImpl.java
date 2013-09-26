@@ -3,12 +3,14 @@ package edu.jhu.library.biblehistoriale.website.client.view.impl;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryResult;
+import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseSearchResultsView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.QueryMatchCell;
 
@@ -17,11 +19,15 @@ public class BrowseSearchResultsViewImpl extends Composite
     
     private final FlowPanel main;
     
+    private final HTML failure_message;
+    
     private final CellList<QueryMatch> cell_list;
     private final SingleSelectionModel<QueryMatch> selection_model;
     
     public BrowseSearchResultsViewImpl() {
         this.main = new FlowPanel();
+        
+        this.failure_message = new HTML(Messages.INSTANCE.noResultsFound());
         
         this.cell_list = new CellList<QueryMatch> (new QueryMatchCell());
         cell_list.setPageSize(10);
@@ -36,6 +42,11 @@ public class BrowseSearchResultsViewImpl extends Composite
 
     @Override
     public void setQueryResults(QueryResult result) {
+        if (result == null) {
+            main.add(failure_message);
+            return;
+        }
+        
         cell_list.setRowCount((int) result.getTotal(), true);
         cell_list.setRowData(result.matches());
     }

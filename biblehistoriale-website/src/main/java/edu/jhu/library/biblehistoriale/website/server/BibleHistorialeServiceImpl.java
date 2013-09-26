@@ -82,7 +82,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
 
         // Get directory where MS profiles are stored
         s = getServletConfig().getInitParameter("bible.store");
-        if (s == null) {
+        if (s == null || s.equals("")) {
             throw new ServletException("bible.store not specified");
         }
 
