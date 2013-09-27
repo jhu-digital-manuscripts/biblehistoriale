@@ -20,6 +20,7 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
     private final FlowPanel main;
     
     private final HTML intro;
+    private final HTML loading;
     
     private CellTree crit_tree;
     private SingleSelectionModel<CriteriaNode> selection_model;
@@ -30,20 +31,29 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
         this.selection_model = new SingleSelectionModel<CriteriaNode> ();
         
         this.intro = new HTML(Messages.INSTANCE.browseByCriteriaDescription());
+        this.loading = new HTML(Messages.INSTANCE.loadingCriteria());
         
-        main.add(intro);
+        main.add(loading);
         
         initWidget(main);
     }
     
     @Override
     public void displayByCriteria(CriteriaNode node) {
+        main.clear();
+        
+        if (node == null) {
+            main.add(new HTML(Messages.INSTANCE.failedToGetCriteria()));
+            return;
+        }
+        
         CellTreeResources cell_res = GWT.create(CellTreeResources.class);
         
         this.crit_tree = new CellTree(
                 new CriteriaTreeViewModel(node, selection_model), null, cell_res);
         crit_tree.setAnimationEnabled(true);
         
+        main.add(intro);
         main.add(crit_tree);
     }
 

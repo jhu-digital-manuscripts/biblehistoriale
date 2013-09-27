@@ -102,5 +102,7 @@ public interface Messages extends Constants {
     public String email();
     
     public String browseByCriteriaDescription();
+    
+    public String loadingCriteria();
 
 }

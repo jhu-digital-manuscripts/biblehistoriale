@@ -8,15 +8,12 @@ import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.user.cellview.client.TreeNode;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.view.client.SelectionChangeEvent;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
-import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -55,7 +52,7 @@ public class BrowseProfilesActivity extends AbstractActivity
 
             @Override
             public void onFailure(Throwable caught) {
-                Window.alert(Messages.INSTANCE.failedToGetCriteria());
+                view.displayByCriteria(null);
             }
 
             @Override
