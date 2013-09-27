@@ -1,0 +1,28 @@
+@CHARSET "ISO-8859-1";
+
+.cellListKeyboardSelectedItem {
+
+}
+
+.cellListOddItem {
+	background: #ECECEC;
+	padding: 2px 6px;
+	cursor: pointer;
+}
+
+.cellListEvenItem {
+	padding: 2px 6px;
+	cursor:pointer;
+}
+
+@sprite .cellListSelectedItem {
+	gwt-image: "cellListSelectedBackground";
+	background-color: #628cd5;
+	color: white;
+	height: auto;
+	overflow: visible;
+}
+
+.cellListWidget {
+	font-size: 14px;
+}

@@ -1,5 +1,6 @@
 package edu.jhu.library.biblehistoriale.website.client.view.impl;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -10,6 +11,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryResult;
+import edu.jhu.library.biblehistoriale.website.client.CellListResources;
 import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseSearchResultsView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.QueryMatchCell;
@@ -25,11 +27,13 @@ public class BrowseSearchResultsViewImpl extends Composite
     private final SingleSelectionModel<QueryMatch> selection_model;
     
     public BrowseSearchResultsViewImpl() {
+        CellListResources cell_res = GWT.create(CellListResources.class);
+        
         this.main = new FlowPanel();
         
         this.failure_message = new HTML(Messages.INSTANCE.noResultsFound());
         
-        this.cell_list = new CellList<QueryMatch> (new QueryMatchCell());
+        this.cell_list = new CellList<QueryMatch> (new QueryMatchCell(), cell_res);
         cell_list.setPageSize(10);
         
         this.selection_model = new SingleSelectionModel<QueryMatch> ();

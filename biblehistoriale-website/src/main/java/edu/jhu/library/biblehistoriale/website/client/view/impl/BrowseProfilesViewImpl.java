@@ -1,5 +1,6 @@
 package edu.jhu.library.biblehistoriale.website.client.view.impl;
 
+import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -8,6 +9,7 @@ import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
+import edu.jhu.library.biblehistoriale.website.client.CellTreeResources;
 import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
 import edu.jhu.library.biblehistoriale.website.client.widgets.CriteriaTreeViewModel;
@@ -36,8 +38,10 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
     
     @Override
     public void displayByCriteria(CriteriaNode node) {
+        CellTreeResources cell_res = GWT.create(CellTreeResources.class);
+        
         this.crit_tree = new CellTree(
-                new CriteriaTreeViewModel(node, selection_model), null);
+                new CriteriaTreeViewModel(node, selection_model), null, cell_res);
         crit_tree.setAnimationEnabled(true);
         
         main.add(crit_tree);

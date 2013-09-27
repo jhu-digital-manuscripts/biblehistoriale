@@ -78,7 +78,8 @@ public class BibleDisplay extends Composite {
         this.bible = bible;
         this.cont = new BibleDisplayContents(doc);
         
-        this.main = new TabLayoutPanel(1.5, Unit.EM);
+        this.main = new TabLayoutPanel(2, Unit.EM);
+        main.setStylePrimaryName("ProfileTabs");
         
         this.profile_panel = new SimplePanel();
         this.content_panel = new SimplePanel();

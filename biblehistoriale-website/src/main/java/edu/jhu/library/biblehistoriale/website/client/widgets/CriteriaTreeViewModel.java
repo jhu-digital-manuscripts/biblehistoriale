@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.view.client.DefaultSelectionEventManager;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SingleSelectionModel;
@@ -47,7 +46,7 @@ public class CriteriaTreeViewModel implements TreeViewModel {
        
         if (value == null) {
            return new DefaultNodeInfo<CriteriaNode> (
-                    catagory_provider, new CriteriaCell()); 
+                    catagory_provider, new CriteriaCell(), selection_model, manager, null); 
         }
         
         if (!(value instanceof CriteriaNode)) {

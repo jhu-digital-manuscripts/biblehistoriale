@@ -64,6 +64,10 @@
 	font-weight: bold;
 }
 
+.Floater {
+	float: left;
+}
+
 .Incipit {
 	width: 47%;
 	float: left;
@@ -103,17 +107,49 @@
 	float: right;
 }
 
-.Criteria .gwt-StackLayoutPanelHeader {
-	font-size: 16px;
-	font-weight: bold;
-	font-decoration: underline;
-}
-
-.Criteria .gwt-StackLayoutPanelContent .BrowserSubheader .gwt-StackLayoutPanelHeader {
-	font-size: 16px;
-	font-decoration: underline;
-}
-
-.BrowserSubsection /* .gwt-StackLayoutPanelContent */ {
+.BrowserSubsection {
 	padding: 24px;
 }
+
+.ProfileTabs {
+	
+}
+
+.ProfileTabs .gwt-TabLayoutPanelTabs {
+	
+}
+
+.ProfileTabs .gwt-TabLayoutPanelTab {
+	background-color: rgb(237, 214, 153);
+	margin: 3px 2px;
+	cursor: pointer;
+	border: 2px solid;
+	border-radius: 3px;
+	font-weight: bold;
+}
+
+.ProfileTabs .gwt-TabLayoutPanelTabInner {
+	padding: 0px 6px;
+}
+
+.ProfileTabs .gwt-TabLayoutPanelTab-selected {
+	background-color: rgb(227, 180, 69);
+	cursor: default;
+}
+
+.ProfileTabs .gwt-TabLayoutPanelContent {
+	padding-top: 5px;
+	padding-left: 5px;
+}
+
+.ProfileTabs .gwt-TabLayoutPanelContentContainer {
+	border: 0px;
+}
+
+
+
+
+
+
+
+

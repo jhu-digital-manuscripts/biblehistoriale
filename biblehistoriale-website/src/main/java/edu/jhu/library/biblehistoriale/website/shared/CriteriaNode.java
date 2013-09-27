@@ -11,8 +11,7 @@ public class CriteriaNode implements Serializable {
     private CriteriaNode[] children;
     
     public CriteriaNode() {
-        this.text = null;
-        this.children = null;
+        this(null);
     }
     
     public CriteriaNode(String text) {
