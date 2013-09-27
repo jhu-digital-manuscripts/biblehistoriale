@@ -349,6 +349,7 @@ public class BibleParser {
         title.setHasTableOfContents(
                 getAttributeValue(node, ProfileElements.TABLEOFCONTENTS).equals("y"));
         title.setTextVersion(getAttributeValue(node, ProfileElements.TEXTVERSION));
+        title.setTranscriptionUrl(getAttributeValue(node, ProfileElements.TRANSCRIPTIONURL));
         
         return title;
     }
@@ -371,6 +372,8 @@ public class BibleParser {
                 other.setText(getElementText(node));
                 other.setAccuracy(getAttributeValue(node, ProfileElements.ACCURACY));
                 other.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
+                other.setTranscriptionUrl(getAttributeValue(
+                        node, ProfileElements.TRANSCRIPTIONURL));
                 
                 others.add(other);
             } else if (name(node).equals(ProfileElements.GUYART)) {
@@ -395,6 +398,8 @@ public class BibleParser {
                 other.setText(getElementText(node));
                 other.setAccuracy(getAttributeValue(node, ProfileElements.ACCURACY));
                 other.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
+                other.setTranscriptionUrl(getAttributeValue(
+                        node, ProfileElements.TRANSCRIPTIONURL));
                 
                 comestors.add(other);
             } else if (name(node).equals(ProfileElements.PREFATORYNOTE)) {
@@ -428,6 +433,7 @@ public class BibleParser {
         
         letter.setIncipits(incipits);
         letter.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
+        letter.setTranscriptionUrl(getAttributeValue(node, ProfileElements.TRANSCRIPTIONURL));
         
         return letter;
     }
@@ -444,6 +450,7 @@ public class BibleParser {
         }
         
         guy.setStartPage(getAttributeValue(node, ProfileElements.STARTPAGE));
+        guy.setTranscriptionUrl(getAttributeValue(node, ProfileElements.TRANSCRIPTIONURL));
         guy.setContainsGuyartName(
                 getAttributeValue(node, ProfileElements.CONTAINSGUYARTNAME)
                 .equals("y"));

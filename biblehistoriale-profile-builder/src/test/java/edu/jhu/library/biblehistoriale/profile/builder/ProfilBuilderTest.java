@@ -328,6 +328,7 @@ public class ProfilBuilderTest {
         assertTrue(other.getText().endsWith("deux manieres"));
         assertEquals(Accuracy.ACTUAL, other.getAccuracy());
         assertEquals("1r", other.getStartPage());
+        assertEquals("", other.getTranscriptionUrl());
         
         assertTrue(mat.getPrefactoryNote()
                 .endsWith("four senses of Scripture."));

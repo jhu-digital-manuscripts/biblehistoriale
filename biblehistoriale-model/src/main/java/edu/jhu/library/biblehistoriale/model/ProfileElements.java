@@ -166,5 +166,6 @@ public class ProfileElements {
     public static final String TEXTUALCONTENTS = "textualContents";
     public static final String BIBLIOGRAPHY = "bibliography";
     public static final String COVERTITLE = "coverTitle";
+    public static final String TRANSCRIPTIONURL = "transcriptionUrl";
     
 }

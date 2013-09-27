@@ -18,6 +18,7 @@ public class Title implements Serializable, Iterable<TitleIncipit> {
     private String endPage;
     private String bookName;
     private String bookNote;
+    private String transcriptionUrl;
     
     private Choice hasChapterNames;
     private boolean hasTableOfContents;
@@ -104,6 +105,14 @@ public class Title implements Serializable, Iterable<TitleIncipit> {
         this.bookNote = bookNote;
     }
     
+    public String getTranscriptionUrl() {
+        return transcriptionUrl;
+    }
+
+    public void setTranscriptionUrl(String transcriptionUrl) {
+        this.transcriptionUrl = transcriptionUrl;
+    }
+
     public Choice hasChapterNames() {
         return hasChapterNames;
     }
