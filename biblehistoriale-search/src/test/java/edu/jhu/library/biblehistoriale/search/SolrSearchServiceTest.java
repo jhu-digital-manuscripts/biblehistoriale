@@ -53,19 +53,23 @@ public class SolrSearchServiceTest {
     public void testIndex() throws Exception {
         final String[] filename = {
                 "profiles/BrusselsKBR9001-2.xml",
-                "profiles/VatBarbLat613.xml"
+                "profiles/VatBarbLat613.xml",
+                "profiles/Rosenwald967.xml"
         };
         
         Document[] docs = { 
                 ProfileBuilder.createDocument(
                         this.getClass().getClassLoader().getResourceAsStream(filename[0])),
                 ProfileBuilder.createDocument(
-                        this.getClass().getClassLoader().getResourceAsStream(filename[1]))
+                        this.getClass().getClassLoader().getResourceAsStream(filename[1])),
+                ProfileBuilder.createDocument(
+                        this.getClass().getClassLoader().getResourceAsStream(filename[2]))
         };
         
         Bible[] profile = {
                 ProfileBuilder.buildProfile(filename[0], docs[0]),
-                ProfileBuilder.buildProfile(filename[1], docs[1])
+                ProfileBuilder.buildProfile(filename[1], docs[1]),
+                ProfileBuilder.buildProfile(filename[2], docs[2])
         };
         
         // Clear index, then add the new profiles
@@ -73,6 +77,7 @@ public class SolrSearchServiceTest {
             service.clear();
             service.index(profile[0]);
             service.index(profile[1]);
+            service.index(profile[2]);
         } catch (SearchServiceException e) {
             fail();
         }
@@ -81,7 +86,7 @@ public class SolrSearchServiceTest {
         Query query = new Query(TermField.TITLE, "La S. Bible");
         QueryResult result = service.executeQuery(query, opts);
         
-        assertEquals(1, result.getTotal());
+        assertEquals(2, result.getTotal());
         System.out.println();
         System.out.println("Testing results highlighting: ");
         System.out.println(result.matches().get(0).getId());
@@ -92,7 +97,7 @@ public class SolrSearchServiceTest {
         query = new Query(TermField.BIBLIOGRAPHY, "sneddon");
         result = service.executeQuery(query, opts);
         
-        assertEquals(2, result.getTotal());
+        assertEquals(3, result.getTotal());
         System.out.println();
         System.out.println(result.matches().get(0).getId());
         System.out.println(result.matches().get(0).getContext());

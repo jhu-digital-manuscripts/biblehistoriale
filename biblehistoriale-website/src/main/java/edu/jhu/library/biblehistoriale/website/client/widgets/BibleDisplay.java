@@ -409,12 +409,17 @@ public class BibleDisplay extends Composite {
         
         sb = new StringBuilder();
         for (QuireStructure qs : bible.getPhysChar().quireStructs()) {
-            sb.append("Volume " + qs.getVolume()
-                    + " has " + qs.quireTotal() + " quires, most of which contain "
-                    + qs.typicalQuires().get(0) + " folios: "
-                    + qs.fullQuireStructs().get(0) + ". ");
             
-            if (qs.quireNotes().size() > 0)
+            if (qs.getVolume() > 0)
+                sb.append("Volume " + qs.getVolume() + " has ");
+            if (qs.quireTotal() != null && qs.quireTotal().size() > 0)
+                sb.append(qs.quireTotal() + " quires. ");
+            if (qs.typicalQuires() != null && qs.typicalQuires().size() > 0)
+                sb.append("Most of which contain " + qs.typicalQuires() + " folios");
+            if (qs.fullQuireStructs() != null && qs.fullQuireStructs().size() > 0)
+                sb.append(": " + qs.fullQuireStructs() + ". ");
+            
+            if (qs.quireNotes() != null && qs.quireNotes().size() > 0)
                 sb.append(qs.quireNotes().get(0) + ". ");
         }
         div.appendChild(textNode(sb.toString()));

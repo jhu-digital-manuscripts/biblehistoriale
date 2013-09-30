@@ -630,18 +630,29 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getOtherPrefacesIlls(other)) {
-                        subdiv.appendChild(BibleDisplay.textNode(
-                                ill.getNumber() + ", Fol. " + ill.getFolio()
-                                + ", " + ill.getKeywords()));
+                        sb = new StringBuilder();
                         
+                        if (ill.getNumber() > 0)
+                            sb.append(ill.getNumber() + ", ");
+                        if (!BibleDisplay.isBlank(ill.getFolio()))
+                            sb.append("Fol. " + ill.getFolio() + ". ");
+                        if (!BibleDisplay.isBlank(ill.getKeywords()))
+                            sb.append(ill.getKeywords());
+                        
+                        subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                         subdiv.appendChild(doc.createBRElement());
                         if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                            Image img = new Image(ill.getUrl());
-                            img.setWidth(THUMB_WIDTH + "px");
+                            // TODO: any way to do thumbnails?
+                            // Would have to either change URLs in profiles
+                            // Or extract <img> element from url response.....
+                            
+                            //Image img = new Image(ill.getUrl());
+                            //img.setWidth(THUMB_WIDTH + "px");
                             
                             AnchorElement anch = doc.createAnchorElement();
                             
-                            anch.setInnerHTML(img.getElement().getString());
+                            //anch.setInnerHTML(img.getElement().getString());
+                            anch.setInnerHTML("[View image]");
                             anch.setHref(ill.getUrl());
                             subdiv.appendChild(anch);
                         }
@@ -708,18 +719,21 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getGuyartIlls(guyart)) {
-                        subdiv.appendChild(BibleDisplay.textNode(
-                                ill.getNumber() + ", Fol. " + ill.getFolio()
-                                + ", " + ill.getKeywords()));
+                        sb = new StringBuilder();
                         
+                        if (ill.getNumber() > 0)
+                            sb.append(ill.getNumber() + ", ");
+                        if (!BibleDisplay.isBlank(ill.getFolio()))
+                            sb.append("Fol. " + ill.getFolio() + ". ");
+                        if (!BibleDisplay.isBlank(ill.getKeywords()))
+                            sb.append(ill.getKeywords());
+                        
+                        subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                         subdiv.appendChild(doc.createBRElement());
                         if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                            Image img = new Image(ill.getUrl());
-                            img.setWidth(THUMB_WIDTH + "px");
-                            
                             AnchorElement anch = doc.createAnchorElement();
                             
-                            anch.setInnerHTML(img.getElement().getString());
+                            anch.setInnerHTML("[View image]");
                             anch.setHref(ill.getUrl());
                             subdiv.appendChild(anch);
                         }
@@ -802,18 +816,21 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getComestorLetterIlls(cs)) {
-                        subdiv.appendChild(BibleDisplay.textNode(
-                                ill.getNumber() + ", Fol. " + ill.getFolio()
-                                + ", " + ill.getKeywords()));
+                        sb = new StringBuilder();
                         
+                        if (ill.getNumber() > 0)
+                            sb.append(ill.getNumber() + ", ");
+                        if (!BibleDisplay.isBlank(ill.getFolio()))
+                            sb.append("Fol. " + ill.getFolio() + ". ");
+                        if (!BibleDisplay.isBlank(ill.getKeywords()))
+                            sb.append(ill.getKeywords());
+                        
+                        subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                         subdiv.appendChild(doc.createBRElement());
                         if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                            Image img = new Image(ill.getUrl());
-                            img.setWidth(THUMB_WIDTH + "px");
-                            
                             AnchorElement anch = doc.createAnchorElement();
                             
-                            anch.setInnerHTML(img.getElement().getString());
+                            anch.setInnerHTML("[View image]");
                             anch.setHref(ill.getUrl());
                             subdiv.appendChild(anch);
                         }
@@ -894,12 +911,9 @@ public class BibleDisplayContents {
                         
                         subdiv.appendChild(doc.createBRElement());
                         if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                            Image img = new Image(ill.getUrl());
-                            img.setWidth(THUMB_WIDTH + "px");
-                            
                             AnchorElement anch = doc.createAnchorElement();
                             
-                            anch.setInnerHTML(img.getElement().getString());
+                            anch.setInnerHTML("[View image]");
                             anch.setHref(ill.getUrl());
                             subdiv.appendChild(anch);
                         }
@@ -1065,17 +1079,21 @@ public class BibleDisplayContents {
                     Element li = doc.createLIElement();
                     ul.appendChild(li);
                     
-                    li.appendChild(BibleDisplay.textNode(ill.getNumber() + ". Fol. " 
-                            + ill.getFolio() + ". " + ill.getKeywords()));
-                    li.appendChild(doc.createBRElement());
+                    sb = new StringBuilder();
+                    
+                    if (ill.getNumber() > 0)
+                        sb.append(ill.getNumber() + ", ");
+                    if (!BibleDisplay.isBlank(ill.getFolio()))
+                        sb.append("Fol. " + ill.getFolio() + ". ");
+                    if (!BibleDisplay.isBlank(ill.getKeywords()))
+                        sb.append(ill.getKeywords());
+                    
+                    li.appendChild(BibleDisplay.textNode(sb.toString() + " "));
                     
                     if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                        Image img = new Image(ill.getUrl());
-                        img.setWidth(THUMB_WIDTH + "px");
-                        
                         AnchorElement anch = doc.createAnchorElement();
                         
-                        anch.setInnerHTML(img.getElement().getString());
+                        anch.setInnerHTML("[View image]");
                         anch.setHref(ill.getUrl());
                         li.appendChild(anch);
                     }

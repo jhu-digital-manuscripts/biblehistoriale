@@ -1,0 +1,2731 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bible xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="BibleSchema10.xsd">
+	<shortName>Rosenwald 967</shortName>
+	<physChar>
+
+		<volumes presentState="2" previousState="2" />
+		<dimensions units="mm" volume="1">
+			<page></page>
+			<textBlock></textBlock>
+		</dimensions>
+		<dimensions units="mm" volume="1">
+			<page></page>
+			<textBlock></textBlock>
+		</dimensions>
+		<folios>
+			<totalFolios>535</totalFolios>
+			<indVolumes n="1">278</indVolumes>
+			<indVolumes n="2">257</indVolumes>
+
+		</folios>
+		<quireStruct volume="1">
+			<quireTotal number="49" />
+			<typicalQuire number="6" />
+			<quireNote>Foliation starts over at 1 Kings (114r becomes 1r, noted
+				hereafter as 1r (bis)) in vol. 1.</quireNote>
+		</quireStruct>
+		<quireStruct volume="2">
+			<quireTotal number="44" />
+			<typicalQuire number="6" />
+			<quireNote>In vol. 2, foliation restarts at the Gospels (1r (bis)
+				instead of 144r). For both volumes, we have excluded the tables of
+				contents from the number of folios, as these are not numbered but
+				given only quire letters.</quireNote>
+		</quireStruct>
+
+		<pageLayout columns="2" runningHeads="y" glossPlace="in-text"
+			chapterNumbers="y" smallLettersHist="n" catchphrases="n" />
+		<rubricNote>Chapter titles and numbers appear in all books. Titles
+			added to all non-Guyart books including psalter.Titles and other
+			rubics set apart typographically using space or paragraph markers. No
+			red ink or underlining.</rubricNote>
+		<pageLayoutNote> Handwritten corrections added, apparently based on
+			comparison wih a diiferent (manuscript?) copy, since the added notes
+			supply missing passages. Probably dting to 16th century..
+		</pageLayoutNote>
+		<glossHeadings>Texte, histoire, glose, incident.</glossHeadings>
+		<materials>
+			<support material="paper" />
+			<binding>
+				<bindMaterial>red morocco</bindMaterial>
+				<bindDate endYear="1518" startYear="1517">Contemporary, around
+					1517.</bindDate>
+			</binding>
+		</materials>
+
+		<physicalNotes></physicalNotes>
+	</physChar>
+	<provenPatronHist>
+		<production>
+			<prodDate startYear="1517" endYear="1517">1517</prodDate>
+			<prodLoc>Paris, France</prodLoc>
+			<contributors>
+				<printer>Anthoine Vérard</printer>
+				<editor>Jean de Rély</editor>
+			</contributors>
+			<productionNote>Info forthcoming</productionNote>
+		</production>
+		<ownership>
+			<owner>
+				<ownerName>Library of Congress</ownerName>
+			</owner>
+		</ownership>
+		<personalization>
+			<colophon volume="2" folio="113v(bis)">A lhonneur et louenge de la
+				benoiste trinite de paradis a este imprimee ceste bible en francois
+				hystoriee Pour Anthoine verard marchant libraire demourant a paris
+				deuant la rue neufue nostre dame a lensiegne sainct iehan
+				leuangeliste Ou au palais au premier pillier deuant la chapelle ou
+				len chante la messe de messeigneurs les presidens.</colophon>
+
+		</personalization>
+		<annotation volume="2" folio="12v" book="Proverbs" type="marked passage">
+			<name>Somebody</name>
+			<date>Early 16th century</date>
+			<textReferenced>Paresce fait donner voulente de dormir et ame
+				dissolue aime fain</textReferenced>
+			<text>Nota</text>
+		</annotation>
+
+
+	</provenPatronHist>
+	<illustrations>
+		<decorationSummary number="186" largeIlls="5"
+			illStyle="unknown" foliateBorder="n" basDePage="n" decoratedInitials="y">
+			<artistWorkshop>Anthoine Vérard</artistWorkshop>
+
+
+		</decorationSummary>
+
+		<illustrationList>
+			<illustration number="1" book="Preface a (Guyart)"
+				volume="1" folio="iv">
+				<keywords>Guyart? reading a manuscript in a library </keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0011r.jpg&amp;topLinks=0011v.jpg,0011u.tif,0011a.tif,0011.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="2" book="Preface a (Guyart)"
+				volume="1" folio="1r">
+				<keywords>A monk reads at his desk; Christ appears in the doorway to
+					the right, showing his hand and side wounds from which blood flow.
+					Handwritten note along the right side reads, “Si spectem siccis
+					oculis tua vulnera Christe / Sum +ce sum [small drawing looking
+					like a heart split into three parts] vis aurior jrse(?) tuis.”
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0028r.jpg&amp;topLinks=0028v.jpg,0028u.tif,0028a.tif,0028.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="3" book="Genesis" volume="1"
+				folio="1v">
+				<keywords>Full page woodcut showing God, styled a king in crown and
+					robes, holding a globis cruciger and flanked by angels, creating
+					Eve from sleeping Adam’s side in an enclosed castle garden.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0029r.jpg&amp;topLinks=0029v.jpg,0029u.tif,0029a.tif,0029.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="4" book="Genesis" volume="1"
+				folio="2r">
+				<keywords>Full page woodcut of original sin. Adam and Eve bear fig
+					leaves, enclosed in a sphere at the base of a tree. Between them
+					stands the Tree of Knowledge around which Satan is coiled, speaking
+					to Eve, who is facing away from Adam and holds an apple. Adam looks
+					toward Eve holding up an apple (from which a bite has been taken).
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0030r.jpg&amp;topLinks=0030v.jpg,0030u.tif,0030a.tif,0030.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="5" book="Genesis" volume="1"
+				folio="2v">
+				<keywords>God, Creation day 1: heaven and earth. He holds clouds in
+					either hand, with a large orb before him.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0031r.jpg&amp;topLinks=0031v.jpg,0031u.tif,0031a.tif,0031.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="6" book="Genesis" volume="1"
+				folio="3r">
+				<keywords>God, Creation day 2: separation of the waters, creation of
+					firmament</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0032r.jpg&amp;topLinks=0032v.jpg,0032u.tif,0032a.tif,0032.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="7" book="Genesis" volume="1"
+				folio="3v">
+				<keywords>God, Creation day 3: plant life and fruit trees</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0033r.jpg&amp;topLinks=0033v.jpg,0033u.tif,0033a.tif,0033.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="8" book="Genesis" volume="1"
+				folio="3v">
+				<keywords>God, Creation day 4: sun, moon, and stars</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0033r.jpg&amp;topLinks=0033v.jpg,0033u.tif,0033a.tif,0033.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="9" book="Genesis" volume="1"
+				folio="4v">
+				<keywords>God, Creation day 5: birds and fish</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0035r.jpg&amp;topLinks=0035v.jpg,0035u.tif,0035a.tif,0035.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="10" book="Genesis" volume="1"
+				folio="4v">
+				<keywords>God, Creation day 6: animals, Adam, and Eve</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0035r.jpg&amp;topLinks=0035v.jpg,0035u.tif,0035a.tif,0035.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="11" book="Genesis" volume="1"
+				folio="5v">
+				<keywords>Father, Son, and Holy Spirit deliberate about the creation
+					of humanity in a cloud in the upper right corner. Below men and
+					women look up praying. In the middle of the group lies a pile of
+					vegetables and fruit. The gloss explains that prior to original
+					sin, humans were meant to rule over animals and eat only plant
+					life. After original sin, humans had to eat animals and use them
+					for clothing and help with work. They are now lords over neither
+					very large (lions) nor very small (mice) animals.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0037r.jpg&amp;topLinks=0037v.jpg,0037u.tif,0037a.tif,0037.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="12" book="Genesis" volume="1"
+				folio="6r">
+				<keywords>Adam and Eve on either side of God, under the stars, prior
+					to the Fall.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0038r.jpg&amp;topLinks=0038v.jpg,0038u.tif,0038a.tif,0038.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="13" book="Genesis" volume="1"
+				folio="7v">
+				<keywords>Adam and Eve escorted out of the gate of Paradise by an
+					angel with a burning sword.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0041r.jpg&amp;topLinks=0041v.jpg,0041u.tif,0041a.tif,0041.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="14" book="Genesis" volume="1"
+				folio="8r">
+				<keywords>Eve breastfeeds near a fireplace with a spindle dangling
+					from her right hand, while Adam plunges a shovel in the ground.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0042r.jpg&amp;topLinks=0042v.jpg,0042u.tif,0042a.tif,0042.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="15" book="Genesis" volume="1"
+				folio="8v">
+				<keywords>Abel and Cain making offerings at the altar in upper left,
+					in the lower right, Cain slays Abel in a field</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0043r.jpg&amp;topLinks=0043v.jpg,0043u.tif,0043a.tif,0043.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="16" book="Genesis" volume="1"
+				folio="9r">
+				<keywords>Generations of Cain. Four women, one pours water in a
+					cistern, one attends the one giving birth, the fourth stands in the
+					background with uncovered head looking on.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0044r.jpg&amp;topLinks=0044v.jpg,0044u.tif,0044a.tif,0044.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="17" book="Genesis" volume="1"
+				folio="10v">
+				<keywords>Noah receives the dove with the olive branch from the top
+					of the ark.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0047r.jpg&amp;topLinks=0047v.jpg,0047u.tif,0047a.tif,0047.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="18" book="Genesis" volume="1"
+				folio="11v">
+				<keywords>Noah disembarks from the ark.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0049r.jpg&amp;topLinks=0049v.jpg,0049u.tif,0049a.tif,0049.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="19" book="Genesis" volume="1"
+				folio="12v">
+				<keywords>Noah offers a clean animal on the altar to God, who looks
+					down with a smile from above.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0051r.jpg&amp;topLinks=0051v.jpg,0051u.tif,0051a.tif,0051.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="20" book="Genesis" volume="1"
+				folio="13r">
+				<keywords>Noah found drunk in the vineyard by his son Cham, brothers
+					Sem and Japeth are in the background.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0052r.jpg&amp;topLinks=0052v.jpg,0052u.tif,0052a.tif,0052.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="21" book="Genesis" volume="1"
+				folio="14r">
+				<keywords>Building the Tower of Babel.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0054r.jpg&amp;topLinks=0054v.jpg,0054u.tif,0054a.tif,0054.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="22" book="Genesis" volume="1"
+				folio="14v">
+				<keywords>Ninus prays in front of the statue he has made to honor
+					his father Belus.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0055r.jpg&amp;topLinks=0055v.jpg,0055u.tif,0055a.tif,0055.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="23" book="Genesis" volume="1"
+				folio="15r">
+				<keywords>Abraham, Sarah, and Lot travel to Canaan.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0056r.jpg&amp;topLinks=0056v.jpg,0056u.tif,0056a.tif,0056.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="24" book="Genesis" volume="1"
+				folio="16r">
+				<keywords>Melchisedech brings forth bread and wine to bless Abraham
+					for his deliverance of Sodom from its enemies.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0058r.jpg&amp;topLinks=0058v.jpg,0058u.tif,0058a.tif,0058.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="25" book="Genesis" volume="1"
+				folio="17r">
+				<keywords>Sara tells Abraham that he has wronged her with Hagar.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0060r.jpg&amp;topLinks=0060v.jpg,0060u.tif,0060a.tif,0060.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="26" book="Genesis" volume="1"
+				folio="17v">
+				<keywords>God gives Abraham his new name, and calls for
+					circumcision. Ishmael stands behind Abraham.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0061r.jpg&amp;topLinks=0061v.jpg,0061u.tif,0061a.tif,0061.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="27" book="Genesis" volume="1"
+				folio="18r">
+				<keywords>Abraham prays on his knees before the three visiting
+					angels outside his house.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0062r.jpg&amp;topLinks=0062v.jpg,0062u.tif,0062a.tif,0062.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="28" book="Genesis" volume="1"
+				folio="18v">
+				<keywords>Lot greets an angel at the gates of Sodom.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0063r.jpg&amp;topLinks=0063v.jpg,0063u.tif,0063a.tif,0063.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="29" book="Genesis" volume="1"
+				folio="19r">
+				<keywords>Destruction of Sodom, Lot’s wife turned into a pillar of
+					salt.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0064r.jpg&amp;topLinks=0064v.jpg,0064u.tif,0064a.tif,0064.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="30" book="Genesis" volume="1"
+				folio="19v">
+				<keywords>Fire and brimstone rain down on Sodom and Gomorrah.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0065r.jpg&amp;topLinks=0065v.jpg,0065u.tif,0065a.tif,0065.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="31" book="Genesis" volume="1"
+				folio="20r">
+				<keywords>Abraham and Sarah before King Abilemech.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0066r.jpg&amp;topLinks=0066v.jpg,0066u.tif,0066a.tif,0066.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="32" book="Genesis" volume="1"
+				folio="20v">
+				<keywords>Sarah and Isaac.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0067r.jpg&amp;topLinks=0067v.jpg,0067u.tif,0067a.tif,0067.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="33" book="Genesis" volume="1"
+				folio="21v">
+				<keywords>Abraham raises a sword to sacrifice Isaac, but an angel
+					stays it.</keywords>
+				<link></link>
+			</illustration>
+
+			<illustration number="34" book="Genesis" volume="1"
+				folio="24r">
+				<keywords>Esau gives Jacob his birthright (here represented by a
+					bow) for a bowl of stew.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0074r.jpg&amp;topLinks=0074v.jpg,0074u.tif,0074a.tif,0074.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="35" book="Genesis" volume="1"
+				folio="25r">
+				<keywords>Jacob tricks Isaac into giving him his blessing.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0076r.jpg&amp;topLinks=0076v.jpg,0076u.tif,0076a.tif,0076.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="36" book="Genesis" volume="1"
+				folio="26r">
+				<keywords>Jacob’s dream of the ladder with angels ascending and
+					descending.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0078r.jpg&amp;topLinks=0078v.jpg,0078u.tif,0078a.tif,0078.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="37" book="Genesis" volume="1"
+				folio="28r">
+				<keywords>Laban catches up to fleeing Jacob and they make a
+					convenant.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0082r.jpg&amp;topLinks=0082v.jpg,0082u.tif,0082a.tif,0082.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="38" book="Genesis" volume="1"
+				folio="29v">
+				<keywords>Jacob wrestles with the angel at the Ford of Jabbok.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0085r.jpg&amp;topLinks=0085v.jpg,0085u.tif,0085a.tif,0085.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="39" book="Genesis" volume="1"
+				folio="31r">
+				<keywords>Joseph is sold by his brothers.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0088r.jpg&amp;topLinks=0088v.jpg,0088u.tif,0088a.tif,0088.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="40" book="Genesis" volume="1"
+				folio="31v">
+				<keywords>Joseph in the cistern.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0089r.jpg&amp;topLinks=0089v.jpg,0089u.tif,0089a.tif,0089.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="41" book="Genesis" volume="1"
+				folio="32r">
+				<keywords>Reuben laments that Joseph is no longer in the cistern.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0090r.jpg&amp;topLinks=0090v.jpg,0090u.tif,0090a.tif,0090.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="42" book="Genesis" volume="1"
+				folio="33r">
+				<keywords>Potiphar’s wife propositions Joseph.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0092r.jpg&amp;topLinks=0092v.jpg,0092u.tif,0092a.tif,0092.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="43" book="Genesis" volume="1"
+				folio="33v">
+				<keywords>The cupbearer’s dream.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0093r.jpg&amp;topLinks=0093v.jpg,0093u.tif,0093a.tif,0093.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="44" book="Genesis" volume="1"
+				folio="33v">
+				<keywords>Pharaoh’s first dream.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0093r.jpg&amp;topLinks=0093v.jpg,0093u.tif,0093a.tif,0093.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="45" book="Genesis" volume="1"
+				folio="35r">
+				<keywords>The brothers return to Egypt with Benjamin.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0096r.jpg&amp;topLinks=0096v.jpg,0096u.tif,0096a.tif,0096.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="46" book="Genesis" volume="1"
+				folio="36r">
+				<keywords>Joseph reveals his identity to his brothers.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0098r.jpg&amp;topLinks=0098v.jpg,0098u.tif,0098a.tif,0098.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="47" book="Genesis" volume="1"
+				folio="38r">
+				<keywords>Jacob blesses Reuben.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0102r.jpg&amp;topLinks=0102v.jpg,0102u.tif,0102a.tif,0102.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="48" book="Exodus" volume="1"
+				folio="40r">
+				<keywords> Beginning of the book of Exodus. Three panels, left to
+					right: the new Egyptian king does not know Joseph; Moses leads the
+					Israelites; the Israelites cross the Red Sea while Pharaoh and his
+					company are drowned.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0106r.jpg&amp;topLinks=0106v.jpg,0106u.tif,0106a.tif,0106.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="49" book="Exodus" volume="1"
+				folio="41r">
+				<keywords>Discovery of baby Moses on the banks of the Nile.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0108r.jpg&amp;topLinks=0108v.jpg,0108u.tif,0108a.tif,0108.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="50" book="Exodus" volume="1"
+				folio="41v">
+				<keywords>After young Moses breaks Pharaoh’s crown, a priest proves
+					the boy’s innocence by offering him a plate of burning coals; he
+					puts one in his mouth and burns his tongue.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0109r.jpg&amp;topLinks=0109v.jpg,0109u.tif,0109a.tif,0109.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="51" book="Exodus" volume="1"
+				folio="42r">
+				<keywords>Moses sees God in the burning bush.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0110r.jpg&amp;topLinks=0110v.jpg,0110u.tif,0110a.tif,0110.tif&amp;displayProfile=0
+				</link>
+				<illustrationNote>A horned Moses. He is horned in all further
+					illustrations in the book.</illustrationNote>
+			</illustration>
+
+			<illustration number="52" book="Exodus" volume="1"
+				folio="44r">
+				<keywords>Moses speaks to Pharaoh and warns him of plagues.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0114r.jpg&amp;topLinks=0114v.jpg,0114u.tif,0114a.tif,0114.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="53" book="Exodus" volume="1"
+				folio="44v">
+				<keywords>God speaks to Moses about the plague of frogs.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0115r.jpg&amp;topLinks=0115v.jpg,0115u.tif,0115a.tif,0115.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="54" book="Exodus" volume="1"
+				folio="46v">
+				<keywords>The children of Israel prepare to sacrifice a lamb,
+					according to God’s instructions for Passover.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0119r.jpg&amp;topLinks=0119v.jpg,0119u.tif,0119a.tif,0119.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="55" book="Exodus" volume="1"
+				folio="47v">
+				<keywords>Pharaoh’s army is drowned in the Red Sea while the sky
+					storms above and a pillar burns; the Israelites look on from the
+					wooded bank where they are encamped.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0121r.jpg&amp;topLinks=0121v.jpg,0121u.tif,0121a.tif,0121.tif&amp;displayProfile=0
+				</link>
+				<illustrationNote>Large woodcut.</illustrationNote>
+			</illustration>
+
+			<illustration number="56" book="Exodus" volume="1"
+				folio="50r">
+				<keywords>Manna rains down from heaven, while the Israelites gather
+					it in baskets.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0126r.jpg&amp;topLinks=0126v.jpg,0126u.tif,0126a.tif,0126.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="57" book="Exodus" volume="1"
+				folio="50v">
+				<keywords>Moses strikes a rock with his staff and a river flows from
+					it; the Israelites look on behind him.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0127r.jpg&amp;topLinks=0127v.jpg,0127u.tif,0127a.tif,0127.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="58" book="Exodus" volume="1"
+				folio="60r">
+				<keywords>God gives Moses the tablets, above, while below, the
+					Israelites gather to request Aaron to make them a god.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0146r.jpg&amp;topLinks=0146v.jpg,0146u.tif,0146a.tif,0146.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="59" book="Exodus" volume="1"
+				folio="60r">
+				<keywords>Above, God tells Moses that the people are sinning; below,
+					Moses tells the Israelites that they have sinned, pointing to the
+					golden calf, the broken tablets at his feet.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0146r.jpg&amp;topLinks=0146v.jpg,0146u.tif,0146a.tif,0146.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="60" book="Leviticus" volume="1"
+				folio="63r">
+				<keywords>Large three paneled woodcut to introduce Book of
+					Leviticus. From left to right: God speaks to Moses and holds his
+					hands; a woman brings her son before the priest for circumcision;
+					Moses anoints Aaron with oil.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0152r.jpg&amp;topLinks=0152v.jpg,0152u.tif,0152a.tif,0152.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="61" book="Numbers" volume="1"
+				folio="70r">
+				<keywords>Large three paneled woodcut to introduce Book of Numbers.
+					From left to right: An older man counts a younger man for the
+					census; the sons of Aaron act as priests in the tabernacle;
+					Israelites arrive on the plains of Moab ready to fight, as Moses
+					explains prescriptions for the observance of feasts.</keywords>
+				<illustrationNote>Right woodcut is a repeat of illustration 24,
+					Melchisedech thanking Abraham.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0166r.jpg&amp;topLinks=0166v.jpg,0166u.tif,0166a.tif,0166.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="62" book="Numbers" volume="1"
+				folio="71r">
+				<keywords> Image of God’s instructions to Moses and Aaron concerning
+					the way in which the tribes of Israel are to camp around the
+					tabernacle.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0168r.jpg&amp;topLinks=0168v.jpg,0168u.tif,0168a.tif,0168.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="63" book="Numbers" volume="1"
+				folio="76r">
+				<keywords>Aaron and Mary beseech Moses to pray to God to heal Mary’s
+					leprosy.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0178r.jpg&amp;topLinks=0178v.jpg,0178u.tif,0178a.tif,0178.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="64" book="Numbers" volume="1"
+				folio="76v">
+				<keywords>The spies (Caleb and Joshua?) sent to Canaan by Moses
+					bring back a cluster of grapes.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0179r.jpg&amp;topLinks=0179v.jpg,0179u.tif,0179a.tif,0179.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="65" book="Numbers" volume="1"
+				folio="77r">
+				<keywords> One of the spies shows the Israelites fruits taken from
+					Canaan.
+				</keywords>
+				<illustrationNote> Illustration appears to head a new chapter (14),
+					but in fact pertains to the end of chapter 13—a marginal note
+					indicates where chapter 14 actually begins.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0180r.jpg&amp;topLinks=0180v.jpg,0180u.tif,0180a.tif,0180.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="66" book="Numbers" volume="1"
+				folio="78v">
+				<keywords>Aaron’s rod sprouts overnight, bearing flowers and ripe
+					almonds.
+				</keywords>
+				<illustrationNote> There is a dove (?) on the top of the flowering
+					rod.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0183r.jpg&amp;topLinks=0183v.jpg,0183u.tif,0183a.tif,0183.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="67" book="Numbers" volume="1"
+				folio="80r">
+				<keywords>The murmuring Israelites are plagued by fiery serpents,
+					below; above, Moses erects the brazen serpent by which God will
+					heal them.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0186r.jpg&amp;topLinks=0186v.jpg,0186u.tif,0186a.tif,0186.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="68" book="Numbers" volume="1"
+				folio="81r">
+				<keywords>An angel of the Lord, sword drawn, stands in the way of
+					Balaam, whose ass is turning away.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0188r.jpg&amp;topLinks=0188v.jpg,0188u.tif,0188a.tif,0188.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="69" book="Numbers" volume="1"
+				folio="82v">
+				<keywords>Moses instructs the Israelites, per God’s command, to kill
+					anyone who fornicates with Madian women; upper right, a man has
+					stabbed an Israelite and a Madian woman in the act of sex.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0191r.jpg&amp;topLinks=0191v.jpg,0191u.tif,0191a.tif,0191.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="70" book="Deuteronomy" volume="1"
+				folio="86v">
+				<keywords>Beginning of the book of Deuteronomy. Two panels, left to
+					right: Moses sitting on a chair preaches to the Israelites; in a
+					16th century church, a priest reads from a Bible to congregation
+					sitting in pews.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0199r.jpg&amp;topLinks=0199v.jpg,0199u.tif,0199a.tif,0199.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="71" book="Joshua" volume="1"
+				folio="98v">
+				<keywords>Beginning of the book of Joshua. Three panels, left to
+					right: God commissions Joshua to lead the Israelites; the
+					destruction of Canaan; Joshua’s farewell.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0223r.jpg&amp;topLinks=0223v.jpg,0223u.tif,0223a.tif,0223.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="72" book="Joshua" volume="1"
+				folio="100v">
+				<keywords>The stoning of Achan for his theft.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0227r.jpg&amp;topLinks=0227v.jpg,0227u.tif,0227a.tif,0227.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="73" book="Judges" volume="1"
+				folio="104v">
+				<keywords>Beginning of the book of Judges. Three panels, left to
+					right: Deborah and Jael(?); Samson escapes the Philistines in Gaza
+					by tearing off the doors of the city gates and carrying them away;
+					destruction of the tribe of Benjamin.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0235r.jpg&amp;topLinks=0235v.jpg,0235u.tif,0235a.tif,0235.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="74" book="Judges" volume="1"
+				folio="105v">
+				<keywords>Ehud murders Egon, the King of Moab, with a sword.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0237r.jpg&amp;topLinks=0237v.jpg,0237u.tif,0237a.tif,0237.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="75" book="Judges" volume="1"
+				folio="106v">
+				<keywords>God visits Gideon and promises him success against the
+					Midianites.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0239r.jpg&amp;topLinks=0239v.jpg,0239u.tif,0239a.tif,0239.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="76" book="Judges" volume="1"
+				folio="108r">
+				<keywords>Abimelek has his armor-bearer stab him after a woman in a
+					tower drops a millstone on his head.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0242r.jpg&amp;topLinks=0242v.jpg,0242u.tif,0242a.tif,0242.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="77" book="Judges" volume="1"
+				folio="109r">
+				<keywords>Jephthah honors his vow to sacrifice the first thing he
+					sees when he returns successful from battle—his daughter.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0244r.jpg&amp;topLinks=0244v.jpg,0244u.tif,0244a.tif,0244.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="78" book="Judges" volume="1"
+				folio="109v">
+				<keywords> “Samson the strong.” He runs over top a pile of defeated
+					enemies.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0245r.jpg&amp;topLinks=0245v.jpg,0245u.tif,0245a.tif,0245.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="79" book="Judges" volume="1"
+				folio="110r">
+				<keywords>Samson kills a lion with his bare hands.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0246r.jpg&amp;topLinks=0246v.jpg,0246u.tif,0246a.tif,0246.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="80" book="Judges" volume="1"
+				folio="111r">
+				<keywords>Samson strikes down a thousand Philistines with the
+					jawbone of a donkey.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0248r.jpg&amp;topLinks=0248v.jpg,0248u.tif,0248a.tif,0248.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="81" book="Judges" volume="1"
+				folio="111r">
+				<keywords>Samson escapes the Philistines in Gaza by tearing off the
+					doors of the city gates and carrying them away.</keywords>
+				<illustrationNote>Repeat of second woodcut in three-paneled
+					illustration introducing the book of Judges.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0248r.jpg&amp;topLinks=0248v.jpg,0248u.tif,0248a.tif,0248.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="82" book="Judges" volume="1"
+				folio="112v">
+				<keywords>The Levite man and his concubine at her parents’ house.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0251r.jpg&amp;topLinks=0251v.jpg,0251u.tif,0251a.tif,0251.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="83" book="1 Kings (1 Samuel)"
+				volume="1" folio="1r">
+				<keywords>Beginning of the book of 1 Samuel. Three panels, left to
+					right: Samuel gathers the Israelites to denounce false gods; David
+					carries Goliath’s head before a group of onlookers playing
+					instruments; Jonathan warns David about Saul’s plan to kill him.
+				</keywords>
+				<illustrationNote>Left panel a repeat of illustration 71.
+				</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0256r.jpg&amp;topLinks=0256v.jpg,0256u.tif,0256a.tif,0256.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="84" book="1 Kings (1 Samuel)"
+				volume="1" folio="1v">
+				<keywords>Hannah dedicates Samuel to the priesthood.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0257r.jpg&amp;topLinks=0257v.jpg,0257u.tif,0257a.tif,0257.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="85" book="1 Kings (1 Samuel)"
+				volume="1" folio="3v">
+				<keywords>The Philistines capture the ark.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0261r.jpg&amp;topLinks=0261v.jpg,0261u.tif,0261a.tif,0261.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="86" book="1 Kings (1 Samuel)"
+				volume="1" folio="8r">
+				<keywords>David prepares to slay Goliath with a sword.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0270r.jpg&amp;topLinks=0270v.jpg,0270u.tif,0270a.tif,0270.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="87" book="1 Kings (1 Samuel)"
+				volume="1" folio="9r">
+				<keywords>Saul raises his spear against David.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0272r.jpg&amp;topLinks=0272v.jpg,0272u.tif,0272a.tif,0272.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="88" book="1 Kings (1 Samuel)"
+				volume="1" folio="9v">
+				<keywords>Michal helps David escape from Saul by lowering him out
+					her window.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0273r.jpg&amp;topLinks=0273v.jpg,0273u.tif,0273a.tif,0273.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="89" book="1 Kings (1 Samuel)"
+				volume="1" folio="10v">
+				<keywords>Saul orders his guards to kill the priests who have sided
+					with David.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0275r.jpg&amp;topLinks=0275v.jpg,0275u.tif,0275a.tif,0275.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="90" book="2 Kings (2 Samuel)"
+				volume="1" folio="13v">
+				<keywords>God tells David to go up to Hebron.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0281r.jpg&amp;topLinks=0281v.jpg,0281u.tif,0281a.tif,0281.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="91" book="2 Kings (2 Samuel)"
+				volume="1" folio="14r">
+				<keywords>The warring houses of Saul and David face one another.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0282r.jpg&amp;topLinks=0282v.jpg,0282u.tif,0282a.tif,0282.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="92" book="2 Kings (2 Samuel)"
+				volume="1" folio="15r">
+				<keywords>Joab murders Abner.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0284r.jpg&amp;topLinks=0284v.jpg,0284u.tif,0284a.tif,0284.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="93" book="2 Kings (2 Samuel)"
+				volume="1" folio="18v">
+				<keywords>Top: Nathan rebukes David. Bottom: David fasts and prays
+					for God to save his child.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0291r.jpg&amp;topLinks=0291v.jpg,0291u.tif,0291a.tif,0291.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="94" book="3 Kings (1Kings)"
+				volume="1" folio="24v">
+				<keywords>Adonias worships Solomon as the rightful king.</keywords>
+				<illustrationNote>Repeat of illustration 48 (the new Egyptian king
+					doesn’t recognize Joseph).</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0303r.jpg&amp;topLinks=0303v.jpg,0303u.tif,0303a.tif,0303.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="95" book="3 Kings (1Kings)"
+				volume="1" folio="27r">
+				<keywords>Solomon determines the real mother of a baby by proposing
+					the two women split him in half.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0308r.jpg&amp;topLinks=0308v.jpg,0308u.tif,0308a.tif,0308.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="96" book="3 Kings (1Kings)"
+				volume="1" folio="33v">
+				<keywords>The Queen of Sheba visits Solomon to test his knowledge.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0321r.jpg&amp;topLinks=0321v.jpg,0321u.tif,0321a.tif,0321.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="97" book="3 Kings (1Kings)"
+				volume="1" folio="37v">
+				<keywords>Elias prays to God to bring the widow’s son back from the
+					dead.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0329r.jpg&amp;topLinks=0329v.jpg,0329u.tif,0329a.tif,0329.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="98" book="3 Kings (1Kings)"
+				volume="1" folio="38r">
+				<keywords>Elias successfully prays for the fire to be lit under the
+					altar to prove God’s might to worshippers of Baal.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0330r.jpg&amp;topLinks=0330v.jpg,0330u.tif,0330a.tif,0330.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="99" book="3 Kings (1Kings)"
+				volume="1" folio="40v">
+				<keywords>Josaphat and Achab discuss whether or not to go to battle.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0335r.jpg&amp;topLinks=0335v.jpg,0335u.tif,0335a.tif,0335.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="100" book="4 Kings (2 Kings)"
+				volume="1" folio="41v">
+				<keywords>A fiery chariot takes Elias to heaven in whirlwind as
+					Eliseus kneels praying.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0337r.jpg&amp;topLinks=0337v.jpg,0337u.tif,0337a.tif,0337.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="101" book="4 Kings (2 Kings)"
+				volume="1" folio="43r">
+				<keywords>Eliseus raises a child from the dead.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0340r.jpg&amp;topLinks=0340v.jpg,0340u.tif,0340a.tif,0340.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="102" book="4 Kings (2 Kings)"
+				volume="1" folio="47r">
+				<keywords>The coronation of Joas.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0348r.jpg&amp;topLinks=0348v.jpg,0348u.tif,0348a.tif,0348.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="103" book="4 Kings (2 Kings)"
+				volume="1" folio="57r">
+				<keywords>The King of Babylon lifts King Joachin of Juda out of
+					prison.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0368r.jpg&amp;topLinks=0368v.jpg,0368u.tif,0368a.tif,0368.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="104" book="1 Paralipomenon (I Chronicles)"
+				volume="1" folio="58v">
+				<keywords>Large three paneled woodcut to introduce Book of
+					Paralipomenon/1Chronicles. From left to right: All of Israel is
+					numbered in the book of kings; David and his champions; David
+					anoints Solomon.</keywords>
+				<illustrationNote>Second woodcut is a repeat of 46 (Joseph reveals
+					himself), third woodcut is a repeat of 60 (Moses anoints Aaron).
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0371r.jpg&amp;topLinks=0371v.jpg,0371u.tif,0371a.tif,0371.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="105" book="1 Esdras (Ezra)"
+				volume="1" folio="83r">
+				<keywords> Large three paneled woodcut to introduce Book of 1
+					Esdras. From left to right: Led by high priest Jeshua, the captive
+					Israelites return to Jerusalem; Darius is informed that the
+					Israelites are rebuilding the temple; Ezra is informed that some
+					Jews in Jerusalem have taken non-Jewish wives.</keywords>
+				<illustrationNote>Third woodcut is a repeat of 83, right panel
+					introducing the book of 1 Kings (Samuel), Jonathan warning David
+					about Saul.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0420r.jpg&amp;topLinks=0420v.jpg,0420u.tif,0420a.tif,0420.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="106" book="2 Esdras (Nehemiah)"
+				volume="1" folio="87r">
+				<keywords>Nehemiah before Artaxerxes.</keywords>
+				<illustrationNote>Repeat of left woodcut in illustration 48
+					introducing the Book of Exodus, and illustration 94, Adonias
+					worshipping Solomon as true king.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0428r.jpg&amp;topLinks=0428v.jpg,0428u.tif,0428a.tif,0428.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="107" book="3 Esdras (Nehemiah)"
+				volume="1" folio="92r">
+				<keywords>Ezra expounds the law of Moses to the people.</keywords>
+				<illustrationNote>Repeat of illustration 46, Joseph revealing his
+					identity, and 104, David and his champions, center woodcut
+					introducing the Book of Paralipomenon (1 Chronicles).
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0438r.jpg&amp;topLinks=0438v.jpg,0438u.tif,0438a.tif,0438.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="108" book="Job" volume="1" folio="98r">
+				<keywords>Two-panel woodcut introducing the Book of Job. Left: Job
+					and his household feasting together. Right: A devil attacks Job
+					from behind while his wife stands before him explaining why he is
+					suffering.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0450r.jpg&amp;topLinks=0450v.jpg,0450u.tif,0450a.tif,0450.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="109" book="Tobias (Tobit)" volume="1"
+				folio="108v">
+				<keywords>Tobias and his kin travel to Ninevah.</keywords>
+				<illustrationNote>Repeat of illustration 23, Abraham and Sarah
+					traveling to Canaan.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0471r.jpg&amp;topLinks=0471v.jpg,0471u.tif,0471a.tif,0471.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="110"
+				book="Jeremiah, Ezekiel, Daniel and Susanne" volume="1" folio="112v">
+				<keywords>Nebuchadnezzar makes Godolias governor over the
+					Israelites.</keywords>
+				<illustrationNote>Repeat of illustrations 71, God commissioning
+					Joshua to lead the Israelites, and 83, Samuel gathering the
+					Israelites to renounce false gods.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0479r.jpg&amp;topLinks=0479v.jpg,0479u.tif,0479a.tif,0479.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="111"
+				book="Jeremiah, Ezekiel, Daniel and Susanne" volume="1" folio="114v">
+				<keywords>Daniel and his wise companions in the palace of the king.
+				</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0483r.jpg&amp;topLinks=0483v.jpg,0483u.tif,0483a.tif,0483.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="112"
+				book="Jeremiah, Ezekiel, Daniel and Susanne" volume="1" folio="117r">
+				<keywords>Daniel is shut up in the lion’s den.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0488r.jpg&amp;topLinks=0488v.jpg,0488u.tif,0488a.tif,0488.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="113"
+				book="Jeremiah, Ezekiel, Daniel and Susanne " volume="1" folio="120v">
+				<keywords>Daniel exposes Bel for a fraud and defeats the dragon with
+					balls of hair and fat.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0495r.jpg&amp;topLinks=0495v.jpg,0495u.tif,0495a.tif,0495.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="114" book="Judith" volume="1"
+				folio="123r">
+				<keywords>Beginning of the Book of Judith. One large woodcut with
+					two separate scenes. Left: Holofernes and his army attacks a city.
+					Right: Judith holds the severed head of Holofernes from a rampart.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0500r.jpg&amp;topLinks=0500v.jpg,0500u.tif,0500a.tif,0500.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="115"
+				book="Jeremiah, Ezekiel, Daniel and Susanne" volume="1" folio="124v">
+				<keywords>Achior is held captive by the Israelites.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0503r.jpg&amp;topLinks=0503v.jpg,0503u.tif,0503a.tif,0503.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="116" book="Esther" volume="1"
+				folio="130v">
+				<keywords>Beginning of the Book of Esther. King Assuerus makes
+					Esther his queen; the King and Esther embrace.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0515r.jpg&amp;topLinks=0515v.jpg,0515u.tif,0515a.tif,0515.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="117" book="Psalms" volume="1"
+				folio="138r">
+				<keywords>Large single woodcut, ¾ of the page, introducing the Book
+					of Psalms. Left, King David is crowned. Right, David sits at a desk
+					where he has been writing, and inspects his quill.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0530r.jpg&amp;topLinks=0530v.jpg,0530u.tif,0530a.tif,0530.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="118" book="Psalms" volume="1"
+				folio="165v">
+				<keywords>End of Book One. Repeat of dedication stamp at the
+					beginning. Text surrounding an image of gryffons holding an
+					inscribed heart, angels holding a coat of arms and crown: “Pour
+					provocoverta grant misericorde de tovs pechevrs faire grace et
+					pardon anthoine verad humblement te recorde ce quil ail tient de
+					toi pardon.”</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967a&amp;topImages=0585r.jpg&amp;topLinks=0585v.jpg,0585u.tif,0585a.tif,0585.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="119" book="Prologue" volume="2"
+				folio="5v">
+				<keywords>Guyart (?) or a scribe writing at a desk.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0027r.jpg&amp;topLinks=0027v.jpg,0027u.tif,0027a.tif,0027.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="120" book="Proverbs" volume="2"
+				folio="6r">
+				<keywords>Large single woodcut, ¾ of the page, introducing the Book
+					of Proverbs. Left, King Solomon is crowned. Right, Solomon sits at
+					a desk where he has been writing, and inspects his quill.
+				</keywords>
+				<illustrationNote>Repeat of illustration 117, beginning of Psalms.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0028r.jpg&amp;topLinks=0028v.jpg,0028u.tif,0028a.tif,0028.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="121" book="Ecclesiastes" volume="2"
+				folio="11v">
+				<keywords>Large single woodcut, ¾ of the page, introducing the Book
+					of Ecclesiastes. Various images. Left: a king (Solomon?) speaks to
+					a young man. Center: a man (Solomon?) reclines on a bed; young
+					knights stand petitioning before him. Upper right: a young woman
+					and a young man stand talking on a balcony. </keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0049r.jpg&amp;topLinks=0049v.jpg,0049u.tif,0049a.tif,0049.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="122" book="Song of Solomon"
+				volume="2" folio="15r">
+				<keywords>Three-panel woodcut introducing the Song of Solomon. Left
+					to right: A king and a queen sit together on their thrones; A king
+					places a crown on a kneeling woman’s head; top: a king and a queen
+					stand together, bottom: a man and woman embrace.</keywords>
+				<illustrationNote>Right woodcut is a repeat of illustration 116,
+					introduction to the Book of Esther.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0056r.jpg&amp;topLinks=0056v.jpg,0056u.tif,0056a.tif,0056.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="119" book="Wisdom" volume="2"
+				folio="16v">
+				<keywords>Three-panel woodcut introducing the Book of Wisdom. Left
+					to right: A king stands behind a man preparing to behead another
+					man; a group of men and women surround a child; a kneeling man
+					petitions a king.</keywords>
+				<illustrationNote>Left panel repeat of illustration 73, destruction
+					of the tribe of Benjamin; center, cf. 45, right, cf. illustrations
+					48, 94, 106.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0059r.jpg&amp;topLinks=0059v.jpg,0059u.tif,0059a.tif,0059.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="120" book="Wisdom" volume="2"
+				folio="19r">
+				<keywords>Solomon prays to God for wisdom.</keywords>
+				<illustrationNote>Repeat of illustration 60, left woodcut, Moses and
+					God.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0064r.jpg&amp;topLinks=0064v.jpg,0064u.tif,0064a.tif,0064.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="121" book="Ecclesiasticus" volume="2"
+				folio="22v">
+				<keywords>Three-panel woodcut introducing Ecclesiasticus. Left to
+					right: A kneeling man presents an accounting sheet to a king;
+					center, two men speak to one another; right, a group of men and
+					women surround a child; a young man is presented a king by his
+					father.</keywords>
+				<illustrationNote>Left panel, cf. left panel of 104; center, cf.
+					illustrations 83, right panel of 105; right, cf. left panel from
+					105.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0071r.jpg&amp;topLinks=0071v.jpg,0071u.tif,0071a.tif,0071.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="122" book="Ecclesiasticus" volume="2"
+				folio="34v">
+				<keywords>Repeat of illustration 85, the Philistines stealing the
+					ark.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0092r.jpg&amp;topLinks=0092v.jpg,0092u.tif,0092a.tif,0092.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="123" book="Ecclesiasticus" volume="2"
+				folio="33r">
+				<keywords>Priest preaching to a congregation.</keywords>
+				<illustrationNote>Repeat of right panel introducing Deuteronomy,
+					illustration 70.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0095r.jpg&amp;topLinks=0095v.jpg,0095u.tif,0095a.tif,0095.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="124" book="Isaiah" volume="2"
+				folio="38v">
+				<keywords>Large, ½ page woodcut introducing the Book of Isaiah.
+					Isaiah holds the spheres and elements in one large circle. He wears
+					a an astronomer’s(?) hat, and a blank banner floats above his head.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0103r.jpg&amp;topLinks=0103v.jpg,0103u.tif,0103a.tif,0103.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="125" book="Isaiah" volume="2"
+				folio="40r">
+				<keywords>Isaiah fortelling the stubbornness of the Jews (?)
+				</keywords>
+				<illustrationNote>Cf. illustrations 83, 105, 121.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0106r.jpg&amp;topLinks=0106v.jpg,0106u.tif,0106a.tif,0106.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="126" book="Isaiah" volume="2"
+				folio="44r">
+				<keywords>Captivity of the Egyptians (?)</keywords>
+				<illustrationNote>Cf. illustration 88, Michal lowering David out her
+					window to help him escape.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0114r.jpg&amp;topLinks=0114v.jpg,0114u.tif,0114a.tif,0114.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="127" book="Isaiah" volume="2"
+				folio="46r">
+				<keywords>A priest preaches to a group of people; a young girl prays
+					before the pulpit. “The Lord’s favor to his church.”</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0118r.jpg&amp;topLinks=0118v.jpg,0118u.tif,0118a.tif,0118.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="128" book="Isaiah" volume="2"
+				folio="47v">
+				<keywords>Christ (?) surrounded by witnesses. “How the Lord promises
+					mercy to those who return to him.”</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0121r.jpg&amp;topLinks=0121v.jpg,0121u.tif,0121a.tif,0121.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="129" book="Isaiah" volume="2"
+				folio="48r">
+				<keywords>The scribes.</keywords>
+				<illustrationNote>Cf. illustration 111, Daniel and his companions in
+					the palace of the King of Babylon.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0122r.jpg&amp;topLinks=0122v.jpg,0122u.tif,0122a.tif,0122.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="130" book="Isaiah" volume="2"
+				folio="50r">
+				<keywords>Merodach sends messengers to Ezekiel.</keywords>
+				<illustrationNote>Cf. illustrations 104, 121.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0126r.jpg&amp;topLinks=0126v.jpg,0126u.tif,0126a.tif,0126.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="131" book="Isaiah" volume="2"
+				folio="57v">
+				<keywords>A woman giving birth, attended by midwives; the birth of
+					the Virgin.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0141r.jpg&amp;topLinks=0141v.jpg,0141u.tif,0141a.tif,0141.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="132" book="Jeremiah" volume="2"
+				folio="58r">
+				<keywords>Three panel introduction to the Book of Jeremiah. Left
+					panel, Benjamin prophesying, center panel, Benjamin talks to God,
+					right panel, Benjamin talks to the king.</keywords>
+				<illustrationNote>Left panel, cf. illustrations 46, 104, 107; center
+					panel, cf. 60, 120.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0142r.jpg&amp;topLinks=0142v.jpg,0142u.tif,0142a.tif,0142.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="133" book="Jeremiah " volume="2"
+				folio="61v">
+				<keywords>Benjamin cries for his people.</keywords>
+				<illustrationNote>Cf. illustration 41, Reuben at the empty cistern.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0149r.jpg&amp;topLinks=0149v.jpg,0149u.tif,0149a.tif,0149.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="134" book="Jeremiah " volume="2"
+				folio="63v">
+				<keywords>Benjamin prophesies to a seated group.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0153r.jpg&amp;topLinks=0153v.jpg,0153u.tif,0153a.tif,0153.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="135" book="Jeremiah" volume="2"
+				folio="67v">
+				<keywords>The priests raise their swords to kills Jeremiah, but he
+					is protected by King Joakim (in the background).</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0160r.jpg&amp;topLinks=0160v.jpg,0160u.tif,0160a.tif,0160.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="136" book="Jeremiah" volume="2"
+				folio="69v">
+				<keywords>Jeremiah holding a bill of sale, imprisoned at the house
+					of Sedecias.</keywords>
+				<illustrationNote>Cf. illustration 103, Joachim lifted out of
+					prison.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0165r.jpg&amp;topLinks=0165v.jpg,0165u.tif,0165a.tif,0165.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="137" book="Jeremiah" volume="2"
+				folio="73v">
+				<keywords>Ishmahel and the nobles slay Godolias.</keywords>
+				<illustrationNote>Cf. illustrations 73 and 119.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0173r.jpg&amp;topLinks=0173v.jpg,0173u.tif,0173a.tif,0173.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="138" book="Jeremiah" volume="2"
+				folio="78v">
+				<keywords>Destruction of Jerusalem. A weeping fugitive flees across
+					a rampart.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0183r.jpg&amp;topLinks=0183v.jpg,0183u.tif,0183a.tif,0183.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="139" book="Baruch" volume="2"
+				folio="80r">
+				<keywords>Three panel introduction to the Book of Baruch.</keywords>
+				<illustrationNote>Left panel, cf. illustrations 46, 104, 107, 132;
+					center panel, cf. 104, 121, 130; right panel, cf. 60, 104.
+				</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0186r.jpg&amp;topLinks=0186v.jpg,0186u.tif,0186a.tif,0186.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="140" book="Baruch" volume="2"
+				folio="82r">
+				<keywords>Jeremiah’s letter to the captives.</keywords>
+				<illustrationNote>Cf. illustrations 103, 136.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0190r.jpg&amp;topLinks=0190v.jpg,0190u.tif,0190a.tif,0190.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="141" book="Ezekiel" volume="2"
+				folio="83r">
+				<keywords>The panel introduction to the Book of Ezekiel. Left, the
+					commission of the army; center, Ezekiel speaks to the king; right,
+					prophesy of Christ.</keywords>
+				<illustrationNote>Left panel, cf. 71, 83, 110; center, 132; right,
+					45, 119.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0192r.jpg&amp;topLinks=0192v.jpg,0192u.tif,0192a.tif,0192.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="142" book="Ezekiel" volume="2"
+				folio="85v">
+				<keywords>All without a mark on their forehead will be destroyed.
+				</keywords>
+				<illustrationNote>Cf. illustrations 105, 121.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0197r.jpg&amp;topLinks=0197v.jpg,0197u.tif,0197a.tif,0197.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="143" book="Ezekiel" volume="2"
+				folio="87v">
+				<keywords>God will remember his covenant with Israel (Christ?).
+				</keywords>
+				<illustrationNote>Cf. illustrations 45, 119, 141.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0201r.jpg&amp;topLinks=0201v.jpg,0201u.tif,0201a.tif,0201.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="144" book="Ezekiel" volume="2"
+				folio="91v">
+				<keywords>Ezekiel prophesies against the nations.</keywords>
+				<illustrationNote>Looks like Christ with disciples.
+				</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0209r.jpg&amp;topLinks=0209v.jpg,0209u.tif,0209a.tif,0209.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="145" book="Ezekiel" volume="2"
+				folio="95v">
+				<keywords>A knight charges into battle. “How our Lord revenged the
+					children of Israel against their enemies.”</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0217r.jpg&amp;topLinks=0217v.jpg,0217u.tif,0217a.tif,0217.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="146" book="Daniel" volume="2"
+				folio="100v">
+				<keywords>Three panel introduction to the Book of Daniel. Left,
+					Nebuchadnezzar sieges Jerusalem; center, Daniel interprets the
+					King’s dreams; right, Shadrach, Meshach, and Abednego in the fiery
+					furnace.</keywords>
+				<illustrationNote>Left, cf. 73, 119, 137; center, cf. 104, 121, 130,
+					139.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0227r.jpg&amp;topLinks=0227v.jpg,0227u.tif,0227a.tif,0227.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="147" book="Daniel" volume="2"
+				folio="104v">
+				<keywords>Gabriel tells Daniel of the 70 weeks to the coming of
+					Christ.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0235r.jpg&amp;topLinks=0235v.jpg,0235u.tif,0235a.tif,0235.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="148" book="Daniel" volume="2"
+				folio="106r">
+				<keywords>The Last Judgment and Resurrection.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0238r.jpg&amp;topLinks=0238v.jpg,0238u.tif,0238a.tif,0238.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="149" book="Hosea" volume="2"
+				folio="107v">
+				<keywords>Two panel introduction to the Book of Hosea. Left: Hosea
+					takes an adultress at God’s command. Right: Hosea prophesies to the
+					Israelites.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0241r.jpg&amp;topLinks=0241v.jpg,0241u.tif,0241a.tif,0241.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="150" book="Hosea" volume="2"
+				folio="109v">
+				<keywords>Hosea prophesies to a crowd.</keywords>
+				<illustrationNote>Cf. illustrations 46, 104, 107, 132, 139.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0247r.jpg&amp;topLinks=0247v.jpg,0247u.tif,0247a.tif,0247.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="151" book="Amos" volume="2" folio="112r">
+				<keywords>Introduction to the Book of Amos. A battle scene, the
+					judgment of Israel’s neighbors.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0250r.jpg&amp;topLinks=0250v.jpg,0250u.tif,0250a.tif,0250.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="152" book="Obadiah" volume="2"
+				folio="114r">
+				<keywords>Introduction to the Book of Obadiah. Soldiers besiege a
+					tower, the destruction of Edom.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0254r.jpg&amp;topLinks=0254v.jpg,0254u.tif,0254a.tif,0254.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="153" book="Jonah" volume="2"
+				folio="114v">
+				<keywords>Introduction to the Book of Jonah. Jonah dives off of a
+					ship into the open mouth of a whale.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0255r.jpg&amp;topLinks=0255v.jpg,0255u.tif,0255a.tif,0255.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="154" book="Micah" volume="2"
+				folio="115v">
+				<keywords>Introduction to the Book of Micah.</keywords>
+				<illustrationNote>Cf. illustrations 45, 119, 141, 143.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0257r.jpg&amp;topLinks=0257v.jpg,0257u.tif,0257a.tif,0257.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="155" book="Nahum" volume="2"
+				folio="117r">
+				<keywords>Introduction to the Book of Nahum. God sends his armies
+					against Ninevah.</keywords>
+				<illustrationNote>Cf. illustration 91.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0260r.jpg&amp;topLinks=0260v.jpg,0260u.tif,0260a.tif,0260.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="156" book="Habakkuk" volume="2"
+				folio="118r">
+				<keywords>Introduction to the Book of Habakkuk. The enemies of God’s
+					people?</keywords>
+				<illustrationNote>Cf. illustrations 85, 122.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0262r.jpg&amp;topLinks=0262v.jpg,0262u.tif,0262a.tif,0262.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="157" book="Zephaniah" volume="2"
+				folio="119r">
+				<keywords>Introduction to the Book of Zephaniah.</keywords>
+				<illustrationNote>Cf. illustration 59.</illustrationNote>
+				<link></link>
+			</illustration>
+
+			<illustration number="158" book="Haggai" volume="2"
+				folio="120r">
+				<keywords>The rebuilding of the temple.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0266r.jpg&amp;topLinks=0266v.jpg,0266u.tif,0266a.tif,0266.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="159" book="Zacharias" volume="2"
+				folio="120v">
+				<keywords>The prophet admonishes the people.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0267r.jpg&amp;topLinks=0267v.jpg,0267u.tif,0267a.tif,0267.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="160" book="Malachi" volume="2"
+				folio="123v">
+				<keywords>Introduction to the Book of Malachi.</keywords>
+				<illustrationNote>Cf. illustrations 103, 136, 140.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0273r.jpg&amp;topLinks=0273v.jpg,0273u.tif,0273a.tif,0273.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="161" book="1 Maccabees" volume="2"
+				folio="125r">
+				<keywords>Introduction to the Book of 1 Maccabees. Large woodcut of
+					Alexander routing his enemies.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0276r.jpg&amp;topLinks=0276v.jpg,0276u.tif,0276a.tif,0276.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="162" book="2 Maccabees" volume="2"
+				folio="137r">
+				<keywords>Introduction to the Book of 2 Maccabees. Dedication of the
+					altar of the new temple.</keywords>
+				<illustrationNote>Cf. illustrations 60, 104, 139.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0300r.jpg&amp;topLinks=0300v.jpg,0300u.tif,0300a.tif,0300.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="163" book="Matthew" volume="2"
+				folio="1r">
+				<keywords>Introduction to the Book of Matthew. ¾ page woodcut of
+					Christ on the cross, with each of the four evangelists and their
+					symbols arranged around him. God is present above, surrounded by a
+					host of angels, while the Holy Spirit (in the form of a dove)
+					hovers between them.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0316r.jpg&amp;topLinks=0316v.jpg,0316u.tif,0316a.tif,0316.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="164" book="Matthew" volume="2"
+				folio="1v">
+				<keywords>Mary holds Jesus for the magi to present their gifts.
+				</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0317r.jpg&amp;topLinks=0317v.jpg,0317u.tif,0317a.tif,0317.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="165" book="Matthew" volume="2"
+				folio="4r (sic)">
+				<keywords>John baptizes Jesus.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0318r.jpg&amp;topLinks=0318v.jpg,0318u.tif,0318a.tif,0318.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="166" book="Matthew" volume="2"
+				folio="4v">
+				<keywords>The devil tempts Jesus in the desert.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0319r.jpg&amp;topLinks=0319v.jpg,0319u.tif,0319a.tif,0319.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="167" book="Matthew" volume="2"
+				folio="4v (sic)">
+				<keywords>Jesus calls Matthew.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0323r.jpg&amp;topLinks=0323v.jpg,0323u.tif,0323a.tif,0323.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="168" book="Mark" volume="2" folio="15v">
+				<keywords>Introduction to the Book of Mark. ¾ page woodcut of Christ
+					on the cross, with each of the four evangelists and their symbols
+					arranged around him. God is present above, surrounded by a host of
+					angels, while the Holy Spirit (in the form of a dove) hovers
+					between them.</keywords>
+				<illustrationNote>Cf. illustration 163.</illustrationNote>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0345r.jpg&amp;topLinks=0345v.jpg,0345u.tif,0345a.tif,0345.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="169" book="Mark" volume="2" folio="18v">
+				<keywords>John the Baptist is beheaded.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0351r.jpg&amp;topLinks=0351v.jpg,0351u.tif,0351a.tif,0351.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="170" book="Mark" volume="2" folio="20v">
+				<keywords>Christ’s transfiguration.</keywords>
+				<link>
+					http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0355r.jpg&amp;topLinks=0355v.jpg,0355u.tif,0355a.tif,0355.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="171" book="Luke" volume="2" folio="25v">
+				<keywords>Introduction to the Book of Luke. ¾ page woodcut of Christ
+					on the cross, with each of the four evangelists and their symbols
+					arranged around him. God is present above, surrounded by a host of
+					angels, while the Holy Spirit (in the form of a dove) hovers
+					between them.</keywords>
+				<illustrationNote>Cf. illustrations 163, 168.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0365r.jpg&amp;topLinks=0365v.jpg,0365u.tif,0365a.tif,0365.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="172" book="Luke" volume="2" folio="27v">
+				<keywords>John the Baptist preaches to a crowd.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0369r.jpg&amp;topLinks=0369v.jpg,0369u.tif,0369a.tif,0369.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="173" book="Luke" volume="2" folio="38v">
+				<keywords>Jesus teaching in the temple.</keywords>
+				<illustrationNote>Cf. illustration 134.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0391r.jpg&amp;topLinks=0391v.jpg,0391u.tif,0391a.tif,0391.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="174" book="Luke" volume="2" folio="39v">
+				<keywords>Judas betrays Jesus with a kiss.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0393r.jpg&amp;topLinks=0393v.jpg,0393u.tif,0393a.tif,0393.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="175" book="John" volume="2" folio="42r">
+				<keywords>Introduction to the Book of John. ¾ page woodcut of Christ
+					on the cross, with each of the four evangelists and their symbols
+					arranged around him. God is present above, surrounded by a host of
+					angels, while the Holy Spirit (in the form of a dove) hovers
+					between them.</keywords>
+				<illustrationNote>Cf. illustrations 163, 168, 171.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0398r.jpg&amp;topLinks=0398v.jpg,0398u.tif,0398a.tif,0398.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="176" book="Romans" volume="2"
+				folio="54r">
+				<keywords>Three panel introduction to the Book of Romans.</keywords>
+				<illustrationNote>Cf. illustrations: left, 45, 119, 141, 143, 154;
+					center, 46, 104, 107, 132, 139, 150; right, 104, 121, 130, 139,
+					146.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0422r.jpg&amp;topLinks=0422v.jpg,0422u.tif,0422a.tif,0422.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="177" book="1 Corinthians" volume="2"
+				folio="59r">
+				<keywords>Introduction to the Book of 1 Corinthians.</keywords>
+				<illustrationNote>Cf. illustrations 45, 119, 141, 143, 154, 175.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0432r.jpg&amp;topLinks=0432v.jpg,0432u.tif,0432a.tif,0432.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="178" book="2 Corinthians" volume="2"
+				folio="64r">
+				<keywords>Introduction to the Book of 2 Corinthians.</keywords>
+				<illustrationNote>Cf. illustrations 46, 104, 107, 132, 139, 150,
+					175.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0442r.jpg&amp;topLinks=0442v.jpg,0442u.tif,0442a.tif,0442.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="179" book="Galatians" volume="2"
+				folio="67v">
+				<keywords>Introduction to the Book of Galatians.</keywords>
+				<illustrationNote>Cf. illustration 83, 105, 121, 125.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0449r.jpg&amp;topLinks=0449v.jpg,0449u.tif,0449a.tif,0449.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="180" book="Ephesians" volume="2"
+				folio="69v">
+				<keywords>Introduction to the Book of Ephesians.</keywords>
+				<illustrationNote>Cf. illustrations 85, 122, 156.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0453r.jpg&amp;topLinks=0453v.jpg,0453u.tif,0453a.tif,0453.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="181" book="Philippians" volume="2"
+				folio="71r">
+				<keywords>Introduction to the Book of Philippians.</keywords>
+				<illustrationNote>Cf. illustrations 60, 104, 139, 162.
+				</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0456r.jpg&amp;topLinks=0456v.jpg,0456u.tif,0456a.tif,0456.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="182" book="Thessalonians" volume="2"
+				folio="73v">
+				<keywords>Introduction to the Book of Thessalonians.</keywords>
+				<illustrationNote>Cf. illustrations 134, 173.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0461r.jpg&amp;topLinks=0461v.jpg,0461u.tif,0461a.tif,0461.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="183" book="Acts" volume="2" folio="83r">
+				<keywords>Three panel introduction to the Book of Acts. Left: the
+					apostles are sent out; center: Christ’s assumption; right: the
+					apostles are persecuted.</keywords>
+				<illustrationNote>Cf. illustrations left, 104, 121, 130, 139, 146,
+					175; right, 73, 119, 137, 146.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0480r.jpg&amp;topLinks=0480v.jpg,0480u.tif,0480a.tif,0480.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="184" book="James" volume="2"
+				folio="95v">
+				<keywords>Introduction to Book of James. Picture of Saint James with
+					his staff and shell.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0505r.jpg&amp;topLinks=0505v.jpg,0505u.tif,0505a.tif,0505.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="185" book="Jude" volume="2" folio="101r">
+				<keywords>Introduction to the Book of Jude. Picture of Saint Jude
+					preaching.</keywords>
+				<illustrationNote>Cf. illustration 172.</illustrationNote>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0516r.jpg&amp;topLinks=0516v.jpg,0516u.tif,0516a.tif,0516.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+
+			<illustration number="186" book="Revelation" volume="2"
+				folio="101v">
+				<keywords>1/2 page woodcut introducing to the Book of Revelation.
+					John kneels before an altar upon which stand the twelve apostles.
+					Around him devils crawl and perch on pillars. Two men stand behind
+					him talking to one another.</keywords>
+				<link>http://lcweb2.loc.gov/cgi-bin/displayPhoto.pl?path=/service/rbc/rbc0001/2008/2008rosen0967b&amp;topImages=0517r.jpg&amp;topLinks=0517v.jpg,0517u.tif,0517a.tif,0517.tif&amp;displayProfile=0
+				</link>
+			</illustration>
+		</illustrationList>
+		<illustrationNote>Illustration descriptions by Courtney Palmbush. Some
+			woodcuts repeat themselves, and some are borrowed from other books
+			printed in Vérard's workship</illustrationNote>
+	</illustrations>
+	<classification>
+		<shelfmarks>
+			<currentCity>Brussels, Belgium</currentCity>
+			<currentRepository>Bibliothèque royale de Belgique (KBR)
+			</currentRepository>
+			<currentShelfmark>9001-9002</currentShelfmark>
+			<repositoryLink>http://www.kbr.be/</repositoryLink>
+		</shelfmarks>
+		<titles>
+			<coverTitle>La S. Bible (Tome 1; Tome 2). Inside binding: Cest le
+				premier?/second volume de la Bible</coverTitle>
+		</titles>
+		<bookType technology="manuscript" collectionType="Bible" />
+		<catalogerClassifications>
+			<bergerClass category="BHC" bhcSubtype="Prol. full" />
+			<sneddonClass category="BHC" subcategory1="mixed">
+				<siglum>Z2</siglum>
+				<entry>117, 120</entry>
+			</sneddonClass>
+			<fournieCatalog>
+				<fournieNumber>10-11</fournieNumber>
+			</fournieCatalog>
+			<bibleBooks volume="1">
+				<title textVersion="BH" glossType="BH" glossType2="multiple"
+					startPage="20v" chapterNames="y" tableOfContents="n" bookName="Genesis">
+					<incipit textType="text" accuracy="actual">Au commencement crea dieu
+						le ciel et la terre</incipit>
+					<incipit textType="histoire" accuracy="actual">Par le commencement
+						dit saint augustin que le filz de la trinite</incipit>
+					<incipit textType="moralite" accuracy="actual">le second aage de
+						lomme lequel dure depuis sept ans</incipit>
+					<incipit textType="questions" accuracy="actual">Pourquoy fist dieu
+						eue de la coste adam</incipit>
+					<bookNote>Many different kinds of glosses, some not included here.
+					</bookNote>
+				</title>
+
+				<title textVersion="BH" glossType="BH" glossType2="moralite"
+					startPage="78v" chapterNames="y" tableOfContents="n" bookName="Exodus">
+					<incipit textType="text" accuracy="actual">Ce sont les noms de filz
+						israel qui entrerent en egipte auec jacob</incipit>
+					<incipit textType="histoire" accuracy="actual">Long temps apres la
+						mort joseph</incipit>
+					<incipit textType="moralite" accuracy="actual">Apres ce semana moyse
+						et prise vne femme dont il ot deux enfans</incipit>
+				</title>
+			</bibleBooks>
+			<secundoFolio volume="2">Les disciples qui</secundoFolio>
+
+			<classificationNotes>Sneddon classifies it as a GB with BMa
+				Apocalypse and Raoul de Presles Psalms</classificationNotes>
+		</catalogerClassifications>
+	</classification>
+	<textualContents>
+		<prefatoryMatter volume="1">
+			<otherPreface startPage="a1v" accuracy="actual">Poures pecheurs
+				aueuglez de bien faire qui viuez en ce monde et auez les cuers
+				mondains et molz a mal faire</otherPreface>
+			<MasterTableOfContents startPage="a2r"
+				matchesContents="y" tableDetail="chapter">Sensuyt la table du premier volume
+				de la grant bible en francois corrigee nouuellement. Et premierement
+				de genese Le prologue. fueillet premier Comment le ciel et la terre
+				furent creez et tous les autres elemens chapitre. i. f ii…
+			</MasterTableOfContents>
+			<prefatoryNote>Guyart's prologue has been replaced by Verard’s.
+				Tables of contents for both volumes appear in the first volume.
+				Second volume table is repeated in the second volume as well.
+			</prefatoryNote>
+		</prefatoryMatter>
+		<prefatoryMatter volume="2">
+			<otherPreface accuracy="actual" startPage="5v">Pour inciter
+				tous bons chrestiens a paruenir au chemin de la gloire eternelle il
+				est requis veoir et ouir la parolle de nostre seigneur iesuchist
+			</otherPreface>
+			<MasterTableOfContents startPage="aA2r"
+				matchesContents="y" tableDetail="chapter">Cy commence la table du second
+				volume de la grant bible translateee de latin en francois Et de
+				nouueau corrigee sur le latin. Et premierement des paraboles de
+				salomon.
+			</MasterTableOfContents>
+		</prefatoryMatter>
+
+		<bibleBooks volume="1">
+			<title textVersion="BH" glossType="BH" glossType2="multiple"
+				startPage="2r" chapterNames="y" tableOfContents="n" bookName="Genesis">
+				<incipit textType="text" accuracy="actual">Au commencement crea Dieu
+					le ciel et la terre</incipit>
+				<incipit textType="histoire" accuracy="actual">Au commencement fut le
+					filz.</incipit>
+				<incipit textType="glose" accuracy="actual">Princeps mundi eiicietur
+					foras.</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="40r" chapterNames="y" tableOfContents="n" bookName="Exodus">
+				<incipit textType="text" accuracy="actual">Cy sont les noms des filz
+					disrael qui entrerent en egypte auec iacob</incipit>
+				<incipit textType="unmarkedHistoire" accuracy="actual">Lhistoire de
+					exode nest pas aultre de lhistoire devant de genesis ainsi est la
+					mesme histoire continuee dicelluy</incipit>
+				<incipit textType="histoire" accuracy="actual">Histoire sur ceste
+					partie devant dicte en exode. Long temps apres la mort de ioseph et
+					la mort pharaoh soubz qui Joseph fut</incipit>
+				<bookNote>Page header reads “De genese” on leaf 47.</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" startPage="63r"
+				chapterNames="y" tableOfContents="n" bookName="Leviticus">
+				<incipit textType="Guyart prologue" accuracy="actual">Au commencement
+					de leuitique met le maistre en histoires une diuision moult
+					prouffitable pour entendre leuitique et dit ainsi ce liure
+					leuitique est la tierce histoire quod moyse escript</incipit>
+				<incipit textType="text" accuracy="actual">Nostre seigneur parla a
+					moyse du tabernacle de telmoignage et luy dist.</incipit>
+				<incipit textType="histoire" accuracy="actual">Or laissons a tant le
+					texte et allons a la lettre du maistre en histoires qui parle sur
+					le texte de leuitique en ceste maniere Et ainsi comanda nostre
+					seigneur a moyse en leuitique.</incipit>
+				<incipit textType="glose" accuracy="actual">Cest a dire lavoit.
+				</incipit>
+				<bookNote>Page headers read “De leuitique” starting at 61, but
+					Leviticus does not actually begin until 63. The prologue contains
+					several Texte and Glose entries. The first chapter of Leviticus
+					begins on leaf 63v, under the heading, “Des sacrifices selon
+					lhistoire.” Beneath this heading is written in different, lighter
+					script, “Chap. premier, selon le bible en latin”</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="70r" chapterNames="y" tableOfContents="n" bookName="Numbers">
+				<incipit textType="Guyart prologue" accuracy="actual">La quarte
+					histoire de ce liure est appellee le liure des nombres ou le nombre
+					et cest bien droit car en ce liure sont quatre choses comptees.
+				</incipit>
+				<incipit textType="text" accuracy="actual">Nostre seigneur parla a
+					moyse au desert de Sinay</incipit>
+				<incipit textType="glose" accuracy="actual">Notez cy que moyse
+					trespassa cy autres choses qui furent faictes au premier moys du
+					second an de leur yssue degipte</incipit>
+				<bookNote>“Cha. 1.” is written in the left margin of 70v, where the
+					Texte begins</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="86v" chapterNames="y" tableOfContents="n" bookName="Deuteronomy">
+				<incipit textType="Guyart prologue" accuracy="actual">La quinte
+					histoire et derniere que moyse escript en grec est appellee
+					deuteronome</incipit>
+				<incipit textType="histoire" accuracy="actual">Au xle. an de lissue
+					des filz disrael degipte au. ixe. moys le premier iour du moys
+					sicomme dit le maistre en histoires. </incipit>
+				<incipit textType="text" accuracy="actual">Au desert encontre la
+					rouge mer entre pharan et chophol et balaan et asseroth et la ou il
+					ya moult dor</incipit>
+				<incipit textType="glose" accuracy="actual">Cest a dire deca
+					iourdain.</incipit>
+				<bookNote>“Cha. primier” is written above the beginning of the
+					histoire. The prologue includes several Texte and Glose, the
+					histoire has a Glose. </bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="98v" chapterNames="y" tableOfContents="n" bookName="Joshua">
+				<incipit textType="Guyart prologue" accuracy="actual">Au commencement
+					du livre de iosue devons nous scavoir qui lest appellee le livre
+					iosue pource que iosue le fist.</incipit>
+				<incipit textType="text" accuracy="actual"> Nostre seigneur parla a
+					Iosue le filz nim.</incipit>
+				<incipit textType="glose" accuracy="actual">Voire apres la mort de
+					moyse quant le people eut laisse le plorer.</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="104v" chapterNames="y" tableOfContents="n" bookName="Judges">
+				<incipit textType="Guyart prologue" accuracy="actual">Le livre des
+					iuges en hebrieu est apelle Sophin.</incipit>
+				<incipit textType="text" accuracy="actual">Apres la mort iosue
+					prindrest conseil a nostre seigneur les filz disrael par phinees le
+					preste.</incipit>
+				<incipit textType="glose" accuracy="actual">Et ie iray auec toy et
+					ton sort</incipit>
+				<bookNote>Ending rubric: Cy fine le liure des iuges / et de ruth
+				</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="1r" chapterNames="y" tableOfContents="n" bookName="1 Kings">
+				<incipit textType="Guyart prologue" accuracy="actual">Ce liure des
+					roys est diuise en quatre liures selon les latins.</incipit>
+				<incipit textType="text" accuracy="actual">Ung home de ramathayn
+					sophim du mout effraym nofme helyn qui fut filz tan qui fut filz
+					Suph et fut de helcas na de la terre dessrata</incipit>
+				<incipit textType="glose" accuracy="actual">En sainct Mathieu et en
+					sainct
+					luc au chaptire comment iesus fut mis au monument
+				</incipit>
+				<bookNote>Page numbers start again at 1</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="13v" chapterNames="y" tableOfContents="n" bookName="2 Kings">
+				<incipit textType="text" accuracy="accurate">Apres la mort de saul et
+					apres ce que dauid venoit doccire ceulx damalech ou il aoura nostre
+					seigneur.</incipit>
+				<incipit textType="glose" accuracy="actual">Cy diest les hebrieux que
+					celluy qui apportatelles nouuellles a dauid fut filz de obeth
+					ydumee et qui son pere aincois quil soccist ainsi saul luy donna
+					les noblesses du roy comme sa couronne et son armeure</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="24v" chapterNames="y" tableOfContents="n" bookName="3 Kings">
+				<incipit textType="Guyart prologue" accuracy="accurate">Cy commence
+					selon nous le tiers liure des roys et selons les hebrieux le second
+				</incipit>
+				<incipit textType="text" accuracy="accurate">Le roy dauid estoit fort
+					enuieilly et auoit grant aage ne il ne se pouoit eschauffer pour
+					draps dont on le couurist.</incipit>
+				<incipit textType="glose" accuracy="actual">Cest a dire de la cite de
+					surie.</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="41r" chapterNames="y" tableOfContents="n" bookName="4 Kings">
+				<incipit textType="text" accuracy="accurate">Ochosiele le filz achab
+					commenca a regner en samarie sur ysrael</incipit>
+				<incipit textType="glose" accuracy="actual">Dont on lit au tiers
+					liure des roys au chapitre de iheroboam.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="59r" chapterNames="y" tableOfContents="n"
+				bookName="1 Paralipomenon (I Chronicles)">
+				<incipit textType="text" accuracy="accurate">Adam/seth/enos/caynam/malalehel/iares/enoch/mathusale/lameth/noe
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="70v" chapterNames="y" tableOfContents="n"
+				bookName="2 Paralipomenon (II Chronicles)">
+				<incipit textType="text" accuracy="accurate">Salomon le filz de Dauid
+					fut conforte en son regne et dieu estoit auecques luy</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="83r" chapterNames="y" tableOfContents="n" bookName="1 Esdras (Ezra)">
+				<incipit textType="text" accuracy="accurate">Au premier an de Cyrus roy
+					de perse que la parole de nostre seigneur me fust acomplie et dicte
+					par la bouche de hieremie</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="87r" chapterNames="y" tableOfContents="n"
+				bookName="2 Esdras (Nehemiah)">
+				<incipit textType="text" accuracy="accurate">Les paroles Neemie le filz
+					delchie.</incipit>
+				<bookNote>Headings “Le second liure De esdras” and “Neemye”
+					alternate with “Le premier liure de Esdras” several leaves before
+					the book actually starts.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="92r" chapterNames="y" tableOfContents="n"
+				bookName="3 Esdras (Nehemiah)">
+				<incipit textType="text" accuracy="accurate">Iosye fist pasques en
+					hierusalem a nostre Seigneur: et sacrifia pasques au quatorziesme
+					iour du premier Moys establissans les prestres par leurs offices
+					des iours vestuz de stolles au temple de nostre seigneur.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="98r" chapterNames="y" tableOfContents="n" bookName="Job">
+				<incipit textType="text" accuracy="accurate">Ung homme estoit en la
+					terre de hus qui avoit nom iob et celluy homme estoit iuste et
+					droicturier et craignoit dieu et foy departant de mal.</incipit>
+				<bookNote>Following the introduction of the book of Job “Cy apres
+					ensuyt le livre de Job,” on 97v, there is a note, which I cannot
+					make out entirely.</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="108v" chapterNames="y" tableOfContents="n" bookName="Tobias (Tobit)">
+				<incipit textType="text" accuracy="accurate">Thobie de la lignee et
+					cite de neptalin qui est es plus haultes parties de galilee dessus
+					naason apres la voye qui maine en occident allans en la senestre
+					partie de la cite de sephet.</incipit>
+				<incipit textType="glose" accuracy="actual">Nous devons cy scavoir
+					que lhystoire de thobie commenca quant salmanasar le roy de Ninive
+					mena en chetiuoison les dix lignees comme on trouue au quart liure
+					des roys au chapitre de la chetiuoison des dix lignees</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="112v" chapterNames="y" tableOfContents="y"
+				bookName="Jeremiah, Ezekiel, Daniel and Susanne">
+				<incipit textType="Guyart prologue" accuracy="accurate">Or allons auant
+					et retournois a lhistoire de la chetiuoison de iherusalem dont nous
+					auons parle en la fin du quart liure des roys</incipit>
+				<incipit textType="text" accuracy="actual">Quant nabuchodonosor roy
+					de babiloine eut fait godolie souuerain sur les iuifz qui estoient
+					demourez es citez de iudee et renuoiez de la chetiuoison ou leurs
+					freres estoient menez en Babiloine comme nous lysons en la fin du
+					quart liure de roys.</incipit>
+				<bookNote>End of Tobit, intro: “Cy fine le liure de thobie Et
+					commencent les liures de iheremie/ezechie/daniel et susanne.”
+				</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="123r" chapterNames="y" tableOfContents="n" bookName="Judith">
+				<incipit textType="Guyart prologue" accuracy="accurate">Cest histoire
+					de iudich translata en latin iherosme a la priere de tressaictes
+					vierges eustochius et paule de caldee.</incipit>
+				<incipit textType="text" accuracy="accurate">Quant cyrus fut mort
+					arphasat le roy des mediens auoit soubzmis plusieurs gens a son
+					empire.</incipit>
+				<incipit textType="glose" accuracy="actual">Le maistre dit en
+					histoire que nabuchodonosor fut cambises le filz cyrus.</incipit>
+				<bookNote>Within this book is an introduction and subset of chapters
+					“Des Sept Saiges”</bookNote>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="130v" chapterNames="y" tableOfContents="y" bookName="Esther">
+				<incipit textType="Guyart prologue" accuracy="accurate">Le liure hester
+					translata sainct hierosme a la priere de paule et eustochii de
+					hebrieu en latin.</incipit>
+				<incipit textType="text" accuracy="accurate">Au temps que le roy
+					assuerus regna des indes iusques en ethiope sur. c. et. xxvii
+					prouinces la cite de suse fut le chief de son regne.</incipit>
+				<incipit textType="glose" accuracy="actual">Le maistre dit en
+					histoires dalexandre que les colombes estoient dargent du lieu ou
+					il estoit et le ciel aussi comment le firmament fut fait de
+					diuerses couleurs ordonnees en maniere destoilles et des signes.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BH" glossType="BH" glossType2="moralite"
+				startPage="138r" chapterNames="y" tableOfContents="n" bookName="Psalms">
+				<incipit textType="text" accuracy="accurate">Beatus vir qui non abiit.
+				</incipit>
+				<bookNote>End of book 1.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="6r" chapterNames="y" tableOfContents="n" bookName="Proverbs">
+				<incipit textType="text" accuracy="actual">Les paraboles Salomon filz
+					de dauid roy de hierusalem pour scauoir sapience Et pour entendre
+					les parolles de prudence et a receuoir enseignement de doctrine et
+					iustice</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="11v" chapterNames="y" tableOfContents="n" bookName="Ecclesiastes">
+				<incipit textType="text" accuracy="actual">Les parolles de
+					ecclesiastes filz de dauid roy de hierusalem / vanite des vanitez
+					dist ecclesiastes la vanite des vanitez et toutes choses sont
+					vanitez.</incipit>
+				<bookNote>Recto and verso of leaf 12 contain part of ch. 23, ch. 24,
+					and part of ch. 25 of Matthew. The leaf heading also reads “Sainct
+					mathieu” recto, and “Les evangilles” verso. The book then returns
+					to Ecclesiastes on leaf 13.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="15r" chapterNames="n" tableOfContents="n" bookName="Song of Songs">
+				<incipit textType="prologue" accuracy="accurate">Les cantiques de
+					salomon sont exposees diuersement par diuers docteurs</incipit>
+				<incipit textType="text" accuracy="actual">Celle me baise dung baiser
+					de sa bouche</incipit>
+				<bookNote>Leaf heading is “Lecclesiasticque” on 16v.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="16v" chapterNames="y" tableOfContents="n" bookName="Wisdom">
+				<incipit textType="text" accuracy="actual">Aymez iustice vous qui
+					iugez la terre et sentez de nostre seigneur en bonte et
+					pareillement le querez en simplesse de cueur</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="22v" chapterNames="y" tableOfContents="n" bookName="Ecclesiasticus">
+				<incipit textType="text" accuracy="actual">Toute sapience est de dieu
+					qui est nostre seigneur et fut en tous temps auec luy et sera
+					pardurablement.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="38v" chapterNames="y" tableOfContents="n" bookName="Isaiah">
+				<incipit textType="text" accuracy="actual">La prophetie ysaie le filz
+					amos que il vit dessus le peuple de iuda et de hierusalem au temps
+					de ozie et au temps ioachin et au temps de achas et au temps de
+					ezechiel qui furent roys de iuda.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="58r" chapterNames="n" tableOfContents="n" bookName="Jeremiah">
+				<incipit textType="text" accuracy="actual">Les parolles de Jheremie
+					prophete filz helchie des prestres qui furent en anathot en la
+					terre beniamin que la parole de nostre seigneur fut faicte a luy au
+					temps dysaie filz Amos roy de Juda au treiziesme an de son
+					royaulme.</incipit>
+				<bookNote>Leaf heading is “ysaye” on 58v. “Les lamentacions de
+					iheremie le prophete” begin on leaf 78v: “Aleth. Comment fiet la
+					cite seule qui estoit plaine de people.”</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="80v" chapterNames="y" tableOfContents="n" bookName="Baruch">
+				<incipit textType="prologue" accuracy="accurate">Le liure qui Baruth
+					est appellee nest pas les hebrieux en leur canon ainsi est tant
+					seullement en vulgal edicion</incipit>
+				<incipit textType="text" accuracy="actual">Ce sont les parolles que
+					escript baruch filz nerie le filz maasie le filz sedechie.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="83r" chapterNames="y" tableOfContents="n" bookName="Ezekiel">
+				<incipit textType="text" accuracy="actual">Il aduint ou. xiiie. an ou
+					quint iour du meillieu des chetifz decoste le siege chobar les
+					cieulx ouurirent et ie viz vision de dieu ou quint iour du moys.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="100v" chapterNames="y" tableOfContents="n" bookName="Daniel">
+				<incipit textType="text" accuracy="actual">Au tiers an du royaulme
+					ioachim roy de iuda nabuchodonosor roy de babiloine vint en
+					hierusalem et lassiegist et nostre seigneur bailla en sa main
+					ioachim roy de iuda et partie des vaisseaulx de la maison nostre
+					seigneur</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="108r" chapterNames="y" tableOfContents="n" bookName="Hosea (Osee)">
+				<incipit textType="text" accuracy="actual">La parolle de nostre
+					seigneur qui fut faicte a osee filz beery au temps ioatham / acham
+					et ezechie de iuda et au temps iheroboam filz ioas roy disrael.
+				</incipit>
+				<bookNote>Page numbering is off—there are two 109s (CVIX, and
+					CVIIII) </bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="109v" chapterNames="y" tableOfContents="n" bookName="Joel">
+				<incipit textType="text" accuracy="actual">La parolle de nostre
+					seigneur faicte a Joel filz statuel. Vous viellars oyez cecy.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="112r" chapterNames="n" tableOfContents="n" bookName="Amos">
+				<incipit textType="text" accuracy="actual">Les parolles amos qui fut
+					es pastorals de thecue que il vit sur ysrael ou temps de Ozie roy
+					de iuda et ou temps de hieroboam filz Joyas roy disrael deuant deux
+					ans que la terre tremblast et dist.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="114r" chapterNames="y" tableOfContents="n" bookName="Obadiah (Abdie)">
+				<incipit textType="text" accuracy="actual">LAvision abdie ce dist
+					nostre seigneur a edon nous auons ouy de nostre seigneur et il
+					enuoya messages aux gens Leuons nous fus et allons contre luy en
+					bataille.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="114v" chapterNames="n" tableOfContents="n" bookName="Jonah">
+				<incipit textType="text" accuracy="actual">La parolle de nostre
+					seigneur fut faicte a ionas filz emath disant. Lieue toy va en
+					niniue grant cite et presche illec Car sa malice est montee contre
+					moy.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="115v"
+				chapterNames="y" tableOfContents="n" bookName="Micah">
+				<incipit textType="text" accuracy="actual">La parolle’de nostre
+					seigneur qui fut faicte a michee et demonstree ou temps de ioachin
+					de achas et ezechie roy de iuda quil vit sur samarie et sur
+					hierusalem.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="117r" chapterNames="n" tableOfContents="n" bookName="Nahum">
+				<incipit textType="text" accuracy="actual">Les faitz de niniue le
+					liure des visions naum delchese. Nostre seigneur est vengeant et
+					grant ire a nostre seigneur est pacient et grant mercy et nettoye
+					Et ne fait pas iniquite les voyes de nostre seigneur sont on
+					tempeste et en estourbillon.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="118r" chapterNames="y" tableOfContents="n"
+				bookName="Habakkuk (Abacuth)">
+				<incipit textType="text" accuracy="actual">Les fais que abacuth le
+					prophete dit. Sire pourquoy crieray ie et vous ne me orrez pas.
+					Pourquoy crierary ie souffrant force et vous ne me sauuerez pas.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="119r" chapterNames="y" tableOfContents="n"
+				bookName="Zephaniah (Sophonie)">
+				<incipit textType="text" accuracy="actual">La parolle de nostre
+					seigneur fut faicte a sophonie filz chusy filz godelie Amasie filz
+					ezechie ou temps iosue filz amon roy de iuda.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="120r"
+				chapterNames="y" tableOfContents="n" bookName="Haggai (Aggee)">
+				<incipit textType="text" accuracy="actual">Au second an du regne
+					daire qui estoit roy de perse au septiesme moys. La parolle de
+					nostre seigneur fut faicte a aggee le prophete a zorobabel filz
+					salathiel duc de iuda et de ihesus filz Josedech qui estoit prince
+					des prestres disant ce dist nostre seigneur qui est sire des ostz
+					de son sainct mont.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="120v" chapterNames="y" tableOfContents="n" bookName="Zacharias">
+				<incipit textType="text" accuracy="actual">Au huytiesme moys au
+					second an daire la parolle de nostre seigneur fut faicte a zacharie
+					filz abdo le prophete disant. Nostre seigneur est courrouce contre
+					voz peres en son yre et tu leur diras ce dist nostre seigneur qui
+					est seigneur des ostz.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="123v" chapterNames="y" tableOfContents="n" bookName="Malachi">
+				<incipit textType="text" accuracy="actual">Les fais des parolles de
+					nostre seigneur aisrael en la main de malachiel le prophete Je vous
+					ay aymez ce dist nostre seigneur et vous dictes.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="125r" chapterNames="y" tableOfContents="n" bookName="1 Maccabees">
+				<incipit textType="text" accuracy="actual">Apres ce que alexander
+					filz du roy philippe de macedoine qui yffit de la terre cethim et
+					fut le premier roy qui regna en grece et quil eut vaincu daire le
+					roy de perse et de mede advent quil fist plusieurs batailles et
+					print toutes les garnisons et occist les roys de la terre et passa
+					de cy a la fin de toute la terre et print les despouilles de
+					maintes gens et toute terre trembla devant luy</incipit>
+				<incipit textType="glose" accuracy="actual">Et firent escole de
+					payens par toute la terre de hierusalem.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="137r" chapterNames="y" tableOfContents="n" bookName="2 Maccabees">
+				<incipit textType="text" accuracy="actual">Les juifz qui sont en
+					hierusalem en la region de iudee mandent aux juifz leurs freres qui
+					sont en egypte salut et bonne paix</incipit>
+				<bookNote>Leaf headings read “le premiere liure” up to 138v.
+				</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="1r" chapterNames="y" tableOfContents="n" bookName="Matthew">
+				<incipit textType="text" accuracy="actual">Le liure de la generation
+					Jesuchrist filz de david filz abraham.</incipit>
+				<bookNote>Leaf numbers start again at 1. Leaf 12r and v is from
+					Ecclesiastes.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="15v"
+				chapterNames="y" tableOfContents="n" bookName="Mark">
+				<incipit textType="text" accuracy="accurate">Le commencement de
+					leuangile iesuchrist filz de dieu sicomme il est escript en esaye
+					le prophete. Je enuoyeray mon ange cest a dire mon messagie.
+				</incipit>
+				<bookNote>“deux fois” is underlined on 24v (the cock crows two times
+					and Peter cries)</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="25v" chapterNames="y" tableOfContents="n" bookName="Luke">
+				<incipit textType="prologue" accuracy="actual">Pource que plusieurs
+					se sont efforcez de racompter et ordonner les racomptemens que sont
+					acomplis en nous</incipit>
+				<incipit textType="text" accuracy="actual">Au temps de herode roy de
+					iudee ung prestre fut lequel auoit a nom zacharie et administroit
+					en la partie de abye Et sa femme estoit extraicte et nee des filles
+					de aaron et auoit nom elizabeht.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="42r" chapterNames="y" tableOfContents="n" bookName="John">
+				<incipit textType="text" accuracy="actual">La parolle estoit au
+					commencement et celle parolle estoit enuers dieu cest la
+					congnoissance de dieu le pere et dieu estoit parolle cest dieu le
+					filz.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="54r"
+				chapterNames="y" tableOfContents="n" bookName="Romans">
+				<incipit textType="prologue" accuracy="actual">Les rommains sont des
+					parties dytalie. Jceulx furent deceuz des faulx prophetes et furent
+					menez en la loy des prophetes ou nom de nostre seigneur.</incipit>
+				<incipit textType="text" accuracy="actual">Pol seruiteur de
+					iesuchrist appelle apostre departy en leuangile de dieu de son filz
+					quil auoit promis deuant par les prophetes et sainctes escriptures
+					qui fut ne de la semence de dauid selon la chair qui fut deuant
+					enuoye comme filz de dieu en vertu selon le sainct esperit de la
+					resurrection des mors de iesuchrist nostre seigneur par lequel nous
+					auons receu grace la dignite destre nomme apostre a obeyr a la foy
+					et a toutes gens pour son nom esquelz vous estes appellez de
+					iesuchrist nostre seigneur a tous ceulx qui sont a romme appellez
+					sainctz.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="59r"
+				chapterNames="y" tableOfContents="n" bookName="1 Corinthians">
+				<incipit textType="text" accuracy="actual">Pol appelle apostre par la
+					voulente de iesucrist et sostenes frere de saincte eglise qui est
+					en corinthe aux sainctifiez en Jesuchrist ou baptesme de iesuchrist
+					appellez sainctz a tous ceulx qui sont reclamans le nom de nostre
+					seigneur iesuchrist en tous leurs lieux et en tous les nostres.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="64r"
+				chapterNames="y" tableOfContents="n" bookName="2 Corinthians">
+				<incipit textType="text" accuracy="actual">Pol apostre de iesucrist
+					par la voulente de dieu et thimothee frere de leglise de dieu qui
+					est en corinthe a tous les sainctz qui sont en toute achaye.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="67v"
+				chapterNames="y" tableOfContents="n" bookName="Galatians">
+				<incipit textType="text" accuracy="actual">Pol apostre nom pas des
+					homes ne par homme mais par iesuchrist dieu le pere qui le suscita
+					de mort et tous les freres qui sont auec moy auec les eglises de
+					galathe vous ayez grace de dieu nostre pere et nostre seigueur
+					iesuchrist qui donna soymesmes pour noz pechez quil nous deliurast
+					de ce siècle mauuais selon la voulente de dieu et de nostre pere
+					qui ayt honneur et gloire sans fin.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="69v"
+				chapterNames="y" tableOfContents="n" bookName="Ephesians">
+				<incipit textType="text" accuracy="actual">Pol apostre de iesuchrist
+					par la voulente de dieu. A tous les sainctz qui sont en ephese et
+					aux feaulx en iesuchrist grace soit a vous de dieu nostre pere et
+					de nostre seigneur iesuchrist.</incipit>
+				<bookNote>Book mistakenly introduced as “lepistree de sainct pol aux
+					corinthiens.” Chapter heading is correct: “Comment lapostre met la
+					diuine predestinacion daucuns et raconpte aucuns diuins benefices
+					fais aux apostres et aux ephesiens.”</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="71r"
+				chapterNames="y" tableOfContents="n" bookName="Philippians">
+				<incipit textType="text" accuracy="actual">Pol et thimothee serfz de
+					iesuchrist qui sont en philippense auec les euesques et les diacres
+					vouz ayez grace de dieu et de nostre seigneur iesuchrist. Je rens
+					graces a mon dieu tousiours en toute rememberance de vous en toutes
+					mes oraisons pour vous auec ioye faisant priere de vostre
+					communication en leuangile de christ du premier iour iusques
+					maintenant moy confidant que dieu qui a commence en vous bonne
+					oeuure la parface iusques en la fin comme cest droit que ie sente
+					pourtous vous pource que ie vous ay en cueur et en mes liens en
+					deffendment et en confermement de leuangile estre compaignons tous
+					de ma ioye.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="72v"
+				chapterNames="y" tableOfContents="n" bookName="Colossians">
+				<incipit textType="text" accuracy="actual">Pol apostre de iesuchrist
+					par la vouente de dieu thimothee frere et ceulx qui sont en colose
+					et sont sainctz et aux feaulx freres en Jesuchrist. Ayez paix et
+					grace de dieu nostre pere et de nostre seigneur iesuchrist.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="74r"
+				chapterNames="y" tableOfContents="n" bookName="1 Thessalonians">
+				<incipit textType="text" accuracy="actual">Pol et siluan et thimothee
+					a leglise de thessalonie en dieu nostre pere et en nostre seigneur
+					Jesuchrist soit auec vous grace et paix. Nous rendons graces a dieu
+					pour vous nous faisons tousiours rememberance de vous en noz
+					oraisons sans entre laisser.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="75r"
+				chapterNames="y" tableOfContents="n" bookName="2 Thessalonians">
+				<incipit textType="text" accuracy="actual">Pol et Siluans et
+					Thimothee ceulx de thessalone qui sont en nostre dieu nostre pere
+					et nostre seigneur iesuchrist. Freres nous deuons graces render
+					tousiours a dieu pour vous comme digne chose est pource que vostre
+					foy croist de iour en iour et chascun de vous habonde enuers lautre
+					si que nous auons gloire en vous en leglise de dieu pour voustre
+					pacience et pour vostre foy et en toutes voz persecutions et voz
+					tribulations que bous soustenez ensemble du droicturier droit de
+					dieu a son iugement que vous foyez dignes de receuoir le royaume de
+					dieu pour lequel vous souffrez</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="75v"
+				chapterNames="y" tableOfContents="n" bookName="1 Timothy">
+				<incipit textType="text" accuracy="actual">Paul apostre selon le
+					commandement de nostre seigneur et de iesuchrist nostre esperance a
+					thimothee son amy et filz En foy/grace et misericorde et paix de
+					dieu le pere et de iesuchrist nostre seigneur sicomme ie te priay
+					que tu venisse en ephese quant iestoye en macedoine que tu
+					denonceasses a aucuns que ilz nenseignassent autrement ne
+					entendissent a fables ne aux genealogies non determines qui donnent
+					plus questions que ediffiemens de dieu et soit en foy et en charite
+					du pur cueur et de bonne conscience et de foy qui ne soit pas
+					saincte.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="77r"
+				chapterNames="y" tableOfContents="n" bookName="2 Timothy">
+				<incipit textType="text" accuracy="actual">Paul apostre de iesuchrist
+					par la voulente de dieu selong promesse de vie qui est en
+					iesuchrist a thimothee son tres chier filz grace et misericorde et
+					paix de dieu mon pere et de iesuchrist nostre seigneur.</incipit>
+				<bookNote>Page number wrong: 77 is missing an x, so it looks like
+					it’s 67.</bookNote>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="78r"
+				chapterNames="y" tableOfContents="n" bookName="Titus">
+				<incipit textType="text" accuracy="actual">Pol serf de dieu apostre
+					de iesuchrist selon la foy des amys de dieu et la congnoissance de
+					verite qui est selon pitie en esperance de vie pardurable que dieu
+					qui ne meurt a promis deuant tous les temps du siecle.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="78v"
+				chapterNames="n" tableOfContents="n" bookName="Philemon">
+				<incipit textType="text" accuracy="actual">Pol lie en lamour de
+					iesuchrist et thimotee frere philemon nostre amy et nostre aydeur
+					et apie nostre treschiere seur et a archippe nostre amy et a
+					leglise qui est en ta maison vous ayez graces et paix de dieu
+					nostre pere et de nostre seigneur iesuchrist.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="79r"
+				chapterNames="y" tableOfContents="n" bookName="Hebrews">
+				<incipit textType="text" accuracy="actual">Dieu parlant iadis a noz
+					peres parles pphetes (sic) en maintes manieres et en maintes
+					formes. Au dernier en ce temps a il parle a nous par son filz quil
+					a estably hoir de toutes choses et par lequel il fist en ce monde.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="83r" chapterNames="y" tableOfContents="n" bookName="Acts">
+				<incipit textType="text" accuracy="actual">O Toy Theophile iay
+					premierement parle de toutes les choses que iesus commenca a faire
+					et a enseigner iusques au iour quil commanda par le saincte esperit
+					a ses apostres que il esleut et monter au ciel.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="95v" chapterNames="y" tableOfContents="n" bookName="James">
+				<incipit textType="text" accuracy="actual">Iaques seruant de nostre
+					seigneur iesuchrist mande salut aux douze lignees qui sont
+					esparses. Mes freres cuydez vous auoir toute ioye quant vous
+					cherrez en temptation sachans que lapprobation de vostre foy est
+					prouuee par pacience.</incipit>
+
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="96v" chapterNames="y" tableOfContents="n" bookName="1 Peter">
+				<incipit textType="text" accuracy="actual">Pierre apostre de
+					iesuchrist aux gens estranges de ponte de galathie/capadoce/de
+					bythinie et dasie selon la science de dieu le pere au
+					sainctifiement desperit en obedience et arrousement du sang de
+					Jesuchrist/grace et paix vous soit multipliee.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="98r"
+				chapterNames="y" tableOfContents="n" bookName="2 Peter (Simon)">
+				<incipit textType="text" accuracy="actual">Symon pierre seruiteur de
+					nostre seigneur Jesuchrih a ceulx qui ont receu foy auec nous en la
+					iustice de nostre seigneur iesuchrist.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="99r"
+				chapterNames="n" tableOfContents="y" bookName="1 John">
+				<incipit textType="text" accuracy="actual">Nous vous annoncons et
+					tesmoignons des le commencement ce que nous auons ouy et veu a nos
+					yeulx et ce que noz mains ont traicte de parolle de vie qui estoit
+					auecques le pere et nous lauons veu et le tesmoignons et vous
+					annoncons vie qui vous est donnee.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="100v"
+				chapterNames="n" tableOfContents="y" bookName="2 John">
+				<incipit textType="text" accuracy="actual">Le vieillart a son
+					seigneur et a ses enfans que ie ayme en verite et ie nayme pas tout
+					seul/ mais tous ceulx qui ont aymee et congneue verite qui demeure
+					en vous/ et fera auecques vous Grace/ misericorde et paix soit
+					auecques vous de dieu le pere et de iesuchrist filz du pere en
+					charite et en verite.</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="100v"
+				chapterNames="n" tableOfContents="y" bookName="3 John">
+				<incipit textType="text" accuracy="actual">Le vieillart a mon amy gay
+					que iayme en verite De toy treschier frere ie fais oraisons en
+					toutes choses que tu entres en prosperitez et vailles sicomme ton
+					ame est en bon couraige et en bon estat ie me fuis moult esiouy aux
+					freres qui sont venus a moy et ont porte tesmoing a ta verite.
+				</incipit>
+
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" startPage="101r"
+				chapterNames="n" tableOfContents="y" bookName="Jude">
+				<incipit textType="text" accuracy="actual">Iudas seruiteur de
+					iesuchrist frere de iaques a ceulx qui sont ses amys en dieu le
+					pere et qui sont gardez et appellez de iesus paix et misericorde et
+					charite en vous soit remplie.</incipit>
+
+			</title>
+			<title textVersion="BXIII" glossType="BXIII" glossType2="moralite"
+				startPage="101v" chapterNames="n" tableOfContents="n"
+				bookName="Apocalypse (Revelation)">
+				<incipit textType="text" accuracy="actual">Lapocalipse de iesuchrist
+					que dieu lui donna a sainct iehan pour faire scauoir aux seruiteurs
+					quil commanda a ester tost fait et le signifia annoncant par son
+					ange a Jehan son seruant qui porta tesmoing a la parolle de dieu et
+					a Jesuchrist de tout ce que il vit.</incipit>
+
+
+			</title>
+		</bibleBooks>
+	</textualContents>
+
+	<bibliography>
+		<biblioEntry>
+			<bibAuthor>Berger, Sneddon.</bibAuthor>
+			<bookOrJournalTitle>La Bible française au moyen âge: étude sur les
+				plus anciennes versions de la Bible écrites en prose de langue
+				d'oïl.</bookOrJournalTitle>
+			<publicationInfo>Paris: Imprimerie nationale, 1884</publicationInfo>
+		</biblioEntry>
+		<biblioEntry>
+			<bibAuthor>Fournié, Éléonore.</bibAuthor>
+			<articleTitle>Les manuscrits de la Bible historiale.</articleTitle>
+			<bookOrJournalTitle>L'Atelier du Centre de recherches historiques,
+				Revue électronique de la CRH.</bookOrJournalTitle>
+			<publicationInfo>no. 3 (2009)</publicationInfo>
+			<articleLink>http://acrh.revues.org/index403.html</articleLink>
+		</biblioEntry>
+		<biblioEntry>
+			<bibAuthor>Fournié, Éléonore.</bibAuthor>
+			<articleTitle>Les éditions de la Bible historiale.</articleTitle>
+		</biblioEntry>
+		<biblioEntry>
+			<bibAuthor>Sneddon, Clive R.</bibAuthor>
+			<bookOrJournalTitle>A Critical Edition of the Four Gospels in the
+				Thirteenth-Century Old French Translation of the Bible.
+			</bookOrJournalTitle>
+			<publicationInfo>Thesis presented for the degree of D. Phil., Oxford
+				Un4ersity, 1978.</publicationInfo>
+		</biblioEntry>
+
+	</bibliography>
+	<scannedMss>http://hdl.loc.gov/loc.rbc/rosenwald.0967a.1</scannedMss>
+</bible>                                            
