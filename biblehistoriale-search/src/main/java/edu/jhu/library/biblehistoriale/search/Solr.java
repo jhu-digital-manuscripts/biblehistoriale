@@ -128,10 +128,16 @@ public class Solr {
         return server.query(q);
     }
 
+    /**
+     * Must be called when done using solr.
+     * Other methods must not be called after close.
+     */
     public void close() {
         if (container != null) {
             container.shutdown();
         }
+        
+        server.shutdown();
     }
 
     public void add(SolrInputDocument doc) throws SolrServerException,
