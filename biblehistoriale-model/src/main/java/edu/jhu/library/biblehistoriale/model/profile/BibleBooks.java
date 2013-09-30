@@ -4,6 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * <p>Associated with the &ltbibleBooks&gt element in bible schema.</p>
+ * 
+ * <p>Represents all of the books within a bible volume. Iterable over
+ * the books (titles) that it contains. </p>
+ * 
+ * @see Title
+ */
 public class BibleBooks implements Iterable<Title>, Serializable {
     
     private static final long serialVersionUID = 1L;

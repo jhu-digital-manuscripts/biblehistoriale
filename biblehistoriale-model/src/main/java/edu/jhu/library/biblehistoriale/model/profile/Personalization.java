@@ -2,8 +2,15 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Any personalizations done to a bible by an owner.</p>
+ * 
+ * <p>Associated with the &ltpersonalization&gt element of the bible schema.</p>
+ * 
+ * @see Signature
+ * @see PersonalizationItem
+ */
 public class Personalization implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,6 +2,13 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>An item of personalization by an owner of a bible. This can include 
+ * legal inscriptions, patron arms, patron protraits, colophons.</p>
+ * 
+ * <p>Associated with the &ltlegalInscriptions&gt, &ltpatronPortrait&gt, 
+ * &ltpatronArms&gt, and &ltcolophon&gt elements of the bible schema.</p>
+ */
 public class PersonalizationItem implements Serializable {
     
     private static final long serialVersionUID = 1L;

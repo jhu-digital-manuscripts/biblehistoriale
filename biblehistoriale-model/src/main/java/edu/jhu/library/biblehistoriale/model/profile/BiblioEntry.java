@@ -2,8 +2,13 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * A single entry in a bibliography. Associated with &ltbiblioEntry&gt
+ * element in bible schema.
+ * 
+ * @see Bibliography
+ */
 public class BiblioEntry implements Serializable {
     
     private static final long serialVersionUID = 1L;

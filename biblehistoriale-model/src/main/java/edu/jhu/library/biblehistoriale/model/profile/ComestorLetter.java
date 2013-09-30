@@ -3,6 +3,9 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * Associated with &ltcomestorLetter&gt element in the bible schema.
+ */
 public class ComestorLetter extends OtherPreface implements Serializable {
     
     private static final long serialVersionUID = 1L;

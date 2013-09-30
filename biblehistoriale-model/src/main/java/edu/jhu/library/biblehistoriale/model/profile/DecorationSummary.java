@@ -2,8 +2,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Contains information describing any and all illustrations in the
+ * bible.</p>
+ * 
+ * <p>Associated with the &ltdecorationSummary&gt element in the
+ * bible schema.</p>
+ */
 public class DecorationSummary implements Serializable {
     
     private static final long serialVersionUID = 1L;

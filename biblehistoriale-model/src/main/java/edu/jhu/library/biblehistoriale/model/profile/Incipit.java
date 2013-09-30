@@ -2,6 +2,12 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>The first line(s) of a given block of text. The accuracy of
+ * the text is also recorded.</p>
+ * 
+ * <p>Associated with the &ltincipit&gt element in the bible schema.</p>
+ */
 public class Incipit implements Serializable {
     
     private static final long serialVersionUID = 1L;

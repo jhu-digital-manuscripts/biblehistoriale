@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * List of bibliography entries
+ * Iterable list of bibliography entries. Associated with the
+ * &ltbibliography&gt element in the bible schema.
+ * 
+ * @see BiblioEntry
  */
 public class Bibliography implements Iterable<BiblioEntry>, Serializable {
     

@@ -4,6 +4,12 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>One owner of a bible. Contains who owned the bible, and when they
+ * owned it.</p>
+ * 
+ * <p>Associated with the &ltowner&gt element in the bible schema.</p>
+ */
 public class Owner implements Serializable {
     
     private static final long serialVersionUID = 1L;

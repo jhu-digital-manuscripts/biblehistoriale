@@ -2,8 +2,20 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>The physical characteristics of a bible, including dimensions, 
+ * gloss headings, quires, etc.</p>
+ * 
+ * <p>Associated with the &ltphysChar&gt element of the bible schema.</p>
+ * 
+ * @see Volumes
+ * @see Folios
+ * @see PageLayout
+ * @see Materials
+ * @see Dimensions
+ * @see QuireStructure
+ */
 public class PhysicalCharacteristics implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -3,8 +3,15 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
+/**
+ * <p>Information about the number of folios. Iterable over the individual
+ * volumes of the bible.</p>
+ * 
+ * <p>Associated with the &ltfolios&gt element in the bible schema.</p>
+ * 
+ * @see IndVolume
+ */
 public class Folios implements Iterable<IndVolume>, Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,6 +2,13 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>The master table of contents of a bible volume, found in the
+ * prefatory matter.</p>
+ * 
+ * <p>Associated with the &ltMasterTableOfContents&gt element
+ * of the bible schema.</p>
+ */
 public class MasterTableOfContents implements Serializable {
     
     private static final long serialVersionUID = 1L;

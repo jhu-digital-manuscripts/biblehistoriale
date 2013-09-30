@@ -3,6 +3,15 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 
+/**
+ * <p>Prefatory matter, associated with the &ltprefatoryMatter&gt 
+ * element of the bible schema.</p>
+ * 
+ * @see OtherPreface
+ * @see Guyart
+ * @see ComestorLetter
+ * @see MasterTableOfContents
+ */
 public class PrefatoryMatter implements Serializable {
     
     private static final long serialVersionUID = 1L;

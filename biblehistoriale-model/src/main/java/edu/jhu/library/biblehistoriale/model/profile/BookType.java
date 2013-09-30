@@ -2,6 +2,10 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * Contains information about the book type for the purposes of classification. 
+ * Associated with the &ltbookType&gt element in the bible schema.
+ */
 public class BookType implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,8 +2,18 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Associated with the &ltcatalogerClassification&gt element in bible schema.
+ * </p>
+ * 
+ * <p>Contains Berger class, Sneddon class, Fournie catalog, secundo folios,
+ *  and notes</p>
+ *  
+ *  @see Berger
+ *  @see Sneddon
+ *  @see SecundoFolio
+ */
 public class CatalogerClassification implements Serializable {
     
     private static final long serialVersionUID = 1L;

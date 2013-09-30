@@ -2,6 +2,9 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * &ltbergerClass&gt element in bible schema.
+ */
 public class Berger implements Serializable {
     
     private static final long serialVersionUID = 1L;

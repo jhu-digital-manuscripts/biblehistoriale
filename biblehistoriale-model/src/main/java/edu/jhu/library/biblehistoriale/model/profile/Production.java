@@ -2,8 +2,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Information about the production of a bible.</p>
+ * 
+ * <p>Associated with the &ltproduction&gt element of the bible schema.</p>
+ * 
+ * @see Contribtor
+ */
 public class Production implements Serializable {
     
     private static final long serialVersionUID = 1L;

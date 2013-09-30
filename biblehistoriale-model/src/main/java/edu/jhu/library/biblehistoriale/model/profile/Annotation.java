@@ -2,6 +2,9 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * Associated with the &ltannotation&gt element in bible schema.
+ */
 public class Annotation implements Serializable {
     
     private static final long serialVersionUID = 1L;

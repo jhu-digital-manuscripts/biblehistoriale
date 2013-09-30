@@ -2,6 +2,11 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Associated with the &ltguyart&gt element in the bible schema.</p>
+ * 
+ * @see OtherPreface
+ */
 public class Guyart extends OtherPreface implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,8 +2,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Contains classification and cataloging information for this bible.
+ * Associated with the &ltclassification&gt element in the bible schema.</p>
+ * 
+ * @see BookType
+ * @see CatalogerClassification
+ */
 public class Classification implements Serializable {
     
     private static final long serialVersionUID = 1L;

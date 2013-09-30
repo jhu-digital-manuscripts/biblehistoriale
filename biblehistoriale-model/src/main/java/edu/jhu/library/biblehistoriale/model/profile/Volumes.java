@@ -1,8 +1,13 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
-import java.util.List;
 
+/**
+ * <p>Information about the number of volumes associated with a bible, both
+ *  currently and in the past.</p>
+ *  
+ * <p>Associated with the &ltvolumes&gt element of the bible schema.</p>
+ */
 public class Volumes implements Serializable {
     
     private static final long serialVersionUID = 1L;

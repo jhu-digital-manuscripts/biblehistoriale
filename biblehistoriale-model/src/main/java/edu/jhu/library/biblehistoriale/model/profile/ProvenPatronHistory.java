@@ -2,8 +2,19 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>The patron / provenance history of a bible, including the bibles
+ * production and owners. Personalization and annotations by the owners is
+ * included.</p>
+ * 
+ * <p>Associated with the &ltprovenPatronHist&gt element of the bible schema.</p>
+ * 
+ * @see Production
+ * @see Personalization
+ * @see Ownership
+ * @see Annotation
+ */
 public class ProvenPatronHistory implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,8 +2,12 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>The quire structure of a bible.</p>
+ * 
+ * <p>Associated with the &ltquireStruct&gt element of the bible schema.</p>
+ */
 public class QuireStructure implements Serializable {
     
     private static final long serialVersionUID = 1L;

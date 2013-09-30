@@ -2,6 +2,15 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>An individual contributor to the bible. A contributor has a type and 
+ * a value. The type can be either artist, scribe, printer, or editor. The
+ *  value is the contributor's name.</p>
+ *  
+ *  <p>Associated with the sub-elements of &ltcontributors&gt.</p>
+ *  
+ *  @see Production
+ */
 public class Contributor implements Serializable {
     
     private static final long serialVersionUID = 1L;

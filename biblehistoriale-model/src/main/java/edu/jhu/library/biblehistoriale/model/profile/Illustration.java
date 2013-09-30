@@ -2,6 +2,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>A single illustration in the bible. An illustration has a book with 
+ * which it is associated, a folio that it lives on, the volume that it can
+ *  be found in, and keywords describing it. It can also include a URL to 
+ *  an image of the illustration.</p>
+ * 
+ * <p>Associated with the &ltillustration&gt element in the bible schema.</p>
+ */
 public class Illustration implements Serializable {
     
     private static final long serialVersionUID = 1L;

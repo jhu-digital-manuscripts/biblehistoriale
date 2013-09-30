@@ -2,6 +2,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Base class of some of the prefatory matters. Holds the start page, one
+ * incipit, and the URL to any transcriptions of a preface.</p>
+ * 
+ * <p>Directly associated with the &ltotherPreface&gt element in the bible schema.</p>
+ * 
+ * @see Incipit
+ */
 public class OtherPreface extends Incipit implements Serializable {
     
     private static final long serialVersionUID = 1L;

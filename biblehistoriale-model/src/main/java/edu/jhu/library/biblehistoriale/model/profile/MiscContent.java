@@ -2,6 +2,9 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Associated with the &ltmiscContents&gt element in the bible schema.</p>
+ */
 public class MiscContent implements Serializable {
     
     private static final long serialVersionUID = 1L;

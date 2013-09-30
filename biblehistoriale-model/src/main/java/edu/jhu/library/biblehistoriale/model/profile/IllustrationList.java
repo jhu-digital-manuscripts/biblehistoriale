@@ -3,8 +3,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
+/**
+ * <p>An iterable list of illustrations that are contained in a bible.</p>
+ * 
+ * <p>Associated with the &ltillustrationList&gt element in the bible schema.</p>
+ * 
+ * @see Illustration
+ */
 public class IllustrationList 
         implements Iterable<Illustration>, Serializable {
     

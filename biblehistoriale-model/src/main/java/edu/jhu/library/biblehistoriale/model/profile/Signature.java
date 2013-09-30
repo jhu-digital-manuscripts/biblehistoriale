@@ -2,6 +2,9 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Associated with the &ltsignature&gt element of the bible schema.</p>
+ */
 public class Signature extends PersonalizationItem implements Serializable {
     
     private static final long serialVersionUID = 1L;

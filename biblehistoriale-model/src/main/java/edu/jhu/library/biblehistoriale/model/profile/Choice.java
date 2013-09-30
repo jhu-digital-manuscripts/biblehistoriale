@@ -1,5 +1,8 @@
 package edu.jhu.library.biblehistoriale.model.profile;
 
+/**
+ * A choice of [yes / no / unknown].
+ */
 public enum Choice {
     Y("y"), N("n"), UNKNOWN("unknown");
     

@@ -4,6 +4,14 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * <p>A single bible book in a volume. EX: the book of Genesis. </br>
+ * An iterable list of incipits.</p>
+ * 
+ * <p>Associated with the &lttitle&gt element of the bible schema.</p>
+ * 
+ * @see TitleIncipit
+ */
 public class Title implements Serializable, Iterable<TitleIncipit> {
     
     private static final long serialVersionUID = 1L;

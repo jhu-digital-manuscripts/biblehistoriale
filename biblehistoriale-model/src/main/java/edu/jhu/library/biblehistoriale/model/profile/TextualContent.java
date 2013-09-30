@@ -2,8 +2,18 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.List;
 
+/**
+ * <p>Contains prefaces, bible books, and misc contents of a bible. Not 
+ * the full text, but incipits of select items are included.</p>
+ * 
+ * <p>Associated with the &lttextualContents&gt element of the bible schema.</p>
+ * 
+ * @see PrefatoryMatter
+ * @see BibleBooks
+ * @see MiscContent
+ * @see ParascripturalItem
+ */
 public class TextualContent implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -2,6 +2,11 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Information about the physical page layout of a bible.</p>
+ * 
+ * <p>Associated with the &ltpageLayout&gt element in the bible schema.</p>
+ */
 public class PageLayout implements Serializable {
     
     private static final long serialVersionUID = 1L;

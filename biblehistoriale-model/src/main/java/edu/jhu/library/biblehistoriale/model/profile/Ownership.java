@@ -3,8 +3,14 @@ package edu.jhu.library.biblehistoriale.model.profile;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.List;
 
+/**
+ * <p>An iterable list of owners of a bible.</p>
+ * 
+ * <p>Associated with the &ltownership&gt element in the bible schema.</p>
+ * 
+ * @see Owner
+ */
 public class Ownership implements Iterable<Owner>, Serializable {
     
     private static final long serialVersionUID = 1L;

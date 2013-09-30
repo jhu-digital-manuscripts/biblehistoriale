@@ -2,6 +2,11 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>The physical dimensions of the bible and pages and text blocks.</p>
+ * 
+ * <p>Associated with the &ltdimensions&gt element in the bible schema.</p>
+ */
 public class Dimensions implements Serializable {
     
     private static final long serialVersionUID = 1L;

@@ -4,6 +4,10 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * <p>Associated with the &ltparascripturalItems&gt element
+ * of the bible schema. Includes the litany, canticles, and any added prologues</p>
+ */
 public class ParascripturalItem implements Serializable {
     
     private static final long serialVersionUID = 1L;

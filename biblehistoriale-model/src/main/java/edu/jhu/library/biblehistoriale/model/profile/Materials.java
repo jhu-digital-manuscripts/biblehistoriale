@@ -2,6 +2,11 @@ package edu.jhu.library.biblehistoriale.model.profile;
 
 import java.io.Serializable;
 
+/**
+ * <p>Information about the physical materials that a bible is made out of.</p>
+ * 
+ * <p>Associated with the &ltmaterials&gt element in the bible schema.</p>
+ */
 public class Materials implements Serializable {
     
     private static final long serialVersionUID = 1L;
