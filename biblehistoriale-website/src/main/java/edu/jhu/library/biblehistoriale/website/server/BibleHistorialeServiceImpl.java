@@ -46,6 +46,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         try {
             response = super.processCall(payload);
         } catch (SerializationException e) {
+            log("Serialization Exception", e);
             System.out.println("### SERIALIZATION EXCEPTION ###" + e.getMessage());
         }
         
@@ -56,6 +57,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         String s = getServletConfig().getInitParameter("bible.index");
 
         if (s == null) {
+            log("bible.index not specified");
             throw new ServletException("bible.index not specified");
         }
 
@@ -76,6 +78,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             
             search_service = new SolrSearchService(solrhome);
         } catch (IOException e) {
+            log("Error accessing solr index: " + solrhome, e);
             throw new ServletException("Error accessing solr index: "
                     + solrhome, e);
         }
@@ -83,11 +86,13 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         // Get directory where MS profiles are stored
         s = getServletConfig().getInitParameter("bible.store");
         if (s == null || s.equals("")) {
+            log("bible.store not specified");
             throw new ServletException("bible.store not specified");
         }
 
         bible_store = new File(s);
         if (!bible_store.exists()) {
+            log("Error accessing bible.store at: " + s);
             throw new ServletException("The bible store specified at "
                     + s + " was not found.");
         }
@@ -119,6 +124,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         try {
             search_service.clear();
         } catch (SearchServiceException e) {
+            log("Error clearing index. ", e);
             throw new ServletException("Error clearing index", e);
         }
         
@@ -155,6 +161,12 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         if (criteria == null) {
             criteria = new CriteriaNode("");
         }
+
+        StringBuilder sb = new StringBuilder();
+        if (bible.getClassification().getCurrentRepository() != null)
+            sb.append(bible.getClassification().getCurrentRepository());
+        if (bible.getClassification().getCurrentShelfmark() != null)
+            sb.append(", " + bible.getClassification().getCurrentShelfmark());
         
         for (BrowseCriteria bc : BrowseCriteria.values()) {
             CriteriaNode node = criteria.getChildNodeByText(bc.message());
@@ -163,20 +175,19 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
                 node = new CriteriaNode(bc.message());
                 criteria.addChildNode(node);
             }
-            
+
             String[] strs = bc.getPropertyFromBible(bible);
-            
+
             for (String str : strs) {
                 CriteriaNode add = node.getChildNodeByText(str);
-                
+
                 if (add == null) {
                     add = new CriteriaNode(str,
-                            new CriteriaNode(bible.getId()));
+                            new CriteriaNode(bible.getId(), sb.toString()));
+                    node.addChildNode(add);
                 } else {
-                    add.addChildNode(new CriteriaNode(bible.getId()));
+                    add.addChildNode(new CriteriaNode(bible.getId(), sb.toString()));
                 }
-                
-                node.addChildNode(add);
             }
         }
     }
@@ -195,6 +206,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             
             return ProfileBuilder.buildProfile(path);
         } catch (IOException | ProfileBuilderException e) {
+            log("Error loading " + id, e);
             throw new RPCException("Error loading " + id, e);
         }
     }

@@ -6,26 +6,50 @@ import java.util.Arrays;
 public class CriteriaNode implements Serializable {
     private static final long serialVersionUID = 1L;
 
-    private String text;
+    private String id;
+    private String message;
     
+    // TODO change array to ArrayList?
     private CriteriaNode[] children;
     
     public CriteriaNode() {
         this(null);
     }
     
-    public CriteriaNode(String text) {
-        this.text = text;
+    public CriteriaNode(String id) {
+        this.id = id;
+        this.message = null;
         this.children = null;
     }
     
-    public CriteriaNode(String text, CriteriaNode... children) {
-        this.text = text;
+    public CriteriaNode(String id, String message) {
+        this.id = id;
+        this.message = message;
+        this.children = null;
+    }
+    
+    public CriteriaNode(String id, CriteriaNode... children) {
+        this.id = id;
+        this.message = null;
         this.children = children;
     }
     
-    public String getText() {
-        return text;
+    public CriteriaNode(String id, String message, CriteriaNode... children) {
+        this.id = id;
+        this.message = message;
+        this.children = children;
+    }
+    
+    public String getId() {
+        return id;
+    }
+    
+    public String getMessage() {
+        if (message == null) {
+            return id;
+        }
+        
+        return message;
     }
     
     public CriteriaNode[] getChildren() {
@@ -58,7 +82,7 @@ public class CriteriaNode implements Serializable {
         }
         
         for (CriteriaNode cr : children) {
-            if (cr.getText().equals(text))
+            if (cr.getId().equals(text))
                 return cr;
             
             CriteriaNode child = cr.getChildNodeByText(text);
@@ -71,7 +95,7 @@ public class CriteriaNode implements Serializable {
 
     @Override
     public String toString() {
-        return "CriteriaNode [text=" + text + ", children="
+        return "CriteriaNode [text=" + id + ", children="
                 + Arrays.toString(children) + "]";
     }
 }

@@ -74,7 +74,7 @@ public class BrowseProfilesActivity extends AbstractActivity
                 CriteriaNode crit = view.getSelectedNode();
                 
                 if (crit.isLeaf()) {
-                    goTo(new ProfileDetailPlace(crit.getText()));
+                    goTo(new ProfileDetailPlace(crit.getId()));
                 }
             }
         }));

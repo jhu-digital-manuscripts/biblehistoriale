@@ -18,7 +18,7 @@ public class CriteriaTreeViewModel implements TreeViewModel {
         @Override
         public void render(com.google.gwt.cell.client.Cell.Context context,
                 CriteriaNode value, SafeHtmlBuilder sb) {
-            sb.appendHtmlConstant(value.getText());
+            sb.appendHtmlConstant(value.getMessage());
         }
         
     }
