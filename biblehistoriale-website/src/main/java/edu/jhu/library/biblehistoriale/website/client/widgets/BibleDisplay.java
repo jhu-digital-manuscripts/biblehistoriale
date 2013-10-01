@@ -191,7 +191,6 @@ public class BibleDisplay extends Composite {
         top.setWidth("100%");
         top.setHeight("100%");
         
-        //panel.setWidth((Window.getClientWidth() - 75) + "px");
         profile_panel.add(top);
         
         // Title

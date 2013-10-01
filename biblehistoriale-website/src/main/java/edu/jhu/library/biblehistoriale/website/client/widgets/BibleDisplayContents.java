@@ -14,7 +14,6 @@ import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
-import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
@@ -46,10 +45,6 @@ import edu.jhu.library.biblehistoriale.website.client.Messages;
  * Contains methods for displaying textual content of a Bible.
  */
 public class BibleDisplayContents {
-    /**
-     * Width of any illustration thumbnails in pixels.
-     */
-    private static final int THUMB_WIDTH = 150;
     
     private static final String BH = "BH";
     private static final String BXIII = "BXIII";
@@ -193,7 +188,7 @@ public class BibleDisplayContents {
         int vols = numVols();
         
         if (vols == 0) {
-            return null;
+            return new int[0];
         }
         
         int[] num_ills = new int[vols];
@@ -350,72 +345,77 @@ public class BibleDisplayContents {
         sb = new StringBuilder("Classified as ");
         
         CatalogerClassification classif = bible.getClassification().getClassification();
-        Berger berg = classif.getBergerClass();
-        Sneddon sned = classif.getSneddonClass();
-        
-        if (berg.getCategory() != null)
-            sb.append(berg.getCategory().category() + " ");
-        if (berg.getBhcSubtype() != null)
-            sb.append(berg.getBhcSubtype().subtype() + " ");
-        if (berg.getCategory() != null || berg.getBhcSubtype() != null)
-            sb.append("by Berger. ");
-        
-        if (sned.getSub1() != null)
-            sb.append(sned.getSub1());
-        if (sned.getSub2() != null)
-            sb.append(sned.getSub2());
-        if (sned.getSub3() != null)
-            sb.append(sned.getSub3());
-        if (sned.getSub1() != null || sned.getSub2() != null || sned.getSub3() != null)
-            sb.append(" by Sneddon. ");
-        
-        div.appendChild(BibleDisplay.textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
-        
-        IllustrationList ills = bible.getIllustrations();
-        int[] by_volume = countIllsInVols(ills);
-        
-        sb = new StringBuilder();
-        sb.append(ills.size() + " illustrations. ");
-        
-        if (by_volume != null) {
-            for (int i = 0; i < by_volume.length; i++) {
-                sb.append(by_volume[i] + " in volume " + (i + 1) + ". ");
-            }
+        if (classif != null) {
+            Berger berg = classif.getBergerClass();
+            Sneddon sned = classif.getSneddonClass();
+            
+            if (berg.getCategory() != null)
+                sb.append(berg.getCategory().category() + " ");
+            if (berg.getBhcSubtype() != null)
+                sb.append(berg.getBhcSubtype().subtype() + " ");
+            if (berg.getCategory() != null || berg.getBhcSubtype() != null)
+                sb.append("by Berger. ");
+            
+            if (sned.getSub1() != null)
+                sb.append(sned.getSub1());
+            if (sned.getSub2() != null)
+                sb.append(sned.getSub2());
+            if (sned.getSub3() != null)
+                sb.append(sned.getSub3());
+            if (sned.getSub1() != null || sned.getSub2() != null || sned.getSub3() != null)
+                sb.append(" by Sneddon. ");
+            
+            div.appendChild(BibleDisplay.textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
         }
         
-        div.appendChild(BibleDisplay.textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
+        IllustrationList ills = bible.getIllustrations();
+        if (ills != null) {
+            int[] by_volume = countIllsInVols(ills);
+            
+            sb = new StringBuilder();
+            sb.append(ills.size() + " illustrations. ");
+            
+            if (by_volume != null) {
+                for (int i = 0; i < by_volume.length; i++) {
+                    sb.append(by_volume[i] + " in volume " + (i + 1) + ". ");
+                }
+            }
+            div.appendChild(BibleDisplay.textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
         
         List<BibleBooks> vols = bible.getTextualContent().bibleBooks();
         
-        sb = new StringBuilder("Gloss types/sources include: ");
-        
-        for (BibleBooks bb : vols) {
-            for (Title title : bb) {
-                String type = title.getGlossType();
-                if (sb.indexOf(type) == -1) {
-                    sb.append(type + ". ");
+        if (vols != null) {
+            sb = new StringBuilder("Gloss types/sources include: ");
+            
+            for (BibleBooks bb : vols) {
+                for (Title title : bb) {
+                    String type = title.getGlossType();
+                    if (sb.indexOf(type) == -1) {
+                        sb.append(type + ". ");
+                    }
                 }
             }
+            
+            div.appendChild(BibleDisplay.textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+            
+            sb = new StringBuilder("Text and gloss " 
+                    + (matchingTextAndGloss(vols)
+                            ? "" : "do not always ") + "match. ");
+            
+            List<Title> mults = findTitlesWithMultiple(vols);
+            
+            for (Title title : mults) {
+                sb.append(title.getTextVersion() + " " + title.getBookName()
+                        + " includes other glosses. ");
+            }
+            
+            div.appendChild(BibleDisplay.textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
         }
-        
-        div.appendChild(BibleDisplay.textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
-        
-        sb = new StringBuilder("Text and gloss " 
-                + (matchingTextAndGloss(vols)
-                        ? "" : "do not always ") + "match. ");
-        
-        List<Title> mults = findTitlesWithMultiple(vols);
-        
-        for (Title title : mults) {
-            sb.append(title.getTextVersion() + " " + title.getBookName()
-                    + " includes other glosses. ");
-        }
-        
-        div.appendChild(BibleDisplay.textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
         
         FlowPanel options_panel = new FlowPanel();
         panel.add(options_panel);
@@ -491,12 +491,11 @@ public class BibleDisplayContents {
         int[] ill_by_volume = countIllsInVols(bible.getIllustrations());
         
         FlowPanel tables = new FlowPanel();
-        //List<FlexTable> table_list = new ArrayList<FlexTable> ();
-        
+
         // Init tables and add the title row
         for (int i = 0; i < num_vols; i++) {
             int vol = i + 1;
-            
+
             BibleVolume bible_volume = new BibleVolume(bible, vol);
             
             StringBuilder sb = new StringBuilder();
@@ -520,31 +519,35 @@ public class BibleDisplayContents {
             
             titlediv.appendChild(BibleDisplay.textNode("Volume " + vol));
             div.appendChild(doc.createBRElement());
-            
+
             ParascripturalItem pi = bible.getTextualContent().parascripturalItem();
-            String[] titles = getFirstAndLastBooks(vol);
-            
-            if (hasPrefaceInVolume(i+1))
-                sb.append("Preface(s). ");
-            if (titles != null)
-                sb.append(titles[0] + " - " + titles[1] + ". ");
-            if (pi.getLitanyPresence() == Choice.Y)
-                sb.append("Litany. ");
-            if (pi.getCanticlePresence() == Choice.Y)
-                sb.append("Canticles. ");
-            if (pi.catechismPrayersTreatises().size() > 0
-                    || bible.getTextualContent().miscContents().size() > 0) {
-                sb.append("Other materials. ");
+            if (pi != null) {
+                String[] titles = getFirstAndLastBooks(vol);
+                
+                if (hasPrefaceInVolume(i+1))
+                    sb.append("Preface(s). ");
+                if (titles != null)
+                    sb.append(titles[0] + " - " + titles[1] + ". ");
+                if (pi.getLitanyPresence() == Choice.Y)
+                    sb.append("Litany. ");
+                if (pi.getCanticlePresence() == Choice.Y)
+                    sb.append("Canticles. ");
+                if (pi.catechismPrayersTreatises().size() > 0
+                        || bible.getTextualContent().miscContents().size() > 0) {
+                    sb.append("Other materials. ");
+                }
+                
+                div.appendChild(BibleDisplay.textNode(sb.toString()));
+                div.appendChild(doc.createBRElement());
             }
             
-            div.appendChild(BibleDisplay.textNode(sb.toString()));
-            div.appendChild(doc.createBRElement());
-            
-            sb = new StringBuilder("Folios: ");
-            
-            for (IndVolume ind : bible.getPhysChar().getFolios()) {
-                if (ind.getVolume() == vol) {
-                    sb.append(ind.getValue());
+            if (bible.getPhysChar().getFolios().size() > 0) {
+                sb = new StringBuilder("Folios: ");
+                
+                for (IndVolume ind : bible.getPhysChar().getFolios()) {
+                    if (ind != null && ind.getVolume() == vol) {
+                        sb.append(ind.getValue());
+                    }
                 }
             }
             
@@ -561,7 +564,7 @@ public class BibleDisplayContents {
             table.setWidget(1, 0, label);
             
             PrefatoryMatter prefatory = bible_volume.getPrefatoryMatter();
-            
+
             if (prefatory != null) {
                 String descr = prefatory.getPrefactoryNote() != null 
                         ?"<i>Description:</i> " + prefatory.getPrefactoryNote()
@@ -570,12 +573,16 @@ public class BibleDisplayContents {
                 
                 FlowPanel fp = new FlowPanel();
                 table.setWidget(3, 0, fp);
-                
+
                 /**
                  * Other Preface
                  */
                 for (int j = 0; j < prefatory.otherPrefaces().size(); j++) {
                     OtherPreface other = prefatory.otherPrefaces().get(j);
+                    
+                    if (other == null) {
+                        continue;
+                    }
                     
                     p = new SimplePanel();
                     fp.add(p);
@@ -619,8 +626,13 @@ public class BibleDisplayContents {
                     
                     subdiv.appendChild(BibleDisplay.span("Incipit(s): ", 
                             "ArticleTitle"));
-                    subdiv.appendChild(BibleDisplay.textNode(other.getText() + " (" 
-                            + other.getAccuracy().accuracy() + "). "));
+                    
+                    sb = new StringBuilder();
+                    if (!BibleDisplay.isBlank(other.getText()))
+                        sb.append(other.getText() + " (");
+                    if (other.getAccuracy() != null)
+                        sb.append(other.getAccuracy().accuracy() + "). ");
+                    subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                     
                     subdiv = doc.createDivElement();
                     subdiv.setClassName("ContentIlls");
@@ -630,6 +642,9 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getOtherPrefacesIlls(other)) {
+                        if (ill == null) {
+                            continue;
+                        }
                         sb = new StringBuilder();
                         
                         if (ill.getNumber() > 0)
@@ -659,14 +674,17 @@ public class BibleDisplayContents {
                     }
                     
                 }
-                
+
                 /**
                  * Guyart
                  */
                 for (int j = 0; j < prefatory.guyartList().size(); j++) {
-                    
                     Guyart guyart = prefatory.guyartList().get(j);
 
+                    if (guyart == null) {
+                        continue;
+                    }
+                    
                     p = new SimplePanel();
                     fp.add(p);
                     
@@ -708,8 +726,13 @@ public class BibleDisplayContents {
                     div.appendChild(subdiv);
 
                     subdiv.appendChild(BibleDisplay.span("Incipit(s): ", "ArticleTitle"));
-                    subdiv.appendChild(BibleDisplay.textNode(guyart.getText() + " (" 
-                            + guyart.getAccuracy().accuracy() + "). "));
+                    
+                    sb = new StringBuilder();
+                    if (!BibleDisplay.isBlank(guyart.getText()))
+                        sb.append(guyart.getText() + " (");
+                    if (guyart.getAccuracy() != null)
+                        sb.append(guyart.getAccuracy().accuracy() + "). ");
+                    subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                     
                     subdiv = doc.createDivElement();
                     subdiv.setClassName("ContentIlls");
@@ -719,6 +742,9 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getGuyartIlls(guyart)) {
+                        if (ill == null) {
+                            continue;
+                        }
                         sb = new StringBuilder();
                         
                         if (ill.getNumber() > 0)
@@ -748,12 +774,16 @@ public class BibleDisplayContents {
                         div.appendChild(anch);
                     }
                 }
-                
+
                 /**
                  * Comestor letter
                  */
                 for (int j = 0; j < prefatory.comestorLetters().size(); j++) {
                     ComestorLetter cs = prefatory.comestorLetters().get(j);
+                    
+                    if (cs == null) {
+                        continue;
+                    }
                     
                     p = new SimplePanel();
                     fp.add(p);
@@ -801,11 +831,19 @@ public class BibleDisplayContents {
                     subdiv.appendChild(ul);
                     
                     for (Incipit inc : cs.incipits()) {
+                        if (inc == null) {
+                            continue;
+                        }
                         Element li = doc.createLIElement();
                         ul.appendChild(li);
                         
-                        li.setInnerHTML(inc.getText() + " ("
-                                + inc.getAccuracy().accuracy() + "). ");
+                        sb = new StringBuilder();
+                        if (!BibleDisplay.isBlank(inc.getText()))
+                            sb.append(cs.getText() + " (");
+                        if (inc.getAccuracy() != null)
+                            sb.append(inc.getAccuracy().accuracy() + "). ");
+                        
+                        li.setInnerHTML(sb.toString());
                     }
                     
                     subdiv = doc.createDivElement();
@@ -816,6 +854,10 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getComestorLetterIlls(cs)) {
+                        if (ill == null) {
+                            continue;
+                        }
+                        
                         sb = new StringBuilder();
                         
                         if (ill.getNumber() > 0)
@@ -845,13 +887,16 @@ public class BibleDisplayContents {
                         div.appendChild(anch);
                     }
                 }
-                
+
                 /**
                  * Comestor
                  */
                 for (int j = 0; j < prefatory.guyartList().size(); j++) {
-                    
                     OtherPreface other = prefatory.comestorList().get(j);
+                    
+                    if (other == null) {
+                        continue;
+                    }
 
                     p = new SimplePanel();
                     fp.add(p);
@@ -894,8 +939,13 @@ public class BibleDisplayContents {
                     div.appendChild(subdiv);
 
                     subdiv.appendChild(BibleDisplay.span("Incipit(s): ", "ArticleTitle"));
-                    subdiv.appendChild(BibleDisplay.textNode(other.getText() + " (" 
-                            + other.getAccuracy().accuracy() + "). "));
+                    
+                    sb = new StringBuilder();
+                    if (!BibleDisplay.isBlank(other.getText()))
+                        sb.append(other.getText() + " (");
+                    if (other.getAccuracy() != null)
+                        sb.append(other.getAccuracy().accuracy() + "). ");
+                    subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
                     
                     subdiv = doc.createDivElement();
                     subdiv.setClassName("ContentIlls");
@@ -905,6 +955,10 @@ public class BibleDisplayContents {
                     subdiv.appendChild(doc.createBRElement());
                     
                     for (Illustration ill : bible_volume.getComestorIlls(other)) {
+                        if (ill == null) {
+                            continue;
+                        }
+                        
                         subdiv.appendChild(BibleDisplay.textNode(
                                 ill.getNumber() + ", Fol. " + ill.getFolio()
                                 + ", " + ill.getKeywords()));
@@ -930,7 +984,7 @@ public class BibleDisplayContents {
                 }
                
                 MasterTableOfContents master = prefatory.getMasterTableOfContents();
-                
+
                 if (master != null) {
                     p = new SimplePanel();
                     fp.add(p);
@@ -988,7 +1042,7 @@ public class BibleDisplayContents {
                     subdiv.appendChild(BibleDisplay.textNode(master.getText()));
                 }
             }
-            
+
             BibleBooks books = bible_volume.getBibleBooks();
             
             label = new HTML("Biblical books");
@@ -997,9 +1051,13 @@ public class BibleDisplayContents {
             
             FlowPanel fp = new FlowPanel();
             table.setWidget(5, 0, fp);
-            
+
             for (int j = 0; j < books.size(); j++) {
                 Title title = books.title(j);
+                
+                if (title == null) {
+                    continue;
+                }
 
                 p = new SimplePanel();
                 fp.add(p);
@@ -1033,7 +1091,7 @@ public class BibleDisplayContents {
                 }
                 
                 div.appendChild(BibleDisplay.textNode(sb.toString()));
-                
+
                 DisclosurePanel disclose = new DisclosurePanel();
                 fp.add(disclose);
                 ills_incips.add(disclose);
@@ -1056,14 +1114,21 @@ public class BibleDisplayContents {
                 
                 Element ul = doc.createULElement();
                 subdiv.appendChild(ul);
-                
+
                 for (TitleIncipit inc : title) {
+                    if (inc == null) {
+                        continue;
+                    }
                     Element li = doc.createLIElement();
                     ul.appendChild(li);
                     
-                    li.setInnerHTML(inc.getTextType() + ": " 
-                            + inc.getText() + " (" + inc.getAccuracy().accuracy() 
-                            + "). ");
+                    sb = new StringBuilder();
+                    if (!BibleDisplay.isBlank(inc.getText()))
+                        sb.append(inc.getText() + " (");
+                    if (inc.getAccuracy() != null)
+                        sb.append(inc.getAccuracy().accuracy() + "). ");
+                    
+                    li.setInnerHTML(sb.toString());
                 }
                 
                 subdiv = doc.createDivElement();
@@ -1074,8 +1139,11 @@ public class BibleDisplayContents {
                 
                 ul = doc.createULElement();
                 subdiv.appendChild(ul);
-                
+
                 for (Illustration ill : bible_volume.getTitleIlls(title)) {
+                    if (ill == null) {
+                        continue;
+                    }
                     Element li = doc.createLIElement();
                     ul.appendChild(li);
                     
@@ -1101,7 +1169,7 @@ public class BibleDisplayContents {
                 
                 // Annotations
                 List<Annotation> anns = getAnnotationsForTitle(title);
-                
+
                 if (anns != null && anns.size() > 0) {
                     subdiv = doc.createDivElement();
                     subdiv.setClassName("Floater");
@@ -1112,6 +1180,9 @@ public class BibleDisplayContents {
                     subdiv.appendChild(ul);
                     
                     for (Annotation ann : anns) {
+                        if (ann == null) {
+                            continue;
+                        }
                         Element li = doc.createLIElement();
                         ul.appendChild(li);
                         
@@ -1131,7 +1202,7 @@ public class BibleDisplayContents {
                                 + ann.getTextReferenced()));
                     }
                 }
-                
+
                 if (!BibleDisplay.isBlank(title.getTranscriptionUrl())) {
                     AnchorElement anch = doc.createAnchorElement();
                     
@@ -1142,7 +1213,7 @@ public class BibleDisplayContents {
                 }
             }
         }
-        
+
         return tables;
     }
     

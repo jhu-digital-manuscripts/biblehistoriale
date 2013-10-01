@@ -25,7 +25,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * <p>Prefatory matter and bible books for this volume</p>
  */
 public class BibleVolume {
-    
+    // TODO does this actually work??
     private PrefatoryMatter prefatory;
     private BibleBooks books;
     
@@ -53,6 +53,14 @@ public class BibleVolume {
             if (bb.getVolume() == volume) {
                 this.books = bb;
             }
+        }
+        
+        if (prefatory == null) {
+            prefatory = new PrefatoryMatter();
+        }
+        
+        if (books == null) {
+            books = new BibleBooks();
         }
         
         IllustrationList ills = bible.getIllustrations();
@@ -166,10 +174,6 @@ public class BibleVolume {
         
         for (OtherPreface other : prefatory.otherPrefaces()) {
             // Ignore any items that occur before the item under test
-            /*if (start_page.compareTo(other.getStartPage()) > 0) {
-                continue;
-            }*/
-            
             if (other.getStartPage() != null
                     && start_page.compareToIgnoreCase(other.getStartPage()) <= 0
                     && folio.compareToIgnoreCase(other.getStartPage()) > 0) {

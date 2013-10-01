@@ -86,7 +86,7 @@ public class SolrSearchServiceTest {
         Query query = new Query(TermField.TITLE, "La S. Bible");
         QueryResult result = service.executeQuery(query, opts);
         
-        assertEquals(2, result.getTotal());
+        assertEquals(1, result.getTotal());
         System.out.println();
         System.out.println("Testing results highlighting: ");
         System.out.println(result.matches().get(0).getId());
