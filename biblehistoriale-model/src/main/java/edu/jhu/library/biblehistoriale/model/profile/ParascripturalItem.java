@@ -13,11 +13,49 @@ public class ParascripturalItem implements Serializable {
     private static final long serialVersionUID = 1L;
 
     public enum LitanyForm {
-        PROSE, VERSE, MIXED, UNKNOWN, NA
+        PROSE("prose"), VERSE("verse"), MIXED("mixed"),
+        UNKNOWN("unknown"), NA("n/a");
+        
+        private String form;
+        
+        private LitanyForm(String form) {
+            this.form = form;
+        }
+        
+        public String formString() {
+            return form;
+        }
+        
+        public static LitanyForm getLitanyForm(String form) {
+            for (LitanyForm lf : LitanyForm.values()) {
+                if (lf.formString().equals(form))
+                    return lf;
+            }
+            return null;
+        }
     }
     
     public enum SneddonId {
-        ONE, TWO, THREE, OTHER, UNKNOWN, NA
+        ONE("1"), TWO("2"), THREE("3"), 
+        OTHER("other"), UNKNOWN("unknown"), NA("n/a");
+        
+        private String message;
+        
+        private SneddonId(String message) {
+            this.message = message;
+        }
+        
+        public String getMessage() {
+            return message;
+        }
+        
+        public static SneddonId getSneddonId(String message) {
+            for (SneddonId si : SneddonId.values()) {
+                if (si.getMessage().equals(message))
+                    return si;
+            }
+            return null;
+        }
     }
     
     public enum AddedChoice {
@@ -93,19 +131,7 @@ public class ParascripturalItem implements Serializable {
     }
 
     public void setForm(String form) {
-        if (form.equals("prose")) {
-            this.form = LitanyForm.PROSE;
-        } else if (form.equals("verse")) {
-            this.form = LitanyForm.VERSE;
-        } else if (form.equals("mixed")) {
-            this.form = LitanyForm.MIXED;
-        } else if (form.equals("unknown")) {
-            this.form = LitanyForm.UNKNOWN;
-        } else if (form.equals("n/a")) {
-            this.form = LitanyForm.NA;
-        } else {
-            this.form = null;
-        }
+        this.form = LitanyForm.getLitanyForm(form);
     }
 
     public String getLocVol() {
@@ -145,21 +171,7 @@ public class ParascripturalItem implements Serializable {
     }
 
     public void setSneddonId(String sneddonId) {
-        if (sneddonId.equals("1")) {
-            this.sneddonId = SneddonId.ONE;
-        } else if (sneddonId.equals("2")) {
-            this.sneddonId = SneddonId.TWO;
-        } else if (sneddonId.equals("3")) {
-            this.sneddonId = SneddonId.THREE;
-        } else if (sneddonId.equals("other")) {
-            this.sneddonId = SneddonId.OTHER;
-        } else if (sneddonId.equals("unknown")) {
-            this.sneddonId = SneddonId.UNKNOWN;
-        } else if (sneddonId.equals("n/a")) {
-            this.sneddonId = SneddonId.NA;
-        } else {
-            this.sneddonId = null;
-        }
+        this.sneddonId = SneddonId.getSneddonId(sneddonId);
     }
 
     public String getCanticleType() {

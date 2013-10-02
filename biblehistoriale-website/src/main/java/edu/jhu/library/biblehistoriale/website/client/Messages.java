@@ -104,5 +104,7 @@ public interface Messages extends Constants {
     public String browseByCriteriaDescription();
     
     public String loadingCriteria();
+    
+    public String otherContents();
 
 }

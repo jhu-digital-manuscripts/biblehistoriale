@@ -24,6 +24,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Berger;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
 import edu.jhu.library.biblehistoriale.model.profile.CatalogerClassification;
+import edu.jhu.library.biblehistoriale.model.profile.CatechismsPrayersTreatise;
 import edu.jhu.library.biblehistoriale.model.profile.Choice;
 import edu.jhu.library.biblehistoriale.model.profile.ComestorLetter;
 import edu.jhu.library.biblehistoriale.model.profile.Guyart;
@@ -33,6 +34,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Incipit;
 import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
 import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents;
 import edu.jhu.library.biblehistoriale.model.profile.MasterTableOfContents.Detail;
+import edu.jhu.library.biblehistoriale.model.profile.MiscContent;
 import edu.jhu.library.biblehistoriale.model.profile.OtherPreface;
 import edu.jhu.library.biblehistoriale.model.profile.ParascripturalItem;
 import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
@@ -560,7 +562,7 @@ public class BibleDisplayContents {
             div.appendChild(BibleDisplay.textNode(sb.toString()));
             
             HTML label = new HTML("Prefatory Matter");
-            label.setStylePrimaryName("TableSubtitle");
+            label.setStylePrimaryName("SectionHeader");
             table.setWidget(1, 0, label);
             
             PrefatoryMatter prefatory = bible_volume.getPrefatoryMatter();
@@ -1046,7 +1048,7 @@ public class BibleDisplayContents {
             BibleBooks books = bible_volume.getBibleBooks();
             
             label = new HTML("Biblical books");
-            label.setStylePrimaryName("TableSubtitle");
+            label.setStylePrimaryName("SectionHeader");
             table.setWidget(4, 0, label);
             
             FlowPanel fp = new FlowPanel();
@@ -1212,8 +1214,12 @@ public class BibleDisplayContents {
                     div.appendChild(anch);
                 }
             }
+            
+         // TODO insert Other Contents
+            //tables.add(displayOtherContents(bible_volume));
+            table.setWidget(6, 0, displayOtherContents(bible_volume));
         }
-
+        
         return tables;
     }
     
@@ -1227,5 +1233,241 @@ public class BibleDisplayContents {
         
         return anns;
     }
+    
+    private FlowPanel displayOtherContents(BibleVolume bible_volume) {
+        int volume = bible_volume.getVolume();
+        
+        FlowPanel cont = new FlowPanel();
+        
+        ParascripturalItem pi = bible_volume.getParascripturalItem();
+        List<MiscContent> misc = bible_volume.miscContents();
+        
+        if (pi == null && (misc == null || misc.size() == 0)) {
+            return cont;
+        }
+        
+        Label title = new Label(Messages.INSTANCE.otherContents());
+        title.setStylePrimaryName("SectionHeader");
+        cont.add(title);
+        
+        SimplePanel p = new SimplePanel();
+        cont.add(p);
+        
+        Element div = doc.createDivElement();
+        BibleDisplay.appendChild(p, div);
+        
+        // Litany
+        if (pi.getLitanyPresence() == Choice.Y 
+                && pi.getLocVol().equals(String.valueOf(volume))) {
+            Element subdiv = doc.createDivElement();
+            div.appendChild(subdiv);
+            subdiv.appendChild(BibleDisplay.span("Litany", "TableSubtitle"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            if (pi.getSneddonId() != null)
+                sb.append(" (Sneddon " + pi.getSneddonId().getMessage() + ") ");
+            if (pi.getForm() != null)
+                sb.append(pi.getForm().formString() + ", ");
+            if (!BibleDisplay.isBlank(pi.getPlaceOfOriginUse()))
+                sb.append(pi.getPlaceOfOriginUse() + " origin/use. ");
+            if (!BibleDisplay.isBlank(pi.getLocStart()))
+                sb.append("Begins folio " + pi.getLocStart() + ". ");
+            subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
+        }
+        
+        // Canticles
+        if (pi.getCanticlePresence() == Choice.Y
+                && pi.getVolume() == volume) {
+            Element subdiv = doc.createDivElement();
+            div.appendChild(subdiv);
+            
+            subdiv.appendChild(BibleDisplay.span("Canticles", "TableSubtitle"));
+            
+            StringBuilder sb = new StringBuilder();
+            
+            if (!BibleDisplay.isBlank(pi.getCanticleType()))
+                sb.append(" (" + pi.getCanticleType() + "), ");
+            if (!BibleDisplay.isBlank(pi.getCanticleStartFolio()))
+                sb.append("begins folio " + pi.getCanticleStartFolio() + ". ");
+            
+            subdiv.appendChild(BibleDisplay.textNode(sb.toString()));
+        }
+        
+        // Catechisms Prayers Treatises
+        List<CatechismsPrayersTreatise> catechisms = pi.catechismPrayersTreatises();
+        if (catechisms != null && catechisms.size() > 0){
+            Element subdiv = doc.createDivElement();
+            div.appendChild(subdiv);
+            
+            subdiv.appendChild(BibleDisplay.span("Other Religious Texts ", "TableSubtitle"));
+            
+            Element sdiv = doc.createDivElement();
+            subdiv.appendChild(sdiv);
+            
+            List<Illustration> cills = bible_volume.catechismsIlls();
+            if (cills.size() > 0)
+                sdiv.setClassName("ContentIlls");
+            
+            Element ul = doc.createULElement();
+            sdiv.appendChild(ul);
+            
+            for (CatechismsPrayersTreatise ct : catechisms) {
+                if (ct.getPresence() == Choice.Y && ct.getVolume() == volume) {
+                    Element li = doc.createLIElement();
+                    ul.appendChild(li);
+                    
+                    if (!BibleDisplay.isBlank(ct.getStartFolio())) {
+                        li.appendChild(BibleDisplay.textNode(" Begins folio " 
+                                + ct.getStartFolio() + ". "));
+                        li.appendChild(doc.createBRElement());
+                    }
+                    if (ct.getDescriptionsFirstLines().size() > 0) {
+                        Element desc_list = doc.createULElement();
+                        li.appendChild(desc_list);
+                        
+                        for (String line : ct.getDescriptionsFirstLines()) {
+                            Element item = doc.createLIElement();
+                            desc_list.appendChild(item);
+                            
+                            item.appendChild(BibleDisplay.textNode(line));
+                        }
+                    }
+                }
+            }
+            
+            sdiv = doc.createDivElement();
+            sdiv.setClassName("ContentIlls");
+            subdiv.appendChild(sdiv);
+            
+            ul = doc.createULElement();
+            sdiv.appendChild(ul);
+            
+            for (Illustration ill : cills) {
+                if (ill == null) {
+                    continue;
+                }
+                Element li = doc.createLIElement();
+                ul.appendChild(li);
+                
+                StringBuilder sb = new StringBuilder();
+                
+                if (ill.getNumber() > 0)
+                    sb.append(ill.getNumber() + ", ");
+                if (!BibleDisplay.isBlank(ill.getFolio()))
+                    sb.append("Fol. " + ill.getFolio() + ". ");
+                if (!BibleDisplay.isBlank(ill.getKeywords()))
+                    sb.append(ill.getKeywords());
+                
+                li.appendChild(BibleDisplay.textNode(sb.toString() + " "));
+                
+                if (ill.getUrl() != null && !ill.getUrl().equals("")) {
+                    AnchorElement anch = doc.createAnchorElement();
+                    
+                    anch.setInnerHTML("[View image]");
+                    anch.setHref(ill.getUrl());
+                    li.appendChild(anch);
+                }
+            }
+        }
+        
+        // Misc Contents
+        if (misc != null && misc.size() > 0) {
+            Element subdiv = doc.createDivElement();
+            div.appendChild(subdiv);
+            
+            subdiv.appendChild(BibleDisplay.span("Miscellaneous", "TableSubtitle"));
+            
+            Element sdiv = doc.createDivElement();
+            subdiv.appendChild(sdiv);
+            
+            List<Illustration> mills = bible_volume.miscContentIlls();
+            if (mills.size() > 0)
+                sdiv.setClassName("ContentIlls");
+            
+            Element ul = doc.createULElement();
+            sdiv.appendChild(ul);
+            
+            for (MiscContent mi : misc) {
+                if (mi.getVolume() == volume) {
+                    Element li = doc.createLIElement();
+                    ul.appendChild(li);
+                    
+                    if (!BibleDisplay.isBlank(mi.getStartFolio())) {
+                        li.appendChild(BibleDisplay.textNode(" Begins folio " 
+                                + mi.getStartFolio() + ". "));
+                        li.appendChild(doc.createBRElement());
+                    }
+                    if (!BibleDisplay.isBlank(mi.getDescription())) {
+                        li.appendChild(BibleDisplay.textNode(mi.getDescription()));
+                    }
+                }
+            }
+            
+            sdiv = doc.createDivElement();
+            sdiv.setClassName("ContentIlls");
+            subdiv.appendChild(sdiv);
+            
+            ul = doc.createULElement();
+            sdiv.appendChild(ul);
+            
+            for (Illustration ill : mills) {
+                if (ill == null) {
+                    continue;
+                }
+                Element li = doc.createLIElement();
+                ul.appendChild(li);
+                
+                StringBuilder sb = new StringBuilder();
+                
+                if (ill.getNumber() > 0)
+                    sb.append(ill.getNumber() + ", ");
+                if (!BibleDisplay.isBlank(ill.getFolio()))
+                    sb.append("Fol. " + ill.getFolio() + ". ");
+                if (!BibleDisplay.isBlank(ill.getKeywords()))
+                    sb.append(ill.getKeywords());
+                
+                li.appendChild(BibleDisplay.textNode(sb.toString() + " "));
+                
+                if (ill.getUrl() != null && !ill.getUrl().equals("")) {
+                    AnchorElement anch = doc.createAnchorElement();
+                    
+                    anch.setInnerHTML("[View image]");
+                    anch.setHref(ill.getUrl());
+                    li.appendChild(anch);
+                }
+            }
+        }
+        
+        
+        return cont;
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
 }
