@@ -7,7 +7,6 @@ import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.view.client.SelectionChangeEvent;
@@ -18,7 +17,6 @@ import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.QueryResult;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
-import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -56,17 +54,21 @@ public class BrowseSearchResultsActivity extends AbstractActivity
         
         bind();
         
+        BrowseSearchResultsPlace.Tokenizer tokenizer = 
+                new BrowseSearchResultsPlace.Tokenizer();
+        String q_str = tokenizer.getToken(place);
+        view.setQueryMessage(q_str.substring(0, q_str.length() - 1));
+        
         service.search(query, opts, new AsyncCallback<QueryResult>() {
 
             @Override
             public void onFailure(Throwable caught) {
-                // TODO Auto-generated method stub
-                Window.alert(Messages.INSTANCE.searchFailed());
+                view.setQueryResults(null);
             }
 
             @Override
             public void onSuccess(QueryResult result) {
-                setResults(result);
+                view.setQueryResults(result);
             }
             
         });
@@ -104,16 +106,4 @@ public class BrowseSearchResultsActivity extends AbstractActivity
     public void start(AcceptsOneWidget panel, EventBus eventBus) {
         panel.setWidget(view);
     }
-    
-    private void setResults(QueryResult result) {
-        List<QueryMatch> matches = result.matches();
-        
-        if (matches == null || matches.size() == 0) {
-            view.setQueryResults(null);
-            return;
-        }
-        
-        view.setQueryResults(result);
-    }
-    
 }

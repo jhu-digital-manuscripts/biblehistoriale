@@ -80,26 +80,27 @@
 }
 
 .Header .gwt-Label {
-	margin-right: 6px;
-	margin-left: 6px;
+	margin-left: 12px;
 	margin-top: 8px;
 	float: left;
 	cursor: pointer;
 	color: blue;
+	font-size: 16px;
 	text-decoration: underline;
 }
 
 .AdvancedSearchLink {
-	font-size: 10px;
+	font-size: 11px;
 	cursor: pointer;
 	color: blue;
 	text-decoration: underline;
 	text-align: right;
 	margin-bottom: 4px;
-	margin-right: 128px;
+	margin-right: 136px;
 }
 
 .HeaderSearchBar .gwt-Button {
+	margin-right: 12px;
 	float: right;
 }
 
@@ -144,6 +145,10 @@
 
 .ProfileTabs .gwt-TabLayoutPanelContentContainer {
 	border: 0px;
+}
+
+.Content {
+	margin-left: 12px;
 }
 
 

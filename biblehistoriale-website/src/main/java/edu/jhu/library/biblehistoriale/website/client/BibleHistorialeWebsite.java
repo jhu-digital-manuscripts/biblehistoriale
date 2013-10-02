@@ -53,6 +53,7 @@ public class BibleHistorialeWebsite implements EntryPoint {
 	    
 	    // Set the base layout
         main.setStylePrimaryName("Main");
+        main_content.addStyleName("Content");
         
         this.header = new HeaderPresenter(new HeaderViewImpl(), client_factory);
         

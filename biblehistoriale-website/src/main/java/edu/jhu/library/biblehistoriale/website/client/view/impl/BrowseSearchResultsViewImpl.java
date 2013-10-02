@@ -5,7 +5,7 @@ import com.google.gwt.user.cellview.client.CellList;
 import com.google.gwt.user.cellview.client.SimplePager;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
@@ -20,10 +20,12 @@ import edu.jhu.library.biblehistoriale.website.client.widgets.QueryMatchCell;
 
 public class BrowseSearchResultsViewImpl extends Composite 
         implements BrowseSearchResultsView {
+    private final int PAGE_SIZE = 10;
     
     private final FlowPanel main;
     
-    private final HTML failure_message;
+    private final Label noresults_message;
+    private final Label query_label;
     
     private final CellList<QueryMatch> cell_list;
     private final SingleSelectionModel<QueryMatch> selection_model;
@@ -36,10 +38,11 @@ public class BrowseSearchResultsViewImpl extends Composite
         
         this.main = new FlowPanel();
         
-        this.failure_message = new HTML(Messages.INSTANCE.noResultsFound());
+        this.noresults_message = new Label(Messages.INSTANCE.noResultsFound());
+        this.query_label = new Label();
         
         this.cell_list = new CellList<QueryMatch> (new QueryMatchCell(), cell_res);
-        cell_list.setPageSize(2);
+        cell_list.setPageSize(PAGE_SIZE);
         
         this.selection_model = new SingleSelectionModel<QueryMatch> ();
         cell_list.setSelectionModel(selection_model);
@@ -55,8 +58,13 @@ public class BrowseSearchResultsViewImpl extends Composite
 
     @Override
     public void setQueryResults(QueryResult result) {
-        if (result == null) {
-            main.add(failure_message);
+        if (result == null || result.matches() == null) {
+            main.add(new Label(Messages.INSTANCE.searchFailed()));
+            return;
+        }
+        
+        if (result.getTotal() == 0) {
+            main.add(noresults_message);
             return;
         }
         
@@ -76,6 +84,13 @@ public class BrowseSearchResultsViewImpl extends Composite
     public HandlerRegistration addSelectionChangeHandler(Handler handler) {
         return cell_list.getSelectionModel()
                 .addSelectionChangeHandler(handler);
+    }
+
+    @Override
+    public void setQueryMessage(String query) {
+        main.add(query_label);
+        
+        query_label.setText("Query: " + query);
     }
     
 }

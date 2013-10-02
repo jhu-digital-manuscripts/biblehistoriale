@@ -58,13 +58,38 @@ public class BrowseSearchResultsPlace extends Place {
             TermField field = TermField.valueOf(vals[1]);
             String term = vals[2];
             
-            Query query = buildQuery(queries, 1, new Query(field, term));
+            //Query query = buildQuery(queries, 1, new Query(field, term));
+            Query query = buildQuery(token);
             
             return new BrowseSearchResultsPlace(query, opts);
         }
         
+        public Query buildQuery(String q_str) {
+            Query query = null;
+            
+            String[] queries = q_str.split(SEARTH_DELIMITER_PATTERN);
+            for (int i = queries.length - 1; i >= 0; i--) {
+                String[] vals = queries[i].split(VALUE_DELIMITER_PATTERN);
+                
+                QueryOperation op = QueryOperation.valueOf(vals[0]);
+                TermField field = TermField.valueOf(vals[1]);
+                String term = vals[2];
+                
+                if (query == null) {
+                    query = new Query(field, term);
+                    continue;
+                }
+                
+                Query sub_q = new Query(field, term);
+                
+                query = new Query(op, sub_q, query);
+            }
+            
+            return query;
+        }
+        
         // TODO doesn't really work...
-        private Query buildQuery(String[] queries, int index, Query query) {
+        /*private Query buildQuery(String[] queries, int index, Query query) {
             if (index >= queries.length) {
                 return query;
             }
@@ -84,7 +109,7 @@ public class BrowseSearchResultsPlace extends Place {
             Query newQuery = new Query(field, term);
             
             return buildQuery(queries, ++index, new Query(op, query, newQuery));
-        }
+        }*/
 
         @Override
         public String getToken(BrowseSearchResultsPlace place) {

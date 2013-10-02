@@ -4,7 +4,7 @@ import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
-import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
@@ -19,8 +19,8 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
     
     private final FlowPanel main;
     
-    private final HTML intro;
-    private final HTML loading;
+    private final Label intro;
+    private final Label loading;
     
     private CellTree crit_tree;
     private SingleSelectionModel<CriteriaNode> selection_model;
@@ -30,8 +30,8 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
         
         this.selection_model = new SingleSelectionModel<CriteriaNode> ();
         
-        this.intro = new HTML(Messages.INSTANCE.browseByCriteriaDescription());
-        this.loading = new HTML(Messages.INSTANCE.loadingCriteria());
+        this.intro = new Label(Messages.INSTANCE.browseByCriteriaDescription());
+        this.loading = new Label(Messages.INSTANCE.loadingCriteria());
         
         main.add(loading);
         
@@ -43,7 +43,7 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
         main.clear();
         
         if (node == null) {
-            main.add(new HTML(Messages.INSTANCE.failedToGetCriteria()));
+            main.add(new Label(Messages.INSTANCE.failedToGetCriteria()));
             return;
         }
         

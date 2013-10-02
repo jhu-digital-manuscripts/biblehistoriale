@@ -10,6 +10,7 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.safehtml.shared.SimpleHtmlSanitizer;
 import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
@@ -47,6 +48,8 @@ import edu.jhu.library.biblehistoriale.website.client.Messages;
  * Contains methods for displaying textual content of a Bible.
  */
 public class BibleDisplayContents {
+    private static final SimpleHtmlSanitizer sanitizer =
+            SimpleHtmlSanitizer.getInstance();
     
     private static final String BH = "BH";
     private static final String BXIII = "BXIII";
@@ -556,7 +559,7 @@ public class BibleDisplayContents {
             try {
                 sb.append("    Total illustrations: " + ill_by_volume[i]);
             } catch (IndexOutOfBoundsException e) {
-                // TODO
+                // do nothing
             }
             
             div.appendChild(BibleDisplay.textNode(sb.toString()));
@@ -571,7 +574,8 @@ public class BibleDisplayContents {
                 String descr = prefatory.getPrefactoryNote() != null 
                         ?"<i>Description:</i> " + prefatory.getPrefactoryNote()
                                 : "";
-                table.setWidget(2, 0, new HTML(descr));
+                
+                table.setWidget(2, 0, new HTML(sanitizer.sanitize(descr)));
                 
                 FlowPanel fp = new FlowPanel();
                 table.setWidget(3, 0, fp);
@@ -845,7 +849,7 @@ public class BibleDisplayContents {
                         if (inc.getAccuracy() != null)
                             sb.append(inc.getAccuracy().accuracy() + "). ");
                         
-                        li.setInnerHTML(sb.toString());
+                        li.setInnerSafeHtml(sanitizer.sanitize(sb.toString()));
                     }
                     
                     subdiv = doc.createDivElement();
@@ -1130,7 +1134,7 @@ public class BibleDisplayContents {
                     if (inc.getAccuracy() != null)
                         sb.append(inc.getAccuracy().accuracy() + "). ");
                     
-                    li.setInnerHTML(sb.toString());
+                    li.setInnerSafeHtml(sanitizer.sanitize(sb.toString()));
                 }
                 
                 subdiv = doc.createDivElement();
@@ -1215,8 +1219,6 @@ public class BibleDisplayContents {
                 }
             }
             
-         // TODO insert Other Contents
-            //tables.add(displayOtherContents(bible_volume));
             table.setWidget(6, 0, displayOtherContents(bible_volume));
         }
         

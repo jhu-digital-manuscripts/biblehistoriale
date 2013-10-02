@@ -13,6 +13,7 @@ import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.logical.shared.SelectionEvent;
 import com.google.gwt.event.logical.shared.SelectionHandler;
+import com.google.gwt.safehtml.shared.SimpleHtmlSanitizer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DisclosurePanel;
@@ -58,6 +59,8 @@ import edu.jhu.library.biblehistoriale.website.client.Messages;
  */
 public class BibleDisplay extends Composite {
     public static final String MINOR_SECTION = "MinorSection";
+    private static final SimpleHtmlSanitizer sanitizer = 
+            SimpleHtmlSanitizer.getInstance();
     
     private final Bible bible;
     
@@ -91,7 +94,6 @@ public class BibleDisplay extends Composite {
         main.selectTab(0);
         displayProfileView();
         
-        // TODO: resize
         main.setWidth((Window.getClientWidth() - 22) + "px");
         main.setHeight(
                 (Window.getClientHeight() - BibleHistorialeWebsite.HEADER_HEIGHT - 12)+"px");
@@ -160,7 +162,7 @@ public class BibleDisplay extends Composite {
             para.setClassName(domclass);
         }
         
-        para.setInnerHTML(text);
+        para.setInnerSafeHtml(sanitizer.sanitize(text));
         
         return para;
     }
@@ -172,7 +174,8 @@ public class BibleDisplay extends Composite {
             span.setClassName(domclass);
         }
         
-        span.setInnerHTML(text.replaceAll("\\s+", " "));
+        span.setInnerSafeHtml(
+                sanitizer.sanitize(text.replaceAll("\\s+", " ")));
         
         return span;
     }
@@ -773,8 +776,9 @@ public class BibleDisplay extends Composite {
             if (!isBlank(classif.getFournieLink())) {
                 anch = doc.createAnchorElement();
                 anch.setHref(classif.getFournieLink());
-                anch.setInnerHTML(classif.getFournieNumber() + " in Eleanor Fournie's " +
-                		"online catalog.");
+                
+                anch.setInnerSafeHtml(sanitizer.sanitize(classif.getFournieNumber() 
+                        + " in Eleanor Fournie's " + "online catalog."));
                 div.appendChild(anch);
             } else {
                 div.appendChild(textNode(classif.getFournieNumber() + 
@@ -849,7 +853,7 @@ public class BibleDisplay extends Composite {
         div = doc.createDivElement();
         appendChild(details, div);
         
-        div.setInnerHTML(notes.toString());
+        div.setInnerSafeHtml(sanitizer.sanitize(notes.toString()));
         
         p = new SimplePanel();
         panel.add(p);
@@ -878,6 +882,7 @@ public class BibleDisplay extends Composite {
         
         titlediv = doc.createDivElement();
         titlediv.setClassName("SectionHeader");
+        
         titlediv.setInnerHTML(Messages.INSTANCE.biblioTitle());
         div.appendChild(titlediv);
         
@@ -897,18 +902,19 @@ public class BibleDisplay extends Composite {
             li.appendChild(textNode(sb.toString()));
             
             if (!isBlank(bib.getArticleTitle()))
-                li.appendChild(span(bib.getArticleTitle(), "ArticleTitle"));
+                li.appendChild(span(bib.getArticleTitle() + ". ", "ArticleTitle"));
             
             if (!isBlank(bib.getBookOrJournalTitle()))
-                li.appendChild(textNode(bib.getBookOrJournalTitle()));
+                li.appendChild(textNode(bib.getBookOrJournalTitle() + " "));
             
             if (!isBlank(bib.getPublicationInfo()))
-                li.appendChild(textNode(bib.getPublicationInfo()));
+                li.appendChild(textNode(bib.getPublicationInfo() + ". "));
             
             for (String st : bib.articleLinks()) {
                 anch = doc.createAnchorElement();
                 anch.setHref(st);
-                anch.setInnerHTML(st);
+                
+                anch.setInnerSafeHtml(sanitizer.sanitize(st));
                 li.appendChild(anch);
                 li.appendChild(textNode("; "));
             }

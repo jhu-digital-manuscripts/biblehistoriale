@@ -13,6 +13,8 @@ public interface BrowseSearchResultsView extends IsWidget {
         
     }
     
+    void setQueryMessage(String query);
+    
     void setQueryResults(QueryResult result);
     
     QueryMatch getSelectedMatch();
