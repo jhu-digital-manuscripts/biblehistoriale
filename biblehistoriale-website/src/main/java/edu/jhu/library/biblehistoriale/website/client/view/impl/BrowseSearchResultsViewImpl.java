@@ -2,9 +2,11 @@ package edu.jhu.library.biblehistoriale.website.client.view.impl;
 
 import com.google.gwt.core.shared.GWT;
 import com.google.gwt.user.cellview.client.CellList;
+import com.google.gwt.user.cellview.client.SimplePager;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
@@ -26,6 +28,9 @@ public class BrowseSearchResultsViewImpl extends Composite
     private final CellList<QueryMatch> cell_list;
     private final SingleSelectionModel<QueryMatch> selection_model;
     
+    private final SimplePager pager;
+    private final ListDataProvider<QueryMatch> data_provider;
+    
     public BrowseSearchResultsViewImpl() {
         CellListResources cell_res = GWT.create(CellListResources.class);
         
@@ -34,12 +39,16 @@ public class BrowseSearchResultsViewImpl extends Composite
         this.failure_message = new HTML(Messages.INSTANCE.noResultsFound());
         
         this.cell_list = new CellList<QueryMatch> (new QueryMatchCell(), cell_res);
-        cell_list.setPageSize(10);
+        cell_list.setPageSize(2);
         
         this.selection_model = new SingleSelectionModel<QueryMatch> ();
         cell_list.setSelectionModel(selection_model);
         
-        main.add(cell_list);
+        this.data_provider = new ListDataProvider<QueryMatch>();
+        this.pager = new SimplePager();
+        
+        pager.setDisplay(cell_list);
+        data_provider.addDataDisplay(cell_list);
         
         initWidget(main);
     }
@@ -51,8 +60,11 @@ public class BrowseSearchResultsViewImpl extends Composite
             return;
         }
         
+        main.add(pager);
+        main.add(cell_list);
+        
         cell_list.setRowCount((int) result.getTotal(), true);
-        cell_list.setRowData(result.matches());
+        data_provider.setList(result.matches());
     }
 
     @Override

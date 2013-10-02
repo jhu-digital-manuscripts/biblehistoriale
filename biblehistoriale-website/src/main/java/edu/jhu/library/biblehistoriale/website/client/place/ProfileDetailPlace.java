@@ -3,6 +3,10 @@ package edu.jhu.library.biblehistoriale.website.client.place;
 import com.google.gwt.place.shared.Place;
 import com.google.gwt.place.shared.PlaceTokenizer;
 
+/**
+ * Saves state information for the profile detail view. A bible id 
+ * is saved. Associated with ProfileDetailActivity.
+ */
 public class ProfileDetailPlace extends Place {
 
     private String bible_id;

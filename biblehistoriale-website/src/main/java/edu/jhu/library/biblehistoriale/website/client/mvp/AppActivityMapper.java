@@ -18,6 +18,9 @@ import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 
+/**
+ * Maps activities to places.
+ */
 public class AppActivityMapper implements ActivityMapper {
 
     private ClientFactory client_factory;
@@ -34,7 +37,6 @@ public class AppActivityMapper implements ActivityMapper {
      */
     public Activity getActivity(Place place) {
         
-        // TODO Add mappings of places to activities here. 
         if (place instanceof BrowseProfilesPlace) {
             return new BrowseProfilesActivity(
                     (BrowseProfilesPlace) place, client_factory);

@@ -3,6 +3,9 @@ package edu.jhu.library.biblehistoriale.website.shared;
 import java.io.Serializable;
 import java.util.Arrays;
 
+/**
+ * 
+ */
 public class CriteriaNode implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -60,6 +63,14 @@ public class CriteriaNode implements Serializable {
         return children == null;
     }
     
+    /**
+     * Add a child node to the current CriteriaNode.
+     * 
+     * @param node
+     *          child node to be added
+     * @return
+     *          the current CriteriaNode, with the child node added
+     */
     public CriteriaNode addChildNode(CriteriaNode node) {
         CriteriaNode[] added = null;
    
@@ -76,16 +87,22 @@ public class CriteriaNode implements Serializable {
         return this;
     }
     
-    public CriteriaNode getChildNodeByText(String text) {
+    /**
+     * Get the node in the tree with the specified id.
+     * 
+     * @param id the ID of the desired node
+     * @return
+     */
+    public CriteriaNode getChildNodeByText(String id) {
         if (children == null) {
             return null;
         }
         
         for (CriteriaNode cr : children) {
-            if (cr.getId().equals(text))
+            if (cr.getId().equals(id))
                 return cr;
             
-            CriteriaNode child = cr.getChildNodeByText(text);
+            CriteriaNode child = cr.getChildNodeByText(id);
             if (child != null) 
                 return child;
         }
@@ -95,7 +112,7 @@ public class CriteriaNode implements Serializable {
 
     @Override
     public String toString() {
-        return "CriteriaNode [text=" + id + ", children="
-                + Arrays.toString(children) + "]";
+        return "CriteriaNode [id=" + id + ", message =" + message 
+                + ", children=" + Arrays.toString(children) + "]";
     }
 }

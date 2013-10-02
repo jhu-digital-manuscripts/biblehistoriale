@@ -2,18 +2,23 @@ package edu.jhu.library.biblehistoriale.website.client.activity;
 
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.shared.EventBus;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
-import edu.jhu.library.biblehistoriale.website.client.Messages;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.ProfileDetailView;
 
-public class ProfileDetailActivity extends AbstractActivity implements ProfileDetailView.Presenter {
+/**
+ * Controls the profile detail view. Associated with ProfileDetailPlace.
+ * 
+ * @see ProfileDetailView
+ * @see ProfileDetailPlace
+ */
+public class ProfileDetailActivity extends AbstractActivity 
+        implements ProfileDetailView.Presenter {
     
     private ProfileDetailView view;
     
@@ -30,8 +35,8 @@ public class ProfileDetailActivity extends AbstractActivity implements ProfileDe
 
             @Override
             public void onFailure(Throwable caught) {
-                // TODO Auto-generated method stub
-                Window.alert(Messages.INSTANCE.unableToGetProfile() + profile_id);
+                //Window.alert(Messages.INSTANCE.unableToGetProfile() + profile_id);
+                view.display(null);
             }
 
             @Override

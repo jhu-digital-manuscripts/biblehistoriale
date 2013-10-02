@@ -12,11 +12,9 @@ public class ProjectInfoActivity extends AbstractActivity
         implements ProjectInfoView.Presenter {
     
     private ProjectInfoView view;
-    //private ClientFactory client_factory;
     
     public ProjectInfoActivity(ProjectInfoPlace place, 
             ClientFactory client_factory) {
-        //this.client_factory = client_factory;
         this.view = client_factory.newProjectInfoView();
     }
 

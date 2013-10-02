@@ -11,6 +11,9 @@ import com.google.gwt.view.client.TreeViewModel;
 
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
+/**
+ * Data model for the cell tree used to browse profiles by criteria.
+ */
 public class CriteriaTreeViewModel implements TreeViewModel {
     
     private class CriteriaCell extends AbstractCell<CriteriaNode> {

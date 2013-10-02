@@ -20,6 +20,13 @@ import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeService
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseProfilesView;
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
+/**
+ * Controls the browse profiles by criteria view. Associated with
+ * BrowseProfilesPlace
+ * 
+ * @see BrowseProfilesView
+ * @see BrowseProfilesPlace
+ */
 public class BrowseProfilesActivity extends AbstractActivity 
         implements BrowseProfilesView.Presenter {
 

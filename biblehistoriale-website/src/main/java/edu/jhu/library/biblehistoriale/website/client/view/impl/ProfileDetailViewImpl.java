@@ -6,6 +6,7 @@ import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Label;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
@@ -51,6 +52,12 @@ public class ProfileDetailViewImpl extends Composite implements ProfileDetailVie
 
     @Override
     public void display(Bible bible) {
+        if (bible == null) {
+            main.clear();
+            main.add(new HTML(Messages.INSTANCE.failedToLoadProfile()));
+            return;
+        }
+        
         this.display = new BibleDisplay(bible);
         
         main.remove(loading);

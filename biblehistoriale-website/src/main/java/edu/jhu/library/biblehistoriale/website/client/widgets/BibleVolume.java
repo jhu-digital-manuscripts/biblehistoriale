@@ -7,7 +7,6 @@ import java.util.Map;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
-import edu.jhu.library.biblehistoriale.model.profile.CatechismsPrayersTreatise;
 import edu.jhu.library.biblehistoriale.model.profile.ComestorLetter;
 import edu.jhu.library.biblehistoriale.model.profile.Guyart;
 import edu.jhu.library.biblehistoriale.model.profile.Illustration;
@@ -22,8 +21,8 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * This class contains some information for a single Bible volume.
  * 
  * <p>Mapping of illustrations to various contents items.
- * (Map key -> object :: index of prefatory matter in an associated list
- *  -> list of illustrations for that prefatory matter)</p>
+ * (Map key -&gt object :: index of prefatory matter in an associated list
+ *  -&gt list of illustrations for that prefatory matter)</p>
  * 
  * <p>Prefatory matter and bible books for this volume</p>
  */
@@ -278,17 +277,6 @@ public class BibleVolume {
         }
         
         return ills;
-    }
-    
-    private Object inThisItem(IllustrationList ills, MiscContent miscContent) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    private Object inThisItem(IllustrationList ills,
-            CatechismsPrayersTreatise catechismsPrayersTreatise) {
-        // TODO Auto-generated method stub
-        return null;
     }
     
     /**

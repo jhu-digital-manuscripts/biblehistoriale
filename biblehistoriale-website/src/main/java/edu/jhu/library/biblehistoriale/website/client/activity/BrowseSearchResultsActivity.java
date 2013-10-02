@@ -24,6 +24,13 @@ import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
 import edu.jhu.library.biblehistoriale.website.client.view.BrowseSearchResultsView;
 
+/**
+ * Controls the browse search results view. Associated with 
+ * BrowseSearchResultsPlace.
+ * 
+ * @see BrowseSearchResultsView
+ * @see BrowseSearchResultsPlace
+ */
 public class BrowseSearchResultsActivity extends AbstractActivity 
         implements BrowseSearchResultsView.Presenter {
 

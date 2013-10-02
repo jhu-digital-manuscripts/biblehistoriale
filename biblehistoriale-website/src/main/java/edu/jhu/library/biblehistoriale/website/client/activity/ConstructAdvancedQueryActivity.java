@@ -16,6 +16,13 @@ import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsP
 import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.ConstructAdvancedQueryView;
 
+/**
+ * Controls the construct advanced query view. Associated with
+ * ConstructAdvancedQueryPlace.
+ * 
+ * @see ConstructAdvancedQueryView
+ * @see ConstructAdvancedQueryPlace
+ */
 public class ConstructAdvancedQueryActivity extends AbstractActivity
         implements ConstructAdvancedQueryView.Presenter {
 
@@ -110,7 +117,6 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
             
         } catch (IllegalArgumentException e) {
             // If op is not a valid QueryOperation
-            // TODO default to operation OR?
             q = buildQuery(++index, query);
         }
         

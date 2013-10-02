@@ -13,6 +13,11 @@ import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
 import edu.jhu.library.biblehistoriale.website.client.Messages;
 
+/**
+ * Widget used to construct queries. Consists of a selectable 
+ * query operation and search field, and an area to enter
+ * a query string.
+ */
 public class AdvancedQueryWidget extends Composite {
     
     private boolean isFirst;

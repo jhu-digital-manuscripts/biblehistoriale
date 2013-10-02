@@ -10,7 +10,11 @@ import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 
-// TODO: When a new Place is added, the associated tokenizer needs to be added to the @WithTokenizers annotation
+/**
+ * Associates places with tokenizers to save state information
+ * in the URL. Used for browser navigation (forward/back buttons)
+ * and bookmarking.
+ */
 @WithTokenizers(
         {   
             ProjectInfoPlace.Tokenizer.class,

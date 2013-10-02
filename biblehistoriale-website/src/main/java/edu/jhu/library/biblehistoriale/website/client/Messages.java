@@ -106,5 +106,7 @@ public interface Messages extends Constants {
     public String loadingCriteria();
     
     public String otherContents();
+    
+    public String failedToLoadProfile();
 
 }

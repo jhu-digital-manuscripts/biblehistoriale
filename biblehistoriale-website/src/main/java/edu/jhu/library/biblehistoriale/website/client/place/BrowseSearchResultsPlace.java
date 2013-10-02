@@ -8,6 +8,15 @@ import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
 
+/**
+ * <p>Contains state information for the browse search results view.
+ * Associated with BrowseSearchResultsActivity.</p>
+ * 
+ * <p>A Query and QueryOptions are saved.</p>
+ * 
+ * @see Query
+ * @see QueryOptions
+ */
 public class BrowseSearchResultsPlace extends Place {
     
     private Query query;

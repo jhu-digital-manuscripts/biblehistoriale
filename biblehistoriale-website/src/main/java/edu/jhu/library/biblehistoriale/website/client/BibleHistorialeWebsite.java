@@ -19,7 +19,7 @@ import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 
 /**
- * Entry point classes define <code>onModuleLoad()</code>.
+ * <p>Entry point classes define <code>onModuleLoad()</code>.</p>
  */
 public class BibleHistorialeWebsite implements EntryPoint {
     public static final int HEADER_HEIGHT = 175;
