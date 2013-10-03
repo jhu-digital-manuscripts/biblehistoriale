@@ -30,6 +30,8 @@ import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 public class BrowseProfilesActivity extends AbstractActivity 
         implements BrowseProfilesView.Presenter {
 
+    private static CriteriaNode criteria_cache;
+    
     private BrowseProfilesView view;
     private PlaceController place_controller;
     
@@ -55,19 +57,26 @@ public class BrowseProfilesActivity extends AbstractActivity
         
         this.handlers = new ArrayList<HandlerRegistration> ();
         
-        service.allProfilesByCriteria(new AsyncCallback<CriteriaNode> () {
-
-            @Override
-            public void onFailure(Throwable caught) {
-                view.displayByCriteria(null);
-            }
-
-            @Override
-            public void onSuccess(CriteriaNode result) {
-                view.displayByCriteria(result);
-            }
+        if (criteria_cache != null) {
             
-        });
+            view.displayByCriteria(criteria_cache);
+            
+        } else {
+            service.allProfilesByCriteria(new AsyncCallback<CriteriaNode> () {
+    
+                @Override
+                public void onFailure(Throwable caught) {
+                    view.displayByCriteria(null);
+                }
+    
+                @Override
+                public void onSuccess(CriteriaNode result) {
+                    criteria_cache = result;
+                    view.displayByCriteria(result);
+                }
+                
+            });
+        }
         
         bind();
     }

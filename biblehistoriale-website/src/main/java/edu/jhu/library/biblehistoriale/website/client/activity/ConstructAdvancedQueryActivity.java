@@ -11,7 +11,9 @@ import edu.jhu.library.biblehistoriale.model.query.Query;
 import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
+import edu.jhu.library.biblehistoriale.model.query.TermType;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
+import edu.jhu.library.biblehistoriale.website.client.QueryUtils;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.ConstructAdvancedQueryView;
@@ -26,6 +28,8 @@ import edu.jhu.library.biblehistoriale.website.client.view.ConstructAdvancedQuer
 public class ConstructAdvancedQueryActivity extends AbstractActivity
         implements ConstructAdvancedQueryView.Presenter {
 
+    private static final QueryUtils utils = QueryUtils.getInstance();
+    
     private ConstructAdvancedQueryView view;
     private PlaceController place_controller;
     
@@ -60,7 +64,7 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
     
     private void doSearch() {
         Query query = buildQuery();
-        QueryOptions opts = buildOptions();
+        QueryOptions opts = utils.buildQueryOptions("");
         
         if (query != null) {
             BrowseSearchResultsPlace place = 
@@ -71,61 +75,41 @@ public class ConstructAdvancedQueryActivity extends AbstractActivity
     }
     
     /**
-     * Builds a Query from the information in the view
+     * Build a query from the UI fields. If no search terms
+     * are present <code>NULL</code> is returned.
+     * 
      * @return
      */
     private Query buildQuery() {
-        
-        if (view.getRowCount() == 0) {
-            return null;
-        }
-        
-        String search = view.getSearchTerm(0);
-        String field = view.getField(0);
-        
-        if (search == null || search.equals("")) {
-            return null;
-        }
-        
-        Query query = new Query(
-                TermField.getTermField(field), search);
-        
-        return buildQuery(1, query);
-    }
-    
-    private Query buildQuery(int index, Query query) {
-        
-        if (index >= view.getRowCount()) {
-            return query;
-        }
-        
-        String op = view.getOperation(index);
-        TermField field = TermField.getTermField(view.getField(index));
-        String term = view.getSearchTerm(index);
-        
-        Query newQuery = new Query(field, term);
-        
-        Query q = null;
-        try {
-            QueryOperation qop = QueryOperation.valueOf(op);
+        // Turn UI fields into a query token
+        StringBuilder sb = new StringBuilder();
+        for (int i = 0; i < view.getRowCount(); i++) {
+            
+            QueryOperation op = i == 0 ? QueryOperation.AND 
+                    : QueryOperation.valueOf(view.getOperation(i));
+            TermField field = TermField.getTermField(view.getField(i));
+            String term = view.getSearchTerm(i);
+            TermType type = TermType.PHRASE;
             
             if (term == null || term.equals("")) {
-                q = buildQuery(++index, query);
-            } else {
-                q = buildQuery(++index, new Query(qop, query, newQuery));
+                continue;
             }
             
-        } catch (IllegalArgumentException e) {
-            // If op is not a valid QueryOperation
-            q = buildQuery(++index, query);
+            sb.append(op
+                    + utils.valueDelimiter()
+                    + field
+                    + utils.valueDelimiter()
+                    + term
+                    + utils.valueDelimiter()
+                    + type
+                    + utils.searchDelimiter());
+            
         }
         
-        return buildQuery(++index, q);
+        if (sb.toString().equals("")) {
+            return null;
+        }
+        
+        return utils.buildQuery(sb.toString());
     }
-    
-    private QueryOptions buildOptions() {
-        // TODO
-        return new QueryOptions();
-    }
-
 }

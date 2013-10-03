@@ -24,7 +24,12 @@ public class CriteriaTreeViewModel implements TreeViewModel {
                 CriteriaNode value, SafeHtmlBuilder sb) {
             // If any entity symbols exist, render them, rather than escape them
             // This sanitizer returns SafeHtml that can contain simple HTML.
+            
+            if (value.isLeaf())
+                sb.appendHtmlConstant("<u>");
             sb.append(SimpleHtmlSanitizer.sanitizeHtml(value.getMessage()));
+            if (value.isLeaf())
+                sb.appendHtmlConstant("</u>");
         }
         
     }

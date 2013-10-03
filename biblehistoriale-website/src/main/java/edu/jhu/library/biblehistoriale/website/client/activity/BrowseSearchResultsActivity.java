@@ -1,12 +1,15 @@
 package edu.jhu.library.biblehistoriale.website.client.activity;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
+import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.view.client.SelectionChangeEvent;
@@ -32,6 +35,10 @@ import edu.jhu.library.biblehistoriale.website.client.view.BrowseSearchResultsVi
 public class BrowseSearchResultsActivity extends AbstractActivity 
         implements BrowseSearchResultsView.Presenter {
 
+    private static final Map<String, QueryResult> search_cache =
+            new HashMap<String, QueryResult> ();
+    private static final int MAX_CACHE_SIZE = 100;
+    
     private final BrowseSearchResultsView view;
     private final Query query;
     private final QueryOptions opts;
@@ -58,20 +65,33 @@ public class BrowseSearchResultsActivity extends AbstractActivity
                 new BrowseSearchResultsPlace.Tokenizer();
         String q_str = tokenizer.getToken(place);
         view.setQueryMessage(q_str.substring(0, q_str.length() - 1));
-        
-        service.search(query, opts, new AsyncCallback<QueryResult>() {
 
-            @Override
-            public void onFailure(Throwable caught) {
-                view.setQueryResults(null);
-            }
+        if (search_cache.containsKey(query.toString())) {
 
-            @Override
-            public void onSuccess(QueryResult result) {
-                view.setQueryResults(result);
-            }
+            view.setQueryResults(search_cache.get(query.toString()));
             
-        });
+        } else {
+            service.search(query, opts, new AsyncCallback<QueryResult>() {
+
+                @Override
+                public void onFailure(Throwable caught) {
+                    view.setQueryResults(null);
+                }
+
+                @Override
+                public void onSuccess(QueryResult result) {
+                    
+                    if (search_cache.size() > MAX_CACHE_SIZE) {
+                        search_cache.clear();
+                    }
+                    
+                    search_cache.put(query.toString(), result);
+                    
+                    view.setQueryResults(result);
+                }
+                
+            });
+        }
     }
     
     private void bind() {
