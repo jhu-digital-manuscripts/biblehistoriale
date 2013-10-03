@@ -1,7 +1,7 @@
 package edu.jhu.library.biblehistoriale.website.shared;
 
 import java.io.Serializable;
-import java.util.Arrays;
+import java.util.ArrayList;
 
 /**
  * 
@@ -12,8 +12,7 @@ public class CriteriaNode implements Serializable {
     private String id;
     private String message;
     
-    // TODO change array to ArrayList?
-    private CriteriaNode[] children;
+    private ArrayList<CriteriaNode> children;
     
     public CriteriaNode() {
         this(null);
@@ -34,13 +33,19 @@ public class CriteriaNode implements Serializable {
     public CriteriaNode(String id, CriteriaNode... children) {
         this.id = id;
         this.message = null;
-        this.children = children;
+        
+        for (CriteriaNode node : children) {
+            addChildNode(node);
+        }
     }
     
     public CriteriaNode(String id, String message, CriteriaNode... children) {
         this.id = id;
         this.message = message;
-        this.children = children;
+        
+        for (CriteriaNode node : children) {
+            addChildNode(node);
+        }
     }
     
     public String getId() {
@@ -55,7 +60,7 @@ public class CriteriaNode implements Serializable {
         return message;
     }
     
-    public CriteriaNode[] getChildren() {
+    public ArrayList<CriteriaNode> getChildren() {
         return children;
     }
     
@@ -72,17 +77,12 @@ public class CriteriaNode implements Serializable {
      *          the current CriteriaNode, with the child node added
      */
     public CriteriaNode addChildNode(CriteriaNode node) {
-        CriteriaNode[] added = null;
-   
+        
         if (children == null) {
-            added = new CriteriaNode[] { node };
-        } else {
-            added = new CriteriaNode[children.length + 1];
-
-            System.arraycopy(children, 0, added, 0, children.length);
-            added[added.length - 1] = node;
+            children = new ArrayList<CriteriaNode> ();
         }
-        children = added;
+        
+        children.add(node);
        
         return this;
     }
@@ -90,8 +90,13 @@ public class CriteriaNode implements Serializable {
     /**
      * Get the node in the tree with the specified id.
      * 
-     * @param id the ID of the desired node
+     * @param 
+     *          id the ID of the desired node
      * @return
+     *          If a node is found in the tree with the specified id,
+     *          the first instance of it is returned.<br>
+     *          If no node is found with the specified id, <code>NULL</code>
+     *          is returned.
      */
     public CriteriaNode getChildNodeByText(String id) {
         if (children == null) {
@@ -112,7 +117,7 @@ public class CriteriaNode implements Serializable {
 
     @Override
     public String toString() {
-        return "CriteriaNode [id=" + id + ", message =" + message 
-                + ", children=" + Arrays.toString(children) + "]";
+        return "CriteriaNode [id=" + id + ", message=" + message
+                + ", children=" + children + "]";
     }
 }

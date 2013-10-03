@@ -35,6 +35,11 @@ public class BrowseSearchResultsPlace extends Place {
         return opts;
     }
     
+    /**
+     * <p>Tokenizer for BrowseSearchResultsPlace. Contains methods
+     * for turning search results state into a string, and turning a 
+     * string token into a BrowseSearchResultsPlace.</p>
+     */
     public static class Tokenizer 
             implements PlaceTokenizer<BrowseSearchResultsPlace> {
 
@@ -48,17 +53,6 @@ public class BrowseSearchResultsPlace extends Place {
             // OPERATION;CATEGORY;search phrase;TYPE
             QueryOptions opts = new QueryOptions();
             
-            String[] queries = token.split(SEARTH_DELIMITER_PATTERN);
-            String[] vals = queries[0].split(VALUE_DELIMITER_PATTERN);
-            
-            if (vals.length != 4) {
-                return null;
-            }
-            
-            TermField field = TermField.valueOf(vals[1]);
-            String term = vals[2];
-            
-            //Query query = buildQuery(queries, 1, new Query(field, term));
             Query query = buildQuery(token);
             
             return new BrowseSearchResultsPlace(query, opts);
@@ -70,6 +64,10 @@ public class BrowseSearchResultsPlace extends Place {
             String[] queries = q_str.split(SEARTH_DELIMITER_PATTERN);
             for (int i = queries.length - 1; i >= 0; i--) {
                 String[] vals = queries[i].split(VALUE_DELIMITER_PATTERN);
+                
+                if (vals.length != 4) {
+                    continue;
+                }
                 
                 QueryOperation op = QueryOperation.valueOf(vals[0]);
                 TermField field = TermField.valueOf(vals[1]);
@@ -87,29 +85,6 @@ public class BrowseSearchResultsPlace extends Place {
             
             return query;
         }
-        
-        // TODO doesn't really work...
-        /*private Query buildQuery(String[] queries, int index, Query query) {
-            if (index >= queries.length) {
-                return query;
-            }
-            
-            String query_str = queries[index];
-            String[] vals = query_str.split(VALUE_DELIMITER_PATTERN);
-            
-            if (vals.length != 4) {
-                return null;
-            }
-            
-            QueryOperation op = QueryOperation.valueOf(vals[0]);
-            TermField field = TermField.valueOf(vals[1]);
-            String term = vals[2];
-            //TermType type = TermType.valueOf(vals[3]);
-            
-            Query newQuery = new Query(field, term);
-            
-            return buildQuery(queries, ++index, new Query(op, query, newQuery));
-        }*/
 
         @Override
         public String getToken(BrowseSearchResultsPlace place) {

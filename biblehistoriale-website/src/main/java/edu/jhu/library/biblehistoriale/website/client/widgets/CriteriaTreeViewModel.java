@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.google.gwt.cell.client.AbstractCell;
 import com.google.gwt.safehtml.shared.SafeHtmlBuilder;
+import com.google.gwt.safehtml.shared.SimpleHtmlSanitizer;
 import com.google.gwt.view.client.DefaultSelectionEventManager;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SingleSelectionModel;
@@ -21,7 +22,9 @@ public class CriteriaTreeViewModel implements TreeViewModel {
         @Override
         public void render(com.google.gwt.cell.client.Cell.Context context,
                 CriteriaNode value, SafeHtmlBuilder sb) {
-            sb.appendHtmlConstant(value.getMessage());
+            // If any entity symbols exist, render them, rather than escape them
+            // This sanitizer returns SafeHtml that can contain simple HTML.
+            sb.append(SimpleHtmlSanitizer.sanitizeHtml(value.getMessage()));
         }
         
     }
@@ -72,6 +75,11 @@ public class CriteriaTreeViewModel implements TreeViewModel {
         return node_info;
     }
 
+    /**
+     * Get the most recent node that has been selected.
+     * 
+     * @return
+     */
     public CriteriaNode getSelectedNode() {
         return selection_model.getSelectedObject();
     }
