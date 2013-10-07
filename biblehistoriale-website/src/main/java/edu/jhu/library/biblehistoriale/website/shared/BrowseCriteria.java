@@ -14,23 +14,35 @@ public enum BrowseCriteria {
     
     REPOSITORY("Repository") {
          public String[] getPropertyFromBible(Bible bible) {
-             return new String[] { 
-                     bible.getClassification().getCurrentRepository() 
-                     };
+             String repo = bible.getClassification().getCurrentRepository();
+             
+             if (repo == null || repo.equals("")) {
+                 return new String[0];
+             }
+             
+             return new String[] { repo };
          }
     }, 
     PRODDATE("Production Date") {
         public String[] getPropertyFromBible(Bible bible) {
-            return new String[] {
-                    bible.getProvenPatronHist().getProduction().getProdDate()
-                    };
+            String prod = bible.getProvenPatronHist().getProduction().getProdDate();
+            
+            if (prod == null || prod.equals("")) {
+                return new String[0];
+            }
+            
+            return new String[] { prod };
         }
     }, 
     PRODLOC("Production Location") {
         public String[] getPropertyFromBible(Bible bible) {
-            return new String[] {
-                    bible.getProvenPatronHist().getProduction().getProdLoc()
-                    };
+            String prod = bible.getProvenPatronHist().getProduction().getProdLoc();
+            
+            if (prod == null || prod.equals("")) {
+                return new String[0];
+            }
+            
+            return new String[] { prod };
         }
     }, 
     OWNERNAME("Owner Name") {
@@ -51,30 +63,44 @@ public enum BrowseCriteria {
         public String[] getPropertyFromBible(Bible bible) {
             CatalogerClassification cl = bible.getClassification().getClassification();
             
+            if (cl == null) {
+                return new String[0];
+            }
+            
+            ArrayList<String> classif = new ArrayList<String> ();
+            
             Berger berg = cl.getBergerClass();
             Sneddon sned = cl.getSneddonClass();
             
-            StringBuilder berg_str = new StringBuilder();
-            berg_str.append("Berger class: ");
-            if (berg.getCategory() != null)
-                berg_str.append(berg.getCategory().category());
-            if (berg.getBhcSubtype() != null) 
-                berg_str.append(berg.getBhcSubtype().subtype());
+            if (berg != null) {
+                StringBuilder berg_str = new StringBuilder();
+                
+                berg_str.append("Berger class: ");
+                if (berg.getCategory() != null)
+                    berg_str.append(berg.getCategory().category());
+                if (berg.getBhcSubtype() != null) 
+                    berg_str.append(berg.getBhcSubtype().subtype());
+                
+                classif.add(berg_str.toString());
+            }
             
-            StringBuilder sned_str = new StringBuilder();
-            sned_str.append("Sneddon class: ");
-            if (sned.getCategory() != null)
-                sned_str.append(sned.getCategory());
-            if (sned.getSub1() != null) 
-                sned_str.append(sned.getSub1());
-            if (sned.getSub2() != null)
-                sned_str.append(sned.getSub2());
-            if (sned.getSub3() != null)
-                sned_str.append(sned.getSub3());
+            if (sned != null) {
+                StringBuilder sned_str = new StringBuilder();
+                
+                sned_str.append("Sneddon class: ");
+                if (sned.getCategory() != null)
+                    sned_str.append(sned.getCategory());
+                if (sned.getSub1() != null) 
+                    sned_str.append(sned.getSub1());
+                if (sned.getSub2() != null)
+                    sned_str.append(sned.getSub2());
+                if (sned.getSub3() != null)
+                    sned_str.append(sned.getSub3());
+                
+                classif.add(sned_str.toString());
+            }
             
-            return new String[] { 
-                    berg_str.toString(), sned_str.toString()
-            };
+            return classif.toArray(new String[0]);
         }
     };
     

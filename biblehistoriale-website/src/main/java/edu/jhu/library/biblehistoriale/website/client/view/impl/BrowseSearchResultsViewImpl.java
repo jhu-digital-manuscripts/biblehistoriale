@@ -24,7 +24,9 @@ public class BrowseSearchResultsViewImpl extends Composite
     
     private final FlowPanel main;
     
+    private final Label loading_message;
     private final Label noresults_message;
+    private final Label failed_message;
     private final Label query_label;
     
     private final CellList<QueryMatch> cell_list;
@@ -39,6 +41,8 @@ public class BrowseSearchResultsViewImpl extends Composite
         this.main = new FlowPanel();
         
         this.noresults_message = new Label(Messages.INSTANCE.noResultsFound());
+        this.loading_message = new Label(Messages.INSTANCE.searchLoading());
+        this.failed_message = new Label(Messages.INSTANCE.searchFailed());
         this.query_label = new Label();
         
         this.cell_list = new CellList<QueryMatch> (new QueryMatchCell(), cell_res);
@@ -53,13 +57,18 @@ public class BrowseSearchResultsViewImpl extends Composite
         pager.setDisplay(cell_list);
         data_provider.addDataDisplay(cell_list);
         
+        main.add(query_label);
+        main.add(loading_message);
+        
         initWidget(main);
     }
 
     @Override
     public void setQueryResults(QueryResult result) {
+        main.remove(loading_message);
+        
         if (result == null || result.matches() == null) {
-            main.add(new Label(Messages.INSTANCE.searchFailed()));
+            main.add(failed_message);
             return;
         }
         
@@ -88,8 +97,6 @@ public class BrowseSearchResultsViewImpl extends Composite
 
     @Override
     public void setQueryMessage(String query) {
-        main.add(query_label);
-        
         query_label.setText("Query: " + query);
     }
     

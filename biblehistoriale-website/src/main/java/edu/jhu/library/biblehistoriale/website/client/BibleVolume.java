@@ -1,4 +1,4 @@
-package edu.jhu.library.biblehistoriale.website.client.widgets;
+package edu.jhu.library.biblehistoriale.website.client;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -24,7 +24,9 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * (Map key -&gt object :: index of prefatory matter in an associated list
  *  -&gt list of illustrations for that prefatory matter)</p>
  * 
- * <p>Prefatory matter and bible books for this volume</p>
+ * <p>Contents specific to a single volume. Prefatory matter, 
+ * parascriptural item, bible books, misc contents, and associated
+ * illustrations.</p>
  */
 public class BibleVolume {
     // TODO does this actually work??
@@ -217,47 +219,47 @@ public class BibleVolume {
         
         String start_page = item.getStartPage();
         
-        if (folio.compareToIgnoreCase(start_page) < 0) {
+        if (compareFolios(folio, start_page) < 0) {
             return false;
         }
         
         for (OtherPreface other : prefatory.otherPrefaces()) {
             // Ignore any items that occur before the item under test
             if (other.getStartPage() != null
-                    && start_page.compareToIgnoreCase(other.getStartPage()) <= 0
-                    && folio.compareToIgnoreCase(other.getStartPage()) > 0) {
+                    && compareFolios(start_page, other.getStartPage()) <= 0
+                    && compareFolios(folio, other.getStartPage()) > 0) {
                 return false;
             }
         }
         
         for (OtherPreface other : prefatory.guyartList()) {
             if (other.getStartPage() != null
-                    && start_page.compareToIgnoreCase(other.getStartPage()) <= 0
-                    && folio.compareToIgnoreCase(other.getStartPage()) > 0) {
+                    && compareFolios(start_page, other.getStartPage()) <= 0
+                    && compareFolios(folio, other.getStartPage()) > 0) {
                 return false;
             }
         }
         
         for (OtherPreface other : prefatory.comestorLetters()) {
             if (other.getStartPage() != null
-                    && start_page.compareToIgnoreCase(other.getStartPage()) <= 0
-                    && folio.compareToIgnoreCase(other.getStartPage()) > 0) {
+                    && compareFolios(start_page, other.getStartPage()) <= 0
+                    && compareFolios(folio, other.getStartPage()) > 0) {
                 return false;
             }
         }
         
         for (OtherPreface other : prefatory.comestorList()) {
             if (other.getStartPage() != null
-                    && start_page.compareToIgnoreCase(other.getStartPage()) <= 0
-                    && folio.compareToIgnoreCase(other.getStartPage()) > 0) {
+                    && compareFolios(start_page, other.getStartPage()) <= 0
+                    && compareFolios(folio, other.getStartPage()) > 0) {
                 return false;
             }
         }
         
         String TOC_start = prefatory.getMasterTableOfContents().getStartPage();
         if (TOC_start != null 
-                && start_page.compareToIgnoreCase(TOC_start) <= 0
-                && folio.compareToIgnoreCase(TOC_start) > 0) {
+                && compareFolios(start_page, TOC_start) <= 0
+                && compareFolios(folio, TOC_start) > 0) {
             return false;
         }
         
@@ -265,12 +267,14 @@ public class BibleVolume {
     }
     
     private List<Illustration> inThisItem(IllustrationList all_ills, 
-            OtherPreface other) {
+            OtherPreface other, String item) {
         
         List<Illustration> ills = new ArrayList<Illustration> ();
         
         for (Illustration ill : all_ills) {
             if (ill.getVolume() == volume 
+                    && (ill.getBook().toLowerCase().contains(item)
+                            || ill.getBook().toLowerCase().contains("preface"))
                     && inOnlyThisItem(ill.getFolio(), other)) {
                 ills.add(ill);
             }
@@ -308,8 +312,9 @@ public class BibleVolume {
                 page1 = Integer.parseInt(f1.substring(0, f1.length() - 1));
                 page2 = Integer.parseInt(f2.substring(0, f2.length() - 1));
             } catch (NumberFormatException ex) {
-                throw new RuntimeException("Invalid folio format: "
-                        + f1 + "/" + f2);
+                return end1.compareToIgnoreCase(end2);
+                //throw new RuntimeException("Invalid folio format: "
+                //        + f1 + "/" + f2);
             }
             
             return (page1 - page2 == 0 
@@ -320,22 +325,26 @@ public class BibleVolume {
     private void setIllustrationMaps(IllustrationList ills) {
         for (int i = 0; i < prefatory.otherPrefaces().size(); i++) {
             other_prefaces_ills.put(i, 
-                    inThisItem(ills, prefatory.otherPrefaces().get(i)));
+                    inThisItem(ills, prefatory.otherPrefaces().get(i),
+                            "other"));
         }
         
         for (int i = 0; i < prefatory.guyartList().size(); i++) {
             guyart_ills.put(i, 
-                    inThisItem(ills, prefatory.guyartList().get(i)));
+                    inThisItem(ills, prefatory.guyartList().get(i),
+                            "guyart"));
         }
         
         for (int i = 0; i < prefatory.comestorLetters().size(); i++) {
             comestor_letter_ills.put(i, 
-                    inThisItem(ills, prefatory.comestorLetters().get(i)));
+                    inThisItem(ills, prefatory.comestorLetters().get(i),
+                            "comestor's letter"));
         }
         
         for (int i = 0; i < prefatory.comestorList().size(); i++) {
             comestor_ills.put(i, 
-                    inThisItem(ills, prefatory.comestorList().get(i)));
+                    inThisItem(ills, prefatory.comestorList().get(i),
+                            "comestor"));
         }
     }
     
@@ -343,7 +352,7 @@ public class BibleVolume {
         OtherPreface other = new OtherPreface();
         other.setStartPage(prefatory.getMasterTableOfContents().getStartPage());
         
-        return inThisItem(ills, other);
+        return inThisItem(ills, other, "table of contents");
     }
     
 }

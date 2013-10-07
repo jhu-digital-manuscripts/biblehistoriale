@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<bible xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="BibleSchemaFinal.xsd">
+	
+	<shortName>Only Schema-Required Fields</shortName>
+	
+	<physChar>
+		<volumes presentState="1" previousState="1"></volumes>
+		<folios>
+			<totalFolios>100</totalFolios>
+			<indVolumes n="1"></indVolumes>
+		</folios>
+		<pageLayout columns="2" glossPlace="unknown" runningHeads="n"></pageLayout>
+		<materials>
+			<support material="paper"></support>
+		</materials>
+	</physChar>
+	
+	<classification>
+		<bookType collectionType="Miscellany with biblical extracts" technology="print"></bookType>
+	</classification>
+	
+	<textualContents volume="1">
+		<parascripturalItems>
+			<litany form="prose" locVol="1" locStart="2" locEnd="2" presence="n" sneddonID="n/a"></litany>
+			<canticles startFolio="3" endFolio="5" volume="1" presence="unknown">
+				<canticleType>canticle type</canticleType>
+			</canticles>
+			<addedPrologue jeanDeBlois="partial" jerome="n"></addedPrologue>
+		</parascripturalItems>
+	</textualContents>
+	
+	<bibliography>
+		<biblioEntry>
+			<bookOrJournalTitle>The book/journal title is the only thing required in the bibliography...</bookOrJournalTitle>
+		</biblioEntry>
+	</bibliography>
+	
+	
+</bible>

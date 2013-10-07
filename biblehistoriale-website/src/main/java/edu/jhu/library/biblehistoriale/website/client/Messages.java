@@ -108,5 +108,7 @@ public interface Messages extends Constants {
     public String otherContents();
     
     public String failedToLoadProfile();
+    
+    public String searchLoading();
 
 }

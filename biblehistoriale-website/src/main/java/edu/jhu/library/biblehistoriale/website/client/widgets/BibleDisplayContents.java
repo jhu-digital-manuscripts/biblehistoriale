@@ -42,6 +42,7 @@ import edu.jhu.library.biblehistoriale.model.profile.PrefatoryMatter;
 import edu.jhu.library.biblehistoriale.model.profile.Sneddon;
 import edu.jhu.library.biblehistoriale.model.profile.Title;
 import edu.jhu.library.biblehistoriale.model.profile.TitleIncipit;
+import edu.jhu.library.biblehistoriale.website.client.BibleVolume;
 import edu.jhu.library.biblehistoriale.website.client.Messages;
 
 /**
@@ -845,7 +846,7 @@ public class BibleDisplayContents {
                         
                         sb = new StringBuilder();
                         if (!BibleDisplay.isBlank(inc.getText()))
-                            sb.append(cs.getText() + " (");
+                            sb.append(inc.getText() + " (");
                         if (inc.getAccuracy() != null)
                             sb.append(inc.getAccuracy().accuracy() + "). ");
                         

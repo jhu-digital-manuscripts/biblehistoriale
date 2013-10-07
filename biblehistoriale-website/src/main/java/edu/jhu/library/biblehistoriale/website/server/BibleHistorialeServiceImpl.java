@@ -167,7 +167,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             sb.append(bible.getClassification().getCurrentRepository());
         if (bible.getClassification().getCurrentShelfmark() != null)
             sb.append(", " + bible.getClassification().getCurrentShelfmark());
-        
+
         for (BrowseCriteria bc : BrowseCriteria.values()) {
             CriteriaNode node = criteria.getChildNodeByText(bc.message());
             

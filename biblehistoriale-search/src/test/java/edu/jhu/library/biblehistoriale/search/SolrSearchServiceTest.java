@@ -54,7 +54,8 @@ public class SolrSearchServiceTest {
         final String[] filename = {
                 "profiles/BrusselsKBR9001-2.xml",
                 "profiles/VatBarbLat613.xml",
-                "profiles/Rosenwald967.xml"
+                "profiles/Rosenwald967.xml",
+                "profiles/BibleFake_001.xml"
         };
         
         Document[] docs = { 
@@ -63,13 +64,16 @@ public class SolrSearchServiceTest {
                 ProfileBuilder.createDocument(
                         this.getClass().getClassLoader().getResourceAsStream(filename[1])),
                 ProfileBuilder.createDocument(
-                        this.getClass().getClassLoader().getResourceAsStream(filename[2]))
+                        this.getClass().getClassLoader().getResourceAsStream(filename[2])),
+                ProfileBuilder.createDocument(
+                        this.getClass().getClassLoader().getResourceAsStream(filename[3]))
         };
         
         Bible[] profile = {
                 ProfileBuilder.buildProfile(filename[0], docs[0]),
                 ProfileBuilder.buildProfile(filename[1], docs[1]),
-                ProfileBuilder.buildProfile(filename[2], docs[2])
+                ProfileBuilder.buildProfile(filename[2], docs[2]),
+                ProfileBuilder.buildProfile(filename[2], docs[3])
         };
         
         // Clear index, then add the new profiles
@@ -78,6 +82,7 @@ public class SolrSearchServiceTest {
             service.index(profile[0]);
             service.index(profile[1]);
             service.index(profile[2]);
+            service.index(profile[3]);
         } catch (SearchServiceException e) {
             fail();
         }
@@ -97,7 +102,7 @@ public class SolrSearchServiceTest {
         query = new Query(TermField.BIBLIOGRAPHY, "sneddon");
         result = service.executeQuery(query, opts);
         
-        assertEquals(3, result.getTotal());
+        assertEquals(2, result.getTotal());
         System.out.println();
         System.out.println(result.matches().get(0).getId());
         System.out.println(result.matches().get(0).getContext());

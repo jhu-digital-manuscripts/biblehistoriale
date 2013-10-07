@@ -5,6 +5,10 @@ import edu.jhu.library.biblehistoriale.model.query.QueryOperation;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
 
+/**
+ * Contains methods for converting between Query objects and 
+ * string tokens.
+ */
 public class QueryUtils {
     
     private static final QueryUtils INSTANCE = 
