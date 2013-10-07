@@ -207,7 +207,8 @@ public class BibleVolume {
             
             for (Illustration ill : all_ills) {
                 if (title.getBookName().trim().equalsIgnoreCase(
-                        ill.getBook().trim()))
+                        ill.getBook().trim())
+                        && ill.getVolume() == volume)
                     ills.add(ill);
             }
             

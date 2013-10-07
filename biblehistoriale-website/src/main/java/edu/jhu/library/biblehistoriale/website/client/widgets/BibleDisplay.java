@@ -284,7 +284,7 @@ public class BibleDisplay extends Composite {
         div.appendChild(titlediv);
         
         titlediv.appendChild(textNode(Messages.INSTANCE.physChar()));
-Window.alert("Volumes...");
+
         div.appendChild(span(Messages.INSTANCE.vols(), MINOR_SECTION));
         div.appendChild(textNode(
                 bible.getPhysChar().getVolumes().getPresentState().value()
@@ -305,12 +305,12 @@ Window.alert("Volumes...");
             div.appendChild(textNode(sb.toString()));
         }
         div.appendChild(doc.createBRElement());
- Window.alert("Folios...");
+
         Folios folios = bible.getPhysChar().getFolios();
         div.appendChild(span(Messages.INSTANCE.folios(), MINOR_SECTION));
         div.appendChild(textNode(""+ folios.getTotalFolios() + " ("));
         for (int i = 0; i < folios.size(); i++) {
-Window.alert("Individual volume...");
+
             IndVolume ind = folios.indVolume(i);
             
             if (!isBlank(ind.getValue()))
@@ -322,7 +322,7 @@ Window.alert("Individual volume...");
             }
         }
         div.appendChild(textNode(")"));
-Window.alert("Page layout...");
+
         div.appendChild(doc.createBRElement());
         div.appendChild(span(Messages.INSTANCE.pageLayout(), MINOR_SECTION));
 
