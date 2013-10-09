@@ -80,7 +80,6 @@ public interface Messages extends Constants {
     
     public String biblioTitle();
     
-    
     public String remarks();
     
     public String overview();
@@ -110,5 +109,7 @@ public interface Messages extends Constants {
     public String failedToLoadProfile();
     
     public String searchLoading();
+    
+    public String empty();
 
 }

@@ -6,6 +6,7 @@ import com.google.gwt.user.cellview.client.SimplePager;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.view.client.ListDataProvider;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
@@ -22,6 +23,7 @@ public class BrowseSearchResultsViewImpl extends Composite
         implements BrowseSearchResultsView {
     private final int PAGE_SIZE = 10;
     
+    private final ScrollPanel top;
     private final FlowPanel main;
     
     private final Label loading_message;
@@ -38,6 +40,7 @@ public class BrowseSearchResultsViewImpl extends Composite
     public BrowseSearchResultsViewImpl() {
         CellListResources cell_res = GWT.create(CellListResources.class);
         
+        this.top = new ScrollPanel();
         this.main = new FlowPanel();
         
         this.noresults_message = new Label(Messages.INSTANCE.noResultsFound());
@@ -60,7 +63,10 @@ public class BrowseSearchResultsViewImpl extends Composite
         main.add(query_label);
         main.add(loading_message);
         
-        initWidget(main);
+        top.add(main);
+        top.setSize("100%", "100%");
+        
+        initWidget(top);
     }
 
     @Override

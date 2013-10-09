@@ -10,12 +10,12 @@ import com.google.gwt.place.shared.PlaceController;
 import com.google.gwt.place.shared.PlaceHistoryHandler;
 import com.google.gwt.user.client.ui.DockLayoutPanel;
 import com.google.gwt.user.client.ui.RootLayoutPanel;
-import com.google.gwt.user.client.ui.ScrollPanel;
+import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.web.bindery.event.shared.EventBus;
 
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppActivityMapper;
 import edu.jhu.library.biblehistoriale.website.client.mvp.AppPlaceHistoryMapper;
-import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
+import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 
 /**
@@ -24,9 +24,14 @@ import edu.jhu.library.biblehistoriale.website.client.view.impl.HeaderViewImpl;
 public class BibleHistorialeWebsite implements EntryPoint {
     public static final int HEADER_HEIGHT = 175;
 	
-    private Place default_place = new BrowseProfilesPlace();
+    /**
+     * This is the default place that will load when the application
+     * first starts up. When there is no history token to read, this
+     * is the place that will be displayed.
+     */
+    private Place default_place = new ProjectInfoPlace();
     
-    private ScrollPanel main_content = new ScrollPanel();
+    private SimplePanel main_content = new SimplePanel();
     private HeaderPresenter header;
     
     private final DockLayoutPanel main = new DockLayoutPanel(Unit.PX);

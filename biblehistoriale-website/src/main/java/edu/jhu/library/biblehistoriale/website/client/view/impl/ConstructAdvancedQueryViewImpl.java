@@ -14,6 +14,7 @@ import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlexTable;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTMLTable.Cell;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
 
 import edu.jhu.library.biblehistoriale.website.client.Messages;
@@ -23,6 +24,7 @@ import edu.jhu.library.biblehistoriale.website.client.widgets.AdvancedQueryWidge
 public class ConstructAdvancedQueryViewImpl extends Composite
         implements ConstructAdvancedQueryView {
     
+    private final ScrollPanel top;
     private final FlowPanel main;
     
     private final FlexTable queries_table;
@@ -36,6 +38,7 @@ public class ConstructAdvancedQueryViewImpl extends Composite
         handlers = new ArrayList<HandlerRegistration> ();
         
         this.main = new FlowPanel();
+        this.top = new ScrollPanel();
 
         this.queries_table = new FlexTable();
         
@@ -48,7 +51,10 @@ public class ConstructAdvancedQueryViewImpl extends Composite
 
         addQueryRow(true);
         
-        initWidget(main);
+        top.add(main);
+        top.setSize("100%", "100%");
+        
+        initWidget(top);
         
         this.addAttachHandler(new AttachEvent.Handler() {
             @Override

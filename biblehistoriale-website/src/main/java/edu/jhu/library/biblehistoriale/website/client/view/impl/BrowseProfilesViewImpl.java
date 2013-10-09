@@ -5,6 +5,7 @@ import com.google.gwt.user.cellview.client.CellTree;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.view.client.SelectionChangeEvent.Handler;
 import com.google.gwt.view.client.SingleSelectionModel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
@@ -17,6 +18,7 @@ import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
 public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesView {
     
+    private final ScrollPanel top;
     private final FlowPanel main;
     
     private final Label intro;
@@ -26,6 +28,7 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
     private SingleSelectionModel<CriteriaNode> selection_model;
     
     public BrowseProfilesViewImpl() {
+        this.top = new ScrollPanel();
         this.main = new FlowPanel();
         
         this.selection_model = new SingleSelectionModel<CriteriaNode> ();
@@ -35,7 +38,10 @@ public class BrowseProfilesViewImpl extends Composite implements BrowseProfilesV
         
         main.add(loading);
         
-        initWidget(main);
+        top.add(main);
+        top.setSize("100%", "100%");
+        
+        initWidget(top);
     }
     
     @Override
