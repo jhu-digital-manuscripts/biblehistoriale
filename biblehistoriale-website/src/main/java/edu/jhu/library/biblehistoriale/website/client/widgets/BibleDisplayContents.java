@@ -25,7 +25,6 @@ import com.google.gwt.user.client.ui.HTML;
 import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.Panel;
-import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.web.bindery.event.shared.HandlerRegistration;
@@ -61,8 +60,6 @@ import edu.jhu.library.biblehistoriale.website.client.Messages;
 public class BibleDisplayContents {
     private static final SimpleHtmlSanitizer sanitizer =
             SimpleHtmlSanitizer.getInstance();
-    
-    private static final int THUMB_WIDTH = 150;
     
     private static final String BH = "BH";
     private static final String BXIII = "BXIII";
@@ -688,7 +685,7 @@ public class BibleDisplayContents {
      */
     private void displayIncipitIllsAndAnnotations(List<Incipit> incipits, 
             List<String> type, List<Illustration> ills, List<Annotation> anns,
-            FlowPanel container) {
+            final FlowPanel container) {
         StringBuilder sb = new StringBuilder();
         
         DisclosurePanel disclose = new DisclosurePanel();
@@ -798,10 +795,9 @@ public class BibleDisplayContents {
                     
                     img.addStyleName("Thumbnail");
                     img.setAltText("[View image]");
-                    img.setWidth(THUMB_WIDTH + "px");
                     img.setVisible(false);
                     
-                    RootPanel.get().add(img);
+                    container.add(img);
                     
                     final AnchorElement anch = doc.createAnchorElement();
                     anch.setHref(ill.getUrl());
@@ -809,17 +805,17 @@ public class BibleDisplayContents {
                     handlers.add(img.addLoadHandler(new LoadHandler() {
                         @Override
                         public void onLoad(LoadEvent event) {
-                            RootPanel.get().remove(img);
+                            container.remove(img);
                             img.setVisible(true);
-                            anch.setInnerHTML(img.getElement().getString());
+                            anch.appendChild(img.getElement());
                         }
                     }));
                     
                     handlers.add(img.addErrorHandler(new ErrorHandler() {
                         @Override
                         public void onError(ErrorEvent event) {
-                            RootPanel.get().remove(img);
-                            anch.setInnerHTML("[View image]");
+                            container.remove(img);
+                            anch.setInnerText("[View image]");
                         }
                     }));
                     
