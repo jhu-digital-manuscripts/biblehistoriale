@@ -1,4 +1,9 @@
 
+.Thumbnail {
+	width: 150px;
+	margin: 12px 48px;
+}
+
 .Title {
 	font-size: 16px;
 	font-weight: bold;
@@ -59,6 +64,10 @@
 	list-style-type: none;
 }
 
+.Monospace {
+	font-family: monospace;
+}
+
 .ArticleTitle {
 	font-style: italic;
 }
@@ -81,7 +90,7 @@
 	width: 100%;
 }
 
-.Header .gwt-Label {
+.Header .gwt-Hyperlink {
 	margin-left: 12px;
 	margin-top: 8px;
 	float: left;

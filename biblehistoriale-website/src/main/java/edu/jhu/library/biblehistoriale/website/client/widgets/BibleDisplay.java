@@ -1,7 +1,6 @@
 package edu.jhu.library.biblehistoriale.website.client.widgets;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import com.google.gwt.dom.client.AnchorElement;
@@ -93,11 +92,12 @@ public class BibleDisplay extends Composite {
         content_set_up = false;
         
         main.selectTab(0);
+        
+        // Display profile information
         try {
             displayProfileView();
         } catch (Exception e) {
-            Window.alert(e.getMessage() + "\n"
-                    + Arrays.toString(e.getStackTrace()));
+            profile_panel.add(new Label(Messages.INSTANCE.failedToDisplayProfile()));
         }
         
         main.setWidth((Window.getClientWidth() - 22) + "px");
@@ -106,6 +106,7 @@ public class BibleDisplay extends Composite {
 
         initWidget(main);
         
+        // Display content tab. Load the data only when selected for the first time.
         handlers.add(main.addSelectionHandler(new SelectionHandler<Integer> () {
             @Override
             public void onSelection(SelectionEvent<Integer> event) {
@@ -115,13 +116,14 @@ public class BibleDisplay extends Composite {
                         content_panel.add(cont.displayContentView(bible));
                         content_set_up = true;
                     } catch (Exception e) {
-                        Window.alert(e.getMessage() + "\n"
-                                + Arrays.toString(e.getStackTrace()));
+                        content_panel.add(
+                                new Label(Messages.INSTANCE.failedToDisplayContent()));
                     }
                 }
             }
         }));
         
+        // When this view is detached, detach all event handlers.
         this.addAttachHandler(new AttachEvent.Handler() {
             @Override
             public void onAttachOrDetach(AttachEvent event) {
@@ -164,18 +166,6 @@ public class BibleDisplay extends Composite {
     
     public static Node textNode(String text) {
         return doc.createTextNode(text);
-    }
-    
-    public static Element paragraph(String text, String domclass) {
-        Element para = doc.createPElement();
-        
-        if (domclass != null) {
-            para.setClassName(domclass);
-        }
-        
-        para.setInnerSafeHtml(sanitizer.sanitize(text));
-        
-        return para;
     }
     
     public static Element span(String text, String domclass) {
@@ -291,7 +281,10 @@ public class BibleDisplay extends Composite {
                 + " of "
                 + bible.getPhysChar().getVolumes().getPreviousState().value()));
         div.appendChild(doc.createBRElement());
-        div.appendChild(span(Messages.INSTANCE.dims(), MINOR_SECTION));
+        
+        if (bible.getPhysChar().dimensions().size() > 0) {
+            div.appendChild(span(Messages.INSTANCE.dims(), MINOR_SECTION));
+        }
 
         for (Dimensions dim : bible.getPhysChar().dimensions()) {
             sb = new StringBuilder();
@@ -308,7 +301,11 @@ public class BibleDisplay extends Composite {
 
         Folios folios = bible.getPhysChar().getFolios();
         div.appendChild(span(Messages.INSTANCE.folios(), MINOR_SECTION));
-        div.appendChild(textNode(""+ folios.getTotalFolios() + " ("));
+        div.appendChild(textNode(""+ folios.getTotalFolios()));
+        
+        if (folios.size() > 0)
+            div.appendChild(textNode(" ("));
+            
         for (int i = 0; i < folios.size(); i++) {
 
             IndVolume ind = folios.indVolume(i);
@@ -411,7 +408,7 @@ public class BibleDisplay extends Composite {
             
             div.appendChild(textNode(sb.toString()));
         }
-  
+
         // Expandable details
         DisclosurePanel disclose = new DisclosurePanel();
         panel.add(disclose);
@@ -426,13 +423,11 @@ public class BibleDisplay extends Composite {
         div = doc.createDivElement();
         appendChild(details, div);
         
-        div.appendChild(span(Messages.INSTANCE.quireStruct(), MINOR_SECTION));
-
         sb = new StringBuilder();
         for (QuireStructure qs : bible.getPhysChar().quireStructs()) {
             
             if (qs.getVolume() > 0)
-                sb.append("Volume " + qs.getVolume() + " has ");
+                sb.append("Vol. " + qs.getVolume() + " has ");
             if (qs.quireTotal() != null && qs.quireTotal().size() > 0)
                 sb.append(qs.quireTotal() + " quires. ");
             if (qs.typicalQuires() != null && qs.typicalQuires().size() > 0)
@@ -443,8 +438,12 @@ public class BibleDisplay extends Composite {
             if (qs.quireNotes() != null && qs.quireNotes().size() > 0)
                 sb.append(qs.quireNotes().get(0) + ". ");
         }
-        div.appendChild(textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
+        
+        if (!isBlank(sb.toString())) {
+            div.appendChild(span(Messages.INSTANCE.quireStruct(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
         
         div.appendChild(span(Messages.INSTANCE.mats(), MINOR_SECTION));
 
@@ -462,8 +461,6 @@ public class BibleDisplay extends Composite {
         
         div.appendChild(textNode(sb.toString()));
         div.appendChild(doc.createBRElement());
-        
-        div.appendChild(span(Messages.INSTANCE.rubrics(), MINOR_SECTION));
         
         sb = new StringBuilder();
         
@@ -485,17 +482,28 @@ public class BibleDisplay extends Composite {
             }
         }
         
-        div.appendChild(textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
+        if (!isBlank(sb.toString())) {
+            div.appendChild(span(Messages.INSTANCE.rubrics(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
         
-        div.appendChild(span(Messages.INSTANCE.additionalNotes(), MINOR_SECTION));
+        if (!isBlank(bible.getPhysChar().getPageLayoutNotes())
+                || !isBlank(bible.getPhysChar().getPhysicaNotes())
+                || !isBlank(bible.getIllustrations().getIllustrationNote())) {
+            div.appendChild(span(Messages.INSTANCE.additionalNotes(), MINOR_SECTION));
+        }
 
-        if (!isBlank(bible.getPhysChar().getPageLayoutNotes()))
-            div.appendChild(paragraph(bible.getPhysChar().getPageLayoutNotes(), null));
-        if (!isBlank(bible.getPhysChar().getPhysicaNotes()))
-            div.appendChild(paragraph(bible.getPhysChar().getPhysicaNotes(), null));
+        if (!isBlank(bible.getPhysChar().getPageLayoutNotes())) {
+            div.appendChild(textNode(bible.getPhysChar().getPageLayoutNotes()));
+            div.appendChild(doc.createBRElement());
+        }
+        if (!isBlank(bible.getPhysChar().getPhysicaNotes())) {
+            div.appendChild(textNode(bible.getPhysChar().getPhysicaNotes()));
+            div.appendChild(doc.createBRElement());
+        }
         if (!isBlank(bible.getIllustrations().getIllustrationNote())) 
-            div.appendChild(paragraph(bible.getIllustrations().getIllustrationNote(), null));
+            div.appendChild(textNode(bible.getIllustrations().getIllustrationNote()));
         
         
         // Provenance, ownership, etc
@@ -530,26 +538,28 @@ public class BibleDisplay extends Composite {
         }
         
         // Table view of owners
-
+        List<Ownership> ownerships = bible.getProvenPatronHist().ownerships();
+        
         Element tablediv = doc.createDivElement();
         tablediv.setClassName("OwnerTable");
-        div.appendChild(tablediv);
         
         Element table = doc.createTableElement();
-        tablediv.appendChild(table);
-        
         Element tr = doc.createTRElement();
-        table.appendChild(tr);
-        
         Element td = doc.createTDElement();
-        td.appendChild(span(Messages.INSTANCE.ownedBy(), MINOR_SECTION));
-        tr.appendChild(td);
         
-        td = doc.createTDElement();
-        td.appendChild(span(Messages.INSTANCE.datesAndLoc(), MINOR_SECTION));
-        tr.appendChild(td);
-        
-        List<Ownership> ownerships = bible.getProvenPatronHist().ownerships();
+        if (ownerships.size() > 0) {
+            div.appendChild(tablediv);
+            tablediv.appendChild(table);
+            
+            table.appendChild(tr);
+            
+            td.appendChild(span(Messages.INSTANCE.ownedBy(), MINOR_SECTION));
+            tr.appendChild(td);
+            
+            td = doc.createTDElement();
+            td.appendChild(span(Messages.INSTANCE.datesAndLoc(), MINOR_SECTION));
+            tr.appendChild(td);
+        }
         
         for (Ownership ownership : ownerships) {
             for (Owner owner : ownership) {
@@ -573,12 +583,9 @@ public class BibleDisplay extends Composite {
                     sb.append(st + ". ");
                 }
                 td.appendChild(textNode(sb.toString()));
-                
             }
         }
         
-        div.appendChild(span(Messages.INSTANCE.contrib(), MINOR_SECTION));
-
         sb = new StringBuilder();
         
         List<Contributor> conts = 
@@ -590,8 +597,12 @@ public class BibleDisplay extends Composite {
             if (cont.getType() != null) 
                 sb.append(" (" + cont.getType().value() + "); ");
         }
-        div.appendChild(textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
+        
+        if (!isBlank(sb.toString())) {
+            div.appendChild(span(Messages.INSTANCE.contrib(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
         
         div.appendChild(span(Messages.INSTANCE.personalizedFeatures(), MINOR_SECTION));
         
@@ -626,7 +637,10 @@ public class BibleDisplay extends Composite {
         if (bible.getProvenPatronHist().annotations().size() > 0)
             sb.append("Annotation");
         
-        div.appendChild(textNode(sb.toString()));
+        if (!isBlank(sb.toString()))
+            div.appendChild(textNode(sb.toString()));
+        else
+            div.appendChild(textNode("none"));
         div.appendChild(doc.createBRElement());
         
         // expandable detail
@@ -645,8 +659,6 @@ public class BibleDisplay extends Composite {
         div = doc.createDivElement();
         appendChild(details, div);
         
-        div.appendChild(span(Messages.INSTANCE.colophons(), MINOR_SECTION));
-
         sb = new StringBuilder();
         for (PersonalizationItem col : per.colophons()) {
             sb.append(col.getValue() + " ");
@@ -657,10 +669,17 @@ public class BibleDisplay extends Composite {
                         + (!isBlank(col.getFolio()) ? col.getFolio() : "")
                         + ") ");
         }
-        div.appendChild(textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
         
-        div.appendChild(span(Messages.INSTANCE.signatureTitle(), MINOR_SECTION));
+        if (!isBlank(sb.toString())) {
+            div.appendChild(span(Messages.INSTANCE.colophons(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
+        
+        if (per.signatures().size() > 0 || per.dedications().size() > 0
+                || per.legalInscriptions().size() > 0) {
+            div.appendChild(span(Messages.INSTANCE.signatureTitle(), MINOR_SECTION));
+        }
         
         Element ol = doc.createOLElement();
         div.appendChild(ol);
@@ -722,20 +741,25 @@ public class BibleDisplay extends Composite {
         div = doc.createDivElement();
         appendChild(details, div);
         
-        div.appendChild(span(Messages.INSTANCE.notes(), MINOR_SECTION));
-
-        div.appendChild(paragraph(notes.toString(), null));
-        
-        if (!isBlank(prod.getProdNotes()))
-            div.appendChild(paragraph(prod.getProdNotes(), null));
-        
-        notes = new StringBuilder();
-        for (String str : bible.getProvenPatronHist().provenanceNote()) {
-            notes.append(str);
+        if (!isBlank(notes.toString()) 
+                || !isBlank(prod.getProdNotes())
+                || bible.getProvenPatronHist().provenanceNote().size() > 0) {
+            div.appendChild(span(Messages.INSTANCE.notes(), MINOR_SECTION));
         }
         
-        if (bible.getProvenPatronHist().provenanceNote().size() > 0)
-            div.appendChild(paragraph(notes.toString(), null));
+        if (!isBlank(notes.toString())) {
+            div.appendChild(textNode(notes.toString()));
+            div.appendChild(doc.createBRElement());
+        }
+        if (!isBlank(prod.getProdNotes())) {
+            div.appendChild(textNode(prod.getProdNotes()));
+            div.appendChild(doc.createBRElement());
+        }
+        
+        for (String str : bible.getProvenPatronHist().provenanceNote()) {
+            div.appendChild(textNode(str));
+            div.appendChild(doc.createBRElement());
+        }
         
         
         // Classification and contents summary
@@ -752,7 +776,7 @@ public class BibleDisplay extends Composite {
         titlediv.appendChild(textNode(Messages.INSTANCE.classificationTitle()));
         div.appendChild(titlediv);
 
-        div.appendChild(span(Messages.INSTANCE.catalogClassif(), MINOR_SECTION));
+        
         
         sb = new StringBuilder();
 
@@ -779,18 +803,22 @@ public class BibleDisplay extends Composite {
             sb.append("siglum " + sned.getSiglum() + ", ");
         if (!isBlank(sned.getEntry()))
             sb.append("entry " + sned.getEntry());
-        sb.append(". ");
         
         if (!isBlank(classif.getClassificationNote()))
-            sb.append(classif.getClassificationNote() 
+            sb.append(". " + classif.getClassificationNote() 
                     + (classif.getClassificationNote().trim().endsWith(".")
                             ? " " : ". "));
         
-        if (!isBlank(classif.getFournieNumber())) {
-            sb.append((isBlank(bible.getShortName()) 
-                    ? "This manuscript" : bible.getShortName())
-                    + " is entry number(s) ");
+        if (!isBlank(sb.toString()) || !isBlank(classif.getFournieNumber())) {
+            div.appendChild(span(Messages.INSTANCE.catalogClassif(), MINOR_SECTION));
             div.appendChild(textNode(sb.toString()));
+        }
+            
+        
+        if (!isBlank(classif.getFournieNumber())) {
+            div.appendChild(textNode((isBlank(bible.getShortName()) 
+                    ? "This manuscript" : bible.getShortName())
+                    + " is entry number(s) "));
             
             if (!isBlank(classif.getFournieLink())) {
                 anch = doc.createAnchorElement();
@@ -803,14 +831,9 @@ public class BibleDisplay extends Composite {
                 div.appendChild(textNode(classif.getFournieNumber() + 
                         " in Eleanor Fournie's online catalog."));
             }
-            
-        } else {
-            div.appendChild(textNode(sb.toString()));
         }
         
         div.appendChild(doc.createBRElement());
-        
-        div.appendChild(span(Messages.INSTANCE.secundo(), MINOR_SECTION));
         
         sb = new StringBuilder();
         for (SecundoFolio sec : classif.secundoFolios()) {
@@ -820,10 +843,12 @@ public class BibleDisplay extends Composite {
             if (!isBlank(sec.getValue())) 
                 sb.append(sec.getValue() + ". ");
         }
-        div.appendChild(textNode(sb.toString()));
-        div.appendChild(doc.createBRElement());
         
-        div.appendChild(span(Messages.INSTANCE.tableOfContents(), MINOR_SECTION));
+        if (!isBlank(sb.toString())) {
+            div.appendChild(span(Messages.INSTANCE.secundo(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
+            div.appendChild(doc.createBRElement());
+        }
         
         TextualContent textcont = bible.getTextualContent();
 
@@ -837,11 +862,10 @@ public class BibleDisplay extends Composite {
                 
                 if (mat.getVolume() > 0) {
                     sb.append("Included in vol. " + mat.getVolume() + " ");
-                    notes.append("Vol. " + mat.getVolume() + " ");
+                    notes.append("<i>Vol. " + mat.getVolume() + "</i> ");
                 }
                 
-                notes.append("table: " + mat.getMasterTableOfContents().getText()
-                        + "</br>");
+                notes.append("table: " + mat.getMasterTableOfContents().getText() + " ");
                 
                 if (mat.getMasterTableOfContents().getTableDetail() != null)
                     sb.append("with " + 
@@ -853,11 +877,11 @@ public class BibleDisplay extends Composite {
                     sb.append(" Does not match content. ");
             }
         }
-        div.appendChild(textNode(sb.toString()));
-        
         
         disclose = new DisclosurePanel();
         if (tables_of_contents > 0) {
+            div.appendChild(span(Messages.INSTANCE.tableOfContents(), MINOR_SECTION));
+            div.appendChild(textNode(sb.toString()));
             panel.add(disclose);
         }
         
@@ -871,6 +895,8 @@ public class BibleDisplay extends Composite {
         
         div = doc.createDivElement();
         appendChild(details, div);
+        
+        
         
         div.setInnerSafeHtml(sanitizer.sanitize(notes.toString()));
         

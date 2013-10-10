@@ -19,11 +19,7 @@ import com.google.web.bindery.event.shared.HandlerRegistration;
 import edu.jhu.library.biblehistoriale.model.query.Query;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.TermField;
-import edu.jhu.library.biblehistoriale.website.client.place.BrowseProfilesPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
-import edu.jhu.library.biblehistoriale.website.client.place.ConstructAdvancedQueryPlace;
-import edu.jhu.library.biblehistoriale.website.client.place.ContactUsPlace;
-import edu.jhu.library.biblehistoriale.website.client.place.ProjectInfoPlace;
 import edu.jhu.library.biblehistoriale.website.client.view.HeaderView;
 
 /**
@@ -45,34 +41,6 @@ public class HeaderPresenter implements HeaderView.Presenter {
     }
     
     private void bind(final List<HandlerRegistration> handlers) {
-        handlers.add(view.addBrowseLinkClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                goTo(new BrowseProfilesPlace());
-            }
-        }));
-        
-        handlers.add(view.addInfoLinkClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                goTo(new ProjectInfoPlace());
-            }
-        }));
-        
-        handlers.add(view.addContactInfoClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                goTo(new ContactUsPlace());
-            }
-        }));
-        
-        handlers.add(view.addAdvancedSearchClickHandler(new ClickHandler() {
-            @Override
-            public void onClick(ClickEvent event) {
-                goTo(new ConstructAdvancedQueryPlace());
-            }
-        }));
-        
         handlers.add(view.addSearchClickHandler(new ClickHandler() {
             @Override
             public void onClick(ClickEvent event) {

@@ -6,8 +6,8 @@ import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
+import com.google.gwt.user.client.ui.Hyperlink;
 import com.google.gwt.user.client.ui.Image;
-import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.web.bindery.event.shared.HandlerRegistration;
@@ -21,10 +21,10 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     private final FlowPanel main;
     private final SimplePanel banner_panel;
     
-    private final Label info_link;
-    private final Label browse_link;
-    private final Label contact_link;
-    private final Label advanced_search_link;
+    private final Hyperlink info_link;
+    private final Hyperlink browse_link;
+    private final Hyperlink contact_link;
+    private final Hyperlink advanced_search_link;
     
     private final Button search_button;
     
@@ -32,15 +32,18 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     
     private final TextBox search_box;
     
-    // TODO: get all user messages from .properties file
     public HeaderViewImpl() {
         this.main = new FlowPanel();
         main.setStylePrimaryName("Header");
         
-        this.info_link = new Label(Messages.INSTANCE.info());
-        this.browse_link = new Label(Messages.INSTANCE.browse());
-        this.contact_link = new Label(Messages.INSTANCE.contactUs());
-        this.advanced_search_link = new Label(Messages.INSTANCE.advancedSearch());
+        this.info_link = new Hyperlink(Messages.INSTANCE.info(),
+                "ProfileInfoPlace:");
+        this.browse_link = new Hyperlink(Messages.INSTANCE.browse(),
+                "BrowseProfilesPlace:");
+        this.contact_link = new Hyperlink(Messages.INSTANCE.contactUs(),
+                "ContactUsPlace:");
+        this.advanced_search_link = new Hyperlink(Messages.INSTANCE.advancedSearch(),
+                "ConstructAdvancedQueryPlace:");
         advanced_search_link.setStylePrimaryName("AdvancedSearchLink");
         
         this.search_button = new Button("Search");
@@ -75,22 +78,6 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     }
 
     @Override
-    public HandlerRegistration addInfoLinkClickHandler(ClickHandler handler) {
-        return info_link.addClickHandler(handler);
-    }
-
-    @Override
-    public HandlerRegistration addContactInfoClickHandler(ClickHandler handler) {
-        return contact_link.addClickHandler(handler);
-    }
-
-    @Override
-    public HandlerRegistration addAdvancedSearchClickHandler(
-            ClickHandler handler) {
-        return advanced_search_link.addClickHandler(handler);
-    }
-
-    @Override
     public HandlerRegistration addSearchClickHandler(ClickHandler handler) {
         return search_button.addClickHandler(handler);
     }
@@ -103,11 +90,6 @@ public class HeaderViewImpl extends Composite implements HeaderView {
     @Override
     public void resize(int width, int height) {
         banner_panel.setWidth(width + "px");
-    }
-
-    @Override
-    public HandlerRegistration addBrowseLinkClickHandler(ClickHandler handler) {
-        return browse_link.addClickHandler(handler);
     }
 
     @Override

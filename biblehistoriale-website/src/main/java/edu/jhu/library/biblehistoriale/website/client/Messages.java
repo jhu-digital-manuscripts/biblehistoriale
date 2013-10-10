@@ -111,5 +111,9 @@ public interface Messages extends Constants {
     public String searchLoading();
     
     public String empty();
+    
+    public String failedToDisplayProfile();
+    
+    public String failedToDisplayContent();
 
 }
