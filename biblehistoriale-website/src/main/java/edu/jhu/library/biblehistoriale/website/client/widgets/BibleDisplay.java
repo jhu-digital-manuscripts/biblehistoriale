@@ -1,7 +1,9 @@
 package edu.jhu.library.biblehistoriale.website.client.widgets;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.google.gwt.dom.client.AnchorElement;
 import com.google.gwt.dom.client.Document;
@@ -10,16 +12,20 @@ import com.google.gwt.dom.client.Node;
 import com.google.gwt.dom.client.Style.Unit;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
+import com.google.gwt.event.dom.client.ErrorEvent;
+import com.google.gwt.event.dom.client.ErrorHandler;
+import com.google.gwt.event.dom.client.LoadEvent;
+import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.event.logical.shared.AttachEvent;
-import com.google.gwt.event.logical.shared.SelectionEvent;
-import com.google.gwt.event.logical.shared.SelectionHandler;
 import com.google.gwt.safehtml.shared.SimpleHtmlSanitizer;
 import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.DisclosurePanel;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HTML;
+import com.google.gwt.user.client.ui.Image;
 import com.google.gwt.user.client.ui.Label;
+import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.ScrollPanel;
 import com.google.gwt.user.client.ui.SimplePanel;
 import com.google.gwt.user.client.ui.TabLayoutPanel;
@@ -35,6 +41,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Contributor;
 import edu.jhu.library.biblehistoriale.model.profile.DecorationSummary;
 import edu.jhu.library.biblehistoriale.model.profile.Dimensions;
 import edu.jhu.library.biblehistoriale.model.profile.Folios;
+import edu.jhu.library.biblehistoriale.model.profile.Illustration;
 import edu.jhu.library.biblehistoriale.model.profile.IllustrationList;
 import edu.jhu.library.biblehistoriale.model.profile.IndVolume;
 import edu.jhu.library.biblehistoriale.model.profile.Materials;
@@ -58,9 +65,24 @@ import edu.jhu.library.biblehistoriale.website.client.Messages;
  * bible.
  */
 public class BibleDisplay extends Composite {
+    
+    interface ImagesCallback {
+        void onImagesRecieved(Map<String, Image> imgs);
+    }
+    
     public static final String MINOR_SECTION = "MinorSection";
-    private static final SimpleHtmlSanitizer sanitizer = 
-            SimpleHtmlSanitizer.getInstance();
+    private static final SimpleHtmlSanitizer sanitizer;
+    private static final Image loading;
+    private static final Image none;
+    
+    static {
+        sanitizer = SimpleHtmlSanitizer.getInstance();
+        
+        loading = new Image("images/loading.gif");
+        loading.addStyleName("ProfileImage");
+        none = new Image("images/placeholder.png");
+        none.addStyleName("ProfileImage");
+    }
     
     private final Bible bible;
     
@@ -71,12 +93,17 @@ public class BibleDisplay extends Composite {
     public final static Document doc = Document.get();
     
     private final List<HandlerRegistration> handlers;
+    private Map<String, Image> imgs;
     
     private final BibleDisplayContents cont;
-    private boolean content_set_up;
+    //private boolean content_set_up;
+    private int pending_images;
+    
+    private Element img_container;
     
     public BibleDisplay(final Bible bible) {
         this.handlers = new ArrayList<HandlerRegistration> ();
+        this.imgs = new HashMap<String, Image> ();
         
         this.bible = bible;
         this.cont = new BibleDisplayContents(doc);
@@ -86,10 +113,11 @@ public class BibleDisplay extends Composite {
         
         this.profile_panel = new SimplePanel();
         this.content_panel = new SimplePanel();
+        this.img_container = doc.createDivElement();
         
         main.add(profile_panel, "Profile View");
         main.add(content_panel, "Contents View");
-        content_set_up = false;
+        //content_set_up = false;
         
         main.selectTab(0);
         
@@ -100,28 +128,46 @@ public class BibleDisplay extends Composite {
             profile_panel.add(new Label(Messages.INSTANCE.failedToDisplayProfile()));
         }
         
+        try {
+            content_panel.add(cont.displayContentView(bible));
+            //content_set_up = true;
+        } catch (Exception e) {
+            content_panel.add(
+                    new Label(Messages.INSTANCE.failedToDisplayContent()));
+        }
+        
         main.setWidth((Window.getClientWidth() - 22) + "px");
         main.setHeight(
                 (Window.getClientHeight() - BibleHistorialeWebsite.HEADER_HEIGHT - 12)+"px");
 
         initWidget(main);
         
-        // Display content tab. Load the data only when selected for the first time.
-        handlers.add(main.addSelectionHandler(new SelectionHandler<Integer> () {
+        findResolvableImages(new ImagesCallback() {
             @Override
-            public void onSelection(SelectionEvent<Integer> event) {
-                if (event.getSelectedItem().intValue() == 1 
-                        && !content_set_up) {
-                    try {
-                        content_panel.add(cont.displayContentView(bible));
-                        content_set_up = true;
-                    } catch (Exception e) {
-                        content_panel.add(
-                                new Label(Messages.INSTANCE.failedToDisplayContent()));
+            public void onImagesRecieved(Map<String, Image> img_map) {
+                cont.setImages(img_map);
+                imgs = img_map;
+                
+                if (imgs == null || imgs.size() == 0) {
+                    img_container.setInnerHTML(none.getElement().getString());
+                    return;
+                }
+                
+                for (Illustration ill : bible.getIllustrations()) {
+                    if (!isBlank(ill.getUrl())) {
+                        if (ill.getUrl() == null) {
+                            continue;
+                        }
+                        
+                        Image img = new Image(ill.getUrl());
+                        
+                        img.setStyleName("ProfileImage");
+                        img_container.setInnerHTML(img.getElement().getString());
+                        return;
                     }
                 }
             }
-        }));
+        });
         
         // When this view is detached, detach all event handlers.
         this.addAttachHandler(new AttachEvent.Handler() {
@@ -135,6 +181,64 @@ public class BibleDisplay extends Composite {
                 }
             }
         });
+    }
+    
+    /**
+     * <p>Go through all illustrations to find which ones have resolvable
+     * URLs. If an illustration has a URL associated with it, the Content-Type
+     * of the URL is checked.</p>
+     * 
+     * @param cb
+     */
+    private void findResolvableImages(final ImagesCallback cb) {
+        final Map<String, Image> imgs = new HashMap<String, Image> ();
+        pending_images = 0;
+        
+        final FlowPanel container = new FlowPanel();
+        container.setVisible(false);
+        RootPanel.get().add(container);
+        
+        IllustrationList ills = bible.getIllustrations();
+        
+        for (final Illustration ill : ills) {
+            if (!isBlank(ill.getUrl())) {
+                pending_images++;
+                
+                final Image img = new Image(ill.getUrl());
+                container.add(img);
+                
+                handlers.add(img.addLoadHandler(new LoadHandler() {
+                    @Override
+                    public void onLoad(LoadEvent event) {
+                        pending_images--;
+                        container.remove(img);
+
+                        img.setVisible(true);
+                        imgs.put(ill.getUrl(), img);
+                        
+                        if (pending_images <= 0) {
+                            cb.onImagesRecieved(imgs);
+                        }
+                    }
+                }));
+                
+                handlers.add(img.addErrorHandler(new ErrorHandler() {
+                    @Override
+                    public void onError(ErrorEvent event) {
+                        pending_images--;
+                        container.remove(img);
+                        
+                        if (pending_images <= 0) {
+                            cb.onImagesRecieved(imgs);
+                        }
+                    }
+                }));
+            }
+        }
+        
+        if (pending_images == 0) {
+            cb.onImagesRecieved(null);
+        }
     }
     
     public void resize(int width, int height) {
@@ -206,9 +310,18 @@ public class BibleDisplay extends Composite {
         div.setClassName("Title");
         
         appendChild(p, div);
+        
+        Element subdiv = doc.createDivElement();
+        div.appendChild(subdiv);
+        
+        subdiv.appendChild(img_container);
+        img_container.setInnerHTML(loading.getElement().getString());
 
+        subdiv = doc.createDivElement();
+        div.appendChild(subdiv);
+        
         if (!isBlank(bible.getClassification().getCurrentCity()))
-            div.appendChild(textNode(bible.getClassification().getCurrentCity() + ", "));
+            subdiv.appendChild(textNode(bible.getClassification().getCurrentCity() + ", "));
         
         AnchorElement anch = doc.createAnchorElement();
         
@@ -218,33 +331,34 @@ public class BibleDisplay extends Composite {
         if (!isBlank(link)) {
             anch.setHref(link);
             anch.appendChild(doc.createTextNode(link_text));
-            div.appendChild(anch);
+            subdiv.appendChild(anch);
         } else {
-            div.appendChild(doc.createTextNode(link_text));
+            subdiv.appendChild(doc.createTextNode(link_text));
         }
 
         if (!isBlank(bible.getClassification().getCurrentShelfmark()))
-                div.appendChild(textNode(" " + 
+            subdiv.appendChild(textNode(" " + 
                         bible.getClassification().getCurrentShelfmark()));
-        div.appendChild(doc.createBRElement());
-        div.appendChild(textNode(Messages.INSTANCE.manuscriptProfile()));
+        subdiv.appendChild(doc.createBRElement());
+        subdiv.appendChild(textNode(Messages.INSTANCE.manuscriptProfile()));
         
-        div = doc.createDivElement();
-        div.setClassName("TitleMinor");
+        subdiv = doc.createDivElement();
+        subdiv.setClassName("TitleMinor");
         
-        appendChild(p, div);
+        div.appendChild(subdiv);
+        //appendChild(p, div);
 
-        div.appendChild(span(Messages.INSTANCE.format(), MINOR_SECTION));
+        subdiv.appendChild(span(Messages.INSTANCE.format(), MINOR_SECTION));
         if (bible.getClassification().getBookType().getTech() != null)
-            div.appendChild(
+            subdiv.appendChild(
                     textNode(bible.getClassification().getBookType()
                                     .getTech().technology()));
-        div.appendChild(doc.createBRElement());
-        div.appendChild(span(Messages.INSTANCE.prodDate(), MINOR_SECTION));
+        subdiv.appendChild(doc.createBRElement());
+        subdiv.appendChild(span(Messages.INSTANCE.prodDate(), MINOR_SECTION));
         if (!isBlank(bible.getProvenPatronHist().getProduction().getProdDate()))
-            div.appendChild(
+            subdiv.appendChild(
                     textNode(bible.getProvenPatronHist().getProduction().getProdDate()));
-        div.appendChild(doc.createBRElement());
+        subdiv.appendChild(doc.createBRElement());
         
         anch = doc.createAnchorElement();
         link = bible.getScannedMss();
@@ -257,10 +371,9 @@ public class BibleDisplay extends Composite {
             aspan.appendChild(anch);
             aspan.appendChild(textNode("]"));
             
-            div.appendChild(aspan);
+            subdiv.appendChild(aspan);
         }
-      
-
+        
         // Physical Characteristics
         
         div = doc.createDivElement();

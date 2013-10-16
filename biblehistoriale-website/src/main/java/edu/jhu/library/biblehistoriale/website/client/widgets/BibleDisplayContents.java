@@ -10,10 +10,6 @@ import com.google.gwt.dom.client.Document;
 import com.google.gwt.dom.client.Element;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
-import com.google.gwt.event.dom.client.ErrorEvent;
-import com.google.gwt.event.dom.client.ErrorHandler;
-import com.google.gwt.event.dom.client.LoadEvent;
-import com.google.gwt.event.dom.client.LoadHandler;
 import com.google.gwt.event.logical.shared.ResizeEvent;
 import com.google.gwt.event.logical.shared.ResizeHandler;
 import com.google.gwt.safehtml.shared.SimpleHtmlSanitizer;
@@ -75,6 +71,7 @@ public class BibleDisplayContents {
     
     private final List<HandlerRegistration> handlers;
     private final List<DisclosurePanel> ills_incips;
+    private final Map<String, Element> img_containers;
     
     private int[] ill_by_volume;
     private int disclosure_width;
@@ -86,6 +83,7 @@ public class BibleDisplayContents {
         
         this.handlers = new ArrayList<HandlerRegistration> ();
         this.ills_incips = new ArrayList<DisclosurePanel> ();
+        this.img_containers = new HashMap<String, Element> ();
         
         this.ills_incips_is_collapsed = true;
         
@@ -101,6 +99,36 @@ public class BibleDisplayContents {
         }
     }
     
+    /**
+     * Sets all resolvable images. All hyperlinks are replaced by
+     * the appropriate image.
+     * 
+     * @param imgs
+     *          Map&ltString, Image&gt key values are the illustration URLs
+     */
+    public void setImages(Map<String, Image> imgs) {
+        
+        if (imgs == null || imgs.size() == 0) {
+            // There are no images
+            return;
+        }
+        
+        for (Illustration ill : bible.getIllustrations()) {
+            
+            if (!BibleDisplay.isBlank(ill.getUrl())) {
+                
+                Image img = imgs.get(ill.getUrl());
+                Element container = img_containers.get(ill.getUrl());
+                
+                if (img != null && container != null) {
+                    img.setStyleName("Thumbnail");
+                    
+                    container.setInnerText("");
+                    container.appendChild(img.getElement());
+                }
+            }
+        }
+    }
     
     /**
      * Returns a ScrollPanel containing the textual contents
@@ -111,6 +139,7 @@ public class BibleDisplayContents {
      */
     public ScrollPanel displayContentView(Bible bible) {
         this.bible = bible;
+        
         this.ill_by_volume = countIllsInVols(bible.getIllustrations());
         
         this.disclosure_width = Window.getClientWidth() - 95;
@@ -787,40 +816,17 @@ public class BibleDisplayContents {
                 
                 li.appendChild(BibleDisplay.textNode(sb.toString() + " "));
                 
+                
                 if (ill.getUrl() != null && !ill.getUrl().equals("")) {
-                    // TODO first try to generate a thumbnail. If one cannot
-                    // be made, then fallback to simple hyperlink
-                    
-                    final Image img = new Image(ill.getUrl().trim());
-                    
-                    img.addStyleName("Thumbnail");
-                    img.setAltText("[View image]");
-                    img.setVisible(false);
-                    
-                    container.add(img);
                     
                     final AnchorElement anch = doc.createAnchorElement();
                     anch.setHref(ill.getUrl());
                     
-                    handlers.add(img.addLoadHandler(new LoadHandler() {
-                        @Override
-                        public void onLoad(LoadEvent event) {
-                            container.remove(img);
-                            img.setVisible(true);
-                            anch.appendChild(img.getElement());
-                        }
-                    }));
-                    
-                    handlers.add(img.addErrorHandler(new ErrorHandler() {
-                        @Override
-                        public void onError(ErrorEvent event) {
-                            container.remove(img);
-                            anch.setInnerText("[View image]");
-                        }
-                    }));
-                    
                     li.appendChild(doc.createBRElement());
                     li.appendChild(anch);
+                    
+                    img_containers.put(ill.getUrl(), anch);
+                    anch.setInnerText("[View image]");
                 }
             }
         }
@@ -865,6 +871,37 @@ public class BibleDisplayContents {
         }
         
     }
+    
+    //private Map<String, Element> img_containers;
+/*    private boolean images_ready;
+    
+    public void setImages(Map<String, Image> imgs) {
+        
+        this.imgs = imgs;
+        
+        if (images_ready) {
+            IllustrationList ills = bible.getIllustrations();
+            
+            for (Illustration ill : ills) {
+                
+                if (!BibleDisplay.isBlank(ill.getUrl())) {
+                    
+                    Element container = img_containers.get(ill.getUrl());
+                    Image img = imgs.get(ill.getUrl());
+                    
+                    if (container == null || img == null) {
+                        continue;
+                    }
+                    
+                    container.appendChild(img.getElement());
+                    
+                }
+                
+            }
+        }
+        
+        images_ready = true;
+    }*/
     
     /**
      * Display all other prefaces.
@@ -1048,7 +1085,7 @@ public class BibleDisplayContents {
         container.appendChild(BibleDisplay.span("(" + type + ") ", 
                 BibleDisplay.MINOR_SECTION));
 
-        StringBuilder sb = new StringBuilder("(Comestor's preface). ");
+        StringBuilder sb = new StringBuilder();
         
         if (!BibleDisplay.isBlank(start_page))
             sb.append("Begins folio " + start_page + ". ");
@@ -1079,10 +1116,10 @@ public class BibleDisplayContents {
      
             div.appendChild(BibleDisplay.span("Master table of contents ", 
                     BibleDisplay.MINOR_SECTION));
-
-            sb = new StringBuilder("(detail: "
-                    + (master.getTableDetail() == null
-                    ? " " : master.getTableDetail().detail()) + "). ");
+            
+            if (master.getTableDetail() != null) {
+                sb.append("(detail: " + master.getTableDetail().detail() + "). ");
+            }
             
             if (!BibleDisplay.isBlank(master.getStartPage()))
                 sb.append("Begins folio " + master.getStartPage() + ". ");

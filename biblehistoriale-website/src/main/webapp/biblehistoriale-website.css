@@ -4,6 +4,14 @@
 	margin: 12px 48px;
 }
 
+.ProfileImage {
+	float: right;
+	height: 300px;
+	width: inherit;
+	margin: 18px;
+	border: 2px solid black;
+}
+
 .Title {
 	font-size: 16px;
 	font-weight: bold;
@@ -88,6 +96,13 @@
 
 .FullWidth {
 	width: 100%;
+}
+
+.ProjectInfoImg {
+	height: 400px;
+	float: right;
+	margin: 24px;
+	border: 2px solid black;
 }
 
 .Header .gwt-Hyperlink {
