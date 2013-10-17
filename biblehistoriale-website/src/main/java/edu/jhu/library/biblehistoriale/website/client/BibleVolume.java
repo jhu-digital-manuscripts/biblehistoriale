@@ -30,6 +30,120 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  */
 public class BibleVolume {
     // TODO does this actually work??
+    
+    private class Page {
+        
+        private String name;
+        private String side;
+        private String section;
+        
+        public Page(String folio) {
+            if (folio.substring(folio.length() - 1).matches("\\D")) {
+                this.side = folio.substring(folio.length() - 1);
+                this.name = folio.substring(0, folio.length() - 1);
+            } else {
+                this.side = null;
+                this.name = folio;
+            }
+            
+            if (folio.substring(0, 1).matches("\\D")) {
+                this.section = folio.substring(0, 1);
+                this.name = name.substring(1);
+            } else {
+                this.section = null;
+            }
+        }
+        
+        public String getName() {
+            return name;
+        }
+        
+        public String getSide() {
+            return side;
+        }
+        
+        public String getSection() {
+            return section;
+        }
+        
+        public boolean hasSide() {
+            return side != null;
+        }
+        
+        public boolean hasName() {
+            return name != null && !name.equals("");
+        }
+        
+        public boolean hasSection() {
+            return section != null;
+        }
+        
+        private int compareSections(Page page) {
+            if (hasSection() && page.hasSection()) {
+                if (hasName() && page.hasName())
+                    return getSection().compareToIgnoreCase(page.getSection());
+                else if (hasName() && !page.hasName())
+                    return 1;
+                else if (!hasName() && page.hasName())
+                    return -1;
+            } else if (hasSection() && !page.hasSection()) {
+                return -1;
+            } else if (!hasSection() && page.hasSection()) {
+                return 1;
+            }
+            
+            return 0;
+        }
+        
+        private int compareNames(Page page) {
+            try {
+                int p1 = Integer.parseInt(getName());
+                int p2 = Integer.parseInt(page.getName());
+                
+                if (!hasSide()) {
+                    p1 = p1 / 2;
+                }
+                if (!page.hasSide()) {
+                    p2 = p2 / 2;
+                }
+                
+                return p1 - p2;
+            } catch (NumberFormatException e) {
+                return getName().compareToIgnoreCase(page.getName());
+            }
+        }
+        
+        private int compareSides(Page page) {
+            if (hasSide() && page.hasSide()) {
+                return getSide().compareToIgnoreCase(page.getSide());
+            }
+            
+            return 0;
+        }
+        
+        public int compareTo(Page page) {
+            
+            int result = compareSections(page);
+            if (result == 0) {
+                
+                result = compareNames(page);
+                if (result == 0) {
+                    result = compareSides(page);
+                }
+            }
+            
+            return result;
+        }
+
+        @Override
+        public String toString() {
+            return (hasSection() ? section : "") 
+                    + (hasName() ? name : "")
+                    + (hasSide() ? side : "");
+        }
+        
+    }
+    
     private PrefatoryMatter prefatory;
     private ParascripturalItem pi;
     private BibleBooks books;
@@ -206,9 +320,14 @@ public class BibleVolume {
             List<Illustration> ills = new ArrayList<Illustration> ();
             
             for (Illustration ill : all_ills) {
-                if (title.getBookName().trim().equalsIgnoreCase(
-                        ill.getBook().trim())
-                        && ill.getVolume() == volume)
+                boolean is_in_book = 
+                        ill.getVolume() == volume
+                        && title.getBookName().trim().equalsIgnoreCase(
+                                ill.getBook().trim())
+                        || title.getBookName().trim().contains(ill.getBook().trim())
+                        || ill.getBook().trim().contains(title.getBookName().trim());
+                
+                if (is_in_book)
                     ills.add(ill);
             }
             
@@ -216,6 +335,16 @@ public class BibleVolume {
         }
     }
     
+    /**
+     * <p>For those items that cannot be reliably identified by name alone,
+     *  this checks page numbers to see if the specified folio lies after the
+     *  start of the item of interest, but before the start of any other
+     *  items.</p>
+     * 
+     * @param folio
+     * @param item
+     * @return
+     */
     private boolean inOnlyThisItem(String folio, OtherPreface item) {
         
         folio = folio.toLowerCase();
@@ -299,31 +428,11 @@ public class BibleVolume {
      *      0 if they are equal
      */
     public int compareFolios(String f1, String f2) {
-        int page1 = 0;
-        int page2 = 0;
+        Page p1 = new Page(f1);
+        Page p2 = new Page(f2);
         
-        try {
-            page1 = Integer.parseInt(f1);
-            page2 = Integer.parseInt(f2);
-            
-            return page1 - page2;
-        } catch (NumberFormatException e) {
-            // At least one of the folios ends with a letter
-            String end1 = f1.substring(f1.length() - 1);
-            String end2 = f2.substring(f2.length() - 1);
-            
-            try {
-                page1 = Integer.parseInt(f1.substring(0, f1.length() - 1));
-                page2 = Integer.parseInt(f2.substring(0, f2.length() - 1));
-            } catch (NumberFormatException ex) {
-                return end1.compareToIgnoreCase(end2);
-                //throw new RuntimeException("Invalid folio format: "
-                //        + f1 + "/" + f2);
-            }
-            
-            return (page1 - page2 == 0 
-                    ? end1.compareToIgnoreCase(end2) : page1 - page2);
-        }
+        return p1.compareTo(p2);
+        
     }
     
     private void setIllustrationMaps(IllustrationList ills) {

@@ -852,9 +852,7 @@ public class BibleDisplayContents {
                 if (!BibleDisplay.isBlank(ann.getFolio()))
                     li.appendChild(BibleDisplay.textNode("Fol. " + ann.getFolio() + ". "));
                 if (!BibleDisplay.isBlank(ann.getText())) {
-                    li.appendChild(BibleDisplay.textNode("\""));
-                    li.appendChild(BibleDisplay.span(ann.getText(), "Monospace"));
-                    li.appendChild(BibleDisplay.textNode("\" "));
+                    li.appendChild(BibleDisplay.span(ann.getText() + ". ", "Monospace"));
                 }
                 if (!BibleDisplay.isBlank(ann.getName()))
                     li.appendChild(BibleDisplay.textNode(ann.getName()));
