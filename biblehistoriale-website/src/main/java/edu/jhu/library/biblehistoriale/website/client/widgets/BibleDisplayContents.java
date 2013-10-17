@@ -202,8 +202,6 @@ public class BibleDisplayContents {
      */
     private Map<String, Integer> findTextSources(List<BibleBooks> vols) {
         int total = 0;
-        int gloss_total = 0;
-        int gloss2_total = 0;
         
         int[] versions = new int[4];
         int[] glosses = new int[4];
@@ -212,15 +210,13 @@ public class BibleDisplayContents {
         for (BibleBooks bb : vols) {
             for (Title title : bb) {
                 total++;
-                gloss_total++;
-                gloss2_total++;
                 
                 String version = title.getTextVersion();
                 if (version.equals(BH)) {
                     versions[0]++;
-                } else if (version.equals(BXIII)) {
+                } else if (version.contains(BXIII)) {
                     versions[1]++;
-                } else if (version.equals(RAOUL)) {
+                } else if (version.contains(RAOUL)) {
                     versions[2]++;
                 } else {
                     versions[3]++;
@@ -229,26 +225,24 @@ public class BibleDisplayContents {
                 String gloss = title.getGlossType();
                 if (gloss.equals(MORALITES)) {
                     glosses[0]++;
-                } else if (gloss.equals(BH)) {
+                } else if (gloss.contains(BH)) {
                     glosses[1]++;
-                } else if (gloss.equals(BXIII)) {
+                } else if (gloss.contains(BXIII)) {
                     glosses[2]++;
-                } else if (gloss.equals(MIXED)) {
+                } else if (gloss.contains(MIXED)) {
                     glosses[3]++;
-                } else {
-                    gloss_total--;
                 }
                 
                 String gloss2_str = title.getGlossType2();
-                if (gloss2_str.equals(MORALITES)) {
+                if (gloss2_str.contains(MORALITES)) {
                     gloss2[0]++;
-                } else if (gloss2_str.equals(BH)) {
+                } else if (gloss2_str.contains(BH)) {
                     gloss2[1]++;
-                } else if (gloss2_str.equals(BXIII)) {
+                } else if (gloss2_str.contains(BXIII)) {
                     gloss2[2]++;
-                } else if (gloss2_str.equals(MIXED)) {
+                } else if (gloss2_str.contains(MIXED)) {
                     gloss2[3]++;
-                } else if (gloss2_str.equals(MULTIPLE)) {
+                } else if (gloss2_str.contains(MULTIPLE)) {
                     gloss2[4]++;
                 }
             }
@@ -261,15 +255,15 @@ public class BibleDisplayContents {
         percents.put("other", (int) Math.round((double) versions[3] / total * 100));
         
         percents.put(MORALITES + "gloss",
-                (int) Math.round((double) gloss2[0] / gloss2_total * 100));
+                (int) Math.round((double) gloss2[0] / total * 100));
         percents.put(BH + "gloss", 
-                (int) Math.round((double) glosses[1] / gloss_total * 100));
+                (int) Math.round((double) glosses[1] / total * 100));
         percents.put(BXIII + "gloss", 
-                (int) Math.round((double) glosses[2] / gloss_total * 100));
+                (int) Math.round((double) glosses[2] / total * 100));
         percents.put(MIXED + "gloss", 
-                (int) Math.round((double) glosses[3] / gloss_total * 100));
+                (int) Math.round((double) glosses[3] / total * 100));
         percents.put(MULTIPLE + "gloss", 
-                (int) Math.round((double) gloss2[4] / gloss2_total * 100));
+                (int) Math.round((double) gloss2[4] / total * 100));
         
         return percents;
     }
@@ -391,6 +385,7 @@ public class BibleDisplayContents {
         
         if (!BibleDisplay.isBlank(link)) {
             anch.setHref(link);
+            anch.setTarget("_blank");
             anch.appendChild(BibleDisplay.textNode(link_text));
             div.appendChild(anch);
         } else {
@@ -821,6 +816,7 @@ public class BibleDisplayContents {
                     
                     final AnchorElement anch = doc.createAnchorElement();
                     anch.setHref(ill.getUrl());
+                    anch.setTarget("_blank");
                     
                     li.appendChild(doc.createBRElement());
                     li.appendChild(anch);
@@ -978,6 +974,7 @@ public class BibleDisplayContents {
                 
                 anch.setInnerHTML("View transcription of similar text");
                 anch.setHref(guyart.getTranscriptionUrl());
+                anch.setTarget("_blank");
                 
                 div.appendChild(anch);
             }
@@ -1020,6 +1017,7 @@ public class BibleDisplayContents {
                 
                 anch.setInnerHTML("View transcription of similar text");
                 anch.setHref(cs.getTranscriptionUrl());
+                anch.setTarget("_blank");
                 
                 div.appendChild(anch);
             }
@@ -1065,6 +1063,7 @@ public class BibleDisplayContents {
                 
                 anch.setInnerHTML("View transcription of similar text");
                 anch.setHref(other.getTranscriptionUrl());
+                anch.setTarget("_blank");
                 
                 div.appendChild(anch);
             }
@@ -1244,6 +1243,7 @@ public class BibleDisplayContents {
                 
                 anch.setInnerHTML("View transcription of similar text");
                 anch.setHref(title.getTranscriptionUrl());
+                anch.setTarget("_blank");
                 
                 div.appendChild(anch);
             }
@@ -1388,6 +1388,8 @@ public class BibleDisplayContents {
                     
                     anch.setInnerHTML("[View image]");
                     anch.setHref(ill.getUrl());
+                    anch.setTarget("_blank");
+                    
                     li.appendChild(anch);
                 }
             }
@@ -1456,6 +1458,8 @@ public class BibleDisplayContents {
                     
                     anch.setInnerHTML("[View image]");
                     anch.setHref(ill.getUrl());
+                    anch.setTarget("_blank");
+                    
                     li.appendChild(anch);
                 }
             }

@@ -75,6 +75,9 @@ public class BibleDisplay extends Composite {
     private static final Image loading;
     private static final Image none;
     
+    private static Map<String, Map<String, Image>> img_cache;
+    private static final int CACHE_MAX_SIZE;
+    
     static {
         sanitizer = SimpleHtmlSanitizer.getInstance();
         
@@ -82,6 +85,9 @@ public class BibleDisplay extends Composite {
         loading.addStyleName("ProfileImage");
         none = new Image("images/placeholder.png");
         none.addStyleName("ProfileImage");
+        
+        img_cache = new HashMap<String, Map<String, Image>> ();
+        CACHE_MAX_SIZE = 10;
     }
     
     private final Bible bible;
@@ -93,17 +99,14 @@ public class BibleDisplay extends Composite {
     public final static Document doc = Document.get();
     
     private final List<HandlerRegistration> handlers;
-    private Map<String, Image> imgs;
     
     private final BibleDisplayContents cont;
-    //private boolean content_set_up;
     private int pending_images;
     
     private Element img_container;
     
     public BibleDisplay(final Bible bible) {
         this.handlers = new ArrayList<HandlerRegistration> ();
-        this.imgs = new HashMap<String, Image> ();
         
         this.bible = bible;
         this.cont = new BibleDisplayContents(doc);
@@ -117,7 +120,6 @@ public class BibleDisplay extends Composite {
         
         main.add(profile_panel, "Profile View");
         main.add(content_panel, "Contents View");
-        //content_set_up = false;
         
         main.selectTab(0);
         
@@ -130,7 +132,6 @@ public class BibleDisplay extends Composite {
         
         try {
             content_panel.add(cont.displayContentView(bible));
-            //content_set_up = true;
         } catch (Exception e) {
             content_panel.add(
                     new Label(Messages.INSTANCE.failedToDisplayContent()));
@@ -142,32 +143,29 @@ public class BibleDisplay extends Composite {
 
         initWidget(main);
         
-        findResolvableImages(new ImagesCallback() {
-            @Override
-            public void onImagesRecieved(Map<String, Image> img_map) {
-                cont.setImages(img_map);
-                imgs = img_map;
-                
-                if (imgs == null || imgs.size() == 0) {
-                    img_container.setInnerHTML(none.getElement().getString());
-                    return;
-                }
-                
-                for (Illustration ill : bible.getIllustrations()) {
-                    if (!isBlank(ill.getUrl())) {
-                        if (ill.getUrl() == null) {
-                            continue;
-                        }
-                        
-                        Image img = new Image(ill.getUrl());
-                        
-                        img.setStyleName("ProfileImage");
-                        img_container.setInnerHTML(img.getElement().getString());
-                        return;
+        // Find and display images.
+        if (img_cache.containsKey(bible.getId())) {
+            Map<String, Image> imgs = img_cache.get(bible.getId());
+            
+            cont.setImages(imgs);
+            displayProfileImage(imgs);
+            
+        } else {
+            findResolvableImages(new ImagesCallback() {
+                @Override
+                public void onImagesRecieved(Map<String, Image> img_map) {
+                    
+                    if (img_cache.size() > CACHE_MAX_SIZE) {
+                        img_cache.clear();
                     }
+                    
+                    img_cache.put(bible.getId(), img_map);
+                    
+                    cont.setImages(img_map);
+                    displayProfileImage(img_map);
                 }
-            }
-        });
+            });
+        }
         
         // When this view is detached, detach all event handlers.
         this.addAttachHandler(new AttachEvent.Handler() {
@@ -181,6 +179,34 @@ public class BibleDisplay extends Composite {
                 }
             }
         });
+    }
+    
+    /**
+     * Selects an image to display then adds it to the webpage.
+     * 
+     * @param imgs
+     */
+    private void displayProfileImage(Map<String, Image> imgs) {
+        
+        if (imgs == null || imgs.size() == 0) {
+            img_container.setInnerHTML(none.getElement().getString());
+            return;
+        }
+        
+        for (Illustration ill : bible.getIllustrations()) {
+            if (!isBlank(ill.getUrl())) {
+                if (ill.getUrl() == null) {
+                    continue;
+                }
+                
+                Image img = new Image(ill.getUrl());
+                
+                img.setStyleName("ProfileImage");
+                img_container.setInnerHTML(img.getElement().getString());
+                return;
+            }
+        }
+        
     }
     
     /**
@@ -330,6 +356,7 @@ public class BibleDisplay extends Composite {
         
         if (!isBlank(link)) {
             anch.setHref(link);
+            anch.setTarget("_blank");
             anch.appendChild(doc.createTextNode(link_text));
             subdiv.appendChild(anch);
         } else {
@@ -365,6 +392,7 @@ public class BibleDisplay extends Composite {
 
         if (link != null && !link.equals("")) {
             anch.setHref(link);
+            anch.setTarget("_blank");
             anch.setInnerText(link);
             
             Element aspan = span("[", "MsLink");
@@ -549,7 +577,9 @@ public class BibleDisplay extends Composite {
                 sb.append(": " + qs.fullQuireStructs() + ". ");
             
             if (qs.quireNotes() != null && qs.quireNotes().size() > 0)
-                sb.append(qs.quireNotes().get(0) + ". ");
+                sb.append(qs.quireNotes().get(0)
+                        + (qs.quireNotes().get(0).trim().endsWith(".")
+                                ? "" : "."));
         }
         
         if (!isBlank(sb.toString())) {
@@ -563,7 +593,13 @@ public class BibleDisplay extends Composite {
         Materials mats = bible.getPhysChar().getMaterials();
         sb = new StringBuilder();
         
-        sb.append(mats.getSupport().support() + ". Binding ");
+        sb.append(mats.getSupport().support() + ". ");
+        
+        if (!isBlank(mats.getBindMaterial()) || (mats.getBindDateStartYear() != 0 
+                && mats.getBindDateEndYear() != 0)) {
+            sb.append("Binding ");
+        }
+        
         if (mats.getBindDateStartYear() != 0 
                 && mats.getBindDateEndYear() != 0)
             sb.append("(" + mats.getBindDateStartYear() + " - "
@@ -936,6 +972,7 @@ public class BibleDisplay extends Composite {
             if (!isBlank(classif.getFournieLink())) {
                 anch = doc.createAnchorElement();
                 anch.setHref(classif.getFournieLink());
+                anch.setTarget("_blank");
                 
                 anch.setInnerSafeHtml(sanitizer.sanitize(classif.getFournieNumber() 
                         + " in Eleanor Fournie's " + "online catalog."));
@@ -1057,20 +1094,28 @@ public class BibleDisplay extends Composite {
                 if (i != bib.bibAuthors().size() - 1)
                     sb.append(", ");
             }
+            sb.append(". ");
+            
             li.appendChild(textNode(sb.toString()));
             
             if (!isBlank(bib.getArticleTitle()))
-                li.appendChild(span(bib.getArticleTitle() + ". ", "ArticleTitle"));
+                li.appendChild(span(bib.getArticleTitle()
+                        + (bib.getArticleTitle().trim().endsWith(".")
+                                ? "" : ". "),
+                        "ArticleTitle"));
             
             if (!isBlank(bib.getBookOrJournalTitle()))
                 li.appendChild(textNode(bib.getBookOrJournalTitle() + " "));
             
             if (!isBlank(bib.getPublicationInfo()))
-                li.appendChild(textNode(bib.getPublicationInfo() + ". "));
+                li.appendChild(textNode(bib.getPublicationInfo()
+                        + (bib.getPublicationInfo().trim().endsWith(".")
+                                ? "" : ". ")));
             
             for (String st : bib.articleLinks()) {
                 anch = doc.createAnchorElement();
                 anch.setHref(st);
+                anch.setTarget("_blank");
                 
                 anch.setInnerSafeHtml(sanitizer.sanitize(st));
                 li.appendChild(anch);

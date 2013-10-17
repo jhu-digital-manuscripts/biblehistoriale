@@ -37,7 +37,7 @@ public class HeaderViewImpl extends Composite implements HeaderView {
         main.setStylePrimaryName("Header");
         
         this.info_link = new Hyperlink(Messages.INSTANCE.info(),
-                "ProfileInfoPlace:");
+                "ProjectInfoPlace:");
         this.browse_link = new Hyperlink(Messages.INSTANCE.browse(),
                 "BrowseProfilesPlace:");
         this.contact_link = new Hyperlink(Messages.INSTANCE.contactUs(),

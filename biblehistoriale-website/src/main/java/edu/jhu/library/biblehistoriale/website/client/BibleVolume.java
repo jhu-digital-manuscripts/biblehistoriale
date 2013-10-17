@@ -218,7 +218,8 @@ public class BibleVolume {
     
     private boolean inOnlyThisItem(String folio, OtherPreface item) {
         
-        String start_page = item.getStartPage();
+        folio = folio.toLowerCase();
+        String start_page = item.getStartPage().toLowerCase();
         
         if (compareFolios(folio, start_page) < 0) {
             return false;
@@ -273,10 +274,12 @@ public class BibleVolume {
         List<Illustration> ills = new ArrayList<Illustration> ();
         
         for (Illustration ill : all_ills) {
-            if (ill.getVolume() == volume 
+            boolean in_this_preface = ill.getVolume() == volume
                     && (ill.getBook().toLowerCase().contains(item)
-                            || ill.getBook().toLowerCase().contains("preface"))
-                    && inOnlyThisItem(ill.getFolio(), other)) {
+                    || (ill.getBook().toLowerCase().contains("preface")
+                            && inOnlyThisItem(ill.getFolio(), other)));
+            
+            if (in_this_preface) {
                 ills.add(ill);
             }
         }
