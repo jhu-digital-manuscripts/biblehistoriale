@@ -1350,7 +1350,7 @@ public class BibleDisplayContents {
                             Element item = doc.createLIElement();
                             desc_list.appendChild(item);
                             
-                            item.appendChild(BibleDisplay.textNode(line));
+                            item.appendChild(BibleDisplay.span(line, "Monospace"));
                         }
                     }
                 }

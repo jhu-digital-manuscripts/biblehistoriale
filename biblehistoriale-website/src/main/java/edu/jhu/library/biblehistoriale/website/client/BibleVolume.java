@@ -405,8 +405,7 @@ public class BibleVolume {
         for (Illustration ill : all_ills) {
             boolean in_this_preface = ill.getVolume() == volume
                     && (ill.getBook().toLowerCase().contains(item)
-                    || (ill.getBook().toLowerCase().contains("preface")
-                            && inOnlyThisItem(ill.getFolio(), other)));
+                    || inOnlyThisItem(ill.getFolio(), other));
             
             if (in_this_preface) {
                 ills.add(ill);
