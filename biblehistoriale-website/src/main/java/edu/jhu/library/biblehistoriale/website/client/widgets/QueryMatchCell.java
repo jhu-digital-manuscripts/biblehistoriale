@@ -44,8 +44,6 @@ public class QueryMatchCell
             sb.appendHtmlConstant("</i></td>");
             
             sb.appendHtmlConstant("<td>&nbsp");
-            // This line contains HTML tags for highlighting, possibly other entities
-            // And must be sanitized and/or escaped
             sb.append(sanitizer.sanitize((i >= cons.length ? "" : cons[i++])));
             sb.appendHtmlConstant("</td>");
             sb.appendHtmlConstant("</tr>");

@@ -22,9 +22,6 @@ public class CriteriaTreeViewModel implements TreeViewModel {
         @Override
         public void render(com.google.gwt.cell.client.Cell.Context context,
                 CriteriaNode value, SafeHtmlBuilder sb) {
-            // If any entity symbols exist, render them, rather than escape them
-            // This sanitizer returns SafeHtml that can contain simple HTML.
-            
             if (value.isLeaf())
                 sb.appendHtmlConstant("<u>");
             sb.append(SimpleHtmlSanitizer.sanitizeHtml(value.getMessage()));

@@ -39,16 +39,6 @@ public class BrowseProfilesActivity extends AbstractActivity
     
     private final List<HandlerRegistration> handlers;
     
-    /*
-     * Browse by:
-     * 
-     * Repository
-     * Production date (prodDate)
-     * Production place (prodLoc)
-     * Owners/Patrons (ownerName)
-     * Classification (bergerClass and subcategories; sneddonClass and subcategories)
-     */
-    
     public BrowseProfilesActivity(BrowseProfilesPlace place, 
             ClientFactory client_factory) {
         this.view = client_factory.newBrowseProfilesView();

@@ -26,8 +26,6 @@ import edu.jhu.library.biblehistoriale.website.client.rpc.RPCException;
 import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
-// TODO Update to use Path
-
 public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         BibleHistorialeService {
     private static final long serialVersionUID = 1L;
@@ -111,7 +109,7 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         }
     }
 
-    // TODO For now index all bibles on startup.
+    // For now index all bibles on startup.
     /**
      * Clears index and reindexes all profiles that it finds
      * in bible.store. If index cannot be cleared, an exception

@@ -39,7 +39,6 @@ public class ProfileDetailActivity extends AbstractActivity
         this.service = client_factory.service();
         
         // Get Bible object from profile id
-        
         if (bible_cache.containsKey(profile_id)) {
             
             view.display(bible_cache.get(profile_id));

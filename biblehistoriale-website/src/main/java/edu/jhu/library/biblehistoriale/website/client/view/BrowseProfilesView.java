@@ -14,8 +14,6 @@ public interface BrowseProfilesView extends IsWidget {
     
     public interface Presenter {
         
-        // TODO setProfiles(...)
-        
     }
     
     CriteriaNode getSelectedNode();

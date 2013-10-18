@@ -9,7 +9,6 @@ import com.google.gwt.activity.shared.AbstractActivity;
 import com.google.gwt.event.logical.shared.AttachEvent;
 import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.place.shared.PlaceController;
-import com.google.gwt.user.client.Window;
 import com.google.gwt.user.client.rpc.AsyncCallback;
 import com.google.gwt.user.client.ui.AcceptsOneWidget;
 import com.google.gwt.view.client.SelectionChangeEvent;
@@ -61,13 +60,17 @@ public class BrowseSearchResultsActivity extends AbstractActivity
         
         bind();
         
+        /*
+         * The tokenizer is used to get the query string to get a more 
+         * readable string, instead of using the query's toString() method.
+         */
         BrowseSearchResultsPlace.Tokenizer tokenizer = 
                 new BrowseSearchResultsPlace.Tokenizer();
         String q_str = tokenizer.getToken(place);
         view.setQueryMessage(q_str.substring(0, q_str.length() - 1));
 
         if (search_cache.containsKey(query.toString())) {
-
+            // It is the query's toString() that is used as cache key.
             view.setQueryResults(search_cache.get(query.toString()));
             
         } else {

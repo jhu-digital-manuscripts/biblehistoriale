@@ -20,6 +20,5 @@ public interface BibleHistorialeService extends RemoteService {
 
     public QueryResult search(Query query, QueryOptions opts) throws RPCException;
     
-    //public HashMap<BrowseCriteria, HashMap<String, String[]>> allProfilesByCriteria();
     public CriteriaNode allProfilesByCriteria();
 }

@@ -19,7 +19,6 @@ public interface ClientFactory {
     
     BibleHistorialeServiceAsync service();
     
-    // Put views here
     ProjectInfoView newProjectInfoView();
     
     BrowseProfilesView newBrowseProfilesView();

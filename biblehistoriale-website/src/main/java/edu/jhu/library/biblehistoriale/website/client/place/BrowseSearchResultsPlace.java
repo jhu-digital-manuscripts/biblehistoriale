@@ -54,7 +54,7 @@ public class BrowseSearchResultsPlace extends Place {
 
         @Override
         public String getToken(BrowseSearchResultsPlace place) {
-            // TODO QueryOptions not really used yet...
+            // TODO QueryOptions not used...
             //QueryOptions opts = place.getQueryOptions();
             
             return utils.getQueryToken(place.getQuery(), 

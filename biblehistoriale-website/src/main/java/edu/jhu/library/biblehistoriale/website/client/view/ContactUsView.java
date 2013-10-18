@@ -6,10 +6,6 @@ public interface ContactUsView extends IsWidget {
     
     public interface Presenter {
         
-        // TODO
-        
     }
-    
-    // TODO
     
 }

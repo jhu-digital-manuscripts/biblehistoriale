@@ -29,7 +29,6 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * illustrations.</p>
  */
 public class BibleVolume {
-    // TODO does this actually work??
     
     private class Page {
         

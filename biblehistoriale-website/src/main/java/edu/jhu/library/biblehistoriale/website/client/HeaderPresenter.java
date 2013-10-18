@@ -71,7 +71,6 @@ public class HeaderPresenter implements HeaderView.Presenter {
         asWidget().addAttachHandler(new AttachEvent.Handler() {
             @Override
             public void onAttachOrDetach(AttachEvent event) {
-                // When the view is detached, remove all handlers
                 if (!event.isAttached()) {
                     for (HandlerRegistration handler : handlers) {
                         handler.removeHandler();

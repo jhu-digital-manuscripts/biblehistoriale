@@ -14,7 +14,5 @@ public interface BibleHistorialeServiceAsync {
     public void search(Query query, QueryOptions opts,
             AsyncCallback<QueryResult> cb);
     
-    //public void allProfilesByCriteria(
-    //        AsyncCallback<HashMap<BrowseCriteria, HashMap<String, String[]>>> cb);
     public void allProfilesByCriteria(AsyncCallback<CriteriaNode> cb);
 }
