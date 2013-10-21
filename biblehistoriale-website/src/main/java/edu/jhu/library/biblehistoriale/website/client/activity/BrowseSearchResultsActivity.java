@@ -19,6 +19,7 @@ import edu.jhu.library.biblehistoriale.model.query.QueryMatch;
 import edu.jhu.library.biblehistoriale.model.query.QueryOptions;
 import edu.jhu.library.biblehistoriale.model.query.QueryResult;
 import edu.jhu.library.biblehistoriale.website.client.ClientFactory;
+import edu.jhu.library.biblehistoriale.website.client.QueryUtils;
 import edu.jhu.library.biblehistoriale.website.client.place.BrowseSearchResultsPlace;
 import edu.jhu.library.biblehistoriale.website.client.place.ProfileDetailPlace;
 import edu.jhu.library.biblehistoriale.website.client.rpc.BibleHistorialeServiceAsync;
@@ -59,16 +60,8 @@ public class BrowseSearchResultsActivity extends AbstractActivity
         this.handlers = new ArrayList<HandlerRegistration> ();
         
         bind();
+        setQueryMessage(place);
         
-        /*
-         * The tokenizer is used to get the query string to get a more 
-         * readable string, instead of using the query's toString() method.
-         */
-        BrowseSearchResultsPlace.Tokenizer tokenizer = 
-                new BrowseSearchResultsPlace.Tokenizer();
-        String q_str = tokenizer.getToken(place);
-        view.setQueryMessage(q_str.substring(0, q_str.length() - 1));
-
         if (search_cache.containsKey(query.toString())) {
             // It is the query's toString() that is used as cache key.
             view.setQueryResults(search_cache.get(query.toString()));
@@ -123,6 +116,48 @@ public class BrowseSearchResultsActivity extends AbstractActivity
                 }
             }
         });
+    }
+    
+    /**
+     * <p>Sets the user readable query message, which simply displays
+     * the current query.</p>
+     * 
+     * <p>The tokenizer is used to get the query string to get a more 
+     * readable string, instead of using the query's toString() method.<p>
+     * 
+     * @param place
+     */
+    private void setQueryMessage(BrowseSearchResultsPlace place) {
+        StringBuilder sb = new StringBuilder();
+        
+        QueryUtils utils = QueryUtils.getInstance();
+        BrowseSearchResultsPlace.Tokenizer tokenizer = 
+                new BrowseSearchResultsPlace.Tokenizer();
+        String q_str = tokenizer.getToken(place);
+        
+        boolean is_first = true;
+        String[] qs = q_str.split(utils.searchDelimiterPattern());
+        for (String q : qs) {
+            
+            String[] parts = q.split(utils.valueDelimiterPattern());
+            
+            if (parts.length != 4) {
+                continue;
+            }
+            
+            if (!is_first) {
+                sb.append(parts[0] + " ");
+            }
+            
+            sb.append(parts[1].toLowerCase() + ": ");
+            sb.append("\"" + parts[2] + "\"     ");
+            
+            if (is_first) {
+                is_first = false;
+            }
+        }
+        
+        view.setQueryMessage(sb.toString());
     }
     
     @Override
