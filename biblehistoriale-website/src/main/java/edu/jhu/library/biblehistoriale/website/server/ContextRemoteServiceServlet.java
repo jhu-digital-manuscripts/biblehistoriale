@@ -46,11 +46,9 @@ public class ContextRemoteServiceServlet extends RemoteServiceServlet {
     static SerializationPolicy loadSerializationPolicy(HttpServlet servlet,
                                                        HttpServletRequest request, String moduleBaseUrl,
                                                        String moduleName, String strongName) {
-        servlet.log("INFO: moduleName: (" + moduleName + "), strongName: (" + strongName + ") moduleBaseUrl: (" + moduleBaseUrl + ")");
         SerializationPolicy serializationPolicy = null;
         // The serialization policy path depends only by context path
-        String contextPath = request.getContextPath();
-        String contextRelativePath = contextPath + "/" + moduleName + "/";
+        String contextRelativePath = moduleName + "/";
 
         String serializationPolicyFilePath = SerializationPolicyLoader.getSerializationPolicyFileName(contextRelativePath
                 + strongName);
@@ -72,19 +70,6 @@ public class ContextRemoteServiceServlet extends RemoteServiceServlet {
         }
 
         return serializationPolicy;
-
-//        String serializationUrl = moduleBaseUrl + "/bibhist" + "/" + serializationPolicyFilePath;
-//        servlet.log("INFO: serializationPolicyUrl: '" + serializationUrl + "'");
-//        try (InputStream in = new URL(serializationUrl).openStream()) {
-//            servlet.log("INFO: ");
-//            return SerializationPolicyLoader.loadFromStream(in, null);
-//        } catch (ParseException e) {
-//            servlet.log("ERROR: Failed to parse the policy file '" + serializationPolicyFilePath + "'", e);
-//        } catch (MalformedURLException e) {
-//            servlet.log("ERROR: Failed to form valid URL for policy file '" + serializationPolicyFilePath + "'", e);
-//        } catch (IOException e) {
-//            servlet.log("ERROR: Could not read the policy file '" + serializationPolicyFilePath + "'", e);
-//        }
     }
 
 }

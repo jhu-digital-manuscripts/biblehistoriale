@@ -29,7 +29,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * parascriptural item, bible books, misc contents, and associated
  * illustrations.</p>
  */
-public class BibleVolume implements IsSerializable {
+public class BibleVolume {
     
     private class Page {
         

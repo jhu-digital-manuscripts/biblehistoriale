@@ -21,6 +21,10 @@
         <param-name>bible.index</param-name>
         <param-value>${bible.index}</param-value>
     </init-param>
+    <init-param>
+        <param-name>moduleName</param-name>
+        <param-value>BibleHistorialeWebsite</param-value>
+    </init-param>
   </servlet>
 
   <servlet-mapping>
