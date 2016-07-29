@@ -14,7 +14,7 @@
     <maven.compiler.target>1.7</maven.compiler.target>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 	
-	<bible.store>/mnt/cis</bible.store>
+	<bible.store>/mnt/biblehistoriale</bible.store>
 	<bible.index>solr</bible.index>
   </properties>
 

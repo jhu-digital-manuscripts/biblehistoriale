@@ -3,3 +3,7 @@
 *.settings
 *.class
 target
+
+#Idea stuff
+*.iml
+.idea

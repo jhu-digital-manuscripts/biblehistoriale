@@ -10,7 +10,6 @@ import javax.servlet.ServletException;
 import org.apache.commons.io.FileUtils;
 
 import com.google.gwt.user.client.rpc.SerializationException;
-import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.query.Query;
@@ -26,7 +25,7 @@ import edu.jhu.library.biblehistoriale.website.client.rpc.RPCException;
 import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
-public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
+public class BibleHistorialeServiceImpl extends ContextRemoteServiceServlet implements
         BibleHistorialeService {
     private static final long serialVersionUID = 1L;
 
@@ -76,9 +75,9 @@ public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
             
             search_service = new SolrSearchService(solrhome);
         } catch (IOException e) {
-            log("Error accessing solr index: " + solrhome, e);
+            log("Error accessing solr index: " + solrhome.toString(), e);
             throw new ServletException("Error accessing solr index: "
-                    + solrhome, e);
+                    + solrhome.toString(), e);
         }
 
         // Get directory where MS profiles are stored
