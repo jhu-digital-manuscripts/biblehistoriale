@@ -1,12 +1,13 @@
 package edu.jhu.library.biblehistoriale.website.shared;
 
-import java.io.Serializable;
+import com.google.gwt.user.client.rpc.IsSerializable;
+
 import java.util.ArrayList;
 
 /**
  * 
  */
-public class CriteriaNode implements Serializable {
+public class CriteriaNode implements IsSerializable {
     private static final long serialVersionUID = 1L;
 
     private String id;

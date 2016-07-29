@@ -7,7 +7,6 @@ import java.text.ParseException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import com.google.gwt.user.server.rpc.SerializationPolicy;
 import com.google.gwt.user.server.rpc.SerializationPolicyLoader;
@@ -34,8 +33,8 @@ public class ContextRemoteServiceServlet extends RemoteServiceServlet {
     {
         SerializationPolicy policy = super.doGetSerializationPolicy(request, moduleBaseURL, strongName);
         if (policy == null) {
-            request.getServletContext().getInitParameter("moduleName");
-            return ContextRemoteServiceServlet.loadSerializationPolicy(this, request, moduleBaseURL, strongName);
+            String moduleName = getServletConfig().getInitParameter("moduleName");
+            return ContextRemoteServiceServlet.loadSerializationPolicy(this, request, moduleBaseURL, moduleName, strongName);
         } else {
             return policy;
         }
@@ -45,42 +44,47 @@ public class ContextRemoteServiceServlet extends RemoteServiceServlet {
      * Load the RPC serialization policy via the context path.
      */
     static SerializationPolicy loadSerializationPolicy(HttpServlet servlet,
-                                                       HttpServletRequest request, String moduleBaseURL, String strongName) {
-        servlet.log("INFO: moduleBaseURL: (" + moduleBaseURL + "), strongName: (" + strongName + ")");
+                                                       HttpServletRequest request, String moduleBaseUrl,
+                                                       String moduleName, String strongName) {
+        servlet.log("INFO: moduleName: (" + moduleName + "), strongName: (" + strongName + ") moduleBaseUrl: (" + moduleBaseUrl + ")");
+        SerializationPolicy serializationPolicy = null;
         // The serialization policy path depends only by context path
         String contextPath = request.getContextPath();
-        SerializationPolicy serializationPolicy = null;
-        String contextRelativePath = contextPath + "/" + GWT.getModuleName();
+        String contextRelativePath = contextPath + "/" + moduleName + "/";
+
         String serializationPolicyFilePath = SerializationPolicyLoader.getSerializationPolicyFileName(contextRelativePath
                 + strongName);
 
-        // Open the RPC resource file and read its contents.
-        InputStream is = servlet.getServletContext().getResourceAsStream(serializationPolicyFilePath);
-        try {
+//         Open the RPC resource file and read its contents.
+        try (InputStream is = servlet.getServletContext().getResourceAsStream(serializationPolicyFilePath)) {
             if (is != null) {
-                try {
-                    serializationPolicy = SerializationPolicyLoader.loadFromStream(is, null);
-                } catch (ParseException e) {
-                    servlet.log("ERROR: Failed to parse the policy file '" + serializationPolicyFilePath + "'", e);
-                } catch (IOException e) {
-                    servlet.log("ERROR: Could not read the policy file '" + serializationPolicyFilePath + "'", e);
-                }
+                serializationPolicy = SerializationPolicyLoader.loadFromStream(is, null);
             } else {
                 String message = "ERROR: The serialization policy file '" + serializationPolicyFilePath +
                         "' was not found; did you forget to include it in this deployment?";
                 servlet.log(message);
+                return null;
             }
-        } finally {
-            if (is != null) {
-                try {
-                    is.close();
-                } catch (IOException e) {
-                    // Ignore this error
-                }
-            }
+        } catch (ParseException e) {
+            servlet.log("ERROR: Failed to parse the policy file '" + serializationPolicyFilePath + "'", e);
+        } catch (IOException e) {
+            servlet.log("ERROR: Could not read the policy file '" + serializationPolicyFilePath + "'", e);
         }
 
         return serializationPolicy;
+
+//        String serializationUrl = moduleBaseUrl + "/bibhist" + "/" + serializationPolicyFilePath;
+//        servlet.log("INFO: serializationPolicyUrl: '" + serializationUrl + "'");
+//        try (InputStream in = new URL(serializationUrl).openStream()) {
+//            servlet.log("INFO: ");
+//            return SerializationPolicyLoader.loadFromStream(in, null);
+//        } catch (ParseException e) {
+//            servlet.log("ERROR: Failed to parse the policy file '" + serializationPolicyFilePath + "'", e);
+//        } catch (MalformedURLException e) {
+//            servlet.log("ERROR: Failed to form valid URL for policy file '" + serializationPolicyFilePath + "'", e);
+//        } catch (IOException e) {
+//            servlet.log("ERROR: Could not read the policy file '" + serializationPolicyFilePath + "'", e);
+//        }
     }
 
 }

@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import com.google.gwt.user.client.rpc.IsSerializable;
 import edu.jhu.library.biblehistoriale.model.profile.Bible;
 import edu.jhu.library.biblehistoriale.model.profile.BibleBooks;
 import edu.jhu.library.biblehistoriale.model.profile.ComestorLetter;
@@ -28,7 +29,7 @@ import edu.jhu.library.biblehistoriale.model.profile.Title;
  * parascriptural item, bible books, misc contents, and associated
  * illustrations.</p>
  */
-public class BibleVolume {
+public class BibleVolume implements IsSerializable {
     
     private class Page {
         

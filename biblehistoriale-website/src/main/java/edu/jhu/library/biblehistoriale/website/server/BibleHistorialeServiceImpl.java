@@ -7,6 +7,7 @@ import java.nio.file.Path;
 
 import javax.servlet.ServletException;
 
+import com.google.gwt.user.server.rpc.RemoteServiceServlet;
 import org.apache.commons.io.FileUtils;
 
 import com.google.gwt.user.client.rpc.SerializationException;
@@ -25,7 +26,7 @@ import edu.jhu.library.biblehistoriale.website.client.rpc.RPCException;
 import edu.jhu.library.biblehistoriale.website.shared.BrowseCriteria;
 import edu.jhu.library.biblehistoriale.website.shared.CriteriaNode;
 
-public class BibleHistorialeServiceImpl extends ContextRemoteServiceServlet implements
+public class BibleHistorialeServiceImpl extends RemoteServiceServlet implements
         BibleHistorialeService {
     private static final long serialVersionUID = 1L;
 
@@ -49,7 +50,8 @@ public class BibleHistorialeServiceImpl extends ContextRemoteServiceServlet impl
         
         return response;
     }
-    
+
+    @Override
     public void init() throws ServletException {
         String s = getServletConfig().getInitParameter("bible.index");
 
