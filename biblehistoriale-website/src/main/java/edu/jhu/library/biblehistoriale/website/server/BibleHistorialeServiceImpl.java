@@ -88,7 +88,7 @@ public class BibleHistorialeServiceImpl extends ContextRemoteServiceServlet impl
             throw new ServletException("bible.store not specified");
         }
 
-        bible_store = new File(s);
+        bible_store = new File(getServletContext().getRealPath(s));
         if (!bible_store.exists()) {
             log("Error accessing bible.store at: " + s);
             throw new ServletException("The bible store specified at "
